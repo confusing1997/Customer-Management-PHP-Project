@@ -13,4 +13,7 @@
 
         <!-- /.row -->
 
-        <?php include("includes/footer.php"); ?>
+
+        <?php include("includes/footer.php"); ?> 
+
+ <!--dat ngu-->
