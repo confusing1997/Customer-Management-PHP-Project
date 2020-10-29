@@ -13,4 +13,7 @@ djt con me Nam va Hoang
 
         <!-- /.row -->
 
-        <?php include("includes/footer.php"); ?>
+
+        <?php include("includes/footer.php"); ?> 
+
+ <!--dat ngu-->
