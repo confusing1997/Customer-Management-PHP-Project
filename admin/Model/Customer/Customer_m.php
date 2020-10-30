@@ -12,7 +12,7 @@
         protected function getCustomer () {
 
             $sql = "SELECT * FROM tbl_customer, tbl_showroom 
-                    WHERE tbl_customer.showroom_id = tbl_showroom.showroom_id";
+                    WHERE tbl_customer.showroom_id = tbl_showroom.id";
 
             $pre = $this->pdo->prepare($sql);
 
@@ -45,14 +45,14 @@
         protected function searchCustomer ($key) {
 
             $sql = "SELECT * FROM tbl_customer, tbl_showroom
-                    WHERE tbl_customer.showroom_id = tbl_showroom.showroom_id
-                    AND '$key' IN (name, title, email, phone)";
+                    WHERE tbl_customer.showroom_id = tbl_showroom.id
+                    AND CONCAT_WS(name, title, email, phone) LIKE :key";
 
             $pre = $this->pdo->prepare($sql);
 
-            $pre->bindParam(':key', $key);
+            $pre->bindValue(':key', '%'.$key.'%');
 
-            $pre->execute(['%$key%']);
+            $pre->execute();
 
             $result = array();
 

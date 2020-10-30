@@ -33,14 +33,11 @@ $('#key_search').keyup(function(data){
 
     var key = $(this).val();
 
-    if (key.length > 5) { 
-
         $.post('Server/Customer/list_customer.php', { key : key }, function(data){
 
             $('#view_data').html(data);
 
-        });
-    }
+        });    
 
 });
 
