@@ -44,14 +44,14 @@
 
                             switch ($page) {
                                 case 'index':
-                                    include_once 'View/User/user.php';
+                                    include_once 'View/Customer/list_customer.php';
                                     // $clock = new Clock_c();
                                     // $clock->clock();
                                     break;
 
                                 default:
                                     echo "Error 404, Trang không tồn tại";
-                                    echo "<a href='list_clock.php'>Quay lại</a>";
+                                    echo "<a href='list_customer.php'>Quay lại</a>";
                                     break;
                             }
 

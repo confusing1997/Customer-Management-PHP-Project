@@ -1,5 +1,5 @@
 <?php include("includes/header.php"); ?>
-djt con me Nam va Hoang
+
         <!-- Page Content -->
         <div class="container-fluid">
           
@@ -16,4 +16,4 @@ djt con me Nam va Hoang
 
         <?php include("includes/footer.php"); ?> 
 
- <!--dat ngu-->
+ <!---->
