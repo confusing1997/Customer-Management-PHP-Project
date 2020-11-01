@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
         <li>
-            <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Thống kê</a>
+            <a href="dashboard.php?page=index"><i class="fa fa-fw fa-dashboard"></i> Thống kê</a>
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#user"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Quản lý nhân viên <i class="fa fa-fw fa-caret-down"></i></a>
@@ -18,7 +18,7 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#customer"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Quản lý khách hàng <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="customer" class="collapse">
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-table"></i> Danh sách khách hàng</a>
+                    <a href="dashboard.php?page=list_customer"><i class="fa fa-fw fa-table"></i> Danh sách khách hàng</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-edit"></i> Thêm khách hàng</a>

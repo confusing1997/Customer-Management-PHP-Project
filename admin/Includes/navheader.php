@@ -10,7 +10,7 @@
 <!-- Top Menu Items -->
 <ul class="nav navbar-right top-nav">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><b class="caret"></b></a>
         <ul class="dropdown-menu message-dropdown">
             <li class="message-preview">
                 <a href="#">
@@ -20,9 +20,9 @@
                         </span>
                         <div class="media-body">
                             <h5 class="media-heading">
-                                <strong>Nguyễn Đình Đạt</strong>
+                                <strong><?php echo $_SESSION['name']; ?></strong>
                             </h5>
-                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i>Yesterday at 4:32 PM</p>
                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
                         </div>
                     </div>
@@ -36,9 +36,9 @@
                         </span>
                         <div class="media-body">
                             <h5 class="media-heading">
-                                <strong>Nguyễn Đình Đạt</strong>
+                                <strong><?php echo $_SESSION['name']; ?></strong>
                             </h5>
-                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i>Yesterday at 4:32 PM</p>
                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
                         </div>
                     </div>
@@ -52,9 +52,9 @@
                         </span>
                         <div class="media-body">
                             <h5 class="media-heading">
-                                <strong>Nguyễn Đình Đạt</strong>
+                                <strong><?php echo $_SESSION['name']; ?></strong>
                             </h5>
-                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i>Yesterday at 4:32 PM</p>
                             <p>Lorem ipsum dolor sit amet, consectetur...</p>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
         </ul>
     </li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i><b class="caret"></b></a>
         <ul class="dropdown-menu alert-dropdown">
             <li>
                 <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
@@ -93,20 +93,20 @@
         </ul>
     </li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp; Nguyễn Đình Đạt <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['name']; ?><b class="caret"></b></a>
         <ul class="dropdown-menu">
             <li>
-                <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                <a href="#"><i class="fa fa-fw fa-user"></i>Profile</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                <a href="#"><i class="fa fa-fw fa-envelope"></i>Inbox</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                <a href="#"><i class="fa fa-fw fa-gear"></i>Settings</a>
             </li>
             <li class="divider"></li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                <a href="#"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
             </li>
         </ul>
     </li>

@@ -3,7 +3,6 @@
 	// if (isset($_GET['redirect'])) {
 	// 	echo "<script>alert('Bạn cần đăng nhập để hiển thị chức năng này!');</script>";
 	// }	
-	
  ?>
 
 <form action="" method="POST">

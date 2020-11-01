@@ -6,7 +6,7 @@
 
     if (isset($_POST['key'])) {
 
-        $key = $_POST['key'] ;
+        $key = $_POST['key'];
 
         $result = $customer->searchCustomer($key);
 
