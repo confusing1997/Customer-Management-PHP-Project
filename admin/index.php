@@ -1,4 +1,9 @@
-<?php include "Includes/header.php"; ?>
+
+<?php 
+    session_start();
+    include "Includes/header.php"; 
+
+?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -39,7 +44,7 @@
                             if (isset($_GET['page'])) {
                                 $page = $_GET['page'];
                             } else {
-                                $page = 'index';
+                                $page = 'login';
                             }
 
                             switch ($page) {
@@ -47,6 +52,12 @@
                                     include_once 'View/Customer/list_customer.php';
                                     // $clock = new Clock_c();
                                     // $clock->clock();
+                                    break;
+                                 case 'login':
+                                    // include_once 'View/login.php';
+                                    include_once 'Controller/Login_c.php';
+                                    $login = new Login_c();
+                                    $login->Login1();
                                     break;
 
                                 default:
