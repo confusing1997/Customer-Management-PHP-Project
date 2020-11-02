@@ -1,6 +1,9 @@
 <?php   
     session_start();
     ob_start();
+    if (isset($_SESSION['id'])) {
+        header("Location: dashboard.php");
+    }
     include_once "Includes/header.php";
 ?>
 
@@ -25,10 +28,13 @@
                                     include_once 'dashboard.php';
                                     break;
 
-                                 case 'login':
+                                case 'login':
                                     include_once 'Controller/Login_c.php';
                                     $login = new Login_c();
                                     $login->Login1();
+                                    break;
+                                case 'logout':
+                                    include_once 'View/logout.php';
                                     break;
 
                                 default:

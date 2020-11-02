@@ -35,4 +35,22 @@
 
         }
 
+        public function addCustomerCare($user_id){
+
+            return $this->customer->addCustomerCare($user_id);
+
+        }
+
+        public function checkEmailPhone($phone, $email){
+
+            return $this->customer->checkEmailPhone($phone, $email);
+
+        }
+
+        public function getCustomerCare ($userId) {
+
+            return $this->customer->getCustomerCare($userId);
+
+        }
+
     }

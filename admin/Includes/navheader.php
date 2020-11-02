@@ -106,7 +106,7 @@
             </li>
             <li class="divider"></li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
+                <a href="index.php?page=logout"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
             </li>
         </ul>
     </li>

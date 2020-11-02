@@ -1,9 +1,4 @@
-<form action="" method="POST">
-<div class="form-group">
-    <input type="text" class="form-control" id="key_search" name="key_search">
-</div>
-</form>
-<p id="notification"></p>
+
 
 <!-- Add Customer Modal -->
 
@@ -28,8 +23,9 @@
           <div class="form-group">
             <label for="showroom_id" class="col-form-label">Showroom</label><br>
             <select id="showroom_id" class="form-control" name="showroom_id" disabled="">
-                <option selected="" class="form-control" value="<?php echo $_SESSION['showroom_id']; ?>"><?php echo $_SESSION['title']; ?></option>
+                <option selected="" class="form-control" value="<?php echo $_SESSION['showroom_id'];?>"><?php echo $_SESSION['title']; ?></option>
             </select>
+          <input style="display: none" type="text" id="user_id" class="form-control" name="user_id" value="<?php echo $_SESSION['id']; ?>">
            
           </div>
 
@@ -55,6 +51,13 @@
 </div>
 
 <!-- End Customer Modal -->
+<br><br>
+<form action="" method="POST">
+  <div class="form-group">
+      <input type="text" class="form-control" id="key_search" name="key_search">
+  </div>
+</form>
+<p id="notification"></p>
 
 
 <div class="table-responsive">

@@ -6,19 +6,25 @@
 
     $name = $_POST['name'];
     $showroom_id = $_POST['showroom_id'];
+    $user_id = $_POST['user_id'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
 
+    $num = count($customer->checkEmailPhone($phone, $email));
+    if ($num == 0){
+        $add1 = $customer->addCustomer($name, $showroom_id, $phone, $email);
+        $add2 = $customer->addCustomerCare($user_id);
+        if ($add1 == true && $add2 == true) {
 
-    $add = $customer->addCustomer($name, $showroom_id, $phone, $email);
+            echo "Thêm thành công!";
 
-    if ($add) {
+        } else {
 
-        echo "Thêm thành công!";
-
+            echo "Thêm thất bại!";
+            
+        }
     } else {
-
-        echo "Thêm thất bại!";
-
+        echo "Khách hàng đã tồn tại";
     }
+
 

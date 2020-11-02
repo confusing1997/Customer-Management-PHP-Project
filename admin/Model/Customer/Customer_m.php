@@ -43,6 +43,37 @@
 
         }
 
+        protected function addCustomerCare($user_id){
+            $sql = "INSERT INTO tbl_care (user_id, customer_id)
+                    SELECT tbl_user.id, MAX(tbl_customer.id)
+                    FROM tbl_user, tbl_customer
+                    WHERE tbl_user.id = :user_id";
+            $pre = $this->pdo->prepare($sql);
+            $pre->bindParam(':user_id', $user_id);
+            return $pre->execute();
+
+        }
+
+        function checkEmailPhone($phone, $email){
+            $sql = "SELECT *FROM tbl_customer WHERE phone = :phone OR email = :email";
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':phone', $phone);
+            $pre->bindParam(':email', $email);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+        }
+
         protected function removeCustomer ($id) {
 
             $sql = "DELETE FROM tbl_customer WHERE id = :id";
@@ -64,6 +95,35 @@
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindValue(':key', '%'.$key.'%');
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        protected function getCustomerCare ($userId) {
+
+            $sql = "
+            SELECT tbl_customer.name, tbl_showroom.title, tbl_customer.phone, tbl_customer.email, tbl_care.status, tbl_care.create_at
+            FROM
+                tbl_user,
+                tbl_customer,
+                tbl_showroom,
+                tbl_care
+            WHERE
+                tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_user.id = tbl_care.user_id AND tbl_customer.id = tbl_care.customer_id AND tbl_user.id = :userId";
+
+            $pre = $this->pdo->prepare($sql);
+            $pre->bindParam(":userId", $userId);
 
             $pre->execute();
 
