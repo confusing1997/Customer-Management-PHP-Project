@@ -30,11 +30,12 @@
 
         }
 
-        protected function addCustomer($name, $phone, $email){
-            $sql = "INSERT INTO tbl_customer (name, phone, email) VALUES (:name, :phone, :email)";
+        protected function addCustomer($name,$showroom_id, $phone, $email){
+            $sql = "INSERT INTO tbl_customer (name,showroom_id, phone, email) VALUES (:name, :showroom_id, :phone, :email)";
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindParam(':name', $name);
+            $pre->bindParam(':showroom_id', $showroom_id);
             $pre->bindParam(':phone', $phone);
             $pre->bindParam(':email', $email);
 

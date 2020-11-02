@@ -29,9 +29,9 @@
 
         }
 
-        public function addCustomer($name, $phone, $email){
+        public function addCustomer($name,$showroom_id, $phone, $email){
 
-            return $this->customer->addCustomer($name, $phone, $email);
+            return $this->customer->addCustomer($name, $showroom_id, $phone, $email);
 
         }
 

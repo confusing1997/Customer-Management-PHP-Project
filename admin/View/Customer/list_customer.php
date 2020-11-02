@@ -7,9 +7,9 @@
 
 <!-- Add Customer Modal -->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Thêm khách hàng</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_customer" data-whatever="@getbootstrap">Thêm khách hàng</button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="add_customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -21,19 +21,35 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="name" class="col-form-label">Tên khách hàng:</label>
+            <input type="text" class="form-control" id="name" name="name">
           </div>
+
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="showroom_id" class="col-form-label">Showroom</label><br>
+            <select id="showroom_id" class="form-control" name="showroom_id" disabled="">
+                <option selected="" class="form-control" value="<?php echo $_SESSION['showroom_id']; ?>"><?php echo $_SESSION['title']; ?></option>
+            </select>
+           
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="col-form-label">Số điện thoại:</label>
+            <input type="text" class="form-control" id="phone" name="phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="col-form-label">Email:</label>
+            <input type="text" class="form-control" id="email" name="email">
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary add_customer">Thêm</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
+      
     </div>
   </div>
 </div>

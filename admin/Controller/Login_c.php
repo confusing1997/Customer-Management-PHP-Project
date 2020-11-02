@@ -22,12 +22,16 @@
                 $passw = strip_tags($passws);
 
                 $log = $this->login->Login($user, $passw);
-                // $num = countl($log);
+                // $num = count($log);
                 if ($log) {
-                    // include_once "index.php";
                     header("Location: dashboard.php?page=index");
+                    // echo "<pre>";
+                    // print_r($log);
+                    // echo "</pre>";
                     $_SESSION['id'] = $log['id'];
                     $_SESSION['name'] = $log['name'];
+                    $_SESSION['showroom_id'] = $log['showroom_id'];
+                    $_SESSION['title'] = $log['title'];
                     $_SESSION['role'] = $log['role'];
                     $_SESSION['status'] = $log['status'];
                     
