@@ -29,7 +29,10 @@
             <a href="javascript:;" data-toggle="collapse" data-target="#care"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Chăm sóc khách hàng <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="care" class="collapse">
                 <li>
-                    <a href="dashboard.php?page=list_customercare"><i class="fa fa-fw fa-table"></i> Danh sách chăm sóc</a>
+                    <a href="dashboard.php?page=list_customercare"><i class="fa fa-fw fa-table"></i> Danh sách chăm sóc của nhân viên</a>
+                </li>
+                <li>
+                    <a href="dashboard.php?page=list_customercare_all"><i class="fa fa-fw fa-table"></i> Danh sách khách hàng đang chăm sóc của công ty</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-fw fa-edit"></i> Thêm khách hàng chăm sóc</a>

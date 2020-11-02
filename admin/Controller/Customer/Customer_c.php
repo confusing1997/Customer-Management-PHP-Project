@@ -47,9 +47,26 @@
 
         }
 
-        public function getCustomerCare ($userId) {
+        public function getCustomerCare ($user_id) {
 
-            return $this->customer->getCustomerCare($userId);
+            return $this->customer->getCustomerCare($user_id);
+
+        }
+
+        public function getCustomerCareAll () {
+
+            return $this->customer->getCustomerCareAll();
+
+        }
+
+        public function searchCustomerCare ($key, $user_id) {
+
+            return $this->customer->searchCustomerCare($key, $user_id);
+        }
+
+        public function searchCustomerCareAll ($key) {
+
+            return $this->customer->searchCustomerCareAll($key);
 
         }
 

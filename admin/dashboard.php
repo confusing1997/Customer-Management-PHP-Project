@@ -39,6 +39,9 @@
                                     case 'list_customercare':
                                         echo 'Danh sách khách hàng đang chăm sóc';
                                         break;
+                                    case 'list_customercare_all':
+                                        echo 'Danh sách khách hàng đang chăm sóc';
+                                        break;
 	                                default:
 	                                    echo "Error 404, Trang không tồn tại";
 	                                    echo "<a href='list_customer.php'>Quay lại</a>";
@@ -69,6 +72,9 @@
 		                                	echo 'Danh Sách Khách Hàng';
 		                                	break;
                                         case 'list_customercare':
+                                            echo 'Danh sách khách hàng đang chăm sóc';
+                                            break;
+                                        case 'list_customercare_all':
                                             echo 'Danh sách khách hàng đang chăm sóc';
                                             break;
 		                                default:
@@ -104,6 +110,10 @@
                                 case 'list_customercare':
                                     include_once 'View/Customer/list_customercare.php';
                                     break;
+                                case 'list_customercare_all':
+                                    include_once 'View/Customer/list_customercare_all.php';
+                                    break;
+
                                 default:
                                     echo "Error 404, Trang không tồn tại";
                                     echo "<a href='dashboard.php'>Quay lại</a>";

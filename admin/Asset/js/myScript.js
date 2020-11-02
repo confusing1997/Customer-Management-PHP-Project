@@ -69,8 +69,9 @@ $('#key_search').keyup(function(data){
 
 });
 
-getCustomerCare();
+
 //Hiện danh sách khách hàng mình đang chăm sóc
+getCustomerCare();
 function getCustomerCare(){
     var userId = $('#userId').val();
 
@@ -81,3 +82,50 @@ function getCustomerCare(){
     });
 
 }
+
+//Hiện danh sách toàn bộ khách hàng đang chăm sóc
+getCustomerCareAll();
+function getCustomerCareAll(){
+    
+    $.post('Server/Customer/list_customercare_all.php', function(data){
+
+        $('#view_customer_care_all').html(data);
+        
+    });
+
+}
+
+//Tìm kiếm khách hàng đang được chăm sóc của 1 nhân viên
+$('#key_search1').keyup(function(data){
+
+    var userId = $('#userId').val();
+
+    var key = $(this).val();
+
+    if (key.length > 2) { 
+
+        $.post('Server/Customer/list_customercare.php', { key : key, userId: userId }, function(data){
+
+            $('#view_customer_care').html(data);
+
+        });
+    }
+
+});
+
+//Tìm kiếm khách hàng đang chăm sóc của công ty
+$('#key_search2').keyup(function(data){
+
+    var key = $(this).val();
+
+    if (key.length > 2) { 
+
+        $.post('Server/Customer/list_customercare_all.php', { key : key }, function(data){
+
+            $('#view_customer_care_all').html(data);
+
+        });
+    }
+
+});
+
