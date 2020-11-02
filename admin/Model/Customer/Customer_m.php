@@ -30,6 +30,18 @@
 
         }
 
+        protected function addCustomer($name, $phone, $email){
+            $sql = "INSERT INTO tbl_customer (name, phone, email) VALUES (:name, :phone, :email)";
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':name', $name);
+            $pre->bindParam(':phone', $phone);
+            $pre->bindParam(':email', $email);
+
+            return $pre->execute();
+
+        }
+
         protected function removeCustomer ($id) {
 
             $sql = "DELETE FROM tbl_customer WHERE id = :id";

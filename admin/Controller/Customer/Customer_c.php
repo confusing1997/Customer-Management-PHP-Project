@@ -29,4 +29,10 @@
 
         }
 
+        public function addCustomer($name, $phone, $email){
+
+            return $this->customer->addCustomer($name, $phone, $email);
+
+        }
+
     }
