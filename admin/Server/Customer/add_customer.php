@@ -9,6 +9,7 @@
     $phone = $_POST['phone'];
     $email = $_POST['email'];
 
+
     $add = $customer->addCustomer($name, $showroom_id, $phone, $email);
 
     if ($add) {
