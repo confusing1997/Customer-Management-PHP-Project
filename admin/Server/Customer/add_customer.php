@@ -14,7 +14,7 @@
     $email = $_POST['email'];
 
     $num = count($customer->checkEmailPhone($phone, $email));
-    if ($num == 0){
+    if ($num == 0 && $name != '' && $phone != '' && $email !=''){
         $add1 = $customer->addCustomer($name, $showroom_id, $phone, $email);
         $add2 = $customer_care->addCustomerCare($user_id);
         if ($add1 == true && $add2 == true) {
@@ -29,6 +29,13 @@
             echo "Thêm thất bại!";
             
         }
+    } else if($name == '' && $phone == '' && $email == ''){
+?>
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Thông báo!</strong> Dữ liệu nhập không được trống!
+    </div>
+<?php 
     } else {
 ?> 
     <div class="alert alert-danger">
