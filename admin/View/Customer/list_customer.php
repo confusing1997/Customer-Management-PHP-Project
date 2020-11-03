@@ -48,8 +48,8 @@
       <input type="text" class="form-control" id="key_search" name="key_search">
   </div>
 </form>
-<p id="notification"></p>
 
+<div class="notification"></div>
 
 <div class="table-responsive">
     <table class="table table-hover">

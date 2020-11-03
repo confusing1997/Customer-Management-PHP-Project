@@ -1,18 +1,18 @@
 <?php
 
-    include_once("../../Controller/Customer/Customer_c.php");
+    include_once("../../Controller/CustomerCare/CustomerCare_c.php");
 
-    $customer = new Customer_c();
+    $customer_care = new CustomerCare_c();
 
     if (isset($_POST['key'])) {
 
         $key = $_POST['key'];
 
-        $result = $customer->searchCustomerCareAll($key);
+        $result = $customer_care->searchCustomerCareAll($key);
 
     } else {
 
-        $result = $customer->getCustomerCareAll();
+        $result = $customer_care->getCustomerCareAll();
 
     }
     

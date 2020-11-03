@@ -39,10 +39,10 @@
 	                                case 'list_customer':
 	                                	echo 'Danh Sách Khách Hàng';
 	                                	break;
-                                    case 'list_customercare':
+                                    case 'list_customer_care':
                                         echo 'Danh sách khách hàng đang chăm sóc của nhân viên';
                                         break;
-                                    case 'list_customercare_all':
+                                    case 'list_customer_care_all':
                                         echo 'Danh sách khách hàng đang chăm sóc của công ty';
                                         break;
 	                                default:
@@ -74,10 +74,10 @@
 		                                case 'list_customer':
 		                                	echo 'Danh Sách Khách Hàng';
 		                                	break;
-                                        case 'list_customercare':
+                                        case 'list_customer_care':
                                             echo 'Danh sách khách hàng đang chăm sóc của nhân viên';
                                             break;
-                                        case 'list_customercare_all':
+                                        case 'list_customer_care_all':
                                             echo 'Danh sách khách hàng đang chăm sóc của công ty';
                                             break;
 		                                default:
@@ -110,11 +110,11 @@
                                 case 'list_customer':
                                 	include_once 'View/Customer/list_customer.php';
                                 	break;
-                                case 'list_customercare':
-                                    include_once 'View/Customer/list_customercare.php';
+                                case 'list_customer_care':
+                                    include_once 'View/CustomerCare/list_customer_care.php';
                                     break;
-                                case 'list_customercare_all':
-                                    include_once 'View/Customer/list_customercare_all.php';
+                                case 'list_customer_care_all':
+                                    include_once 'View/CustomerCare/list_customer_care_all.php';
                                     break;
 
                                 default:

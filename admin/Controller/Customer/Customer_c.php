@@ -35,39 +35,16 @@
 
         }
 
-        public function addCustomerCare($user_id){
+        public function editCustomer($id, $name, $phone, $email){
 
-            return $this->customer->addCustomerCare($user_id);
+            return $this->customer->editCustomer($id, $name, $phone, $email);
 
         }
+
 
         public function checkEmailPhone($phone, $email){
 
             return $this->customer->checkEmailPhone($phone, $email);
 
         }
-
-        public function getCustomerCare ($user_id) {
-
-            return $this->customer->getCustomerCare($user_id);
-
-        }
-
-        public function getCustomerCareAll () {
-
-            return $this->customer->getCustomerCareAll();
-
-        }
-
-        public function searchCustomerCare ($key, $user_id) {
-
-            return $this->customer->searchCustomerCare($key, $user_id);
-        }
-
-        public function searchCustomerCareAll ($key) {
-
-            return $this->customer->searchCustomerCareAll($key);
-
-        }
-
     }

@@ -1,3 +1,5 @@
+
+
 getCustomer();
 
 //Hiện danh sách khách hàng
@@ -22,7 +24,7 @@ $(document).on('click', '.rm_customer', function(){
 
         $.post('Server/Customer/remove_customer.php', { id: id }, function(data){
 
-            $('#notification').html(data);
+            $('.notification').html(data);
 
             getCustomer();
 
@@ -43,7 +45,26 @@ $(document).on('click', '.add_customer', function($name, $phone, $email){
         
         $('input[type="text"]').val('');
         $(".modal:visible").modal('toggle');
-        $('#notification').html(data);
+        $('.notification').html(data);
+        getCustomer();
+
+    })
+    
+});
+
+//Sửa khách hàng bằng Modal
+$(document).on('click', '.edit_customer', function(name, phone, email){
+
+    var id = $(this).val();
+    var name = $('#name').val();
+    var phone = $('#phone').val();
+    var email = $('#email').val();
+
+    $.post('Server/Customer/edit_customer.php', {id: id, name: name, phone: phone, email: email }, function(data){
+        
+        // $('input[type="text"]').val('');
+        $(".modal:visible").modal('toggle');
+        $('.notification').html(data);
         getCustomer();
 
     })
@@ -72,7 +93,7 @@ $('#key_search').keyup(function(data){
 getCustomerCare();
 function getCustomerCare(){
 
-    $.post('Server/Customer/list_customercare.php', function(data){
+    $.post('Server/CustomerCare/list_customer_care.php', function(data){
 
         $('#view_customer_care').html(data);
         
@@ -84,7 +105,7 @@ function getCustomerCare(){
 getCustomerCareAll();
 function getCustomerCareAll(){
     
-    $.post('Server/Customer/list_customercare_all.php', function(data){
+    $.post('Server/CustomerCare/list_customer_care_all.php', function(data){
 
         $('#view_customer_care_all').html(data);
         
@@ -99,7 +120,7 @@ $('#key_search1').keyup(function(data){
 
     if (key.length > 2) { 
 
-        $.post('Server/Customer/list_customercare.php', { key : key}, function(data){
+        $.post('Server/CustomerCare/list_customer_care.php', { key : key }, function(data){
 
             $('#view_customer_care').html(data);
 
@@ -115,7 +136,7 @@ $('#key_search2').keyup(function(data){
 
     if (key.length > 2) { 
 
-        $.post('Server/Customer/list_customercare_all.php', { key : key }, function(data){
+        $.post('Server/CustomerCare/list_customer_care_all.php', { key : key }, function(data){
 
             $('#view_customer_care_all').html(data);
 

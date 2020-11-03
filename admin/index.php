@@ -31,7 +31,7 @@
                                 case 'login':
                                     include_once 'Controller/Login_c.php';
                                     $login = new Login_c();
-                                    $login->Login1();
+                                    $login->LoginC();
                                     break;
                                 case 'logout':
                                     include_once 'View/logout.php';

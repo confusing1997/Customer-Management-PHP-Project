@@ -1,9 +1,9 @@
 <?php
     session_start();
     ob_start();
-    include_once("../../Controller/Customer/Customer_c.php");
+    include_once("../../Controller/CustomerCare/CustomerCare_c.php");
 
-    $customer = new Customer_c();
+    $customer_care = new CustomerCare_c();
     $user_id = $_SESSION['id'];
     
 
@@ -11,11 +11,11 @@
 
         $key = $_POST['key'];
 
-        $result = $customer->searchCustomerCare($key, $user_id);
+        $result = $customer_care->searchCustomerCare($key, $user_id);
 
     } else {
 
-        $result = $customer->getCustomerCare($user_id);
+        $result = $customer_care->getCustomerCare($user_id);
 
     }
     

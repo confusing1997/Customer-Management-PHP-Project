@@ -11,7 +11,7 @@
             $this->login = new Login_m();
         }
 
-        public function Login1() {
+        public function LoginC() {
             
             if (isset($_POST['sm_login'])) {
                 
