@@ -8,7 +8,7 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#user"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Quản lý nhân viên <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="user" class="collapse">
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Danh sách nhân viên</a>
+                        <a href="dashboard.php?page=list_all_user"><i class="fa fa-fw fa-table"></i> Danh sách nhân viên</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-edit"></i> Thêm nhân viên</a>
