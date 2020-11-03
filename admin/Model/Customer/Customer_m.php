@@ -8,7 +8,7 @@
         {
             parent::__construct();
         }
-
+        //Hiện danh sách khách hàng
         protected function getCustomer () {
 
             $sql = "SELECT *FROM tbl_customer, tbl_showroom 
@@ -30,6 +30,7 @@
 
         }
 
+        //Thêm khách hàng vào bảng tbl_customer
         protected function addCustomer($name,$showroom_id, $phone, $email){
             $sql = "INSERT INTO tbl_customer (name,showroom_id, phone, email) VALUES (:name, :showroom_id, :phone, :email)";
             $pre = $this->pdo->prepare($sql);
@@ -43,6 +44,7 @@
 
         }
 
+        //Thêm khách hàng vào bảng tbl_care
         protected function addCustomerCare($user_id){
             $sql = "INSERT INTO tbl_care (user_id, customer_id)
                     SELECT tbl_user.id, MAX(tbl_customer.id)
@@ -54,6 +56,7 @@
 
         }
 
+        //Hàm kiểm tra xem khách hàng đã có trong danh sách hay chưa theo email và sđt
         function checkEmailPhone($phone, $email){
             $sql = "SELECT *FROM tbl_customer WHERE phone = :phone OR email = :email";
             $pre = $this->pdo->prepare($sql);
@@ -74,6 +77,7 @@
             return $result;
         }
 
+        //Xóa khách hàng trong bảng tbl_customer
         protected function removeCustomer ($id) {
 
             $sql = "DELETE FROM tbl_customer WHERE id = :id";
@@ -86,6 +90,7 @@
 
         }
 
+        //Tìm kiếm khách hàng trong bảng tbl_customer
         protected function searchCustomer ($key) {
 
             $sql = "SELECT * FROM tbl_customer, tbl_showroom
@@ -110,6 +115,7 @@
 
         }
 
+        //Hiện danh sách khách hàng đang chăm sóc của nhân viên đang đăng nhập
         protected function getCustomerCare ($user_id) {
 
             $sql = "
@@ -120,7 +126,8 @@
                 tbl_showroom,
                 tbl_care
             WHERE
-                tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_user.id = tbl_care.user_id AND tbl_customer.id = tbl_care.customer_id AND tbl_user.id = :user_id";
+                tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_user.id = tbl_care.user_id AND tbl_customer.id = tbl_care.customer_id AND tbl_user.id = :user_id
+            ORDER BY tbl_care.create_at DESC";
 
             $pre = $this->pdo->prepare($sql);
             $pre->bindParam(":user_id", $user_id);
@@ -139,6 +146,7 @@
 
         }
 
+        //Hiện danh sách tất cả khách hàng đang được chăm sóc của công ty
         protected function getCustomerCareAll () {
 
             $sql = "
@@ -155,7 +163,8 @@
                     tbl_showroom,
                     tbl_care
                 WHERE
-                    tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_user.id = tbl_care.user_id AND tbl_customer.id = tbl_care.customer_id";
+                    tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_user.id = tbl_care.user_id AND tbl_customer.id = tbl_care.customer_id
+                ORDER BY tbl_care.create_at DESC";
 
             $pre = $this->pdo->prepare($sql);
 
@@ -173,6 +182,7 @@
 
         }
 
+        //Tìm kiếm khách hàng trong mục danh sách khách hàng đang được chăm sóc của nhân viên đang đăng nhập
         protected function searchCustomerCare ($key, $user_id) {
 
             $sql = " 
@@ -206,6 +216,7 @@
 
         }
 
+        //Tìm kiếm khách hàng trong danh sách tất cả khách hàng được chăm sóc của công ty
         protected function searchCustomerCareAll ($key) {
 
             $sql = " 
