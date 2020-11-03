@@ -2,6 +2,9 @@
 	session_start();
 	// session_destroy();
 	ob_start();
+    if (!isset($_SESSION['id'])) {
+        header("Location: index.php");
+    }
     include_once "Includes/header.php";
 ?>
 
@@ -37,10 +40,10 @@
 	                                	echo 'Danh Sách Khách Hàng';
 	                                	break;
                                     case 'list_customercare':
-                                        echo 'Danh sách khách hàng đang chăm sóc';
+                                        echo 'Danh sách khách hàng đang chăm sóc của nhân viên';
                                         break;
                                     case 'list_customercare_all':
-                                        echo 'Danh sách khách hàng đang chăm sóc';
+                                        echo 'Danh sách khách hàng đang chăm sóc của công ty';
                                         break;
 	                                default:
 	                                    echo "Error 404, Trang không tồn tại";
@@ -72,10 +75,10 @@
 		                                	echo 'Danh Sách Khách Hàng';
 		                                	break;
                                         case 'list_customercare':
-                                            echo 'Danh sách khách hàng đang chăm sóc';
+                                            echo 'Danh sách khách hàng đang chăm sóc của nhân viên';
                                             break;
                                         case 'list_customercare_all':
-                                            echo 'Danh sách khách hàng đang chăm sóc';
+                                            echo 'Danh sách khách hàng đang chăm sóc của công ty';
                                             break;
 		                                default:
 		                                    echo "Error 404, Trang không tồn tại";

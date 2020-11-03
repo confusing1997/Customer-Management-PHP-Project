@@ -5,7 +5,6 @@
 </form>
 <p id="notification"></p>
 
-<!-- <input style="display: none" type="text" id="userId" name="" value="<?php echo $_SESSION['id']; ?>"> -->
 
 <div class="table-responsive">
     <table class="table table-hover">
