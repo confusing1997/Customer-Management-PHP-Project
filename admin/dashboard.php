@@ -45,6 +45,9 @@
                                     case 'list_customer_care_all':
                                         echo 'Danh sách khách hàng đang chăm sóc của công ty';
                                         break;
+                                    case 'list_all_user':
+                                        echo 'Danh sách toàn bộ nhân viên của công ty';
+                                        break;
 	                                default:
 	                                    echo "Error 404, Trang không tồn tại";
 	                                    echo "<a href='list_customer.php'>Quay lại</a>";
@@ -79,6 +82,9 @@
                                             break;
                                         case 'list_customer_care_all':
                                             echo 'Danh sách khách hàng đang chăm sóc của công ty';
+                                            break;
+                                        case 'list_all_user':
+                                            echo 'Danh sách toàn bộ nhân viên của công ty';
                                             break;
 		                                default:
 		                                    echo "Error 404, Trang không tồn tại";
@@ -115,6 +121,9 @@
                                     break;
                                 case 'list_customer_care_all':
                                     include_once 'View/CustomerCare/list_customer_care_all.php';
+                                    break;
+                                case 'list_all_user':
+                                    include_once 'View/User/list_all_user.php';
                                     break;
 
                                 default:
