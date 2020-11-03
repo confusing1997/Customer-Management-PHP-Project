@@ -1,8 +1,5 @@
-
-
-getCustomer();
-
 //Hiện danh sách khách hàng
+getCustomer();
 function getCustomer(){
 
 	$.post('Server/Customer/list_customer.php', function(data){
@@ -35,7 +32,7 @@ $(document).on('click', '.rm_customer', function(){
 
 
 //Thêm khách hàng bằng Modal
-$(document).on('click', '.add_customer', function($name, $phone, $email){
+$(document).on('click', '.add_customer', function(){
 
     var name = $('#name').val();
     var phone = $('#phone').val();
@@ -60,7 +57,11 @@ $(document).on('click', '.edit_customer', function(name, phone, email){
     var phone = $('#phone').val();
     var email = $('#email').val();
 
-    $.post('Server/Customer/edit_customer.php', {id: id, name: name, phone: phone, email: email }, function(data){
+    $.post('Server/Customer/edit_customer.php', 
+    {   id: id, 
+        name: name, 
+        phone: phone, 
+        email: email }, function(data){
         
         // $('input[type="text"]').val('');
         $(".modal:visible").modal('toggle');
@@ -145,3 +146,31 @@ $('#key_search2').keyup(function(data){
 
 });
 
+
+//Hiện danh sách toàn bộ nhân viên
+getAllUser();
+function getAllUser(){
+    
+    $.post('Server/User/list_all_user.php', function(data){
+
+        $('#view_all_user').html(data);
+        
+    });
+
+}
+
+//Tìm dữ liệu nhân viên của công ty theo tên và SĐT
+$('#key_search_user').keyup(function(data){
+
+    var key = $(this).val();
+
+    if (key.length > 2) { 
+
+        $.post('Server/User/list_all_user.php', { key : key }, function(data){
+
+            $('#view_all_user').html(data);
+
+        });
+    }
+
+});
