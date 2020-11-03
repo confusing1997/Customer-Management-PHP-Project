@@ -1,20 +1,21 @@
 <?php
-    
+    session_start();
+    ob_start();
     include_once("../../Controller/Customer/Customer_c.php");
 
     $customer = new Customer_c();
-    $userId = $_POST['userId'];
+    $user_id = $_SESSION['id'];
     
 
     if (isset($_POST['key'])) {
 
         $key = $_POST['key'];
 
-        $result = $customer->searchCustomerCare($key, $userId);
+        $result = $customer->searchCustomerCare($key, $user_id);
 
     } else {
 
-        $result = $customer->getCustomerCare($userId);
+        $result = $customer->getCustomerCare($user_id);
 
     }
     

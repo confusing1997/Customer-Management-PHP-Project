@@ -33,15 +33,13 @@ $(document).on('click', '.rm_customer', function(){
 
 
 //Thêm khách hàng bằng Modal
-$(document).on('click', '.add_customer', function($name,$showroom_id, $user_id, $phone, $email){
+$(document).on('click', '.add_customer', function($name, $phone, $email){
 
     var name = $('#name').val();
-    var showroom_id = $('#showroom_id').val();
-    var user_id = $('#user_id').val();
     var phone = $('#phone').val();
     var email = $('#email').val();
 
-    $.post('Server/Customer/add_customer.php', { name: name, showroom_id: showroom_id, user_id: user_id, phone: phone, email: email }, function(data){
+    $.post('Server/Customer/add_customer.php', { name: name, phone: phone, email: email }, function(data){
         
         $('input[type="text"]').val('');
         $(".modal:visible").modal('toggle');
@@ -73,9 +71,8 @@ $('#key_search').keyup(function(data){
 //Hiện danh sách khách hàng mình đang chăm sóc
 getCustomerCare();
 function getCustomerCare(){
-    var userId = $('#userId').val();
 
-    $.post('Server/Customer/list_customercare.php',{ userId: userId }, function(data){
+    $.post('Server/Customer/list_customercare.php', function(data){
 
         $('#view_customer_care').html(data);
         
@@ -98,13 +95,11 @@ function getCustomerCareAll(){
 //Tìm kiếm khách hàng đang được chăm sóc của 1 nhân viên
 $('#key_search1').keyup(function(data){
 
-    var userId = $('#userId').val();
-
     var key = $(this).val();
 
     if (key.length > 2) { 
 
-        $.post('Server/Customer/list_customercare.php', { key : key, userId: userId }, function(data){
+        $.post('Server/Customer/list_customercare.php', { key : key}, function(data){
 
             $('#view_customer_care').html(data);
 

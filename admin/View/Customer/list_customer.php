@@ -21,15 +21,6 @@
           </div>
 
           <div class="form-group">
-            <label for="showroom_id" class="col-form-label">Showroom</label><br>
-            <select id="showroom_id" class="form-control" name="showroom_id" disabled="">
-                <option selected="" class="form-control" value="<?php echo $_SESSION['showroom_id'];?>"><?php echo $_SESSION['title']; ?></option>
-            </select>
-          <input style="display: none" type="text" id="user_id" class="form-control" name="user_id" value="<?php echo $_SESSION['id']; ?>">
-           
-          </div>
-
-          <div class="form-group">
             <label for="phone" class="col-form-label">Số điện thoại:</label>
             <input type="text" class="form-control" id="phone" name="phone">
           </div>

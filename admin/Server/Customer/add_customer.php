@@ -1,12 +1,13 @@
 <?php
-
+    session_start();
+    ob_start();
     include_once("../../Controller/Customer/Customer_c.php");
 
     $customer = new Customer_c();
 
     $name = $_POST['name'];
-    $showroom_id = $_POST['showroom_id'];
-    $user_id = $_POST['user_id'];
+    $showroom_id = $_SESSION['showroom_id'];
+    $user_id = $_SESSION['id'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
 

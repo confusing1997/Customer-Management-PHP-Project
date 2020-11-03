@@ -5,7 +5,6 @@
 </form>
 <p id="notification"></p>
 
-
 <div class="table-responsive">
     <table class="table table-hover">
         <thead>

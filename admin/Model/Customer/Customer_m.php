@@ -12,7 +12,8 @@
         protected function getCustomer () {
 
             $sql = "SELECT *FROM tbl_customer, tbl_showroom 
-                    WHERE tbl_customer.showroom_id = tbl_showroom.showroom_id";
+                    WHERE tbl_customer.showroom_id = tbl_showroom.showroom_id
+                    ORDER BY tbl_customer.create_at DESC";
 
             $pre = $this->pdo->prepare($sql);
 
