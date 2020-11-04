@@ -7,20 +7,35 @@
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
-    echo $name;
-    echo $id;
 
-    // $edit = $customer->editCustomer($id, $name, $phone, $email);
+    $edit = $customer->editCustomer($id, $name, $phone, $email);
 
-    // if ($edit) {
-           //$_SESSION['noti'] = 3;
-    //     echo "Cập nhật thành công!";
+    if ($edit) {
+?>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Thông báo!</strong> Cập nhật thành công!
+    </div>
 
-    // } else {
+<?php 
 
-    //     echo "Cập nhật thất bại!";
+    } else {
 
-    // }
+?>
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Thông báo!</strong> Cập nhật thất bại!
+    </div>
+<?php 
+    } 
+
+?>
+<script type="text/javascript">
+    //Hiện thông báo .. giây xong ẩn
+    $(document).ready(function(){
+        $(".alert").delay(2000).slideUp();
+    })
+</script>
 
 
 

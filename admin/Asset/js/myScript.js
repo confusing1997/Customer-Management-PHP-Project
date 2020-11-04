@@ -50,21 +50,19 @@ $(document).on('click', '.add_customer', function(){
 });
 
 //Sửa khách hàng bằng Modal
-$(document).on('click', '.edit_customer', function(name, phone, email){
+$(document).on('click','.edit_customer', function(){
 
     var id = $(this).val();
-    var name = $('#name').val();
-    var phone = $('#phone').val();
-    var email = $('#email').val();
+    var idModal = '#edit_customer' + id;
+    var name = $(idModal + ' .name_customer').val();
+    var phone = $(idModal + ' .phone_customer').val();
+    var email = $(idModal + ' .email_customer').val();
 
-    $.post('Server/Customer/edit_customer.php', 
-    {   id: id, 
-        name: name, 
-        phone: phone, 
-        email: email }, function(data){
-        
-        // $('input[type="text"]').val('');
+    $.post('Server/Customer/edit_customer.php', {id: id, name: name, phone: phone, email: email }, function(data){
+            
         $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
         $('.notification').html(data);
         getCustomer();
 
