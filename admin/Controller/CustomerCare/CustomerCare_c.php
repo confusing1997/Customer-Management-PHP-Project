@@ -1,6 +1,6 @@
 <?php
 
-    include_once("../../Model/CustomerCare/CustomerCare_m.php");
+    include_once("Model/CustomerCare/CustomerCare_m.php");
 
     class CustomerCare_c extends CustomerCare_m {
 
