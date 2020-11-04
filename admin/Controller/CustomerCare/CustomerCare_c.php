@@ -11,33 +11,9 @@
             $this->customer_care = new CustomerCare_m();
         }
 
-        public function addCustomerCare($user_id){
-
-            return $this->customer_care->addCustomerCare($user_id);
-
-        }
-
-        public function getCustomerCare ($user_id) {
-
-            return $this->customer_care->getCustomerCare($user_id);
-
-        }
-
-        public function getCustomerCareAll () {
-
-            return $this->customer_care->getCustomerCareAll();
-
-        }
-
-        public function searchCustomerCare ($key, $user_id) {
-
-            return $this->customer_care->searchCustomerCare($key, $user_id);
-        }
-
-        public function searchCustomerCareAll ($key) {
-
-            return $this->customer_care->searchCustomerCareAll($key);
-
+        public function CustomerCare () {
+            $customer = $this->customer->getCustomer();
+            include_once 'View/Customer/list_customer.php';
         }
 
     }

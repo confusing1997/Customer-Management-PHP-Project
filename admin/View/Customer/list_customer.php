@@ -1,4 +1,6 @@
-
+<?php 
+  include_once("Controller/Customer/Customer_c.php");
+ ?>
 
 <!-- Add Customer Modal -->
 
@@ -51,20 +53,47 @@
 
 <div class="notification"></div>
 
-<div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
+<div class="row">
+  <div class="col-12">
+    <div class="card-box table-responsive">
+        <table id="datatable_listcustomer" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+          <thead>
             <tr>
-                <th>STT</th>
-                <th>Họ tên</th>
-                <th>Showroom</th>
-                <th>SĐT</th>
-                <th>Email</th>
-                <th>Action</th>
+              <th>STT</th>
+              <th>Name</th>
+              <th>Showroom</th>
+              <th>SĐT</th>
+              <th>Email</th>
+              <th>Action</th>
             </tr>
-        </thead>
+          </thead>
 
-        <tbody id="view_data"></tbody>
-        
-    </table>
+          <tbody id="view_data">
+            <?php 
+              $dem = 0;
+              foreach ($customer as $key => $value) {
+              ?>
+                <tr>
+                  <td><?php echo $dem+=1; ?></td>
+                  <td><?php echo $value['name']; ?></td>
+                  <td><?php echo $value['title']; ?></td>
+                  <td><?php echo $value['phone']; ?></td>
+                  <td><?php echo $value['email']; ?></td>
+                  <td>
+                    <a href="" >
+                      <button class="btn btn-primary">Sửa</button>
+                    </a>
+                    <a href="" >
+                      <button class="btn btn-danger" onclick = "return confirm('Bạn có muốn xóa học viên này không?')">Xóa</button>
+                    </a>
+                  </td>
+                </tr>
+              <?php
+              }
+             ?>
+            
+          </tbody>
+      </table>
+    </div>
+  </div>
 </div>

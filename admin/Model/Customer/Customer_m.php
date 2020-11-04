@@ -1,6 +1,6 @@
 <?php
 
-    include_once("../../Config/myConfig.php");
+    include_once("Config/myConfig.php");
 
     class Customer_m extends Connect {
 
@@ -108,15 +108,20 @@
         protected function editCustomer($id, $name, $phone, $email){
 
             $sql = "UPDATE tbl_customer 
-                    SET name = :name, phone = :phone, email = :email
+                    SET 
+                        name = :name, phone = :phone, email = :email
                     WHERE id = :id";
 
             $pre = $this->pdo->prepare($sql);
+
             $pre->bindParam(':id', $id);
+
             $pre->bindParam(':name', $name);
+
             $pre->bindParam(':phone', $phone);
+
             $pre->bindParam(':email', $email);
-            
+
             return $pre->execute();
         }
 

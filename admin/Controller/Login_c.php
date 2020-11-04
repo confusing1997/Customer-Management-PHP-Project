@@ -34,6 +34,7 @@
                     $_SESSION['title'] = $log['title'];
                     $_SESSION['role'] = $log['role'];
                     $_SESSION['status'] = $log['status'];
+                    $_SESSION['avatar'] = $log['avatar'];
                     
 
                 } else {                    

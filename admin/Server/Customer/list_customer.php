@@ -33,13 +33,13 @@
  
             <td> 
                 <!-- Start Modal Edit -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_customer<?= $valueCustomer['id']; ?>" data-whatever="@getbootstrap">Sửa</button>
+                <button type="button" class="btn btn-primary btnModal" data-toggle="modal" value="<?= $valueCustomer['id']; ?>" data-target="#edit_customer<?= $valueCustomer['id']; ?>">Sửa</button>
 
-                <div class="modal fade" id="edit_customer<?= $valueCustomer['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="edit_customer<?= $valueCustomer['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="edit_cus<?= $valueCustomer['id']; ?>" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sửa khách hàng <?= $count; ?></h5>
+                        <h2 class="modal-title" id="edit_cus<?= $valueCustomer['id']; ?>">Sửa thông tin khách hàng</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -48,22 +48,22 @@
                         <form>
                           <div class="form-group">
                             <label for="name" class="col-form-label">Tên khách hàng:</label>
-                            <input type="text" class="form-control" id="name" name="name" value="<?= $valueCustomer['name']; ?>">
+                            <input type="text" class="form-control name_customer" id="name" name="name" value="<?= $valueCustomer['name']; ?>">
                           </div>
 
                           <div class="form-group">
                             <label for="phone" class="col-form-label">Số điện thoại:</label>
-                            <input type="text" class="form-control" id="phone" name="phone" value="<?= $valueCustomer['phone']; ?>">
+                            <input type="text" class="form-control phone_customer" id="phone" name="phone" value="<?= $valueCustomer['phone']; ?>">
                           </div>
                           
                           <div class="form-group">
                             <label for="email" class="col-form-label">Email:</label>
-                            <input type="text" class="form-control" id="email" name="email" value="<?= $valueCustomer['email']; ?>">
+                            <input type="text" class="form-control email_customer" id="email" name="email" value="<?= $valueCustomer['email']; ?>">
                           </div>
 
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <button type="button" class="btn btn-primary edit_customer" value="<?= $valueCustomer['id']; ?>">Sửa</button>
+                            <button type="button" class="btn btn-primary edit_customer" id="btn<?= $valueCustomer['id']; ?>" value="<?= $valueCustomer['id']; ?>">Sửa</button>
                           </div>
                         </form>
                       </div>
