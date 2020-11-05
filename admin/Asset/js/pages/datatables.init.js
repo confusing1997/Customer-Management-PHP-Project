@@ -1,8 +1,6 @@
 $(document).ready(function(){
-	$("#datatable_listcustomer").DataTable({
-	});
-
-	var dtable = $(".datatable_listcustomer").dataTable().api();
+	
+	var dtable = $("#datatable_listcustomer").dataTable().api();
 
 // Grab the datatables input box and alter how it is bound to events
 $(".dataTables_filter input")
@@ -18,6 +16,18 @@ $(".dataTables_filter input")
             dtable.search("").draw();
         }
         return;
+    });
+
+    $("#datatable_listcustomer_care").dataTable({
+        "responsive": false
+    });
+
+    $("#datatable_listcustomer_care_all").dataTable({
+        "responsive": false
+    });
+
+    $("#datatable_listuser").dataTable({
+        "responsive": false
     });
 });
 
