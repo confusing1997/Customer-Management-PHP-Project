@@ -1,5 +1,5 @@
 <?php 
-	include_once '../../Config/myConfig.php';
+	include_once 'Config/myConfig.php';
 
 	class User_m extends Connect {
 

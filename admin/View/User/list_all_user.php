@@ -1,5 +1,3 @@
-
-
 <form action="" method="POST">
     <div class="form-group">
         <input type="text" class="form-control" id="key_search_user" name="key_search_user">
@@ -22,7 +20,26 @@
             </tr>
           </thead>
 
-          <tbody id="view_all_user"></tbody>
+          <tbody id="view_all_user">
+            <?php 
+              $count_user = 0;
+              foreach ($user as $key => $valueUser) {
+                $count_user++;
+                ?>
+                  <tr>
+                      <td><?= $count_user; ?></td>
+                      <td><?= $valueUser['name'] ?></td>
+                      <td><?= $valueUser['title'] ?></td>
+                      <td><?= $valueUser['email'] ?></td>
+                      <td>
+                          <button class="btn btn-primary">Sửa</button>
+                          <button class="btn btn-danger">Xóa</button>
+                      </td>    
+                  </tr>
+                <?php
+              }
+             ?>
+          </tbody>
         </table>
     </div>
   </div>

@@ -22,7 +22,38 @@
                     </tr>
                 </thead>
 
-                <tbody id="view_customer_care"></tbody>
+                <tbody id="view_customer_care">
+                    <?php 
+                        $count = 0;
+                        foreach ($customer_care as $key => $valueCustomerCare) {
+                            $count++;
+                        ?>
+                            <tr>
+                                <td><?= $count; ?></td>
+                                <td><?= $valueCustomerCare['name'] ?></td>
+                                <td><?= $valueCustomerCare['title'] ?></td>
+                                <td><?= $valueCustomerCare['phone'] ?></td>
+                                <td><?= $valueCustomerCare['email'] ?></td>
+                                <td>
+                                    <?php 
+                                        if ($valueCustomerCare['status'] == 1) {
+                                            echo "<p style='color: red;'>Đang chăm sóc</p>";
+                                        }else{
+                                            echo "<p style='color: green;'>Đang rảnh</p>";
+                                        }
+                                    ?>
+
+                                </td>
+                                <td><?= $valueCustomerCare['create_at'] ?></td>
+
+                                <td> 
+                                    <button type="button" class="btn btn-primary">Xem chi tiết</button>              
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                     ?>
+                </tbody>
                 
             </table>
         </div>

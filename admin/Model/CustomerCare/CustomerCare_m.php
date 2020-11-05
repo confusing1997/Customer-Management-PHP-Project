@@ -1,6 +1,6 @@
 <?php
 
-    include_once("../../Config/myConfig.php");
+    include_once("Config/myConfig.php");
 
     class CustomerCare_m extends Connect {
 

@@ -87,17 +87,19 @@
                                         $customer->Customer();
                                     	break;
                                     case 'list_customer_care':
-                                        include_once 'Controller/Customer/CustomerCare_c.php';
+                                        include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                         $customer = new CustomerCare_c();
                                         $customer->CustomerCare();
                                         break;
                                     case 'list_customer_care_all':
-                                        include_once 'Controller/Customer/CustomerCare_c.php';
+                                        include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                         $customer = new CustomerCare_c();
-                                        $customer->CustomerCare();
+                                        $customer->CustomerCareAll();
                                         break;
                                     case 'list_all_user':
-                                        include_once 'View/User/list_all_user.php';
+                                        include_once 'Controller/User/User_c.php';
+                                        $user = new User_c();
+                                        $user->User();
                                         break;
 
                                     default:

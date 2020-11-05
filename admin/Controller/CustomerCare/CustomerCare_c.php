@@ -12,8 +12,14 @@
         }
 
         public function CustomerCare () {
-            $customer = $this->customer->getCustomer();
-            include_once 'View/Customer/list_customer.php';
+            $user_id = $_SESSION['id'];
+            $customer_care = $this->customer_care->getCustomerCare($user_id);
+            include_once 'View/CustomerCare/list_customer_care.php';
+        }
+
+        public function CustomerCareAll () {
+            $customer_care = $this->customer_care->getCustomerCareAll();
+            include_once 'View/CustomerCare/list_customer_care_all.php';
         }
 
     }
