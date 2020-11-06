@@ -70,6 +70,21 @@
 
                 <li>
                     <a href="javascript: void(0);">
+                        <i class="dripicons-user-id"></i>
+                        <span> Lịch sử điều chuyển </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="dashboard.php?page=list_history">
+                            <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
+                                <span> Lịch sử điều chuyển </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);">
                         <i class="fe-watch"></i>
                         <span> Sản phẩm </span>
                         <span class="menu-arrow"></span>

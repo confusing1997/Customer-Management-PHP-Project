@@ -36,5 +36,13 @@
             return $this->customer_care->addCustomerCare($user_id);
 
         }
+
+        public function getHistory(){
+
+                $customer_care = $this->customer_care->getHistory();
+
+            include_once 'View/CustomerCare/list_history.php';
+
+        }
     }
 ?>

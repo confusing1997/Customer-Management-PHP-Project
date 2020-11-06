@@ -55,6 +55,9 @@
                                             case 'list_all_user':
                                                 echo 'Danh sách toàn bộ nhân viên của công ty';
                                                 break;
+                                            case 'list_history':
+                                                echo 'Lịch sử điều chuyển';
+                                                break;
                                             default:
                                                 echo "Error 404, Trang không tồn tại";
                                                 echo "<a href='list_customer.php'>Quay lại</a>";
@@ -100,6 +103,11 @@
                                         include_once 'Controller/User/User_c.php';
                                         $user = new User_c();
                                         $user->User();
+                                        break;
+                                    case 'list_history':
+                                        include_once 'Controller/CustomerCare/CustomerCare_c.php';
+                                        $customer_care = new CustomerCare_c();
+                                        $customer_care->getHistory();
                                         break;
 
                                     default:
