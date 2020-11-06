@@ -57,10 +57,12 @@
 
             $sql = "
                 SELECT
-                    tbl_user.name,
+                    tbl_customer.id,
+                    tbl_user.name as 'Họ tên NV',
                     tbl_showroom.title,
                     tbl_customer.name as 'Họ tên khách',
                     tbl_customer.phone,
+                    tbl_customer.email as 'Email Khách',
                     tbl_care.create_at,
                     tbl_care.status
                 FROM
@@ -127,10 +129,12 @@
 
             $sql = " 
                 SELECT
-                    tbl_user.name,
+                    tbl_customer.id,
+                    tbl_user.name as 'Họ tên NV',
                     tbl_showroom.title,
                     tbl_customer.name as 'Họ tên khách',
                     tbl_customer.phone,
+                    tbl_customer.email as 'Email Khách',
                     tbl_care.create_at,
                     tbl_care.status
                 FROM

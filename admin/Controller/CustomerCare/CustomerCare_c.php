@@ -18,8 +18,23 @@
         }
 
         public function CustomerCareAll () {
-            $customer_care = $this->customer_care->getCustomerCareAll();
+            if (isset($_POST['searchPhone'])) {
+                $key = $_POST['key'];
+                if(strlen($key) >= 6 ){
+                    $customer_care = $this->customer_care->searchCustomerCareAll($key);
+                } else {
+                    $customer_care = $this->customer_care->getCustomerCareAll();
+                }
+            } else {
+                $customer_care = $this->customer_care->getCustomerCareAll();
+            }
             include_once 'View/CustomerCare/list_customer_care_all.php';
         }
 
+        public function addCustomerCare($user_id){
+
+            return $this->customer_care->addCustomerCare($user_id);
+
+        }
     }
+?>

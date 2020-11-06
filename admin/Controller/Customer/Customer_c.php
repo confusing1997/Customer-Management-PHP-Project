@@ -28,11 +28,11 @@
 
         // }
 
-        // public function addCustomer($name,$showroom_id, $phone, $email){
+        public function addCustomer($name,$showroom_id, $phone, $email){
 
-        //     return $this->customer->addCustomer($name, $showroom_id, $phone, $email);
+            return $this->customer->addCustomer($name, $showroom_id, $phone, $email);
 
-        // }
+        }
 
         // public function editCustomer($id, $name, $phone, $email){
 
@@ -41,9 +41,9 @@
         // }
 
 
-        // public function checkEmailPhone($phone, $email){
+        public function checkEmailPhone($phone, $email){
 
-        //     return $this->customer->checkEmailPhone($phone, $email);
+            return $this->customer->checkEmailPhone($phone, $email);
 
-        // }
+        }
     }
