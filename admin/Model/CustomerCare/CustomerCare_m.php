@@ -57,10 +57,12 @@
 
             $sql = "
                 SELECT
-                    tbl_user.name,
+                    tbl_customer.id,
+                    tbl_user.name as 'Họ tên NV',
                     tbl_showroom.title,
                     tbl_customer.name as 'Họ tên khách',
                     tbl_customer.phone,
+                    tbl_customer.email as 'Email Khách',
                     tbl_care.create_at,
                     tbl_care.status
                 FROM
@@ -127,10 +129,12 @@
 
             $sql = " 
                 SELECT
-                    tbl_user.name,
+                    tbl_customer.id,
+                    tbl_user.name as 'Họ tên NV',
                     tbl_showroom.title,
                     tbl_customer.name as 'Họ tên khách',
                     tbl_customer.phone,
+                    tbl_customer.email as 'Email Khách',
                     tbl_care.create_at,
                     tbl_care.status
                 FROM
@@ -145,6 +149,56 @@
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindValue(':key', '%'.$key.'%');
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        //Hiện danh sách lịch sử điều chuyển
+        protected function getHistory () {
+
+            $sql = "
+                SELECT
+                    cus.phone,
+                    cus.name AS 'Tên khách hàng',
+                    user1.name AS 'Nhân viên chuyển',
+                    user02.name AS 'Nhân viên nhận',
+                    cus.create_at
+                FROM
+                    (
+                    SELECT
+                        tbl_customer.phone,
+                        tbl_customer.name,
+                        tbl_history.create_at
+                    FROM
+                        tbl_customer,
+                        tbl_history
+                    WHERE
+                        tbl_customer.id = tbl_history.customer_id
+                ) cus,
+                tbl_user AS user1
+                JOIN tbl_history his1 ON
+                    user1.id = his1.user_id_move
+                JOIN(
+                    SELECT
+                        user2.name
+                    FROM
+                        tbl_user AS user2
+                    JOIN tbl_history his2 ON
+                        user2.id = his2.user_id_get
+                ) AS user02";
+
+            $pre = $this->pdo->prepare($sql);
 
             $pre->execute();
 

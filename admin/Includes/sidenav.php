@@ -8,7 +8,7 @@
 
             <ul class="metismenu" id="side-menu">
 
-                <li class="menu-title">Quản lý</li>
+                <li class="menu-title">Chăm sóc khách hàng</li>
 
                 <li>
                     <a href="dashboard.php?page=index">
@@ -29,10 +29,6 @@
                                 <span><i class=" mdi mdi-format-list-bulleted-square"></i></span>
                                 <span> Danh sách nhân viên </span>
                             </a></li>
-                            <li><a href="#"> 
-                                <span><i class="mdi mdi-file-document-box-plus-outline"></i></span>
-                                <span> Thêm nhân viên </span>
-                            </a></li>
                         </ul>
                     </li>
                 <?php
@@ -50,12 +46,9 @@
                             <span><i class=" mdi mdi-format-list-bulleted-square"></i></span>
                                 <span> Danh sách khách hàng </span>
                         </a></li>
-                        <li><a href="#">
-                            <span><i class="mdi mdi-file-document-box-plus-outline"></i></span>
-                            <span> Thêm khách hàng </span>
-                        </a></li>
                     </ul>
                 </li>
+                
 
                 <li>
                     <a href="javascript: void(0);">
@@ -77,6 +70,21 @@
 
                 <li>
                     <a href="javascript: void(0);">
+                        <i class="dripicons-user-id"></i>
+                        <span> Lịch sử điều chuyển </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="dashboard.php?page=list_history">
+                            <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
+                                <span> Lịch sử điều chuyển </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);">
                         <i class="fe-watch"></i>
                         <span> Sản phẩm </span>
                         <span class="menu-arrow"></span>
@@ -86,14 +94,10 @@
                             <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
                                 <span> Danh sách sản phẩm </span>
                         </a></li>
-                        <li><a href="#">
-                            <span><i class="mdi mdi-file-document-box-plus-outline"></i></span>
-                                <span> Thêm sản phẩm </span>
-                        </a></li>
                     </ul>
                 </li>
 
-                <li class="menu-title mt-2">Thống kê</li>
+                <li class="menu-title mt-2">Chăm sóc khách hàng</li>
             </ul>
 
         </div>

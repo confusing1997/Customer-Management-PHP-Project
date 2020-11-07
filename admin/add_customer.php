@@ -1,8 +1,7 @@
 <?php
     session_start();
-    ob_start();
-    include_once("../../Controller/Customer/Customer_c.php");
-    include_once("../../Controller/CustomerCare/CustomerCare_c.php");
+    include_once("Controller/Customer/Customer_c.php");
+    include_once("Controller/CustomerCare/CustomerCare_c.php");
 
     $customer = new Customer_c();
     $customer_care = new CustomerCare_c();
