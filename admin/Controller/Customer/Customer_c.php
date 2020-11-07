@@ -16,11 +16,9 @@
             include_once 'View/Customer/list_customer.php';
         }
 
-        // public function removeCustomer($id) {
-
-        //     return $this->customer->removeCustomer($id);
-
-        // }
+        public function removeCustomer($id) {
+            return $this->customer->removeCustomer($id);
+        }
 
         // public function searchCustomer($key) {
 

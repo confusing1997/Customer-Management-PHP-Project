@@ -55,7 +55,7 @@
 
 <div class="row">
   <div class="col-12">
-    <div class="card-box table-responsive">
+    <div class="card-box table-responsive table_Cus">
         <table id="datatable_listcustomer" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
           <thead>
             <tr>
@@ -84,7 +84,7 @@
                       <button class="btn btn-primary">Sửa</button>
                     </a>
                     <a href="" >
-                      <button class="btn btn-danger" onclick = "return confirm('Bạn có muốn xóa học viên này không?')">Xóa</button>
+                      <button class="btn btn-danger delCus" value="<?php echo $value['id']; ?>">Xóa</button>
                     </a>
                   </td>
                 </tr>
