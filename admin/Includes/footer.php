@@ -3,6 +3,7 @@
         
 		  <!-- Vendor js -->
         <script src="Asset/js/vendor.min.js"></script>
+        <script src="Asset/libs/custombox/custombox.min.js"></script>
 
         <!-- Required datatable js -->
         <script src="Asset/libs/datatables/jquery.dataTables.min.js"></script>

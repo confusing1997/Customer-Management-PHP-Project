@@ -16,7 +16,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive table">
-            <table id="datatable_listcustomer_care_all" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+            <table id="datatable_listhistory" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr>
                         <th>SĐT khách</th>

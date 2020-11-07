@@ -14,7 +14,7 @@
          <link href="Asset/libs/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
         <link href="Asset/libs/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
         <link href="Asset/libs/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
- 
+        <link href="Asset/libs/custombox/custombox.min.css" rel="stylesheet" type="text/css" >
         <!-- App css -->
         <link href="Asset/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="Asset/css/icons.min.css" rel="stylesheet" type="text/css" />
