@@ -1,14 +1,14 @@
-
 $(document).on('click', '.delCus', function(e){
-	
+	e.preventDefault();
 	var id = $(this).val();
 	var check = confirm('Bạn có chắc chắn xóa ko?');
 	if (check == true) {
-		$.post('Server/Customer/remove_customer.php', {id : id}, function(data){
+		$.post('remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
 			$('.table_Cus').load(' #datatable_listcustomer');
 		});
 	}
+});
 
 $(document).on('click', '.add_customer', function(){
 
@@ -25,6 +25,4 @@ $(document).on('click', '.add_customer', function(){
         $(".table").load(' #datatable_listcustomer_care_all');
 
     })
-    
-	
 });
