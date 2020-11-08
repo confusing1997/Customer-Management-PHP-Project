@@ -13,7 +13,7 @@
 
         public function CustomerCare () {
             $user_id = $_SESSION['id'];
-            $customer_care = $this->customer_care->getCustomerCare($user_id);
+            $customer_care = $this->customer_care->getCustomerCare($user_id);     
             include_once 'View/CustomerCare/list_customer_care.php';
         }
 
@@ -43,6 +43,10 @@
 
             include_once 'View/CustomerCare/list_history.php';
 
+        }
+
+         public function getDetailCare ($customer_id) {
+            return $this->customer_care->getDetailCare($customer_id);
         }
     }
 ?>

@@ -91,8 +91,9 @@
                                     	break;
                                     case 'list_customer_care':
                                         include_once 'Controller/CustomerCare/CustomerCare_c.php';
-                                        $customer = new CustomerCare_c();
-                                        $customer->CustomerCare();
+                                        $customer_care = new CustomerCare_c();
+                                        $customer_care->CustomerCare();
+                                       
                                         break;
                                     case 'list_customer_care_all':
                                         include_once 'Controller/CustomerCare/CustomerCare_c.php';

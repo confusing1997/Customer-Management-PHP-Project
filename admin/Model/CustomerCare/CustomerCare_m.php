@@ -13,7 +13,7 @@
         protected function getCustomerCare ($user_id) {
 
             $sql = "
-            SELECT tbl_customer.name, tbl_showroom.title, tbl_customer.phone, tbl_customer.email, tbl_care.status, tbl_care.create_at
+            SELECT tbl_customer.name, tbl_showroom.title, tbl_customer.phone, tbl_customer.email, tbl_care.status, tbl_care.create_at, tbl_customer.id
             FROM
                 tbl_user,
                 tbl_customer,
@@ -199,6 +199,29 @@
                 ) AS user02";
 
             $pre = $this->pdo->prepare($sql);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        //Hiện chi tiết nội dung chăm sóc khách hàng
+        protected function getDetailCare ($customer_id) {
+
+            $sql = "SELECT * FROM tbl_detail, tbl_user WHERE tbl_user.id = tbl_detail.user_id AND tbl_detail.customer_id = :customer_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":customer_id", $customer_id);
 
             $pre->execute();
 

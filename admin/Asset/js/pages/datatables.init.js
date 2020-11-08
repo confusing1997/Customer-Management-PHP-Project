@@ -11,10 +11,6 @@ $(document).ready(function(){
         "responsive": false
     });
 
-    $("#datatable_listcustomer_care_all").dataTable({
-        "responsive": false
-    });
-
     $("#datatable_listhistory").dataTable({
         "responsive": false
     }); 

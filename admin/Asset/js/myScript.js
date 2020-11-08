@@ -23,6 +23,6 @@ $(document).on('click', '.add_customer', function(){
         $('.modal-backdrop').remove();
         $('#notification').html(data);
         $(".table").load(' #datatable_listcustomer_care_all');
-
+        $(".table").load(' #datatable_listcustomer');
     })
 });
