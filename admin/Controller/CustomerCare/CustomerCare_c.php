@@ -13,7 +13,8 @@
 
         public function CustomerCare () {
             $user_id = $_SESSION['id'];
-            $customer_care = $this->customer_care->getCustomerCare($user_id);     
+            $customer_care = $this->customer_care->getCustomerCare($user_id);
+            $customer_care1 = $this->customer_care->getAllUserExceptOne($user_id);     
             include_once 'View/CustomerCare/list_customer_care.php';
         }
 
@@ -39,7 +40,7 @@
 
         public function getHistory(){
 
-                $customer_care = $this->customer_care->getHistory();
+                $history = $this->customer_care->getHistory();
 
             include_once 'View/CustomerCare/list_history.php';
 
@@ -47,6 +48,24 @@
 
          public function getDetailCare ($customer_id) {
             return $this->customer_care->getDetailCare($customer_id);
+        }
+
+        public function removeCustomerCare($customer_id){
+
+                $customer_care = $this->customer_care->removeCustomerCare($customer_id);
+
+        }
+
+        public function addUserGet($user_id_get, $customer_id){
+
+                $customer_care = $this->customer_care->addUserGet($user_id_get, $customer_id);
+
+        }
+
+        public function addHistory($user_id_move, $customer_id, $user_id_get){
+
+                $customer_care = $this->customer_care->addHistory($user_id_move, $customer_id, $user_id_get);
+
         }
     }
 ?>

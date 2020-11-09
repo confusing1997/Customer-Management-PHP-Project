@@ -1,17 +1,4 @@
-<form action="" method="POST" role="form" style="margin: 20px 0px;">
-    <div class="row">
-      <div class="col-lg-12 col-xs-12 col-md-12">
-        <div class="input-group">
-          <input type="text" value="<?php if(isset($key)) { echo $key; } ?>" name="key" class="form-control" placeholder="Nhập số điện thoại cần tìm...">
-          <span class="input-group-btn">
-            <button class="btn btn-primary" name="searchPhone" type="submit">Kiểm tra</button>
-          </span>
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-12 -->
-    </div><!-- /.row -->
-</form>
-
-<p id="notification"></p>
+<p id="notification1"></p>
 
 <div class="row">
     <div class="col-12">
@@ -26,16 +13,16 @@
                         <th>Thời gian chuyển</th>
                     </tr>
                 </thead>
-                <tbody id="view_customer_care_all">
+                <tbody id="view_history">
                     <?php
-                        foreach ($customer_care as $key => $valueCustomerAll) {
+                        foreach ($history as $valueTransfer) {
                         ?>
                             <tr>
-                                <td><?= $valueCustomerAll['phone'] ?></td>
-                                <td><?= $valueCustomerAll['Tên khách hàng'] ?></td>
-                                <td><?= $valueCustomerAll['Nhân viên chuyển'] ?></td>
-                                <td><span style="color: #FF6C7A; font-weight: bold"><?= $valueCustomerAll['Nhân viên chuyển']; ?></span> chuyển sang <span style="color: green; font-weight: bold"><?= $valueCustomerAll['Nhân viên nhận']; ?></span></td>
-                                <td><?= $valueCustomerAll['create_at'] ?></td>
+                                <td><?= $valueTransfer['phone'] ?></td>
+                                <td><?= $valueTransfer['Tên khách hàng'] ?></td>
+                                <td><?= $valueTransfer['Nhân viên chuyển'] ?></td>
+                                <td><span style="color: #FF6C7A; font-weight: bold"><?= $valueTransfer['Nhân viên chuyển']; ?></span> chuyển sang <span style="color: green; font-weight: bold"><?= $valueTransfer['Nhân viên nhận']; ?></span></td>
+                                <td><?= $valueTransfer['create_at'] ?></td>
                             </tr>
                         <?php
                         }

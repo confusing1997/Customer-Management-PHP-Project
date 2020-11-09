@@ -26,3 +26,18 @@ $(document).on('click', '.add_customer', function(){
         $(".table").load(' #datatable_listcustomer');
     })
 });
+
+$(document).on('click', '.transfer', function(){
+
+    var user_id_get = $('#listUser').val();
+    var customer_id = $(this).val();
+
+    $.post('transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(data){
+        
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('#notification1').html(data);
+        $(".table").load(' #datatable_listcustomer_care');
+    })
+});

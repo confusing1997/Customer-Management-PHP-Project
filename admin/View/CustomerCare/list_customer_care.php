@@ -1,8 +1,3 @@
-<form action="" method="POST">
-<div class="form-group">
-    <input type="text" class="form-control" id="key_search1" name="key_search1">
-</div>
-</form>
 <p id="notification"></p>
 
 <div class="row">
@@ -18,7 +13,7 @@
                         <th>Email</th>
                         <th>Trạng thái</th>
                         <th>Ngày chăm sóc</th>
-                        <th>Chi tiết</th>
+                        <th>Chức năng</th>
                     </tr>
                 </thead>
 
@@ -30,7 +25,7 @@
                         ?>
                             <tr>
                                 <td><?= $count; ?></td>
-                                <td><?= $valueCustomerCare['id'] ?></td>
+                                <td><?= $valueCustomerCare['name'] ?></td>
                                 <td><?= $valueCustomerCare['title'] ?></td>
                                 <td><?= $valueCustomerCare['phone'] ?></td>
                                 <td><?= $valueCustomerCare['email'] ?></td>
@@ -47,7 +42,8 @@
                                 <td><?= $valueCustomerCare['create_at'] ?></td>
 
                                 <td> 
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detail_<?php echo $valueCustomerCare['id']?>" data-whatever="@getbootstrap">Xem chi tiết</button>
+                                    <!-- Start Modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detail_<?php echo $valueCustomerCare['id']?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span class=" mdi mdi mdi-pencil"></span></button>
 
                                     <div class="modal fade bs-example-modal-lg" id="detail_<?php echo $valueCustomerCare['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog modal-lg" role="document">
@@ -88,7 +84,60 @@
                                           </div>
                                         </div>
                                       </div>
-                                    </div>             
+                                    </div>
+                                    <!-- End Modal -->
+
+                                    <!-- Add Customer Modal -->
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerCare['customer_id'] ?>" data-whatever="@getbootstrap" title="Điều chuyển"><span class="mdi mdi-account-arrow-right"></span></button>
+
+                                    <div class="modal fade text-left" id="detail_customer<?= $valueCustomerCare['customer_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Nhân viên chăm sóc</h5>
+                                    
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form>
+                                              <div class="form-group">
+                                                <label for="name" class="col-form-label">Họ tên: <?= $valueCustomerCare['Họ tên NV']; ?></label>
+                                              </div>
+
+                                              <div class="form-group">
+                                                <label for="name" class="col-form-label">Đơn vị: <?= $valueCustomerCare['title']; ?></label>
+                                              </div>
+
+                                              <div class="form-group">
+                                                <label for="phone" class="col-form-label">Ngày chăm sóc: <?= $valueCustomerCare['create_at']; ?></label>
+                                              </div>
+
+                                              <div class="form-group">
+                                                <label class="col-form-label">Điều chuyển khách hàng cho:</label>
+                                                <select class="form-control" id="listUser"> 
+                                                <?php foreach ($customer_care1 as $value) {
+                                                ?>
+                                                    <option value="<?= $value['id']; ?>"><?= $value['name']; ?></option>
+                                                <?php
+                                                } 
+                                                ?>
+                                                </select>
+                                              </div>
+
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                                <button type="button" class="btn btn-warning transfer" value="<?= $valueCustomerCare['customer_id'] ?>">Điều chuyển</button>
+                                              </div>
+                                            </form>
+                                          </div>
+                                          
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <!-- End Customer Modal -->  
                                 </td>
                             </tr>
                         <?php
