@@ -21,12 +21,14 @@
 <?php 
     }
 ?>
+
 <script type="text/javascript">
     //Hiện thông báo .. giây xong ẩn
     $(document).ready(function(){
         $(".alert").delay(2000).slideUp();
-    });
+    })
 </script>
+
         
 
 

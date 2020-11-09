@@ -18,7 +18,7 @@
         <div class="card-box table-responsive table">
             <table id="datatable_listcustomer_care_all" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>STT</th>
                         <th>Nhân viên</th>
                         <th>Showroom</th>
@@ -39,7 +39,7 @@
                     ?>  <tr class="text-center">
                             <td colspan="9">
                                 <!-- Add Customer Modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_customer" data-whatever="@getbootstrap">Thêm khách hàng</button>
+                                <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#add_customer" data-whatever="@getbootstrap">Thêm khách hàng</button>
 
                                 <div class="modal fade text-left" id="add_customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
@@ -89,14 +89,14 @@
                             $count++;
                         ?>
                             <tr>
-                                <td><?= $count; ?></td>
+                                <td class="text-center"><?= $count; ?></td>
                                 <td><?= $valueCustomerAll['Họ tên NV'] ?></td>
                                 <td><?= $valueCustomerAll['title'] ?></td>
                                 <td><?= $valueCustomerAll['Họ tên khách'] ?></td>
                                 <td><?= $valueCustomerAll['phone'] ?></td>
                                 <td><?= $valueCustomerAll['Email Khách'] ?></td>
                                 <td><?= $valueCustomerAll['create_at'] ?></td>
-                                <td>
+                                <td class="text-center">
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
                                             echo "<p style='color: red;'>Đang chăm sóc</p>";
@@ -108,9 +108,9 @@
                                 </td>
                                
 
-                                <td> 
+                                <td class="text-center"> 
                                     <!-- Add Customer Modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap">Xem chi tiết</button>
+                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade text-left" id="detail_customer<?= $valueCustomerAll['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">
@@ -168,7 +168,7 @@
                     ?>  <tr class="text-center">
                             <td colspan="9">
                                 <!-- Add Customer Modal -->
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_customer" data-whatever="@getbootstrap">Thêm khách hàng</button>
+                                <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#add_customer" data-whatever="@getbootstrap">Thêm khách hàng</button>
 
                                 <div class="modal fade text-left" id="add_customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
@@ -218,7 +218,7 @@
                             $count++;
                         ?>
                             <tr>
-                                <td><?= $count; ?></td>
+                                <td class="text-center"><?= $count; ?></td>
                                 <td><?= $valueCustomerAll['Họ tên NV'] ?></td>
                                 <td><?= $valueCustomerAll['title'] ?></td>
                                 <td><?= $valueCustomerAll['Họ tên khách'] ?></td>
@@ -237,9 +237,9 @@
                                 </td>
                                
 
-                                <td> 
+                                <td class="text-center"> 
                                     <!-- Add Customer Modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap">Xem chi tiết</button>
+                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade text-left" id="detail_customer<?= $valueCustomerAll['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">

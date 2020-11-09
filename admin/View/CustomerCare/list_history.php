@@ -1,11 +1,11 @@
-<p id="notification1"></p>
+<p id="notification"></p>
 
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive table">
             <table id="datatable_listhistory" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>SĐT khách</th>
                         <th>Họ tên khách</th>
                         <th>Nhân viên chuyển</th>

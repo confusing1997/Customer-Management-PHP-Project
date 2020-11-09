@@ -41,3 +41,4 @@ $(document).on('click', '.transfer', function(){
         $(".table").load(' #datatable_listcustomer_care');
     })
 });
+

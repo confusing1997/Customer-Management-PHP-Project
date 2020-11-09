@@ -58,7 +58,7 @@
             </span>
             <span class="logo-sm">
                 <!-- <span class="logo-sm-text-dark">U</span> -->
-                <img src="Asset/images/logo-sm.png" alt="" height="28">
+                <img src="Asset/images/favicon.ico" alt="" height="28">
             </span>
         </a>
     </div>

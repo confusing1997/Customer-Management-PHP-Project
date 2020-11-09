@@ -1,11 +1,11 @@
-<p id="notification"></p>
+<p id="notification1"></p>
 
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
             <table id="datatable_listcustomer_care" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
-                    <tr>
+                    <tr class="text-center">
                         <th>STT</th>
                         <th>Họ tên</th>
                         <th>Showroom</th>
@@ -24,12 +24,12 @@
                             $count++;
                         ?>
                             <tr>
-                                <td><?= $count; ?></td>
+                                <td class="text-center"><?= $count; ?></td>
                                 <td><?= $valueCustomerCare['name'] ?></td>
                                 <td><?= $valueCustomerCare['title'] ?></td>
                                 <td><?= $valueCustomerCare['phone'] ?></td>
                                 <td><?= $valueCustomerCare['email'] ?></td>
-                                <td>
+                                <td class="text-center">
                                     <?php 
                                         if ($valueCustomerCare['status'] == 1) {
                                             echo "<p style='color: red;'>Đang chăm sóc</p>";
@@ -43,7 +43,7 @@
 
                                 <td> 
                                     <!-- Start Modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detail_<?php echo $valueCustomerCare['id']?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span class=" mdi mdi mdi-pencil"></span></button>
+                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_<?php echo $valueCustomerCare['id']?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade bs-example-modal-lg" id="detail_<?php echo $valueCustomerCare['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog modal-lg" role="document">
@@ -88,7 +88,7 @@
                                     <!-- End Modal -->
 
                                     <!-- Add Customer Modal -->
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerCare['customer_id'] ?>" data-whatever="@getbootstrap" title="Điều chuyển"><span class="mdi mdi-account-arrow-right"></span></button>
+                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-warning" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerCare['customer_id'] ?>" data-whatever="@getbootstrap" title="Điều chuyển"><span><i class="mdi mdi-account-arrow-right"></i></span></button>
 
                                     <div class="modal fade text-left" id="detail_customer<?= $valueCustomerCare['customer_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">

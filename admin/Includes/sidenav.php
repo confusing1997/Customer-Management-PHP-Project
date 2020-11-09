@@ -7,33 +7,21 @@
         <div id="sidebar-menu">
 
             <ul class="metismenu" id="side-menu">
-
-                <li class="menu-title">Chăm sóc khách hàng</li>
-
-                <li>
-                    <a href="dashboard.php?page=index">
-                        <i class="fe-airplay"></i>
-                        <span> Dashboard </span>
-                    </a>
-                </li>
-                
                 <?php if($_SESSION['role'] == 1){ ?>
-                    <li>
-                        <a href="javascript: void(0);">
-                            <i class="fe-users"></i>
-                            <span> Quản lý nhân viên </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <ul class="nav-second-level" aria-expanded="false">
-                            <li><a href="dashboard.php?page=list_all_user">
-                                <span><i class=" mdi mdi-format-list-bulleted-square"></i></span>
-                                <span> Danh sách nhân viên </span>
-                            </a></li>
-                        </ul>
-                    </li>
-                <?php
-                    } 
-                ?>
+                <li class="menu-title mt-2">Quản lý</li>                
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="fe-users"></i>
+                        <span> Quản lý nhân viên </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="dashboard.php?page=list_all_user">
+                            <span><i class=" mdi mdi-format-list-bulleted-square"></i></span>
+                            <span> Danh sách nhân viên </span>
+                        </a></li>
+                    </ul>
+                </li>                
 
                 <li>
                     <a href="javascript: void(0);">
@@ -49,6 +37,19 @@
                     </ul>
                 </li>
                 
+                <?php
+                    } 
+                ?>
+
+                
+                <li class="menu-title">Chăm sóc khách hàng</li>
+
+                <li>
+                    <a href="dashboard.php?page=index">
+                        <i class="fe-airplay"></i>
+                        <span> Dashboard </span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="javascript: void(0);">
@@ -96,10 +97,7 @@
                         </a></li>
                     </ul>
                 </li>
-
-                <li class="menu-title mt-2">Chăm sóc khách hàng</li>
             </ul>
-
         </div>
         <!-- End Sidebar -->
 
