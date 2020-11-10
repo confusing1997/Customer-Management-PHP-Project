@@ -114,12 +114,12 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
                                   <form>
                                     <div class="form-group">
                                       <label for="name" class="col-form-label">Tên nhân viên</label>
-                                      <input type="text" class="form-control" id="staff_name" name="user_name" value="<?= $valueUser['name']; ?>">
+                                      <input type="text" class="form-control" id="staff_name<?= $valueUser['id'] ?>" name="user_name" value="<?= $valueUser['name']; ?>">
                                     </div>
 
                                     <div class="form-group">
                                       <label for="name" class="col-form-label">Showroom</label>
-                                      <select name="" id="staff_showroom" class="form-control">
+                                      <select name="" id="staff_showroom<?= $valueUser['id'] ?>" class="form-control">
                                         <?php 
                                           foreach($showroom as $valueShowroom) {
                                         ?>
@@ -132,22 +132,22 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
 
                                     <div class="form-group">
                                       <label for="phone" class="col-form-label">Email</label>
-                                      <input type="text" class="form-control" id="staff_email" name="user_email" value="<?= $valueUser['email']; ?>">
+                                      <input type="text" class="form-control" id="staff_email<?= $valueUser['id'] ?>" name="user_email" value="<?= $valueUser['email']; ?>">
                                     </div>
                                     
                                     <div class="form-group">
                                       <label for="email" class="col-form-label">Avatar</label>
-                                      <input type="text" class="form-control" id="avatar_user" name="avatar_user" value="<?= $valueUser['avatar']; ?>">
+                                      <input type="text" class="form-control" id="avatar_user<?= $valueUser['id'] ?>" name="avatar_user" value="<?= $valueUser['avatar']; ?>">
                                     </div>
 
                                     <div class="form-group">
                                       <label for="email" class="col-form-label">Địa chỉ</label>
-                                      <input type="text" class="form-control" id="staff_address" name="user_address" value="<?= $valueUser['addres']; ?>">
+                                      <input type="text" class="form-control" id="staff_address<?= $valueUser['id'] ?>" name="user_address" value="<?= $valueUser['addres']; ?>">
                                     </div>
 
                                     <div class="form-group">
                                       <label for="email" class="col-form-label">Lương cơ bản</label>
-                                      <input type="text" class="form-control" id="staff_salary" name="user_salary" value="<?= $valueUser['salary']; ?>">
+                                      <input type="text" class="form-control" id="staff_salary<?= $valueUser['id'] ?>" name="user_salary" value="<?= $valueUser['salary']; ?>">
                                     </div>
 
                                     <div class="modal-footer">
