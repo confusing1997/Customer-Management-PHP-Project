@@ -47,12 +47,12 @@
                             <form>
                               <div class="form-group">
                                 <label for="name" class="col-form-label">Name</label>
-                                <input type="text" id="name" name="name" class="form-control" value="<?= $value['name']; ?>">
+                                <input type="text" id="name<?= $value['id']; ?>" name="name" class="form-control" value="<?= $value['name']; ?>">
                               </div>
 
                               <div class="form-group">
                                 <label for="showroom" class="col-form-label">Showroom</label>
-                                <select class="form-control" id="showroom" disabled="" style="-webkit-appearance: none;"> 
+                                <select class="form-control" id="showroom<?= $value['id']; ?>" disabled="" style="-webkit-appearance: none;"> 
                                 <option value="<?= $value['showroom_id']; ?>"><?= $value['title']; ?></option>
                                 ?>
                                 </select>
@@ -60,12 +60,12 @@
 
                               <div class="form-group">
                                 <label for="phone" class="col-form-label">Phone</label>
-                                <input type="number" id="phone" name="phone" class="form-control" value="<?= $value['phone']; ?>">
+                                <input type="number" id="phone<?= $value['id']; ?>" name="phone" class="form-control" value="<?= $value['phone']; ?>">
                               </div>
 
                               <div class="form-group">
                                 <label for="phone" class="col-form-label">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" value="<?= $value['email']; ?>">
+                                <input type="email" id="email<?= $value['id']; ?>" name="email" class="form-control" value="<?= $value['email']; ?>">
                               </div>
 
                               <div class="modal-footer">
