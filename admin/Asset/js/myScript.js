@@ -90,12 +90,11 @@ $(document).on('click', '.transfer', function(){
 $(document).on('click', '.edit_customer', function(){
 
     var customer_id = $(this).val();
-    var showroom_id = $('#showroom').val();
     var name = $('#name').val();
     var phone = $('#phone').val();
     var email = $('#email').val();
 
-    $.post('edit_customer.php', { customer_id : customer_id, showroom_id : showroom_id, name : name, phone : phone, email : email}, function(data){
+    $.post('edit_customer.php', { customer_id : customer_id, name : name, phone : phone, email : email}, function(data){
         
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
