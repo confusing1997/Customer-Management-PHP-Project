@@ -35,4 +35,10 @@
 
         }
 
+        public function editUser ($id, $name, $avatar, $email, $addres, $salary) {
+
+            return $this->user->editUser ($id, $name, $avatar, $email, $addres, $salary);
+
+        }
+
     }
