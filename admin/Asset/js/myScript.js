@@ -6,10 +6,6 @@ $(document).on('click', '.delCus', function(){
 		$.post('remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
 			$('.display').load(' #datatable_listcustomer');
-            var table = $('#datatable_listcustomer').dataTable().api();
-            table.destroy();
-            table.draw();
-            
 		});
 	}
 });
@@ -82,7 +78,7 @@ $(document).on('click', '.transfer', function(){
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
-        $('.notification1').html(data);
+        $('.notification').html(data);
         $(".table").load(' #datatable_listcustomer_care');
     })
 });
@@ -104,5 +100,15 @@ $(document).on('click', '.edit_customer', function(){
     })
 });
 
-
+//Thêm nội dung chăm sóc
+$(document).on('click', '.add_content', function(e){
+    e.preventDefault();
+    var customer_id = $(this).val();
+    var content = $('#content' + customer_id).val();
+    $.post('add_content.php', { customer_id: customer_id, content: content}, function(data){
+        $('.notificationModal').html(data);
+        $(".table-content").load(' #data_content');
+        $('.modal-body').find('textarea').val('');
+    })
+});
 

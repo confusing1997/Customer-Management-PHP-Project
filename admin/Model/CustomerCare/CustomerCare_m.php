@@ -205,7 +205,7 @@
         //Hiện chi tiết nội dung chăm sóc khách hàng
         protected function getDetailCare ($customer_id) {
 
-            $sql = "SELECT * FROM tbl_detail, tbl_user WHERE tbl_user.id = tbl_detail.user_id AND tbl_detail.customer_id = :customer_id";
+            $sql = "SELECT tbl_user.avatar, tbl_user.name, tbl_detail.content, tbl_detail.create_at FROM tbl_detail, tbl_user WHERE tbl_user.id = tbl_detail.user_id AND tbl_detail.customer_id = :customer_id ORDER BY tbl_detail.create_at DESC";
 
             $pre = $this->pdo->prepare($sql);
 
@@ -287,5 +287,19 @@
             return $result;
         }
 
+        //Thêm nội dung chăm sóc vào bảng tbl_detail
+        protected function addContent($user_id, $customer_id, $content){
+            $sql = "INSERT INTO tbl_detail(user_id, customer_id, content) VALUES (:user_id, :customer_id, :content)";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':user_id', $user_id);
+
+            $pre->bindParam(':customer_id', $customer_id);
+
+            $pre->bindParam(':content', $content);
+
+            return $pre->execute();
+        }
     }
 
