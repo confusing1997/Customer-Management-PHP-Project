@@ -81,6 +81,10 @@
                     <!-- End Customer Modal -->
 
                     <button class="btn btn-danger btn-icon waves-effect waves-light delCus" value="<?php echo $value['id']; ?>" title="Xóa"><i class="fas fa-times"></i></button>
+                      <button class="btn btn-icon waves-effect waves-light btn-warning"><i class="fas fa-wrench" title="Sửa"></i></button>
+                      <button class="btn btn-danger btn-icon waves-effect waves-light delCus" value="<?php echo $value['id']; ?>" title="Xóa">
+                        <i class="fas fa-times"></i>
+                      </button>
                   </td>
                 </tr>
               <?php

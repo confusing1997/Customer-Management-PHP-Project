@@ -1,7 +1,7 @@
+//Xóa khách hàng theo id
 $(document).on('click', '.delCus', function(){
-	
 	var id = $(this).val();
-	var check = confirm('Bạn có chắc chắn xóa ko?');
+	var check = confirm('Bạn có chắc chắn xóa không?');
 	if (check == true) {
 		$.post('remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
@@ -14,7 +14,19 @@ $(document).on('click', '.delCus', function(){
 	}
 });
 
+//Xóa nhân viên theo id
+$(document).on('click', '.removeUser', function(){
+    var id = $(this).val();
+    var check = confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');
+    if (check == true) {
+        $.post('remove_user.php', { id : id }, function(data){
+            $('.notification').html(data);
+            $('.table_User').load(' #datatable_listuser');
+        });
+    }
+});
 
+//Thêm khác hàng modal
 $(document).on('click', '.add_customer', function(){
 
     var name = $('#name').val();
@@ -30,6 +42,34 @@ $(document).on('click', '.add_customer', function(){
         $(".table").load(' #datatable_listcustomer_care_all');
         $(".table").load(' #datatable_listcustomer');
     })
+});
+
+//Thêm nhân viên modal
+$(document).on('click', '.add_user', function(){
+    
+    var name = $('#user_name').val();
+    var showroom = $('#user_showroom').val(); 
+    var email = $('#user_email').val();
+    var address = $('#user_address').val();
+    var salary = $('#user_salary').val();
+
+    
+    $.post('add_user.php', { 
+        name : name, 
+        showroom : showroom, 
+        email : email, 
+        address : address, 
+        salary : salary }, 
+        function(data){
+
+            $(".modal:visible").modal('toggle');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+            $('.notification').html(data);
+            $(".table_User").load(' #datatable_listuser');
+
+        })
+
 });
 
 $(document).on('click', '.transfer', function(){
