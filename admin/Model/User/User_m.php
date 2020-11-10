@@ -130,6 +130,24 @@
 			return $result;
 
 		}
+
+		//Chỉnh sửa thông tin khách hàng
+		protected function editUser ($id, $name, $avatar, $email, $addres, $salary) {
+
+			$sql = "UPDATE tbl_user 
+					SET name = :name, avatar = :avatar ,email = :email ,addres = :addres, salary = :salary
+					WHERE id = :id";
+			
+			$pre = $this->pdo->prepare($sql);
+
+			$pre->bindParam(':id', $id);
+			$pre->bindParam(':name', $name);
+			$pre->bindParam(':avatar', $avatar);
+			$pre->bindParam(':email', $email);
+			$pre->bindParam(':salary', $salary);
+
+			return $pre->execute();
+		}
 	}
 
 
