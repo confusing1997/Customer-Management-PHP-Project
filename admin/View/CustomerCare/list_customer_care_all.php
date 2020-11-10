@@ -11,7 +11,7 @@
     </div><!-- /.row -->
 </form>
 
-<p id="notification"></p>
+<p id="notification"></p> 
 
 <div class="row">
     <div class="col-12">
@@ -27,7 +27,7 @@
                         <th>Email</th>
                         <th>Ngày chăm sóc</th>
                         <th>Trạng thái</th>
-                        <th>Xem chi tiết</th>
+                        <th>Xem chi tiết</th> 
                     </tr>
                 </thead>
                 <?php 
@@ -39,7 +39,11 @@
                     ?>  <tr class="text-center">
                             <td colspan="9">
                                 <!-- Add Customer Modal -->
-                                <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#add_customer" data-whatever="@getbootstrap">Thêm khách hàng</button>
+                                <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" 
+                                    data-toggle="modal" 
+                                    data-target="#add_customer" 
+                                    data-whatever="@getbootstrap">Thêm khách hàng
+                                </button>
 
                                 <div class="modal fade text-left" id="add_customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
