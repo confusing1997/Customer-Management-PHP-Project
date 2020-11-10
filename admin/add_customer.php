@@ -9,8 +9,8 @@
     $name = $_POST['name'];
     $showroom_id = $_SESSION['showroom_id'];
     $user_id = $_SESSION['id'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
+    $phone = $_POST['phone']; 
+    $email = $_POST['email']; 
 
     $num = count($customer->checkEmailPhone($phone, $email));
     if ($num == 0 && $name != '' && $phone != '' && $email !=''){
@@ -23,7 +23,7 @@
             <strong>Thông báo!</strong> Thêm mới thành công!
         </div>
 <?php 
-    } else {
+    } else { 
 
             echo "Thêm thất bại!";
             
