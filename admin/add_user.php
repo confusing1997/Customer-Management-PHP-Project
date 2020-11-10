@@ -5,11 +5,11 @@
 
     $user = new User_c(); 
     
-        $name = $_POST['name'];
-        $showroom = $_POST['showroom'];
-        $address = $_POST['address']; 
-        $email = $_POST['email'];
-        $salary = $_POST['salary'];
+        $name = trim($_POST['name']);
+        $showroom = trim($_POST['showroom']);
+        $address = trim($_POST['address']); 
+        $email = trim($_POST['email']);
+        $salary = trim($_POST['salary']);
 
         $num = count($user->checkEmailUser($email));
 
@@ -31,7 +31,7 @@
 
             endif;
 
-        elseif ($name == ''  && $email == '' && $address == '' && $salary == ''):
+        elseif ($name =='' || $showroom == '' || $email == '' || $address == '' || $salary ==''):
 ?>
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
