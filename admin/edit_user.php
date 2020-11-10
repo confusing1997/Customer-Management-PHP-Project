@@ -4,28 +4,39 @@
 
     $user = new User_c();
 
-    //if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['avatar']) && isset($_POST['email'])
-        //&& isset($_POST['address']) && isset($_POST['salary'])) :
+    
 
         $id = (int)$_POST['id'];
-        $name = $_POST['name'];
-        $avatar = $_POST['avatar'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        $salary = $_POST['salary'];
+        $name = trim($_POST['name']);
+        $avatar = trim($_POST['avatar']);
+        $email = trim($_POST['email']);
+        $address = trim($_POST['address']);
+        $salary = trim($_POST['salary']);
 
-        //$num = count($user->checkEmailUser($email));
+        $editUser = $user->editUser ($id, $name, $avatar, $email, $address, $salary);
 
-        //if ($num == 0) :
+        if ($editUser) :
+?>
 
-        $editUser = $user->editUser ($id, $name, $avatar, $email, $addres, $salary);
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Cập nhật thành công!!</strong> 
+            </div>
 
-        if ($editUser): 
-            echo 2;
+<?php 
+
         endif;
+?>
 
-        //endif;
+<script type="text/javascript">
+    //Hiện thông báo .. giây xong ẩn
+    $(document).ready(function(){
+        $(".alert").delay(2000).slideUp();
+    })
+</script>
+        
+        
 
-    //endif;  
+         
 
     
