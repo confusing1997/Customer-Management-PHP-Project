@@ -1,4 +1,4 @@
-<p id="notification1"></p>
+<p class="notification"></p>
 
 <div class="row">
     <div class="col-12">
@@ -46,7 +46,7 @@
                                     <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_<?php echo $valueCustomerCare['id']?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade bs-example-modal-lg" id="detail_<?php echo $valueCustomerCare['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog modal-lg" role="document">
+                                      <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Nội dung chi tiết chăm sóc khách hàng</h5>
@@ -55,14 +55,14 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <table class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                                <thead>
+                                            <table class="table table-bordered dt-responsive nowrap table-content" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                <thead class="text-center">
                                                     <td width="20%;">Avatar</td>
                                                     <td width="20%;">Nhân viên</td>
                                                     <td width="50%;">Nội dung</td>
                                                     <td width="10%;">Thời gian</td>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="data_content">
                                                     <?php
                                                     include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                                     $customer_care = new CustomerCare_c();
@@ -81,6 +81,12 @@
                                                     ?>
                                                 </tbody>
                                             </table>
+                                            <form>
+                                            <textarea class="form-control" rows="5" id="content<?= $valueCustomerCare['customer_id'] ?>"></textarea>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary add_content" value="<?= $valueCustomerCare['customer_id'] ?>">Cập nhật</button>
+                                            </div>
+                                            </form>
                                           </div>
                                         </div>
                                       </div>
@@ -101,6 +107,7 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
+                                            <p class="notificationModal"></p>
                                             <form>
                                               <div class="form-group">
                                                 <label for="name" class="col-form-label">Họ tên: <?= $valueCustomerCare['Họ tên NV']; ?></label>
