@@ -11,6 +11,24 @@ $(document).on('click', '.removeUser', function(){
     }
 });
 
+//Thêm khác hàng modal
+$(document).on('click', '.add_customer', function(){
+
+    var name = $('#name').val();
+    var phone = $('#phone').val();
+    var email = $('#email').val();
+
+    $.post('add_customer.php', { name: name, phone: phone, email: email }, function(data){
+        
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('.notification').html(data);
+        $(".table").load(' #datatable_listcustomer_care_all');
+        $(".table").load(' #datatable_listcustomer');
+    })
+});
+
 //Thêm nhân viên modal
 $(document).on('click', '.add_user', function(){
     
@@ -32,7 +50,7 @@ $(document).on('click', '.add_user', function(){
             $(".modal:visible").modal('toggle');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
-            $('#notification').html(data);
+            $('.notification').html(data);
             $(".table_User").load(' #datatable_listuser');
 
         })
@@ -45,11 +63,11 @@ $(document).on('click', '.edit_user', function(e){
     e.preventDefault();
 
     var id = $(this).val();
-    var name = $('#staff_name').val();
-    var avatar = $('#avatar_user').val();
-    var email = $('#staff_email').val();
-    var address = $('#staff_address').val();
-    var salary = $('#staff_salary').val();
+    var name = $('#staff_name' + id).val();
+    var avatar = $('#avatar_user'+ id).val();
+    var email = $('#staff_email'+ id).val();
+    var address = $('#staff_address'+ id).val();
+    var salary = $('#staff_salary'+ id).val();
     
     //console.log(id, name, avatar, email, address, salary);
 
@@ -67,7 +85,7 @@ $(document).on('click', '.edit_user', function(e){
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
-        $('#notification').html(data);
+        $('.notification').html(data);
         $(".table_User").load(' #datatable_listuser');
 
     })
@@ -116,8 +134,37 @@ $(document).on('click', '.transfer', function(){
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
-        $('#notification1').html(data);
+        $('.notification').html(data);
         $(".table").load(' #datatable_listcustomer_care');
+    })
+});
+
+$(document).on('click', '.edit_customer', function(){
+
+    var customer_id = $(this).val();
+    var name = $('#name').val();
+    var phone = $('#phone').val();
+    var email = $('#email').val();
+
+    $.post('edit_customer.php', { customer_id : customer_id, name : name, phone : phone, email : email}, function(data){
+        
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('.notification').html(data);
+        $(".table").load(' #datatable_listcustomer');
+    })
+});
+
+//Thêm nội dung chăm sóc
+$(document).on('click', '.add_content', function(e){
+    e.preventDefault();
+    var customer_id = $(this).val();
+    var content = $('#content' + customer_id).val();
+    $.post('add_content.php', { customer_id: customer_id, content: content}, function(data){
+        $('.notificationModal').html(data);
+        $(".table-content").load(' #data_content');
+        $('.modal-body').find('textarea').val('');
     })
 });
 
