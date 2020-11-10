@@ -32,16 +32,22 @@
 
         }
 
-        // public function editCustomer($id, $name, $phone, $email){
+        public function editCustomer($id, $name, $phone, $email){
 
-        //     return $this->customer->editCustomer($id, $name, $phone, $email);
+            return $this->customer->editCustomer($id, $name, $phone, $email);
 
-        // }
+        }
 
 
         public function checkEmailPhone($phone, $email){
 
             return $this->customer->checkEmailPhone($phone, $email);
+
+        }
+
+        public function checkEmailPhoneUpdate($phone, $email){
+
+            return $this->customer->checkEmailPhoneUpdate($phone, $email);
 
         }
     }

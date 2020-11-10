@@ -1,14 +1,19 @@
-$(document).on('click', '.delCus', function(e){
-	e.preventDefault();
+$(document).on('click', '.delCus', function(){
+	
 	var id = $(this).val();
 	var check = confirm('Bạn có chắc chắn xóa ko?');
 	if (check == true) {
 		$.post('remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
-			$('.table_Cus').load(' #datatable_listcustomer');
+			$('.display').load(' #datatable_listcustomer');
+            var table = $('#datatable_listcustomer').dataTable().api();
+            table.destroy();
+            table.draw();
+            
 		});
 	}
 });
+
 
 $(document).on('click', '.add_customer', function(){
 
@@ -21,7 +26,7 @@ $(document).on('click', '.add_customer', function(){
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
-        $('#notification').html(data);
+        $('.notification').html(data);
         $(".table").load(' #datatable_listcustomer_care_all');
         $(".table").load(' #datatable_listcustomer');
     })
@@ -37,8 +42,28 @@ $(document).on('click', '.transfer', function(){
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
-        $('#notification1').html(data);
+        $('.notification1').html(data);
         $(".table").load(' #datatable_listcustomer_care');
     })
 });
+
+$(document).on('click', '.edit_customer', function(){
+
+    var customer_id = $(this).val();
+    var showroom_id = $('#showroom').val();
+    var name = $('#name').val();
+    var phone = $('#phone').val();
+    var email = $('#email').val();
+
+    $.post('edit_customer.php', { customer_id : customer_id, showroom_id : showroom_id, name : name, phone : phone, email : email}, function(data){
+        
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('.notification').html(data);
+        $(".table").load(' #datatable_listcustomer');
+    })
+});
+
+
 

@@ -123,7 +123,25 @@
             $pre->bindParam(':email', $email);
 
             return $pre->execute();
-        }
+        }    
 
-        
+        function checkEmailPhoneUpdate($phone, $email){
+            $sql = "SELECT *FROM tbl_customer WHERE phone != :phone OR email != :email";
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':phone', $phone);
+            $pre->bindParam(':email', $email);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+        }
     }
