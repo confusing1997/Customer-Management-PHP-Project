@@ -143,6 +143,7 @@
 			$pre->bindParam(':id', $id);
 			$pre->bindParam(':name', $name);
 			$pre->bindParam(':avatar', $avatar);
+			$pre->bindParam(':addres', $addres);
 			$pre->bindParam(':email', $email);
 			$pre->bindParam(':salary', $salary);
 
