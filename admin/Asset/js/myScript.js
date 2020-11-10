@@ -1,14 +1,3 @@
-//Xóa khách hàng theo id
-$(document).on('click', '.delCus', function(){
-	var id = $(this).val();
-	var check = confirm('Bạn có chắc chắn xóa không?');
-	if (check == true) {
-		$.post('remove_customer.php', {id : id}, function(data){
-			$('.notification').html(data);
-			$('.table_Cus').load(' #datatable_listcustomer');
-		});
-	}
-});
 
 //Xóa nhân viên theo id
 $(document).on('click', '.removeUser', function(){
@@ -20,24 +9,6 @@ $(document).on('click', '.removeUser', function(){
             $('.table_User').load(' #datatable_listuser');
         });
     }
-});
-
-//Thêm khác hàng modal
-$(document).on('click', '.add_customer', function(){
-
-    var name = $('#name').val();
-    var phone = $('#phone').val();
-    var email = $('#email').val();
-
-    $.post('add_customer.php', { name: name, phone: phone, email: email }, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('#notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care_all');
-        $(".table").load(' #datatable_listcustomer');
-    })
 });
 
 //Thêm nhân viên modal
@@ -68,6 +39,73 @@ $(document).on('click', '.add_user', function(){
 
 });
 
+//Sửa nhân viên theo modal
+$(document).on('click', '.edit_user', function(e){
+
+    e.preventDefault();
+
+    var id = $(this).val();
+    var name = $('#staff_name').val();
+    var avatar = $('#avatar_user').val();
+    var email = $('#staff_email').val();
+    var address = $('#staff_address').val();
+    var salary = $('#staff_salary').val();
+    
+    //console.log(id, name, avatar, email, address, salary);
+
+    $.post('edit_user.php', {
+        
+        id : id,
+        name : name,
+        avatar : avatar,
+        email : email,
+        address : address,
+        salary : salary
+
+    }, function (data){
+
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('#notification').html(data);
+        $(".table_User").load(' #datatable_listuser');
+
+    })
+
+
+});
+
+//Xóa khách hàng theo id
+$(document).on('click', '.delCus', function(){
+	var id = $(this).val();
+	var check = confirm('Bạn có chắc chắn xóa không?');
+	if (check == true) {
+		$.post('remove_customer.php', {id : id}, function(data){
+			$('.notification').html(data);
+			$('.table_Cus').load(' #datatable_listcustomer');
+		});
+	}
+});
+
+//Thêm khách hàng modal
+$(document).on('click', '.add_customer', function(){
+
+    var name = $('#name').val();
+    var phone = $('#phone').val();
+    var email = $('#email').val();
+
+    $.post('add_customer.php', { name: name, phone: phone, email: email }, function(data){
+        
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('#notification').html(data);
+        $(".table").load(' #datatable_listcustomer_care_all');
+        $(".table").load(' #datatable_listcustomer');
+    })
+});
+
+//Điều chuyển khách hàng
 $(document).on('click', '.transfer', function(){
 
     var user_id_get = $('#listUser').val();
