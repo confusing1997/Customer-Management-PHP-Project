@@ -11,7 +11,7 @@
     </div><!-- /.row -->
 </form>
 
-<p id="notification"></p> 
+<p class="notification"></p> 
 
 <div class="row">
     <div class="col-12">

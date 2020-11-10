@@ -67,5 +67,11 @@
                 $customer_care = $this->customer_care->addHistory($user_id_move, $customer_id, $user_id_get);
 
         }
+
+        public function addContent($user_id, $customer_id, $content){
+
+                $customer_care = $this->customer_care->addContent($user_id, $customer_id, $content);
+
+        }
     }
 ?>
