@@ -90,9 +90,9 @@ $(document).on('click', '.transfer', function(){
 $(document).on('click', '.edit_customer', function(){
 
     var customer_id = $(this).val();
-    var name = $('#name').val();
-    var phone = $('#phone').val();
-    var email = $('#email').val();
+    var name = $('#name' + customer_id).val();
+    var phone = $('#phone' + customer_id).val();
+    var email = $('#email' + customer_id).val();
 
     $.post('edit_customer.php', { customer_id : customer_id, name : name, phone : phone, email : email}, function(data){
         
