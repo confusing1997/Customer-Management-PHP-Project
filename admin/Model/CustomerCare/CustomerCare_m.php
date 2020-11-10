@@ -289,14 +289,11 @@
 
         //Thêm nội dung chăm sóc vào bảng tbl_detail
         protected function addContent($user_id, $customer_id, $content){
-            $sql = "INSERT INTO tbl_detail(user_id, customer_id, content) VALUES (:user_id, :customer_id, :content)";
-
+            $sql = "INSERT INTO tbl_detail (user_id, customer_id, content) VALUES (:user_id, :customer_id, :content)";
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindParam(':user_id', $user_id);
-
             $pre->bindParam(':customer_id', $customer_id);
-
             $pre->bindParam(':content', $content);
 
             return $pre->execute();

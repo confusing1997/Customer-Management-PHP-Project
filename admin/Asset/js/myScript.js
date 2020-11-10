@@ -163,8 +163,9 @@ $(document).on('click', '.add_content', function(e){
     var content = $('#content' + customer_id).val();
     $.post('add_content.php', { customer_id: customer_id, content: content}, function(data){
         $('.notificationModal').html(data);
-        $(".table-content").load(' #data_content');
+        $(".table-content"+customer_id).load(' #data_content'+customer_id);
         $('.modal-body').find('textarea').val('');
+        $('.modal-body').scrollTop(0);
     })
 });
 

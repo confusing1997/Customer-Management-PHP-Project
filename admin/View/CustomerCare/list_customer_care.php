@@ -1,4 +1,4 @@
-<p class="notification"></p>
+<div class="notification"></div>
 
 <div class="row">
     <div class="col-12">
@@ -55,32 +55,35 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <table class="table table-bordered dt-responsive nowrap table-content" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                                <thead class="text-center">
-                                                    <td width="20%;">Avatar</td>
-                                                    <td width="20%;">Nhân viên</td>
-                                                    <td width="50%;">Nội dung</td>
-                                                    <td width="10%;">Thời gian</td>
-                                                </thead>
-                                                <tbody id="data_content">
-                                                    <?php
-                                                    include_once 'Controller/CustomerCare/CustomerCare_c.php';
-                                                    $customer_care = new CustomerCare_c();
-                                                    $customer_id = $valueCustomerCare['id'];
-                                                    $result = $customer_care->getDetailCare($customer_id);
-                                                    foreach ($result as $key => $value) {
-                                                    ?>
-                                                        <tr>
-                                                            <td><img src="Asset/images/users/<?php echo $value['avatar']; ?>" alt="user-image" class="" style="width: 100px; height: 100px;"></td>
-                                                            <td><?php echo $value['name'];?></td>
-                                                            <td><?php echo $value['content'];?></td>
-                                                            <td><?php echo $value['create_at'];?></td>
-                                                        </tr>
-                                                    <?php  
-                                                    }
-                                                    ?>
-                                                </tbody>
-                                            </table>
+                                            <div class="notificationModal"></div>
+                                            <div class="table-content<?= $valueCustomerCare['customer_id'] ?>" id="data_content<?= $valueCustomerCare['customer_id'] ?>">
+                                                <table class="table table-bordered dt-responsive nowrap" id="tableModal<?= $valueCustomerCare['customer_id'] ?>">
+                                                    <thead class="text-center dataContentHeader">
+                                                        <td style="width: 20%">Avatar</td>
+                                                        <td style="width: 20%">Nhân viên</td>
+                                                        <td style="width: 50%">Nội dung</td>
+                                                        <td style="width: 10%">Thời gian</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php
+                                                        include_once 'Controller/CustomerCare/CustomerCare_c.php';
+                                                        $customer_care = new CustomerCare_c();
+                                                        $customer_id = $valueCustomerCare['id'];
+                                                        $result = $customer_care->getDetailCare($customer_id);
+                                                        foreach ($result as $value) {
+                                                        ?>
+                                                            <tr>
+                                                                <td><img src="Asset/images/users/<?php echo $value['avatar']; ?>" alt="user-image" class="" style="width: 100px; height: 100px;"></td>
+                                                                <td><?php echo $value['name'];?></td>
+                                                                <td><?php echo $value['content'];?></td>
+                                                                <td><?php echo $value['create_at'];?></td>
+                                                            </tr>
+                                                        <?php  
+                                                        }
+                                                        ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                             <form>
                                             <textarea class="form-control" rows="5" id="content<?= $valueCustomerCare['customer_id'] ?>"></textarea>
                                             <div class="modal-footer">
@@ -107,7 +110,6 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <p class="notificationModal"></p>
                                             <form>
                                               <div class="form-group">
                                                 <label for="name" class="col-form-label">Họ tên: <?= $valueCustomerCare['Họ tên NV']; ?></label>

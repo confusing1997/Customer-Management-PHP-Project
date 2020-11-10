@@ -19,6 +19,13 @@
             <strong>Thông báo!</strong> Điều chuyển thành công!
         </div>
 <?php 
+    } else {
+?>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Thông báo!</strong> Điều chuyển thất bại!
+        </div>
+<?php
     }
 ?>
 
