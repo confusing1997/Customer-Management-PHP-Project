@@ -74,7 +74,7 @@ $(document).on('click', '.edit_user', function(e){
     $.post('edit_user.php', {
         
         id : id,
-        name : name,
+        name : name, 
         avatar : avatar,
         email : email,
         address : address,
@@ -156,7 +156,7 @@ $(document).on('click', '.edit_customer', function(){
     })
 });
 
-//Thêm nội dung chăm sóc
+//Thêm nội dung chăm sóc 
 $(document).on('click', '.add_content', function(e){
     e.preventDefault();
     var customer_id = $(this).val();

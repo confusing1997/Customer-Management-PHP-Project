@@ -55,7 +55,9 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
+                                            
                                             <div class="notificationModal"></div>
+
                                             <div class="table-content<?= $valueCustomerCare['customer_id'] ?>" id="data_content<?= $valueCustomerCare['customer_id'] ?>">
                                                 <table class="table table-bordered dt-responsive nowrap" id="tableModal<?= $valueCustomerCare['customer_id'] ?>">
                                                     <thead class="text-center dataContentHeader">
