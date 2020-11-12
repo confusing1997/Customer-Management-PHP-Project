@@ -125,10 +125,11 @@
             return $pre->execute();
         }    
 
-        function checkEmailPhoneUpdate($phone, $email){
-            $sql = "SELECT *FROM tbl_customer WHERE phone != :phone OR email != :email";
+        function checkEmailPhoneUpdate($id, $phone, $email){
+            $sql = "SELECT *FROM tbl_customer WHERE id != :id AND (phone = :phone OR email = :email)";
             $pre = $this->pdo->prepare($sql);
 
+            $pre->bindParam(':id', $id);
             $pre->bindParam(':phone', $phone);
             $pre->bindParam(':email', $email);
 

@@ -117,7 +117,7 @@
                                     <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade text-left" id="detail_customer<?= $valueCustomerAll['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog" role="document">
+                                      <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Chi tiết khách hàng</h5>
@@ -126,7 +126,7 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <form>
+                                              <div class="notificationModal"></div>
                                               <div class="form-group">
                                                 <label for="name" class="col-form-label">Tên khách hàng: <?= $valueCustomerAll['Họ tên khách']; ?></label>
                                               </div>
@@ -143,17 +143,44 @@
                                                 <label for="email" class="col-form-label">Email: <?= $valueCustomerAll['Email Khách']; ?></label>
                                               </div>
 
-                                              <div class="form-group">
-                                                <textarea class="form-control" rows="10">abc</textarea>
+                                              <div class="table_content_all<?= $valueCustomerAll['id'] ?>" id="data_content_all<?= $valueCustomerAll['id'] ?>">
+                                              <!--Bảng lịch sử cập nhật-->
+                                              <table class="table table-bordered dt-responsive nowrap">
+                                                  <thead class="text-center dataContentHeader">
+                                                      <td style="width: 6%">Avatar</td>
+                                                      <td style="width: 20%">Nhân viên</td>
+                                                      <td style="width: 64%">Nội dung</td>
+                                                      <td style="width: 10%">Thời gian</td>
+                                                  </thead>
+                                                  <tbody id="data-care">
+                                                      <?php
+                                                      include_once 'Controller/CustomerCare/CustomerCare_c.php';
+                                                      $customer_care = new CustomerCare_c();
+                                                      $customer_id = $valueCustomerAll['id'];
+                                                      $result = $customer_care->getDetailCare($customer_id);
+                                                      foreach ($result as $value) {
+                                                      ?>
+                                                          <tr>
+                                                              <td><img src="Asset/images/users/<?php echo $value['avatar']; ?>" alt="user-image" class="" style="width: 50px; height: 50px;"></td>
+                                                              <td><?php echo $value['name'];?></td>
+                                                              <td><?php echo $value['content'];?></td>
+                                                              <td><?php echo $value['create_at'];?></td>
+                                                          </tr>
+                                                      <?php  
+                                                      }
+                                                      ?>
+                                                  </tbody>
+                                              </table>
+                                              <!--Bảng lịch sử cập nhật-->
                                               </div>
-
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                                <button type="button" class="btn btn-primary add_customer">Cập nhật</button>
-                                              </div>
-                                            </form>
+                                              
                                           </div>
-                                          
+                                          <form>
+                                            <textarea class="form-control ckeditor" rows="1" id="update_content<?= $valueCustomerAll['id'] ?>" name="update_content<?= $valueCustomerAll['id'] ?>"></textarea>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-primary add_content_2nd" value="<?= $valueCustomerAll['id'] ?>">Cập nhật</button>
+                                            </div>
+                                          </form>
                                         </div>
                                       </div>
                                     </div>
@@ -246,7 +273,7 @@
                                     <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade text-left" id="detail_customer<?= $valueCustomerAll['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog" role="document">
+                                      <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Chi tiết khách hàng</h5>
@@ -255,7 +282,6 @@
                                             </button>
                                           </div>
                                           <div class="modal-body">
-                                            <form>
                                               <div class="form-group">
                                                 <label for="name" class="col-form-label">Tên khách hàng: <?= $valueCustomerAll['Họ tên khách']; ?></label>
                                               </div>
@@ -271,18 +297,7 @@
                                               <div class="form-group">
                                                 <label for="email" class="col-form-label">Email: <?= $valueCustomerAll['Email Khách']; ?></label>
                                               </div>
-
-                                              <div class="form-group">
-                                                <textarea class="form-control" rows="10">abc</textarea>
-                                              </div>
-
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                                <button type="button" class="btn btn-primary add_customer">Cập nhật</button>
-                                              </div>
-                                            </form>
                                           </div>
-                                          
                                         </div>
                                       </div>
                                     </div>

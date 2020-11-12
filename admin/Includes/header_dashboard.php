@@ -21,6 +21,7 @@
         <link href="Asset/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="Asset/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="Asset/css/app.min.css" rel="stylesheet" type="text/css" />
+        <script src="Asset/ckeditor/ckeditor.js"></script>
 
     </head>
 

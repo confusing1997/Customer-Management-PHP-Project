@@ -23,7 +23,7 @@
             <strong>Thông báo!</strong> Thêm mới thành công!
         </div>
 <?php 
-    } else { 
+        } else { 
 
             echo "Thêm thất bại!";
             
@@ -48,7 +48,7 @@
     //Hiện thông báo .. giây xong ẩn
     $(document).ready(function(){
         $(".alert").delay(2000).slideUp();
-        setInterval('refreshPage()', 5000);
+        setInterval('refreshPage()', 2500);
     });
     function refreshPage() {
     location.reload(true);

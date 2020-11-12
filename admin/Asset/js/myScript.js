@@ -156,15 +156,29 @@ $(document).on('click', '.edit_customer', function(){
     })
 });
 
-//Thêm nội dung chăm sóc 
+//Thêm nội dung chăm sóc của khách hàng mình đang chăm sóc
 $(document).on('click', '.add_content', function(e){
     e.preventDefault();
     var customer_id = $(this).val();
-    var content = $('#content' + customer_id).val();
+    var content = CKEDITOR.instances['content' + customer_id].getData();
     $.post('add_content.php', { customer_id: customer_id, content: content}, function(data){
         $('.notificationModal').html(data);
         $(".table-content"+customer_id).load(' #data_content'+customer_id);
-        $('.modal-body').find('textarea').val('');
+        $('.modal').find('textarea').val('');
+        $('.modal-body').scrollTop(0);
+    })
+});
+
+//Thêm nội dung chăm sóc của khách hàng
+$(document).on('click', '.add_content_2nd', function(e){
+    e.preventDefault();
+    var customer_id = $(this).val();
+    var content = CKEDITOR.instances['update_content' + customer_id].getData();
+    console.log(customer_id,content);
+    $.post('add_content.php', { customer_id: customer_id, content: content}, function(data){
+        $('.notificationModal').html(data);
+        $(".table_content_all"+customer_id).load(' #data-care');
+        $('.modal').find('textarea').val('');
         $('.modal-body').scrollTop(0);
     })
 });

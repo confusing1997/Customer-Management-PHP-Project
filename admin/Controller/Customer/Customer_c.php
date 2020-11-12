@@ -45,9 +45,9 @@
 
         }
 
-        public function checkEmailPhoneUpdate($phone, $email){
+        public function checkEmailPhoneUpdate($id, $phone, $email){
 
-            return $this->customer->checkEmailPhoneUpdate($phone, $email);
+            return $this->customer->checkEmailPhoneUpdate($id, $phone, $email);
 
         }
     }

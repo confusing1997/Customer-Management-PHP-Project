@@ -12,6 +12,7 @@ $(document).ready(function(){
     });
 
     $("#datatable_listhistory").dataTable({
-        "responsive": false
+        "responsive": false,
+        "order": [[ 4, "desc" ]]
     }); 
 });
