@@ -8,27 +8,40 @@
     $phone = $_POST['phone'];
     $email = $_POST['email']; 
 
-    $edit = $customer->editCustomer($id, $name, $phone, $email);
 
-    if ($edit) {
-?>
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Thông báo!</strong> Cập nhật thành công!
-    </div>
+    $num = count($customer->checkEmailPhoneUpdate($id, $phone, $email));
+    if($num == 0 && $name != '' && $phone != '' && $email != ''){
+        $edit = $customer->editCustomer($id, $name, $phone, $email);
+        if ($edit) {
+    ?>
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Thông báo!</strong> Cập nhật thành công!
+            </div>
 
-<?php 
+    <?php 
 
+        } else {
+
+    ?>
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Thông báo!</strong> Cập nhật thất bại!
+            </div>
+    <?php 
+        } 
     } else {
+    ?>
+        <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>Thông báo!</strong> Số điện thoại hoặc email bị trùng!
+            </div>
+    <?php
+    }
+    ?>
+    
 
-?>
-    <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Thông báo!</strong> Cập nhật thất bại!
-    </div>
-<?php 
-    } 
-?>
+    
 
 <script type="text/javascript">
     //Hiện thông báo .. giây xong ẩn
