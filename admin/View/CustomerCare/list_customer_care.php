@@ -57,11 +57,12 @@
                                           <div class="modal-body">
                                             <div class="notificationModal"></div>
                                             <div class="table-content<?= $valueCustomerCare['customer_id'] ?>" id="data_content<?= $valueCustomerCare['customer_id'] ?>">
-                                                <table class="table table-bordered dt-responsive nowrap" id="tableModal<?= $valueCustomerCare['customer_id'] ?>">
+                                                
+                                                <table class="table table-bordered dt-responsive nowrap">
                                                     <thead class="text-center dataContentHeader">
-                                                        <td style="width: 20%">Avatar</td>
+                                                        <td style="width: 10%">Avatar</td>
                                                         <td style="width: 20%">Nhân viên</td>
-                                                        <td style="width: 50%">Nội dung</td>
+                                                        <td style="width: 60%">Nội dung</td>
                                                         <td style="width: 10%">Thời gian</td>
                                                     </thead>
                                                     <tbody>
@@ -73,7 +74,7 @@
                                                         foreach ($result as $value) {
                                                         ?>
                                                             <tr>
-                                                                <td><img src="Asset/images/users/<?php echo $value['avatar']; ?>" alt="user-image" class="" style="width: 100px; height: 100px;"></td>
+                                                                <td><img src="Asset/images/users/<?php echo $value['avatar']; ?>" alt="user-image" class="" style="width: 50px; height: 50px;"></td>
                                                                 <td><?php echo $value['name'];?></td>
                                                                 <td><?php echo $value['content'];?></td>
                                                                 <td><?php echo $value['create_at'];?></td>
@@ -83,14 +84,14 @@
                                                         ?>
                                                     </tbody>
                                                 </table>
-                                            </div>
-                                            <form>
-                                            <textarea class="form-control" rows="5" id="content<?= $valueCustomerCare['customer_id'] ?>"></textarea>
+                                            </div>                                            
+                                          </div>
+                                          <form>
+                                            <textarea class="form-control ckeditor" rows="1" id="content<?= $valueCustomerCare['customer_id'] ?>" name="content<?= $valueCustomerCare['customer_id'] ?>"></textarea>
                                             <div class="modal-footer">
                                                 <button class="btn btn-primary add_content" value="<?= $valueCustomerCare['customer_id'] ?>">Cập nhật</button>
                                             </div>
                                             </form>
-                                          </div>
                                         </div>
                                       </div>
                                     </div>
