@@ -8,7 +8,7 @@
 
             <ul class="metismenu" id="side-menu">
                 <?php if($_SESSION['role'] == 1){ ?>
-                <li class="menu-title mt-2">Quản lý</li>                
+                <li class="menu-title mt-2"> Quản lý </li>                
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fe-users"></i>
@@ -32,7 +32,7 @@
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="dashboard.php?page=list_customer">
                             <span><i class=" mdi mdi-format-list-bulleted-square"></i></span>
-                                <span> Danh sách khách hàng </span>
+                            <span> Danh sách khách hàng </span>
                         </a></li>
                     </ul>
                 </li>
@@ -42,7 +42,7 @@
                 ?>
 
                 
-                <li class="menu-title">Chăm sóc khách hàng</li>
+                <li class="menu-title"> Chăm sóc khách hàng </li>
 
                 <li>
                     <a href="dashboard.php?page=index">
