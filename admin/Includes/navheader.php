@@ -53,7 +53,7 @@
     <div class="logo-box">
         <a href="index.php" class="logo text-center">
             <span class="logo-lg">
-                <img src="Asset/images/logo-light.png" alt="" height="16">
+                <img src="Asset/images/Logo.png" alt="" height="50">
                 <!-- <span class="logo-lg-text-light">UBold</span> -->
             </span>
             <span class="logo-sm">
