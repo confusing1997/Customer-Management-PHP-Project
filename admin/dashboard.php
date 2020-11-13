@@ -90,9 +90,12 @@
                                             case 'list_history':
                                                 echo 'Lịch sử điều chuyển';
                                                 break;
+                                            case 'list_customer_care_user':
+                                                echo 'Danh sách khách hàng của nhân viên';
+                                                break;
                                             default:
                                                 echo "Error 404, Trang không tồn tại";
-                                                echo "<a href='list_customer.php'>Quay lại</a>";
+                                                echo "<a href='dashboard.php'>Quay lại</a>";
                                                 break;
                                         }
                                     ?>
@@ -125,6 +128,12 @@
                                         include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                         $customer_care = new CustomerCare_c();
                                         $customer_care->CustomerCare();
+                                       
+                                        break;
+                                    case 'list_customer_care_user':
+                                        include_once 'Controller/CustomerCare/CustomerCare_c.php';
+                                        $customer_care = new CustomerCare_c();
+                                        $customer_care->detailUser();
                                        
                                         break;
                                     case 'list_customer_care_all':

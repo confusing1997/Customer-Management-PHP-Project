@@ -71,5 +71,26 @@
 
             return $pre->execute();
         }
+
+        //Lấy thông tin nhân viên chăm sóc khách hàng
+        protected function getUserMove($customer_id) {
+
+            $sql = "SELECT * FROM tbl_care
+                    WHERE customer_id = :customer_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':customer_id', $customer_id);
+
+            $pre->execute();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+        }
     }
 

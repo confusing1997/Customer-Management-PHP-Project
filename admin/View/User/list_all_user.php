@@ -89,7 +89,7 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
                       <td><?= $valueUser['name'] ?></td>
                       <td><?= $valueUser['title'] ?></td>
                       <td><?= $valueUser['email'] ?></td>
-                      <td class="">
+                      <td class="text-center">
 
                           <!-- BEGIN EDIT USER MODAL -->
 
@@ -169,7 +169,11 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
                           title="Xóa">  
                             <i class="fas fa-times"></i>
                           </button>
-                      </td>    
+
+                          <a href="dashboard.php?page=list_customer_care_user&id=<?= $valueUser['id']; ?>">
+                            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Danh sách khách hàng chăm sóc"><span><i class="mdi mdi-pencil"></i></span></button>
+                          </a>
+                      </td>
                   </tr>
                 <?php
               }

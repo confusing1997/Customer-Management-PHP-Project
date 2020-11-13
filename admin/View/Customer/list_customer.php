@@ -11,11 +11,11 @@
           <thead>
             <tr class="text-center">
               <th>STT</th>
-              <th>Name</th>
+              <th>Họ tên</th>
               <th>Showroom</th>
               <th>SĐT</th>
               <th>Email</th>
-              <th>Action</th>
+              <th>Chức năng</th>
             </tr>
           </thead>
 

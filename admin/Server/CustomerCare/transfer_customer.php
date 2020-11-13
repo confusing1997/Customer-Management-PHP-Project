@@ -6,7 +6,11 @@
 
     $user_id_get = $_POST['user_id_get'];
     $customer_id = $_POST['customer_id'];
-    $user_id_move = $_SESSION['id'];
+    $userMove = $customer_care->getUserMove($customer_id);
+    foreach ($userMove as $valueMove) {    
+        $user_id_move = $valueMove['user_id'];
+    }
+    $user_move = $_SESSION['id'];
 
     $delete = $customer_care->removeCustomerCare($customer_id);
     $addTblCare = $customer_care->addUserGet($user_id_get, $customer_id);

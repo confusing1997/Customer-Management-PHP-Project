@@ -33,8 +33,7 @@
         }
 
         public function getHistory(){
-
-                $history = $this->customer_care->getHistory();
+            $history = $this->customer_care->getHistory();
 
             include_once 'View/CustomerCare/list_history.php';
 
@@ -44,6 +43,15 @@
 
             return $this->customer_care->getDetailCare($customer_id);
 
+        }
+
+        public function detailUser () {
+            if (isset($_GET['id'])) {
+                $user_id = (int)$_GET['id'];            
+                $customer_care = $this->customer_care->getCustomerCare($user_id);
+                $customer_care1 = $this->customer_care->getAllUserExceptOne($user_id);     
+                include_once 'View/CustomerCare/list_customer_care_user.php';
+            }
         }
     }
 ?>
