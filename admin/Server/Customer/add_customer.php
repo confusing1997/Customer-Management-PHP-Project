@@ -1,10 +1,10 @@
 <?php
     session_start();
-    include_once("Controller/Customer/Customer_c.php");
-    include_once("Controller/CustomerCare/CustomerCare_c.php");
+    include_once("../../Controller/Customer/Customer_c_ajax.php");
+    include_once("../../Controller/CustomerCare/CustomerCare_c_ajax.php");
 
-    $customer = new Customer_c();
-    $customer_care = new CustomerCare_c();
+    $customer = new Customer_c_ajax();
+    $customer_care = new CustomerCare_c_ajax();
 
     $name = $_POST['name'];
     $showroom_id = $_SESSION['showroom_id'];

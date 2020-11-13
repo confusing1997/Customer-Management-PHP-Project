@@ -1,7 +1,8 @@
 <?php
 
-    include_once("./Controller/User/User_c.php");
-    $user = new User_c();
+    include_once("../../Controller/User/User_c_ajax.php");
+
+    $user = new User_c_ajax();
 
     if (isset($_POST['id'])) {
 

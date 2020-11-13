@@ -15,39 +15,4 @@
             $customer = $this->customer->getCustomer();
             include_once 'View/Customer/list_customer.php';
         }
-
-        public function removeCustomer($id) {
-            return $this->customer->removeCustomer($id);
-        }
-
-        // public function searchCustomer($key) {
-
-        //     return $this->customer->searchCustomer($key);
-
-        // }
-
-        public function addCustomer($name,$showroom_id, $phone, $email){
-
-            return $this->customer->addCustomer($name, $showroom_id, $phone, $email);
-
-        }
-
-        public function editCustomer($id, $name, $phone, $email){
-
-            return $this->customer->editCustomer($id, $name, $phone, $email);
-
-        }
-
-
-        public function checkEmailPhone($phone, $email){
-
-            return $this->customer->checkEmailPhone($phone, $email);
-
-        }
-
-        public function checkEmailPhoneUpdate($id, $phone, $email){
-
-            return $this->customer->checkEmailPhoneUpdate($id, $phone, $email);
-
-        }
     }

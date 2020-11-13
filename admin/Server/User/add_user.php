@@ -1,9 +1,8 @@
 <?php 
 
+    include_once("../../Controller/User/User_c_ajax.php");
 
-    include_once("Controller/User/User_c.php");
-
-    $user = new User_c(); 
+    $user = new User_c_ajax(); 
     
         $name = trim($_POST['name']);
         $showroom = trim($_POST['showroom']);

@@ -1,8 +1,8 @@
 <?php
     session_start();
-    include_once("Controller/CustomerCare/CustomerCare_c.php");
+    include_once("../../Controller/CustomerCare/CustomerCare_c_ajax.php");
 
-    $customer_care = new CustomerCare_c();
+    $customer_care = new CustomerCare_c_ajax();
 
     $user_id = $_SESSION['id'];
     $customer_id = $_POST['customer_id'];

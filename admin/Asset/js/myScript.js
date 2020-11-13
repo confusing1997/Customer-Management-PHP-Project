@@ -4,7 +4,7 @@ $(document).on('click', '.removeUser', function(){
     var id = $(this).val();
     var check = confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');
     if (check == true) {
-        $.post('remove_user.php', { id : id }, function(data){
+        $.post('Server/User/remove_user.php', { id : id }, function(data){
             $('.notification').html(data);
             $('.table_User').load(' #datatable_listuser');
         });
@@ -18,7 +18,7 @@ $(document).on('click', '.add_customer', function(){
     var phone = $('#phone').val();
     var email = $('#email').val();
 
-    $.post('add_customer.php', { name: name, phone: phone, email: email }, function(data){
+    $.post('Server/Customer/add_customer.php', { name: name, phone: phone, email: email }, function(data){
         
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
@@ -39,7 +39,7 @@ $(document).on('click', '.add_user', function(){
     var salary = $('#user_salary').val();
 
     
-    $.post('add_user.php', { 
+    $.post('Server/User/add_user.php', { 
         name : name, 
         showroom : showroom, 
         email : email, 
@@ -71,7 +71,7 @@ $(document).on('click', '.edit_user', function(e){
     
     //console.log(id, name, avatar, email, address, salary);
 
-    $.post('edit_user.php', {
+    $.post('Server/User/edit_user.php', {
         
         id : id,
         name : name, 
@@ -98,7 +98,7 @@ $(document).on('click', '.delCus', function(){
 	var id = $(this).val();
 	var check = confirm('Bạn có chắc chắn xóa không?');
 	if (check == true) {
-		$.post('remove_customer.php', {id : id}, function(data){
+		$.post('Server/Customer/remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
 			$('.table_Cus').load(' #datatable_listcustomer');
 		});
@@ -112,7 +112,7 @@ $(document).on('click', '.add_customer', function(){
     var phone = $('#phone').val();
     var email = $('#email').val();
 
-    $.post('add_customer.php', { name: name, phone: phone, email: email }, function(data){
+    $.post('Server/User/add_customer.php', { name: name, phone: phone, email: email }, function(data){
         
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
@@ -129,7 +129,7 @@ $(document).on('click', '.transfer', function(){
     var user_id_get = $('#listUser').val();
     var customer_id = $(this).val();
 
-    $.post('transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(data){
+    $.post('Server/CustomerCare/transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(data){
         
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
@@ -146,7 +146,7 @@ $(document).on('click', '.edit_customer', function(){
     var phone = $('#phone' + customer_id).val();
     var email = $('#email' + customer_id).val();
 
-    $.post('edit_customer.php', { customer_id : customer_id, name : name, phone : phone, email : email}, function(data){
+    $.post('Server/Customer/edit_customer.php', { customer_id : customer_id, name : name, phone : phone, email : email}, function(data){
         
         $(".modal:visible").modal('toggle');
         $('body').removeClass('modal-open');
@@ -161,7 +161,7 @@ $(document).on('click', '.add_content', function(e){
     e.preventDefault();
     var customer_id = $(this).val();
     var content = CKEDITOR.instances['content' + customer_id].getData();
-    $.post('add_content.php', { customer_id: customer_id, content: content}, function(data){
+    $.post('Server/CustomerCare/add_content.php', { customer_id: customer_id, content: content}, function(data){
         $('.notificationModal').html(data);
         $(".table-content"+customer_id).load(' #data_content'+customer_id);
         $('.modal').find('textarea').val('');
@@ -175,7 +175,7 @@ $(document).on('click', '.add_content_2nd', function(e){
     var customer_id = $(this).val();
     var content = CKEDITOR.instances['update_content' + customer_id].getData();
     console.log(customer_id,content);
-    $.post('add_content.php', { customer_id: customer_id, content: content}, function(data){
+    $.post('Server/CustomerCare/add_content.php', { customer_id: customer_id, content: content}, function(data){
         $('.notificationModal').html(data);
         $(".table_content_all"+customer_id).load(' #data-care');
         $('.modal').find('textarea').val('');

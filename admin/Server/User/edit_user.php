@@ -1,8 +1,8 @@
 <?php 
 
-    include_once("Controller/User/User_c.php");
+    include_once("../../Controller/User/User_c_ajax.php");
 
-    $user = new User_c();
+    $user = new User_c_ajax();
 
     
 
