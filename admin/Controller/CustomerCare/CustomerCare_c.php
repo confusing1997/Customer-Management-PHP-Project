@@ -39,6 +39,24 @@
 
         }
 
+        public function getNoti(){
+            $noti = $this->customer_care->getNoti();
+            function timeDiff($firstTime,$lastTime){ 
+                // convert to unix timestamps 
+                $firstTime=strtotime($firstTime); 
+                $lastTime=strtotime($lastTime); 
+
+                // perform subtraction to get the difference (in seconds) between times 
+                $timeDiff=$lastTime-$firstTime; 
+
+                // return the difference 
+                return $timeDiff; 
+            }
+
+            include_once 'Includes/navheader.php';
+
+        }
+
         public function getDetailCare ($customer_id) {
 
             return $this->customer_care->getDetailCare($customer_id);

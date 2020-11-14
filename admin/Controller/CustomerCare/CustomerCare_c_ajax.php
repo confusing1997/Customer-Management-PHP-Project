@@ -35,6 +35,18 @@
 
         }
 
+        public function addNoti($user_id_move, $customer_id, $user_id_get){
+
+            return $this->customer_care->addNoti($user_id_move, $customer_id, $user_id_get);
+
+        }
+
+        public function removeNoti($customer_id){
+
+            return $this->customer_care->removeNoti($customer_id);
+
+        }
+
         public function addContent($user_id, $customer_id, $content){
 
             return $this->customer_care->addContent($user_id, $customer_id, $content);

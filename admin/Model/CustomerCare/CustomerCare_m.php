@@ -190,6 +190,45 @@
 
         }
 
+        //Hiện danh sách lịch sử điều chuyển
+        protected function getNoti () {
+
+            $sql = "
+                SELECT
+                    tbl_customer.phone,
+                    tbl_customer.name AS 'Tên khách hàng',
+                    usermove.name AS 'Nhân viên chuyển',
+                    userget.name AS 'Nhân viên nhận',
+                    tnt.user_id_get,
+                    tnt.create_at
+                FROM
+                    tbl_user AS usermove    
+                INNER JOIN tbl_transfer_noti tnt
+                ON
+                    usermove.id = tnt.user_id_move
+                INNER JOIN tbl_user AS userget
+                ON
+                    userget.id = tnt.user_id_get
+                INNER JOIN tbl_customer
+                ON
+                    tbl_customer.id = tnt.customer_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
         //Hiện chi tiết nội dung chăm sóc khách hàng
         protected function getDetailCare ($customer_id) {
 
