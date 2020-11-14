@@ -22,12 +22,8 @@
                 $passw = strip_tags($passws);
 
                 $log = $this->login->Login($user, $passw);
-                // $num = count($log);
                 if ($log) {
                     header("Location: dashboard.php?page=index");
-                    // echo "<pre>";
-                    // print_r($log);
-                    // echo "</pre>";
                     $_SESSION['id'] = $log['id'];
                     $_SESSION['name'] = $log['name'];
                     $_SESSION['showroom_id'] = $log['showroom_id'];
@@ -38,7 +34,7 @@
                     
 
                 } else {                    
-                    $errors = "Tài khoản hoặc mật khẩu không đúng";
+                    $errors = "Email hoặc mật khẩu không đúng";
                 }
             }
             include_once "View/login.php";   

@@ -84,13 +84,7 @@
 
             $pre->execute();
 
-            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
-
-                $result[] = $row;
-
-            }
-
-            return $result;
+            return $row = $pre->fetch(PDO::FETCH_ASSOC);
         }
     }
 

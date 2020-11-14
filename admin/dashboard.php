@@ -49,6 +49,10 @@
                                                     echo "<li class='breadcrumb-item'>Chăm sóc khách hàng</li>";
                                                     echo "<li class='breadcrumb-item active'>Danh sách khách hàng chăm sóc của nhân viên</li>";
                                                     break;
+                                                case 'list_customer_care_user':
+                                                    echo "<li class='breadcrumb-item'>Chăm sóc khách hàng</li>";
+                                                    echo "<li class='breadcrumb-item active'>Danh sách khách hàng của nhân viên</li>";
+                                                    break;
                                                 case 'list_customer_care_all':
                                                     echo "<li class='breadcrumb-item'>Chăm sóc khách hàng</li>";
                                                     echo "<li class='breadcrumb-item active'>Danh sách khách hàng chăm sóc của công ty</li>";

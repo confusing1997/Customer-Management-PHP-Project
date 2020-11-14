@@ -24,35 +24,29 @@
                         <form action="" method="POST">
 
                             <div class="form-group mb-3">
-                                <label for="emailaddress">Email address</label>
-                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email" name="user">
+                                <label for="emailaddress">Địa chỉ Email</label>
+                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email" name="user" value="<?php if(isset($user)){ echo $user; } ?>">
                             </div>
 
                             <div class="form-group mb-3">
-                                <a href="pages-recoverpw.html" class="text-muted float-right"><small>Forgot your password?</small></a>
-
-                                <label for="password">Password</label>
+                                
+                                <label for="password">Mật khẩu</label>
                                 <input class="form-control" type="password" required="" id="password" placeholder="Enter your password" name="passw">
                             </div>
 
-                            <div class="form-group mb-3">
-                                <div class="custom-control custom-checkbox checkbox-success">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
-                                    <label class="custom-control-label" for="checkbox-signin">Remember me</label>
+                            <div class="form-group mb-0 text-center">
+                                <button class="btn btn-gradient btn-block" type="submit" name="sm_login"> Đăng nhập </button>
+                            </div>
+
+                            <?php if (isset($errors)) { ?>
+                            <div class="form-group mt-3">
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <strong><?php echo $errors; ?> </strong>
                                 </div>
                             </div>
-
-                            <div class="form-group mb-0 text-center">
-                                <button class="btn btn-gradient btn-block" type="submit" name="sm_login"> Log In </button>
-                            </div>
-
+                            <?php } ?>
                         </form>
-
-                        <div class="row mt-4">
-                            <div class="col-sm-12 text-center">
-                                <p class="text-muted mb-0">Don't have an account? <a href="pages-register.html" class="text-dark ml-1"><b>Sign Up</b></a></p>
-                            </div>
-                        </div>
 
 
                     </div> <!-- end card-body -->
