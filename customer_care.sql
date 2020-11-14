@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2020 at 01:34 PM
+-- Generation Time: Nov 14, 2020 at 05:52 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -34,20 +34,6 @@ CREATE TABLE `tbl_bonus` (
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin lương thưởng';
 
---
--- Dumping data for table `tbl_bonus`
---
-
-INSERT INTO `tbl_bonus` (`user_id`, `order_id`, `bonus`, `create_at`) VALUES
-(2, 3, 2128500, '2020-10-26 19:05:41'),
-(2, 4, 264330, '2020-10-26 19:05:41'),
-(3, 4, 616770, '2020-10-26 19:07:14'),
-(3, 5, 130410, '2020-10-26 19:07:14'),
-(4, 5, 304290, '2020-10-26 19:08:41'),
-(4, 6, 1009800, '2020-10-26 19:08:41'),
-(4, 7, 706860, '2020-10-26 19:09:33'),
-(5, 7, 302940, '2020-10-26 19:09:33');
-
 -- --------------------------------------------------------
 
 --
@@ -68,17 +54,17 @@ CREATE TABLE `tbl_care` (
 INSERT INTO `tbl_care` (`user_id`, `customer_id`, `status`, `create_at`) VALUES
 (3, 8, 1, '2020-10-26 18:59:23'),
 (1, 149, 1, '2020-11-04 17:15:15'),
-(1, 151, 1, '2020-11-09 11:09:23'),
 (1, 155, 1, '2020-11-09 11:11:00'),
 (1, 154, 1, '2020-11-09 11:15:37'),
 (2, 7, 1, '2020-11-09 13:23:46'),
-(1, 9, 1, '2020-11-09 13:25:27'),
 (3, 156, 1, '2020-11-09 13:32:42'),
 (3, 153, 1, '2020-11-09 13:34:09'),
-(4, 11, 1, '2020-11-09 17:49:04'),
 (3, 152, 1, '2020-11-09 17:55:09'),
-(3, 150, 1, '2020-11-09 17:55:53'),
-(2, 10, 1, '2020-11-09 18:54:13');
+(2, 10, 1, '2020-11-09 18:54:13'),
+(2, 150, 1, '2020-11-13 17:52:26'),
+(2, 11, 1, '2020-11-13 19:37:50'),
+(4, 151, 1, '2020-11-13 20:01:11'),
+(2, 9, 1, '2020-11-14 10:24:49');
 
 -- --------------------------------------------------------
 
@@ -135,12 +121,7 @@ CREATE TABLE `tbl_detail` (
 --
 
 INSERT INTO `tbl_detail` (`id`, `user_id`, `customer_id`, `content`, `create_at`) VALUES
-(6, 2, 7, 'abc', '2020-10-26 19:03:00'),
-(7, 3, 8, 'abcd', '2020-10-26 19:03:00'),
-(8, 4, 9, 'ab', '2020-10-26 19:03:00'),
-(9, 4, 10, 'abcd', '2020-10-26 19:03:00'),
-(10, 4, 11, 'abcde', '2020-10-26 19:03:00'),
-(11, 2, 7, 'defg', '2020-11-04 19:32:33');
+(107, 1, 155, '<p>bc</p>\n', '2020-11-13 20:03:03');
 
 -- --------------------------------------------------------
 
@@ -154,18 +135,6 @@ CREATE TABLE `tbl_detail_order` (
   `price` float NOT NULL,
   `quantity` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin chi tiết đơn hàng';
-
---
--- Dumping data for table `tbl_detail_order`
---
-
-INSERT INTO `tbl_detail_order` (`order_id`, `product_id`, `price`, `quantity`) VALUES
-(3, 1, 24948000, 1),
-(3, 2, 17622000, 1),
-(4, 2, 17622000, 1),
-(5, 3, 8694000, 1),
-(6, 4, 20196000, 1),
-(7, 4, 20196000, 1);
 
 -- --------------------------------------------------------
 
@@ -186,34 +155,10 @@ CREATE TABLE `tbl_history` (
 --
 
 INSERT INTO `tbl_history` (`id`, `user_id_move`, `customer_id`, `user_id_get`, `create_at`) VALUES
-(2, 3, 7, 2, '2020-11-06 10:01:03'),
-(3, 4, 156, 2, '2020-11-09 11:06:58'),
-(4, 1, 151, 2, '2020-11-09 11:09:23'),
-(5, 2, 155, 1, '2020-11-09 11:11:00'),
-(6, 2, 154, 1, '2020-11-09 11:15:37'),
-(7, 2, 153, 4, '2020-11-09 11:23:08'),
-(8, 2, 152, 3, '2020-11-09 11:59:44'),
-(9, 3, 152, 2, '2020-11-09 12:04:59'),
-(10, 2, 152, 4, '2020-11-09 13:19:15'),
-(11, 2, 150, 4, '2020-11-09 13:21:56'),
-(12, 2, 7, 4, '2020-11-09 13:22:43'),
-(13, 4, 7, 2, '2020-11-09 13:23:46'),
-(14, 4, 150, 2, '2020-11-09 13:24:07'),
-(15, 4, 152, 2, '2020-11-09 13:24:40'),
-(16, 4, 9, 1, '2020-11-09 13:25:27'),
-(17, 4, 11, 1, '2020-11-09 13:26:19'),
-(18, 4, 10, 1, '2020-11-09 13:26:37'),
-(19, 4, 153, 2, '2020-11-09 13:31:44'),
-(20, 4, 156, 3, '2020-11-09 13:32:42'),
-(21, 2, 153, 3, '2020-11-09 13:34:09'),
-(22, 1, 11, 4, '2020-11-09 13:40:25'),
-(23, 4, 11, 2, '2020-11-09 13:41:09'),
-(24, 2, 11, 1, '2020-11-09 13:41:34'),
-(25, 1, 11, 2, '2020-11-09 13:41:53'),
-(26, 2, 11, 4, '2020-11-09 17:49:04'),
-(27, 2, 152, 3, '2020-11-09 17:55:09'),
-(28, 2, 150, 3, '2020-11-09 17:55:53'),
-(29, 1, 10, 2, '2020-11-09 18:54:13');
+(39, 1, 150, 2, '2020-11-13 17:52:26'),
+(40, 4, 11, 2, '2020-11-13 19:37:50'),
+(41, 1, 151, 4, '2020-11-13 20:01:11'),
+(42, 1, 9, 2, '2020-11-14 10:24:49');
 
 -- --------------------------------------------------------
 
@@ -229,17 +174,6 @@ CREATE TABLE `tbl_order` (
   `total` float NOT NULL,
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin hóa đơn';
-
---
--- Dumping data for table `tbl_order`
---
-
-INSERT INTO `tbl_order` (`id`, `user_id_buy`, `user_id_care`, `customer_id`, `total`, `create_at`) VALUES
-(3, 2, 2, 7, 42570000, '2020-10-26 18:50:17'),
-(4, 2, 3, 8, 17622000, '2020-10-26 18:50:17'),
-(5, 3, 4, 9, 8694000, '2020-10-26 18:50:17'),
-(6, 4, 4, 10, 20196000, '2020-10-26 18:50:17'),
-(7, 5, 4, 11, 20196000, '2020-10-26 18:50:17');
 
 -- --------------------------------------------------------
 
@@ -290,6 +224,19 @@ INSERT INTO `tbl_showroom` (`showroom_id`, `title`, `addres`, `create_at`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_transfer_noti`
+--
+
+CREATE TABLE `tbl_transfer_noti` (
+  `user_id_move` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `user_id_get` int(11) NOT NULL,
+  `create_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_user`
 --
 
@@ -297,9 +244,9 @@ CREATE TABLE `tbl_user` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `showroom_id` int(11) NOT NULL,
-  `avatar` varchar(50) NOT NULL,
+  `avatar` varchar(50) NOT NULL DEFAULT 'default.png',
   `email` varchar(50) NOT NULL,
-  `passw` varchar(50) NOT NULL,
+  `passw` varchar(50) NOT NULL DEFAULT '123456',
   `addres` varchar(100) NOT NULL,
   `salary` float NOT NULL,
   `role` tinyint(4) NOT NULL DEFAULT 2,
@@ -389,6 +336,14 @@ ALTER TABLE `tbl_showroom`
   ADD PRIMARY KEY (`showroom_id`);
 
 --
+-- Indexes for table `tbl_transfer_noti`
+--
+ALTER TABLE `tbl_transfer_noti`
+  ADD KEY `fk_user_id_move_noti_user` (`user_id_move`),
+  ADD KEY `fk_user_id_get_noti_user` (`user_id_get`),
+  ADD KEY `fk_customer_id_noti_customer` (`customer_id`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -403,19 +358,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail`
 --
 ALTER TABLE `tbl_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `tbl_history`
 --
 ALTER TABLE `tbl_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
@@ -494,6 +449,14 @@ ALTER TABLE `tbl_order`
   ADD CONSTRAINT `fk_customerID_order_customer` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_userIDbuy_order_user` FOREIGN KEY (`user_id_buy`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_userIDcare_order_user` FOREIGN KEY (`user_id_care`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_transfer_noti`
+--
+ALTER TABLE `tbl_transfer_noti`
+  ADD CONSTRAINT `fk_customer_id_noti_customer` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user_id_get_noti_user` FOREIGN KEY (`user_id_get`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user_id_move_noti_user` FOREIGN KEY (`user_id_move`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_user`
