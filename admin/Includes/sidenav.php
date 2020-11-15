@@ -91,7 +91,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="#">
+                        <li><a href="dashboard.php?page=list_product">
                             <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
                                 <span> Danh sách sản phẩm </span>
                         </a></li>

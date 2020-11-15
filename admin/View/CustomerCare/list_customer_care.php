@@ -34,10 +34,9 @@
                                         if ($valueCustomerCare['status'] == 1) {
                                             echo "<p style='color: red;'>Đang chăm sóc</p>";
                                         }else{
-                                            echo "<p style='color: green;'>Đang rảnh</p>";
+                                            echo "<p style='color: blue;'>Chăm sóc mới</p>";
                                         }
                                     ?>
-
                                 </td>
                                 <td><?= $valueCustomerCare['create_at'] ?></td>
 
@@ -99,7 +98,7 @@
                                     </div>
                                     <!-- End Modal -->
 
-                                    <!-- Add Customer Modal -->
+                                    <!-- Transfer Customer Modal -->
                                     <button type="button" class="btn btn-icon waves-effect waves-light btn-warning" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerCare['customer_id'] ?>" data-whatever="@getbootstrap" title="Điều chuyển"><span><i class="mdi mdi-account-arrow-right"></i></span></button>
 
                                     <div class="modal fade text-left" id="detail_customer<?= $valueCustomerCare['customer_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -149,7 +148,13 @@
                                       </div>
                                     </div>
 
-                                    <!-- End Customer Modal -->  
+                                    <!-- End Transfer Customer Modal -->
+
+                                    <!-- Sell Products Button -->
+                                    <a href="dashboard.php?page=create_order&id=<?= $valueCustomerCare['customer_id']; ?>">
+                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Tạo hóa đơn"><span><i class="mdi mdi-cart"></i></span></button>
+                                    </a>
+                                    <!-- Sell Products Button -->  
                                 </td>
                             </tr>
                         <?php
