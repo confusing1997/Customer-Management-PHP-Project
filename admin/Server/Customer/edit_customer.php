@@ -16,7 +16,7 @@
     ?>
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Thông báo!</strong> Cập nhật thành công!
+                <strong>Update Successfully!</strong> 
             </div>
 
     <?php 
@@ -26,7 +26,7 @@
     ?>
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Thông báo!</strong> Cập nhật thất bại!
+                <strong>Update Failed!</strong>
             </div>
     <?php 
         } 
@@ -34,7 +34,7 @@
     ?>
         <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Thông báo!</strong> Số điện thoại hoặc email bị trùng!
+                <strong>Data is invalid!</strong> 
             </div>
     <?php
     }

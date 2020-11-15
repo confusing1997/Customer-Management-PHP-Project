@@ -2,9 +2,9 @@
     <div class="row">
       <div class="col-lg-12 col-xs-12 col-md-12">
         <div class="input-group">
-          <input type="text" value="<?php if(isset($key)) { echo $key; } ?>" name="key" class="form-control" placeholder="Nhập số điện thoại cần tìm...">
+          <input type="text" value="<?php if(isset($key)) { echo $key; } ?>" name="key" class="form-control" placeholder="Typing phone to check...">
           <span class="input-group-btn">
-            <button class="btn btn-primary" name="searchPhone" type="submit">Kiểm tra</button>
+            <button class="btn btn-primary" name="searchPhone" type="submit">Check</button>
           </span>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-12 -->
@@ -20,14 +20,14 @@
                 <thead>
                     <tr class="text-center">
                         <th>STT</th>
-                        <th>Nhân viên</th>
+                        <th>Staff</th>
                         <th>Showroom</th>
-                        <th>Họ tên khách</th>
-                        <th>Số điện thoại</th>
+                        <th>Customer Full Name</th>
+                        <th>Phone</th>
                         <th>Email</th>
-                        <th>Ngày chăm sóc</th>
-                        <th>Trạng thái</th>
-                        <th>Xem chi tiết</th> 
+                        <th>Day get Info of Customer</th>
+                        <th>Status</th>
+                        <th>Detail</th> 
                     </tr>
                 </thead>
                 <?php 
@@ -42,14 +42,14 @@
                                 <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" 
                                     data-toggle="modal" 
                                     data-target="#add_customer" 
-                                    data-whatever="@getbootstrap">Thêm khách hàng
+                                    data-whatever="@getbootstrap">Add Customer
                                 </button>
 
                                 <div class="modal fade text-left" id="add_customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Thêm khách hàng</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -57,12 +57,12 @@
                                       <div class="modal-body">
                                         <form>
                                           <div class="form-group">
-                                            <label for="name" class="col-form-label">Tên khách hàng:</label>
+                                            <label for="name" class="col-form-label">Phone:</label>
                                             <input type="text" class="form-control" id="name" name="name">
                                           </div>
 
                                           <div class="form-group">
-                                            <label for="phone" class="col-form-label">Số điện thoại:</label>
+                                            <label for="phone" class="col-form-label">Phone:</label>
                                             <input type="text" class="form-control" id="phone" name="phone" value="<?= $key; ?>">
                                           </div>
                                           
@@ -72,8 +72,8 @@
                                           </div>
 
                                           <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                            <button type="button" class="btn btn-primary add_customer">Thêm</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary add_customer">Add</button>
                                           </div>
                                         </form>
                                       </div>
@@ -103,9 +103,9 @@
                                 <td class="text-center">
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
-                                            echo "<p style='color: red;'>Đang chăm sóc</p>";
+                                            echo "<p style='color: red;'>Busy</p>";
                                         }else{
-                                            echo "<p style='color: green;'>Đang rảnh</p>";
+                                            echo "<p style='color: green;'>Free</p>";
                                         }
                                     ?>
 
@@ -114,13 +114,13 @@
 
                                 <td class="text-center"> 
                                     <!-- Add Customer Modal -->
-                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
+                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade text-left" id="detail_customer<?= $valueCustomerAll['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Chi tiết khách hàng</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail of Customer</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
                                             </button>
@@ -128,15 +128,15 @@
                                           <div class="modal-body">
                                               <div class="notificationModal"></div>
                                               <div class="form-group">
-                                                <label for="name" class="col-form-label">Tên khách hàng: <?= $valueCustomerAll['Họ tên khách']; ?></label>
+                                                <label for="name" class="col-form-label">Customer Full Name: <?= $valueCustomerAll['Họ tên khách']; ?></label>
                                               </div>
 
                                               <div class="form-group">
-                                                <label for="name" class="col-form-label">Nhân viên chăm sóc: <?= $valueCustomerAll['Họ tên NV']; ?></label>
+                                                <label for="name" class="col-form-label">Staff: <?= $valueCustomerAll['Họ tên NV']; ?></label>
                                               </div>
 
                                               <div class="form-group">
-                                                <label for="phone" class="col-form-label">Số điện thoại: <?= $valueCustomerAll['phone']; ?></label>
+                                                <label for="phone" class="col-form-label">Phone: <?= $valueCustomerAll['phone']; ?></label>
                                               </div>
                                               
                                               <div class="form-group">
@@ -148,9 +148,9 @@
                                               <table class="table table-bordered dt-responsive nowrap">
                                                   <thead class="text-center dataContentHeader">
                                                       <td style="width: 6%">Avatar</td>
-                                                      <td style="width: 20%">Nhân viên</td>
-                                                      <td style="width: 64%">Nội dung</td>
-                                                      <td style="width: 10%">Thời gian</td>
+                                                      <td style="width: 20%">Staff</td>
+                                                      <td style="width: 64%">Content</td>
+                                                      <td style="width: 10%">Time</td>
                                                   </thead>
                                                   <tbody id="data-care">
                                                       <?php
@@ -178,7 +178,7 @@
                                           <form>
                                             <textarea class="form-control ckeditor" rows="1" id="update_content<?= $valueCustomerAll['id'] ?>" name="update_content<?= $valueCustomerAll['id'] ?>"></textarea>
                                             <div class="modal-footer">
-                                                <button class="btn btn-primary add_content_2nd" value="<?= $valueCustomerAll['id'] ?>">Cập nhật</button>
+                                                <button class="btn btn-primary add_content_2nd" value="<?= $valueCustomerAll['id'] ?>">Update</button>
                                             </div>
                                           </form>
                                         </div>
@@ -199,13 +199,13 @@
                     ?>  <tr class="text-center">
                             <td colspan="9">
                                 <!-- Add Customer Modal -->
-                                <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#add_customer" data-whatever="@getbootstrap">Thêm khách hàng</button>
+                                <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#add_customer" data-whatever="@getbootstrap">Add Customer</button>
 
                                 <div class="modal fade text-left" id="add_customer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Thêm khách hàng</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                         </button>
@@ -213,12 +213,12 @@
                                       <div class="modal-body">
                                         <form>
                                           <div class="form-group">
-                                            <label for="name" class="col-form-label">Tên khách hàng:</label>
+                                            <label for="name" class="col-form-label">Customer Full Name:</label>
                                             <input type="text" class="form-control" id="name" name="name">
                                           </div>
 
                                           <div class="form-group">
-                                            <label for="phone" class="col-form-label">Số điện thoại:</label>
+                                            <label for="phone" class="col-form-label">Phone:</label>
                                             <input type="text" class="form-control" id="phone" name="phone" value="<?= $key; ?>">
                                           </div>
                                           
@@ -228,8 +228,8 @@
                                           </div>
 
                                           <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                            <button type="button" class="btn btn-primary add_customer">Thêm</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary add_customer">Add</button>
                                           </div>
                                         </form>
                                       </div>
@@ -259,9 +259,9 @@
                                 <td>
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
-                                            echo "<p style='color: red;'>Đang chăm sóc</p>";
+                                            echo "<p style='color: red;'>Busy</p>";
                                         }else{
-                                            echo "<p style='color: green;'>Đang rảnh</p>";
+                                            echo "<p style='color: green;'>Free</p>";
                                         }
                                     ?>
 
@@ -270,28 +270,28 @@
 
                                 <td class="text-center"> 
                                     <!-- Add Customer Modal -->
-                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
+                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade text-left" id="detail_customer<?= $valueCustomerAll['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Chi tiết khách hàng</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail of Customer</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
                                             </button>
                                           </div>
                                           <div class="modal-body">
                                               <div class="form-group">
-                                                <label for="name" class="col-form-label">Tên khách hàng: <?= $valueCustomerAll['Họ tên khách']; ?></label>
+                                                <label for="name" class="col-form-label">Customer Full Name: <?= $valueCustomerAll['Họ tên khách']; ?></label>
                                               </div>
 
                                               <div class="form-group">
-                                                <label for="name" class="col-form-label">Nhân viên chăm sóc: <?= $valueCustomerAll['Họ tên NV']; ?></label>
+                                                <label for="name" class="col-form-label">Staff: <?= $valueCustomerAll['Họ tên NV']; ?></label>
                                               </div>
 
                                               <div class="form-group">
-                                                <label for="phone" class="col-form-label">Số điện thoại: <?= $valueCustomerAll['phone']; ?></label>
+                                                <label for="phone" class="col-form-label">Phone: <?= $valueCustomerAll['phone']; ?></label>
                                               </div>
                                               
                                               <div class="form-group">

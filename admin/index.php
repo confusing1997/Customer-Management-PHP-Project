@@ -38,8 +38,8 @@
                                     break;
 
                                 default:
-                                    echo "Error 404, Trang không tồn tại";
-                                    echo "<a href='list_customer.php'>Quay lại</a>";
+                                    echo "Error 404, Page is not exists";
+                                    echo "<a href='list_customer.php'>Go back</a>";
                                     break;
                             }
 

@@ -14,7 +14,7 @@
         ?>
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Xóa thành công!</strong>
+                <strong>Delete Successfully!</strong>
             </div>
         <?php
         }

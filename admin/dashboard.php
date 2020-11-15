@@ -35,30 +35,31 @@
 
                                             switch ($page) {
                                                 case 'list_all_user':
-                                                    echo "<li class='breadcrumb-item'>Quản lý nhân viên</li>";
-                                                    echo "<li class='breadcrumb-item active'>Danh sách nhân viên</li>";
+                                                    echo "<li class='breadcrumb-item'>Manage Staff</li>";
+                                                    echo "<li class='breadcrumb-item active'>Staff's list</li>";
                                                     break;
                                                 case 'list_customer':
-                                                    echo "<li class='breadcrumb-item'>Quản lý khách hàng</li>";
-                                                    echo "<li class='breadcrumb-item active'>Danh sách khách hàng</li>";
+                                                    echo "<li class='breadcrumb-item'>Mange Customer</li>";
+                                                    echo "<li class='breadcrumb-item active'>Customer's list</li>";
                                                     break;
                                                 case 'index':
                                                     echo "<li class='breadcrumb-item active'>Dashboard</li>";
                                                     break;
                                                 case 'list_customer_care':
-                                                    echo "<li class='breadcrumb-item'>Chăm sóc khách hàng</li>";
-                                                    echo "<li class='breadcrumb-item active'>Danh sách khách hàng chăm sóc của nhân viên</li>";
+                                                    echo "<li class='breadcrumb-item'>Customer Attention</li>";
+                                                    echo "<li class='breadcrumb-item active'>Staff's Customer list</li>";
                                                     break;
                                                 case 'list_customer_care_user':
-                                                    echo "<li class='breadcrumb-item'>Chăm sóc khách hàng</li>";
-                                                    echo "<li class='breadcrumb-item active'>Danh sách khách hàng của nhân viên</li>";
+                                                    echo "<li class='breadcrumb-item'>Customer Attention</li>";
+                                                    echo "<li class='breadcrumb-item active'>Staff's Customer list</li>";
                                                     break;
                                                 case 'list_customer_care_all':
-                                                    echo "<li class='breadcrumb-item'>Chăm sóc khách hàng</li>";
-                                                    echo "<li class='breadcrumb-item active'>Danh sách khách hàng chăm sóc của công ty</li>";
+                                                    echo "<li class='breadcrumb-item'>Customer Attention</li>";
+                                                    echo "<li class='breadcrumb-item active'>System's Customer list</li>";
                                                     break;
                                                 case 'list_history':
-                                                    echo "<li class='breadcrumb-item active'>Lịch sử điều chuyển</li>";
+                                                    echo "<li class='breadcrumb-item active'>Transference History</li>";
+                                                    echo "<li class='breadcrumb-item active'>Transference History</li>";
                                                     break;
                                                 default:
                                                     
@@ -77,29 +78,29 @@
 
                                         switch ($page) {
                                             case 'index':
-                                                echo 'Thống Kê';
+                                                echo 'Statistical';
                                                 break;
                                             case 'list_customer':
-                                                echo 'Danh Sách Khách Hàng';
+                                                echo 'List of all Customer';
                                                 break;
                                             case 'list_customer_care':
-                                                echo 'Danh sách khách hàng đang chăm sóc của nhân viên';
+                                                echo 'List of all Customer in contact of Staff';
                                                 break;
                                             case 'list_customer_care_all':
-                                                echo 'Danh sách khách hàng đang chăm sóc của công ty';
+                                                echo 'List of all Customer in contact of System';
                                                 break;
                                             case 'list_all_user':
-                                                echo 'Danh sách toàn bộ nhân viên của công ty';
+                                                echo 'List of all Staff in System';
                                                 break;
                                             case 'list_history':
-                                                echo 'Lịch sử điều chuyển';
+                                                echo 'Transfer history';
                                                 break;
                                             case 'list_customer_care_user':
-                                                echo 'Danh sách khách hàng của nhân viên';
+                                                echo 'List of all Customer in contact of Staff';
                                                 break;
                                             default:
-                                                echo "Error 404, Trang không tồn tại";
-                                                echo "<a href='dashboard.php'>Quay lại</a>";
+                                                echo "Error 404, Page is not exists";
+                                                echo "<a href='dashboard.php'>Go back</a>";
                                                 break;
                                         }
                                     ?>
@@ -157,8 +158,8 @@
                                         break;
 
                                     default:
-                                        echo "Error 404, Trang không tồn tại";
-                                        echo "<a href='dashboard.php'>Quay lại</a>";
+                                        echo "Error 404, Page is not exists";
+                                        echo "<a href='dashboard.php'>Go back</a>";
                                         break;
                                 }
 
