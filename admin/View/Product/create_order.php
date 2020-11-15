@@ -2,11 +2,11 @@
     <div class="col-3">
         <div class="card-box ">
             <div class="form-group">
-                <label for="name_customer" class="">Tên khách hàng: </label>
+                <label for="name_customer" class="">Customer Full Name: </label>
                 <input type="text" class="form-control mb-3" disabled="" name="name_customer" value="<?= $customer['Tên khách hàng']; ?>">
-                <label for="name_user_care" class="">Nhân viên chăm sóc: </label>
+                <label for="name_user_care" class="">Staff: </label>
                 <input type="text" class="form-control mb-3" disabled="" name="name_user_care" value="<?= $customer['NV chăm sóc']; ?>">
-                <label for="name_user_buy" class="">Nhân viên bán hàng: </label>
+                <label for="name_user_buy" class="">Dealer: </label>
                 <input type="text" class="form-control mb-3" disabled="" name="name_user_buy" value="<?= $_SESSION['name']; ?>">
             </div>
         </div>
@@ -16,11 +16,11 @@
             <table id="datatable_listcustomer_care" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr class="text-center">
-                        <th>STT</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Giá</th>
-                        <th>Trạng thái</th>
-                        <th>Chức năng</th>
+                        <th>Order</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -37,9 +37,9 @@
                                 <td class="text-center">
                                     <?php 
                                         if ($valueProduct['status'] == 1) {
-                                            echo "<p style='color: green;'>Còn hàng</p>";
+                                            echo "<p style='color: green;'>Stocking</p>";
                                         }else{
-                                            echo "<p style='color: red;'>Hết hàng</p>";
+                                            echo "<p style='color: red;'>Out of stock</p>";
                                         }
                                     ?>
                                 </td>
