@@ -15,7 +15,8 @@
               <th>Showroom</th>
               <th>Phone</th>
               <th>Email</th>
-              <th>Action</th>
+              <th>Trạng thái</th>
+              <th>Chức năng</th>
             </tr>
           </thead>
 
@@ -30,6 +31,15 @@
                   <td><?php echo $value['title']; ?></td>
                   <td><?php echo $value['phone']; ?></td>
                   <td><?php echo $value['email']; ?></td>
+                  <td><?php 
+                      if ($value['status'] == 1) {
+                          echo "<p style='color: red;'>Đang chăm sóc</p>";
+                      }else if ($value['status'] == 2){
+                          echo "<p style='color: green;'>Đã mua hàng</p>";
+                      }else if ($value['status'] == 3){
+                          echo "<p style='color: blue;'>Chăm sóc mới</p>";
+                      }
+                  ?></td>
                   <td class="text-center">
                     <button type="button" class="btn btn-icon waves-effect waves-light btn-warning" data-toggle="modal" data-target="#edit_customer<?= $value['id'] ?>" data-whatever="@getbootstrap" title="Modify"><span><i class="fas fa-wrench"></i></span></button>
 

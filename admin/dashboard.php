@@ -98,6 +98,9 @@
                                             case 'list_customer_care_user':
                                                 echo 'List of all Customer in contact of Staff';
                                                 break;
+                                            case 'create_order':
+                                                echo 'Lập hóa đơn';
+                                                break;
                                             default:
                                                 echo "Error 404, Page is not exists";
                                                 echo "<a href='dashboard.php'>Go back</a>";
@@ -139,6 +142,18 @@
                                         include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                         $customer_care = new CustomerCare_c();
                                         $customer_care->detailUser();
+                                       
+                                        break;
+                                    case 'list_product':
+                                        include_once 'Controller/Product/Product_c.php';
+                                        $product = new Product_c();
+                                        $product->Product();
+                                       
+                                        break;
+                                    case 'create_order':
+                                        include_once 'Controller/Product/Product_c.php';
+                                        $product = new Product_c();
+                                        $product->createOrder();
                                        
                                         break;
                                     case 'list_customer_care_all':

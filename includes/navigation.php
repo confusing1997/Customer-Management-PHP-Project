@@ -16,6 +16,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
                     <li>
+                        <a href="#">Sản phẩm</a>
+                    </li>
+                    <li>
                         <a href="#">Tin tức</a>
                     </li>
                     <li>
