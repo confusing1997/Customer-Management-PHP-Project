@@ -81,25 +81,28 @@
                                                 echo 'Statistical';
                                                 break;
                                             case 'list_customer':
-                                                echo 'List of all Customer';
+                                                echo "Customer list";
                                                 break;
                                             case 'list_customer_care':
-                                                echo 'List of all Customer in contact of Staff';
+                                                echo "Staff's Customer list";
                                                 break;
                                             case 'list_customer_care_all':
-                                                echo 'List of all Customer in contact of System';
+                                                echo "System's Customer list";
                                                 break;
                                             case 'list_all_user':
-                                                echo 'List of all Staff in System';
+                                                echo "Staff list";
                                                 break;
                                             case 'list_history':
                                                 echo 'Transfer history';
                                                 break;
                                             case 'list_customer_care_user':
-                                                echo 'List of all Customer in contact of Staff';
+                                                echo "Staff's Customer list";
                                                 break;
                                             case 'create_order':
-                                                echo 'Lập hóa đơn';
+                                                echo 'Bill';
+                                                break;
+                                            case 'list_product':
+                                                echo "Product list";
                                                 break;
                                             default:
                                                 echo "Error 404, Page is not exists";
