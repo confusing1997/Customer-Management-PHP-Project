@@ -96,7 +96,7 @@ $(document).on('click', '.edit_user', function(e){
 //Xóa khách hàng theo id
 $(document).on('click', '.delCus', function(){
 	var id = $(this).val();
-	var check = confirm('Bạn có chắc chắn xóa không?');
+	var check = confirm('Are you sure want to Delete this Customer?');
 	if (check == true) {
 		$.post('Server/Customer/remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
@@ -183,3 +183,50 @@ $(document).on('click', '.add_content_2nd', function(e){
     })
 });
 
+//Add product Modal
+$(document).on('click', '.add_product', function(){
+
+    var name = $('#product_name').val();
+    var price = $('#product_cost').val();
+    var description = $('#product_description').val();
+
+    $.post('Server/Product/add_product.php', {
+
+        name : name,
+        price : price,
+        description : description }, 
+        
+        function(data){
+
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('.notification').html(data);
+        $(".table_product").load(' #datatable_list_product');
+
+    })
+
+});
+
+//Remove a product from tbl_product
+$(document).on('click', '.remove_Product', function(){
+
+    var id = $(this).val();
+    var check = confirm('Are you sure want to Delete this Product?');
+
+    if (check == true) {
+
+        $.post('Server/Product/remove_product.php', 
+        
+            { id : id }, 
+        
+            function(data){
+
+                $(".notification").html(data);
+                $(".table_product").load(" #datatable_list_product");
+
+            });
+
+    }
+
+});
