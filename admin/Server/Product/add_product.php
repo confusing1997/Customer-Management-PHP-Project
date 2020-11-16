@@ -8,18 +8,30 @@
     $price = trim($_POST['price']);
     $description = trim($_POST['description']);
 
-    $addProduct = $product->addProduct($name, $price, $description);
+    
+    if (preg_match('/^[0-9]+$/', $price) && !empty($name) && !empty($price) && !empty($description)):
 
-    if ($addProduct):
+        $addProduct = $product->addProduct($name, $price, $description);
 
 ?>
-
-        
+       
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong>Additional Success!</strong> 
         </div>
-<?php 
+
+<?php
+
+    elseif (empty($name) || empty($price) || empty($description)):
+
+?>
+
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Data must not be empty!</strong> 
+    </div>
+    
+<?php
 
     else:
     
@@ -27,7 +39,7 @@
 
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Additional Failed!</strong> 
+        <strong>Please enter a valid value!</strong> 
     </div>
     
 <?php 
