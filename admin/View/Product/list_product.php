@@ -8,28 +8,31 @@ data-toggle = "modal" data-target = "#add_product" title="Modify">
 
 <div class="modal fade text-left" id="add_product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
+
     <div class="modal-content">
+
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
         <form> 
           <div class="form-group">
-            <label for="name" class="col-form-label">Product Name:</label>
-            <input type="text" class="form-control" id="product_name" name="user_name">
+            <label for="" class="col-form-label">Product Name:</label>
+            <input type="text" class="form-control" id="product_name" name="">
           </div>
 
           <div class="form-group">
-            <label for="phone" class="col-form-label">Price:</label>
-            <input type="text" class="form-control" id="product_cost" name="user_email">
+            <label for="" class="col-form-label">Price:</label>
+            <input type="text" class="form-control" id="product_cost" name="">
           </div>
           
           <div class="form-group">
-            <label for="email" class="col-form-label">Description:</label>
-            <input type="text" class="form-control" id="product_description" name="user_address">
+            <label for="" class="col-form-label">Description:</label>
+            <textarea name="" class="form-control" id="product_description" cols="30" rows="10"></textarea>
           </div>
 
           <div class="modal-footer">
@@ -84,7 +87,7 @@ data-toggle = "modal" data-target = "#add_product" title="Modify">
                           <!-- BEGIN DESCRIPTION MODAL -->
 
                           <!-- Trigger the modal with a button -->
-                          <button type="button" class="btn btn-icon btn-info waves-effect waves-light" data-toggle="modal" data-target="#description<?= $valueProduct['id']; ?>"><span><i class="mdi mdi-file-document"></i></span></button>
+                          <button type="button" class="btn btn-icon btn-info waves-effect waves-light" data-toggle="modal" data-target="#description<?= $valueProduct['id']; ?>" title="Detail"><span><i class="mdi mdi-file-document"></i></span></button>
 
                           <!-- Modal -->
                           <div class="modal fade" id="description<?= $valueProduct['id']; ?>" role="dialog">
@@ -120,9 +123,59 @@ data-toggle = "modal" data-target = "#add_product" title="Modify">
                             <i class="fas fa-times"></i>
                           </button>
 
-                          <a href="dashboard.php?page=list_customer_care_user&id=<?= $valueUser['id']; ?>">
-                            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
-                          </a>
+                          <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Modify"
+                          data-toggle="modal" data-target="#modify-product<?= $valueProduct['id'] ?>" data-whatever = "@getbootstrap">
+                            <span>
+                              <i class="mdi mdi-pencil"></i>
+                            </span>
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade text-left" id="modify-product<?= $valueProduct['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role=document>
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content" >
+
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                                  <h5 class="modal-title" id="exampleModalLabel">Detail</h5>
+                                </div>
+
+                                <div class="modal-body">
+                                  <form action=""> 
+                                    <div class="form-group">
+                                      <label for="">Product Name:</label>
+                                      <input type="text" class="form-control" name="" id="product_name<?= $valueProduct['id'] ?>" 
+                                      value="<?= $valueProduct['name']; ?>">
+                                    </div>  
+
+                                    <div class="form-group">
+                                      <label for="" class="col-form-label">Product price:</label>
+                                      <input type="text" class="form-control" name="" id="product_price<?= $valueProduct['id'] ?>" 
+                                      value="<?= number_format($valueProduct['price']); ?>">
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="">Product Description:</label>
+                                      <textarea name="" class="form-control" id="product_description<?= $valueProduct['id'] ?>" cols="50" rows="10">
+                                          <?= $valueProduct['description']; ?>
+                                      </textarea>
+                                    </div> 
+
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-primary modify_product" value="<?= $valueProduct['id']; ?>">Confirm</button>
+                                    </div>
+                                  </form> 
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- END DESCRIPTION MODAL -->
+                          
                       </td>
                   </tr>
                 <?php
