@@ -1,18 +1,7 @@
 <div class="row">
-    <div class="col-3">
-        <div class="card-box ">
-            <div class="form-group">
-                <label for="name_customer" class="">Customer Full Name: </label>
-                <input type="text" class="form-control mb-3" disabled="" name="name_customer" value="<?= $customer['Tên khách hàng']; ?>">
-                <label for="name_user_care" class="">Staff: </label>
-                <input type="text" class="form-control mb-3" disabled="" name="name_user_care" value="<?= $customer['NV chăm sóc']; ?>">
-                <label for="name_user_buy" class="">Dealer: </label>
-                <input type="text" class="form-control mb-3" disabled="" name="name_user_buy" value="<?= $_SESSION['name']; ?>">
-            </div>
-        </div>
-    </div>
-    <div class="col-9">
+    <div class="col-12">
         <div class="card-box table-responsive">
+            <form action="" class="form-group">
             <table id="datatable_listcustomer_care" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr class="text-center">
@@ -51,9 +40,18 @@
                         <?php
                         }
                      ?>
-                </tbody>
-                
+                </tbody>                
             </table>
+            <br><br>
+            <label for="name_customer" class="">Customer Name: </label>
+            <input type="text" class="form-control mb-3" disabled="" name="name_customer" value="<?= $customer['Tên khách hàng']; ?>">
+            <label for="name_user_care" class="">Staff: </label>
+            <input type="text" class="form-control mb-3" disabled="" name="name_user_care" value="<?= $customer['NV chăm sóc']; ?>">
+            <label for="name_user_buy" class="">Dealer: </label>
+            <input type="text" class="form-control mb-3" disabled="" name="name_user_buy" value="<?= $_SESSION['name']; ?>">
+            <button class="btn btn-primary float-right mb-3">Create Order</button>
+            </form>
         </div>
+
     </div>
 </div>
