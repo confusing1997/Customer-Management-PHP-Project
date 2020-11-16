@@ -230,3 +230,36 @@ $(document).on('click', '.remove_Product', function(){
     }
 
 });
+
+//Modify a product from tbl_product
+$(document).on('click', ' .modify_product', function(){
+//e.preventDefault();
+    var product_id = $(this).val();
+    var name = $("#product_name" + product_id).val();
+    var price = $("#product_price" + product_id).val();
+    var description = $("#product_description" + product_id).val();
+    // console.log(product_id);
+    // console.log(name);
+    // console.log(price);
+    // console.log(description);
+
+    $.post("Server/Product/modify_product.php", { 
+
+        product_id : product_id,
+        name : name,
+        price : price,
+        description : description
+
+     }, 
+    
+    function(data){
+
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $(".notification").html(data);
+        $(".table_product").load(" #datatable_list_product");
+
+    })
+
+});
