@@ -23,4 +23,10 @@
 
         }
 
+        public function modifyProduct($id, $name, $price, $description) {
+
+            return $this->product->modifyProduct($id, $name, $price, $description);
+
+        }
+
     }
