@@ -18,14 +18,14 @@
 ?> 
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Thông báo!</strong> Điều chuyển thành công!
+            <strong>Transference Success!</strong> 
         </div>
 <?php 
     } else {
 ?>
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Thông báo!</strong> Điều chuyển thất bại!
+            <strong>Transference Failed!</strong> 
         </div>
 <?php
     }

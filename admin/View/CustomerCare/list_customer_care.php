@@ -7,13 +7,13 @@
                 <thead>
                     <tr class="text-center">
                         <th>STT</th>
-                        <th>Họ tên</th>
+                        <th>Full Name</th>
                         <th>Showroom</th>
-                        <th>SĐT</th>
+                        <th>Phone</th>
                         <th>Email</th>
-                        <th>Trạng thái</th>
-                        <th>Ngày chăm sóc</th>
-                        <th>Chức năng</th>
+                        <th>Status</th>
+                        <th>Dat get Info of Customer</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
@@ -32,7 +32,7 @@
                                 <td class="text-center">
                                     <?php 
                                         if ($valueCustomerCare['status'] == 1) {
-                                            echo "<p style='color: red;'>Đang chăm sóc</p>";
+                                            echo "<p style='color: red;'>Busy</p>";
                                         }else{
                                             echo "<p style='color: blue;'>Chăm sóc mới</p>";
                                         }
@@ -42,13 +42,13 @@
 
                                 <td> 
                                     <!-- Start Modal -->
-                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_<?php echo $valueCustomerCare['id']?>" data-whatever="@getbootstrap" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
+                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_<?php echo $valueCustomerCare['id']?>" data-whatever="@getbootstrap" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
 
                                     <div class="modal fade bs-example-modal-lg" id="detail_<?php echo $valueCustomerCare['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Nội dung chi tiết chăm sóc khách hàng</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail Customer care content</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
                                             </button>
@@ -62,9 +62,9 @@
                                                 <table class="table table-bordered dt-responsive nowrap">
                                                     <thead class="text-center dataContentHeader">
                                                         <td style="width: 10%">Avatar</td>
-                                                        <td style="width: 20%">Nhân viên</td>
-                                                        <td style="width: 60%">Nội dung</td>
-                                                        <td style="width: 10%">Thời gian</td>
+                                                        <td style="width: 20%">Staff</td>
+                                                        <td style="width: 60%">Content</td>
+                                                        <td style="width: 10%">Time</td>
                                                     </thead>
                                                     <tbody>
                                                         <?php
@@ -90,7 +90,7 @@
                                           <form>
                                             <textarea class="form-control ckeditor" rows="1" id="content<?= $valueCustomerCare['customer_id'] ?>" name="content<?= $valueCustomerCare['customer_id'] ?>"></textarea>
                                             <div class="modal-footer">
-                                                <button class="btn btn-primary add_content" value="<?= $valueCustomerCare['customer_id'] ?>">Cập nhật</button>
+                                                <button class="btn btn-primary add_content" value="<?= $valueCustomerCare['customer_id'] ?>">Update</button>
                                             </div>
                                             </form>
                                         </div>
@@ -105,7 +105,7 @@
                                       <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Nhân viên chăm sóc</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Staff</h5>
                                     
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
@@ -114,19 +114,19 @@
                                           <div class="modal-body">
                                             <form>
                                               <div class="form-group">
-                                                <label for="name" class="col-form-label">Họ tên: <?= $valueCustomerCare['Họ tên NV']; ?></label>
+                                                <label for="name" class="col-form-label">Full Name: <?= $valueCustomerCare['Họ tên NV']; ?></label>
                                               </div>
 
                                               <div class="form-group">
-                                                <label for="name" class="col-form-label">Đơn vị: <?= $valueCustomerCare['title']; ?></label>
+                                                <label for="name" class="col-form-label">Unit: <?= $valueCustomerCare['title']; ?></label>
                                               </div>
 
                                               <div class="form-group">
-                                                <label for="phone" class="col-form-label">Ngày chăm sóc: <?= $valueCustomerCare['create_at']; ?></label>
+                                                <label for="phone" class="col-form-label">Day get Info of Customer: <?= $valueCustomerCare['create_at']; ?></label>
                                               </div>
 
                                               <div class="form-group">
-                                                <label class="col-form-label">Điều chuyển khách hàng cho:</label>
+                                                <label class="col-form-label">Transfer to:</label>
                                                 <select class="form-control" id="listUser"> 
                                                 <?php foreach ($customer_care1 as $value) {
                                                 ?>
@@ -138,8 +138,8 @@
                                               </div>
 
                                               <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                                <button type="button" class="btn btn-warning transfer" value="<?= $valueCustomerCare['customer_id'] ?>">Điều chuyển</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-warning transfer" value="<?= $valueCustomerCare['customer_id'] ?>">Confirm</button>
                                               </div>
                                             </form>
                                           </div>

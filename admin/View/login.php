@@ -17,25 +17,25 @@
                             <a href="index.html">
                                 <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
                             </a>
-                            <h5 class="text-uppercase text-center font-bold mt-4">Đăng nhập</h5>
+                            <h5 class="text-uppercase text-center font-bold mt-4">Login</h5>
 
                         </div>
 
                         <form action="" method="POST">
 
                             <div class="form-group mb-3">
-                                <label for="emailaddress">Địa chỉ Email</label>
+                                <label for="emailaddress">Email</label>
                                 <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email" name="user" value="<?php if(isset($user)){ echo $user; } ?>">
                             </div>
 
                             <div class="form-group mb-3">
                                 
-                                <label for="password">Mật khẩu</label>
+                                <label for="password">Password</label>
                                 <input class="form-control" type="password" required="" id="password" placeholder="Enter your password" name="passw">
                             </div>
 
                             <div class="form-group mb-0 text-center">
-                                <button class="btn btn-gradient btn-block" type="submit" name="sm_login"> Đăng nhập </button>
+                                <button class="btn btn-gradient btn-block" type="submit" name="sm_login"> Login </button>
                             </div>
 
                             <?php if (isset($errors)) { ?>

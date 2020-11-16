@@ -2,15 +2,15 @@
 
 <!-- BEGIN ADD USER MODAL -->
 <button type="button" class="btn btn-icon waves-effect waves-light btn-purple addUser" 
-data-toggle = "modal" data-target = "#add_user" title="Sửa">
-     <i class="fa fa-plus" aria-hidden="true"></i> Thêm nhân viên
+data-toggle = "modal" data-target = "#add_user" title="Add Staff">
+     <i class="fa fa-plus" aria-hidden="true"></i> Add Staff
 </button>
 
 <div class="modal fade text-left" id="add_user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Thêm nhân viên</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Staff</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,12 +18,12 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
       <div class="modal-body">
         <form> 
           <div class="form-group">
-            <label for="name" class="col-form-label">Tên nhân viên:</label>
+            <label for="name" class="col-form-label">Staff Full Name:</label>
             <input type="text" class="form-control" id="user_name" name="user_name">
           </div>
 
           <div class="form-group">
-            <label for="name" class="col-form-label">showroom:</label>
+            <label for="name" class="col-form-label">Showroom:</label>
             <select name="" id="user_showroom" class="form-control">
               <?php 
                 foreach($showroom as $valueShowroom) {
@@ -36,23 +36,23 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
           </div>
 
           <div class="form-group">
-            <label for="phone" class="col-form-label">Địa chỉ email:</label>
+            <label for="phone" class="col-form-label">Email:</label>
             <input type="text" class="form-control" id="user_email" name="user_email">
           </div>
           
           <div class="form-group">
-            <label for="email" class="col-form-label">Địa chỉ:</label>
+            <label for="email" class="col-form-label">Address:</label>
             <input type="text" class="form-control" id="user_address" name="user_address">
           </div>
 
           <div class="form-group">
-            <label for="email" class="col-form-label">Lương cơ bản:</label>
+            <label for="email" class="col-form-label">Salary:</label>
             <input type="text" class="form-control" id="user_salary" name="user_salary">
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            <button type="button" class="btn btn-primary add_user">Thêm</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary add_user">Add</button>
           </div>
         </form>
       </div>
@@ -70,8 +70,8 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
         <table id="datatable_listuser" class="display table table-bordered  dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
           <thead>
             <tr class="text-center">
-                <th>STT</th>
-                <th>Họ tên</th>
+                <th>Order</th>
+                <th>Full Name</th>
                 <th>Showroom</th>
                 <th>Email</th>
                 <th>Action</th>
@@ -97,7 +97,7 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
                           data-toggle = "modal"
                           data-target = "#edit_user<?= $valueUser['id']; ?>"
                           data-whatever = "@getbootstrap"
-                          title="Sửa">
+                          title="Modify">
                             <i class="fas fa-wrench"></i>
                           </button>
 
@@ -105,7 +105,7 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Sửa thông tin nhân viên</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">Modify Info of Staff</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
@@ -113,7 +113,7 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
                                 <div class="modal-body">
                                   <form>
                                     <div class="form-group">
-                                      <label for="name" class="col-form-label">Tên nhân viên</label>
+                                      <label for="name" class="col-form-label">Staff Full Name</label>
                                       <input type="text" class="form-control" id="staff_name<?= $valueUser['id'] ?>" name="user_name" value="<?= $valueUser['name']; ?>">
                                     </div>
 
@@ -151,8 +151,8 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
                                     </div>
 
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                      <button type="submit" class="btn btn-primary edit_user" value="<?= $valueUser['id']; ?>">Sửa</button>
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="submit" class="btn btn-primary edit_user" value="<?= $valueUser['id']; ?>">Modify</button>
                                     </div>
                                     
                                   </form>
@@ -166,12 +166,12 @@ data-toggle = "modal" data-target = "#add_user" title="Sửa">
 
                           <button class="btn btn-danger btn-icon waves-effect waves-light removeUser" 
                           value="<?= $valueUser['id']; ?>" 
-                          title="Xóa">  
+                          title="Delete">  
                             <i class="fas fa-times"></i>
                           </button>
 
                           <a href="dashboard.php?page=list_customer_care_user&id=<?= $valueUser['id']; ?>">
-                            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Danh sách khách hàng chăm sóc"><span><i class="mdi mdi-pencil"></i></span></button>
+                            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
                           </a>
                       </td>
                   </tr>
