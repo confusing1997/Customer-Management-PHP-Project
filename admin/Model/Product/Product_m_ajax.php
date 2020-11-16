@@ -37,4 +37,22 @@
 
         }
 
+        //Modify a product from tbl_product
+        protected function modifyProduct ($id, $name, $price, $description) {
+
+            $sql = "UPDATE tbl_product
+                    SET name = :name, price = :price, description = :description
+                    WHERE id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+            $pre->bindParam(":name", $name);
+            $pre->bindParam(":price", $price);
+            $pre->bindParam(":description", $description); 
+
+            return $pre->execute();
+
+        }
+
     }
