@@ -43,15 +43,25 @@
             $sql = "UPDATE tbl_product
                     SET name = :name, price = :price, description = :description
                     WHERE id = :id";
-
             $pre = $this->pdo->prepare($sql);
-
             $pre->bindParam(":id", $id);
             $pre->bindParam(":name", $name);
             $pre->bindParam(":price", $price);
             $pre->bindParam(":description", $description); 
-
             return $pre->execute();
+        }
+
+        protected function getPro_id ($id) {
+
+            $sql = "SELECT * FROM tbl_product WHERE id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();
+
+            return $row = $pre->fetch(PDO::FETCH_ASSOC);
 
         }
 

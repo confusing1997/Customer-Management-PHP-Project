@@ -231,6 +231,7 @@ $(document).on('click', '.remove_Product', function(){
 
 });
 
+
 //Modify a product from tbl_product
 $(document).on('click', ' .modify_product', function(){
 //e.preventDefault();
@@ -238,10 +239,6 @@ $(document).on('click', ' .modify_product', function(){
     var name = $("#product_name" + product_id).val();
     var price = $("#product_price" + product_id).val();
     var description = $("#product_description" + product_id).val();
-    // console.log(product_id);
-    // console.log(name);
-    // console.log(price);
-    // console.log(description);
 
     $.post("Server/Product/modify_product.php", { 
 
@@ -261,5 +258,42 @@ $(document).on('click', ' .modify_product', function(){
         $(".table_product").load(" #datatable_list_product");
 
     })
-
 });
+
+
+//Thêm sản phẩm vào bảng hóa đơn tạm thời
+/*$(document).on('click', '.btn_add', function(e){
+    e.preventDefault();
+
+    var id = $(this).val();
+    var qty = $('#qty_' + id).val();
+
+    $.post('Server/Product/add_order.php', { id : id, qty : qty }, function(data){
+        
+        $('#view_product_select').html(data);
+    });
+});*/
+
+function updateCart(id){
+    var qty = $("#qty_" + id).val();
+    if (qty > 0) {
+        $.ajax({
+            url: 'Server/Product/add_order.php',
+            type: 'POST',
+            dataType: 'html',
+            data: {id : id, qty : qty},
+
+            success : function(data){
+                $("#view_product_select").html(data);
+                // $(".order2").load(' #view_product_select');
+            },
+
+            error : function(){
+                console.log('error');
+            }
+
+        })
+    }else{
+        
+    }
+}

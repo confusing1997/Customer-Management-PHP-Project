@@ -42,7 +42,7 @@
                 ?>
 
                 
-                <li class="menu-title"> Customer Attention </li>
+                <li class="menu-title"> Customer Care </li>
 
                 <li>
                     <a href="dashboard.php?page=index">
@@ -54,7 +54,7 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="dripicons-user-id"></i>
-                        <span> Customer Attention </span>
+                        <span> Customer Care </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
@@ -64,38 +64,23 @@
                         </a></li>
                         <li><a href="dashboard.php?page=list_customer_care_all">
                             <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                                <span> System's Customer list</span>
+                                <span> Add Customer</span>
                         </a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);">
-                        <i class="dripicons-user-id"></i>
-                        <span> Transference history </span>
-                        <span class="menu-arrow"></span>
+                    <a href="dashboard.php?page=list_history">
+                        <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
+                            <span> Transference history </span>
                     </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="dashboard.php?page=list_history">
-                            <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                                <span> Transference history </span>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);">
-                        <i class="fe-watch"></i>
-                        <span> Product </span>
-                        <span class="menu-arrow"></span>
+                    <a href="dashboard.php?page=list_product">
+                        <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
+                            <span> Product list </span>
                     </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="dashboard.php?page=list_product">
-                            <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                                <span> Product list </span>
-                        </a></li>
-                    </ul>
                 </li>
             </ul>
         </div>
