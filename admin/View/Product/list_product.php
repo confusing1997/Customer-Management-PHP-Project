@@ -123,10 +123,10 @@ data-toggle = "modal" data-target = "#add_product" title="Modify">
                             <i class="fas fa-times"></i>
                           </button>
 
-                          <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Modify"
+                          <button type="button" class="btn btn-icon waves-effect waves-light btn-warning" title="Modify"
                           data-toggle="modal" data-target="#modify-product<?= $valueProduct['id'] ?>" data-whatever = "@getbootstrap">
                             <span>
-                              <i class="mdi mdi-pencil"></i>
+                              <i class="fas fa-wrench"></i>
                             </span>
                           </button>
 
