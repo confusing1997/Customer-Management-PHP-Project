@@ -97,12 +97,13 @@
                     SELECT
                         tbl_user.id,
                         MAX(tbl_order.id),
-                        ROUND(6*tbl_order.total/100, -3)
+                        ROUND(6 * tbl_order.total / 100, -3)
                     FROM
                         tbl_user,
-                        tbl_order
+                        tbl_order,
+                        (SELECT MAX(tbl_order.id) as idmax, total FROM tbl_order) as max
                     WHERE
-                        tbl_user.id = tbl_order.user_id_buy AND tbl_user.id = tbl_order.user_id_care AND tbl_user.id = :id
+                        tbl_user.id = tbl_order.user_id_buy AND tbl_user.id = tbl_order.user_id_care AND tbl_order.id = max.idmax  AND tbl_user.id = :id
                         ";
 
             $pre = $this->pdo->prepare($sql);
@@ -118,12 +119,13 @@
                     SELECT
                         tbl_user.id,
                         MAX(tbl_order.id),
-                        ROUND(4*tbl_order.total/100,-3)
+                        ROUND(4 * tbl_order.total / 100, -3)
                     FROM
                         tbl_user,
-                        tbl_order
+                        tbl_order,
+                        (SELECT MAX(tbl_order.id) as idmax, total FROM tbl_order) as max
                     WHERE
-                        tbl_user.id = tbl_order.user_id_care AND tbl_user.id = :user_id_care";
+                        tbl_user.id = tbl_order.user_id_care AND tbl_order.id = max.idmax  AND tbl_user.id = :user_id_care";
 
             $pre = $this->pdo->prepare($sql);
             $pre->bindParam(":user_id_care", $user_id_care);
@@ -138,12 +140,13 @@
                     SELECT
                         tbl_user.id,
                         MAX(tbl_order.id),
-                        ROUND(2*tbl_order.total/100,-3)
+                        ROUND(2 * tbl_order.total / 100, -3)
                     FROM
                         tbl_user,
-                        tbl_order
+                        tbl_order,
+                        (SELECT MAX(tbl_order.id) as idmax, total FROM tbl_order) as max
                     WHERE
-                        tbl_user.id = tbl_order.user_id_buy AND tbl_user.id = :user_id_buy
+                        tbl_user.id = tbl_order.user_id_buy AND tbl_order.id = max.idmax  AND tbl_user.id = :user_id_buy
                         ";
 
             $pre = $this->pdo->prepare($sql);
