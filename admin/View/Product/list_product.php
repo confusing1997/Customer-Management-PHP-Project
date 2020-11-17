@@ -153,7 +153,7 @@ data-toggle = "modal" data-target = "#add_product" title="Modify">
                                     <div class="form-group">
                                       <label for="" class="col-form-label">Product price:</label>
                                       <input type="text" class="form-control" name="" id="product_price<?= $valueProduct['id'] ?>" 
-                                      value="<?= number_format($valueProduct['price']); ?>">
+                                      value="<?= $valueProduct['price']; ?>">
                                     </div>
 
                                     <div class="form-group">
