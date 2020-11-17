@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 01:17 PM
+-- Generation Time: Nov 17, 2020 at 01:45 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -33,6 +33,13 @@ CREATE TABLE `tbl_bonus` (
   `bonus` float NOT NULL,
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin lương thưởng';
+
+--
+-- Dumping data for table `tbl_bonus`
+--
+
+INSERT INTO `tbl_bonus` (`user_id`, `order_id`, `bonus`, `create_at`) VALUES
+(2, 1, 1497000, '2020-11-17 19:34:19');
 
 -- --------------------------------------------------------
 
@@ -136,6 +143,13 @@ CREATE TABLE `tbl_detail_order` (
   `quantity` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin chi tiết đơn hàng';
 
+--
+-- Dumping data for table `tbl_detail_order`
+--
+
+INSERT INTO `tbl_detail_order` (`order_id`, `product_id`, `price`, `quantity`) VALUES
+(1, 1, 24948000, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -175,6 +189,13 @@ CREATE TABLE `tbl_order` (
   `total` float NOT NULL,
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin hóa đơn';
+
+--
+-- Dumping data for table `tbl_order`
+--
+
+INSERT INTO `tbl_order` (`id`, `user_id_buy`, `user_id_care`, `customer_id`, `total`, `create_at`) VALUES
+(1, 2, 2, 150, 24948000, '2020-11-17 19:34:19');
 
 -- --------------------------------------------------------
 
@@ -305,6 +326,7 @@ ALTER TABLE `tbl_detail`
 -- Indexes for table `tbl_detail_order`
 --
 ALTER TABLE `tbl_detail_order`
+  ADD PRIMARY KEY (`order_id`),
   ADD KEY `fk_orderID_detailord_order` (`order_id`),
   ADD KEY `fk_productID_detailord_product` (`product_id`);
 
@@ -370,6 +392,12 @@ ALTER TABLE `tbl_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
+-- AUTO_INCREMENT for table `tbl_detail_order`
+--
+ALTER TABLE `tbl_detail_order`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tbl_history`
 --
 ALTER TABLE `tbl_history`
@@ -379,7 +407,7 @@ ALTER TABLE `tbl_history`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`
@@ -434,7 +462,7 @@ ALTER TABLE `tbl_detail`
 -- Constraints for table `tbl_detail_order`
 --
 ALTER TABLE `tbl_detail_order`
-  ADD CONSTRAINT `fk_orderID_detailord_order` FOREIGN KEY (`order_id`) REFERENCES `tbl_order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_orderID_DetailOrder_Order` FOREIGN KEY (`order_id`) REFERENCES `tbl_order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_productID_detailord_product` FOREIGN KEY (`product_id`) REFERENCES `tbl_product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
