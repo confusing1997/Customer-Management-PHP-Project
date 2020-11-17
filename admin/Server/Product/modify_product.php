@@ -9,9 +9,11 @@
     $price = trim($_POST['price']);
     $description = trim($_POST['description']);
 
-    if (preg_match('/^[0-9]+$/', $price)):
+    if (filter_var($price, FILTER_VALIDATE_INT) && !empty($name) && !empty($price) && !empty($description)):
 
         $modifyProduct = $product->modifyProduct($product_id, $name, $price, $description);
+
+        if ($modifyProduct):
 
 ?>
 
@@ -22,23 +24,27 @@
 
 <?php
 
-        elseif (empty($name) || empty($price) || empty($description)):
+    else:
 ?>
 
-    <div class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Data must not be empty!</strong> 
-    </div>
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Modify Failed!</strong> 
+        </div>
 
 <?php
-    else: 
+
+        endif;
+        
+    else:
 
 ?>
 
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Please enter valid a number!</strong> 
+            <strong>Please enter a valid data!</strong> 
         </div>
+        
 
 <?php
 
