@@ -186,6 +186,10 @@
                                     </div>
 
                                     <!-- End Customer Modal -->
+
+                                    <a href="dashboard.php?page=create_order&id=<?= $valueCustomerAll['id']; ?>">
+                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Create Bill"><span><i class="mdi mdi-cart"></i></span></button>
+                                    </a>
                                 </td>
                             </tr>
                         <?php
@@ -303,6 +307,10 @@
                                     </div>
 
                                     <!-- End Customer Modal -->
+
+                                    <a href="dashboard.php?page=create_order&id=<?= $valueCustomerAll['id']; ?>">
+                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Create Bill"><span><i class="mdi mdi-cart"></i></span></button>
+                                    </a>
                                 </td>
                             </tr>
                         <?php

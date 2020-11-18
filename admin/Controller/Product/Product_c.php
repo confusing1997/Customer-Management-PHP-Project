@@ -33,11 +33,13 @@
                     $addDetailOrder = $this->product->addDetailOrder($product_id, $price, $quantity);
                     if ($user_id_care == $user_id_buy) {
                         $add6 = $this->product->addBonus6($user_id_care);
+                        $updateStatus = $this->product->purchasedStatus($customer_id);
                     } else {
                         $add4 = $this->product->addBonus4($user_id_care);
                         $add2 = $this->product->addBonus2($user_id_buy);
+                        $updateStatus = $this->product->purchasedStatus($customer_id);
                     }
-                    if($addOrder){
+                    if($addOrder && $addDetailOrder){
                             header("Location: dashboard.php?page=list_customer_care");
                     }
                 }

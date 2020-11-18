@@ -152,7 +152,7 @@
 
                                     <!-- Sell Products Button -->
                                     <a href="dashboard.php?page=create_order&id=<?= $valueCustomerCare['customer_id']; ?>">
-                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Tạo hóa đơn"><span><i class="mdi mdi-cart"></i></span></button>
+                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Create Bill"><span><i class="mdi mdi-cart"></i></span></button>
                                     </a>
                                     <!-- Sell Products Button -->  
                                 </td>
