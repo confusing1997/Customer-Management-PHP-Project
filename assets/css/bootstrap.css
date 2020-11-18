@@ -8759,6 +8759,7 @@ a.text-purple:hover, a.text-purple:focus {
   position: absolute;
   z-index: 1000; }
   .dropdown-menu.show {
+    
     top: 100% !important; }
 
 .dropdown-menu-right {

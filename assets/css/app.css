@@ -298,8 +298,7 @@ body.enlarged {
   background: black;
   -webkit-box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
           box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
-  padding: 0 10px 0 0;
-  position: fixed;
+  padding: 0 0 0 0;
   left: 0;
   right: 0;
   height: 70px;
@@ -378,7 +377,7 @@ body.enlarged {
     vertical-align: middle; }
   .notification-list .noti-icon-badge {
     display: inline-block;
-    position: absolute;
+    /*position: absolute;*/
     top: 16px;
     right: 10px; }
   .notification-list .notify-item {
@@ -397,7 +396,7 @@ body.enlarged {
     .notification-list .notify-item .notify-details {
       margin-bottom: 5px;
       overflow: hidden;
-      margin-left: 45px;
+      /*margin-left: 45px;*/
       text-overflow: ellipsis;
       white-space: nowrap;
       color: #414d5f;
@@ -413,7 +412,7 @@ body.enlarged {
         white-space: nowrap;
         font-size: 13px; }
     .notification-list .notify-item .user-msg {
-      margin-left: 45px;
+      /*margin-left: 45px;*/
       white-space: normal;
       line-height: 16px; }
   .notification-list .profile-dropdown .notify-item {
@@ -3280,3 +3279,6 @@ h3.timeline-title {
     .footer{
       min-height: auto;
     }
+.search{
+  margin-left: 20px;
+}

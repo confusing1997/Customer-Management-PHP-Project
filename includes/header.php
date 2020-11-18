@@ -57,6 +57,21 @@
 				#ft_none{
 					display: block;
 				}
+				.icon-setting{
+					display: none;
+				}
+				#name_cus{
+					display: none;
+				}
+				.nav-user{
+					margin-top: 20px;
+				}
+				.login{
+					margin-right: 10px;
+					font-size: 10px;
+				}.logo-box{
+					float: right
+				}
 			}
 			
         </style>
