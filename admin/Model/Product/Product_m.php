@@ -108,7 +108,7 @@
 
             $pre = $this->pdo->prepare($sql);
             $pre->bindParam(":id", $id);
-            $pre->execute();
+            return $pre->execute();
 
         }
 
@@ -129,7 +129,7 @@
 
             $pre = $this->pdo->prepare($sql);
             $pre->bindParam(":user_id_care", $user_id_care);
-            $pre->execute();
+            return $pre->execute();
 
         }
 
@@ -151,7 +151,21 @@
 
             $pre = $this->pdo->prepare($sql);
             $pre->bindParam(":user_id_buy", $user_id_buy);
-            $pre->execute();
+            return $pre->execute();
+
+        }
+
+        //Update Status Customer to Purchased and Transfer to Admin
+        protected function purchasedStatus ($customer_id) {
+
+            $sql = "UPDATE tbl_care
+                    SET user_id = 1, status = 2
+                    WHERE customer_id = :customer_id
+                        ";
+
+            $pre = $this->pdo->prepare($sql);
+            $pre->bindParam(":customer_id", $customer_id);
+            return $pre->execute();
 
         }
     }
