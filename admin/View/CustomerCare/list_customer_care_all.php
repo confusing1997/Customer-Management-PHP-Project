@@ -22,10 +22,10 @@
                         <th>STT</th>
                         <th>Staff</th>
                         <th>Showroom</th>
-                        <th>Customer Full Name</th>
+                        <th>Customer</th>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th>Day get Info of Customer</th>
+                        <th>Create at</th>
                         <th>Status</th>
                         <th>Detail</th> 
                     </tr>

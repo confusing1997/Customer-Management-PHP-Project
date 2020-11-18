@@ -12,7 +12,7 @@
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Status</th>
-                        <th>Dat get Info of Customer</th>
+                        <th>Create at</th>
                         <th>Action</th>
                     </tr>
                 </thead>
