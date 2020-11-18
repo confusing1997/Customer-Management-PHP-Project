@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2020 at 05:52 AM
+-- Generation Time: Nov 15, 2020 at 01:17 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -64,7 +64,7 @@ INSERT INTO `tbl_care` (`user_id`, `customer_id`, `status`, `create_at`) VALUES
 (2, 150, 1, '2020-11-13 17:52:26'),
 (2, 11, 1, '2020-11-13 19:37:50'),
 (4, 151, 1, '2020-11-13 20:01:11'),
-(2, 9, 1, '2020-11-14 10:24:49');
+(1, 9, 1, '2020-11-14 11:55:09');
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,8 @@ INSERT INTO `tbl_history` (`id`, `user_id_move`, `customer_id`, `user_id_get`, `
 (39, 1, 150, 2, '2020-11-13 17:52:26'),
 (40, 4, 11, 2, '2020-11-13 19:37:50'),
 (41, 1, 151, 4, '2020-11-13 20:01:11'),
-(42, 1, 9, 2, '2020-11-14 10:24:49');
+(42, 1, 9, 2, '2020-11-14 10:24:49'),
+(43, 2, 9, 1, '2020-11-14 11:55:09');
 
 -- --------------------------------------------------------
 
@@ -184,8 +185,10 @@ CREATE TABLE `tbl_order` (
 CREATE TABLE `tbl_product` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
   `price` float NOT NULL,
   `description` text NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin sản phẩm';
 
@@ -193,11 +196,11 @@ CREATE TABLE `tbl_product` (
 -- Dumping data for table `tbl_product`
 --
 
-INSERT INTO `tbl_product` (`id`, `name`, `price`, `description`, `create_at`) VALUES
-(1, 'Đồng hồ Citizen AV0077-82E', 24948000, 'Đồng hồ Citizen đẹp.', '2020-10-19 13:02:05'),
-(2, 'Đồng hồ Gucci YA126401', 17622000, 'YA126401 Được thiết kế theo phong cách hiện đại, dành cho những người cá tính thuộc dòng Gucci G-Timeless.', '2020-10-19 13:02:05'),
-(3, 'Đồng hồ Edox 27017 3P NIN', 8694000, '27017 3P NIN Là chiếc đồng hồ được thiết kế theo hơi hướng cổ điển cùng những đường nét đơn giản của dòng sản phẩm Edox Les Fontaines.', '2020-10-19 13:03:51'),
-(4, 'ĐỒNG HỒ LONGINES L4.790.2.32.2', 20196000, 'Đồng hồ Longines L4.790.2.32.2 thuộc dòng sản phẩm Elegane của hãng đồng hồ Thụy Sĩ Longines.', '2020-10-19 13:03:51');
+INSERT INTO `tbl_product` (`id`, `name`, `image`, `price`, `description`, `status`, `create_at`) VALUES
+(1, 'Đồng hồ Citizen AV0077-82E', 'citizen_av0077.webp', 24948000, 'Đồng hồ Citizen đẹp.', 1, '2020-10-19 13:02:05'),
+(2, 'Đồng hồ Gucci YA126401', 'gucci_ya126401.jpg', 17622000, 'YA126401 Được thiết kế theo phong cách hiện đại, dành cho những người cá tính thuộc dòng Gucci G-Timeless.', 1, '2020-10-19 13:02:05'),
+(3, 'Đồng hồ Edox 27017 3P NIN', 'edox_270173pnin.jpg', 8694000, '27017 3P NIN Là chiếc đồng hồ được thiết kế theo hơi hướng cổ điển cùng những đường nét đơn giản của dòng sản phẩm Edox Les Fontaines.', 1, '2020-10-19 13:03:51'),
+(4, 'ĐỒNG HỒ LONGINES L4.790.2.32.2', 'longines_l47902322.webp', 20196000, 'Đồng hồ Longines L4.790.2.32.2 thuộc dòng sản phẩm Elegane của hãng đồng hồ Thụy Sĩ Longines.', 1, '2020-10-19 13:03:51');
 
 -- --------------------------------------------------------
 
@@ -370,7 +373,7 @@ ALTER TABLE `tbl_detail`
 -- AUTO_INCREMENT for table `tbl_history`
 --
 ALTER TABLE `tbl_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`

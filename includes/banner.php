@@ -1,1 +1,0 @@
-<a href=""><img src="img/banner1.webp" alt="banner" width="100%"></a>
