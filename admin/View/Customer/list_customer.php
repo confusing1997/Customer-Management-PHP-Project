@@ -11,10 +11,11 @@
           <thead>
             <tr class="text-center">
               <th>STT</th>
-              <th>Họ tên</th>
+              <th>Full Name</th>
               <th>Showroom</th>
-              <th>SĐT</th>
+              <th>Phone</th>
               <th>Email</th>
+              <th>Trạng thái</th>
               <th>Chức năng</th>
             </tr>
           </thead>
@@ -30,14 +31,23 @@
                   <td><?php echo $value['title']; ?></td>
                   <td><?php echo $value['phone']; ?></td>
                   <td><?php echo $value['email']; ?></td>
+                  <td><?php 
+                      if ($value['status'] == 1) {
+                          echo "<p style='color: red;'>Đang chăm sóc</p>";
+                      }else if ($value['status'] == 2){
+                          echo "<p style='color: green;'>Đã mua hàng</p>";
+                      }else if ($value['status'] == 3){
+                          echo "<p style='color: blue;'>Chăm sóc mới</p>";
+                      }
+                  ?></td>
                   <td class="text-center">
-                    <button type="button" class="btn btn-icon waves-effect waves-light btn-warning" data-toggle="modal" data-target="#edit_customer<?= $value['id'] ?>" data-whatever="@getbootstrap" title="Sửa"><span><i class="fas fa-wrench"></i></span></button>
+                    <button type="button" class="btn btn-icon waves-effect waves-light btn-warning" data-toggle="modal" data-target="#edit_customer<?= $value['id'] ?>" data-whatever="@getbootstrap" title="Modify"><span><i class="fas fa-wrench"></i></span></button>
 
                     <div class="modal fade text-left" id="edit_customer<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin khách hàng</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Update information of Customer</h5>
                     
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
@@ -46,7 +56,7 @@
                           <div class="modal-body">
                             <form>
                               <div class="form-group">
-                                <label for="name" class="col-form-label">Name</label>
+                                <label for="name" class="col-form-label">Full Name</label>
                                 <input type="text" id="name<?= $value['id']; ?>" name="name" class="form-control" value="<?= $value['name']; ?>">
                               </div>
 
@@ -69,8 +79,8 @@
                               </div>
 
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                <button type="button" class="btn btn-warning edit_customer" value="<?= $value['id'] ?>">Cập nhật</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-warning edit_customer" value="<?= $value['id'] ?>">Update</button>
                               </div>
                             </form>
                           </div> 
@@ -80,7 +90,7 @@
 
                     <!-- End Customer Modal -->
                     
-                      <button class="btn btn-danger btn-icon waves-effect waves-light delCus" value="<?php echo $value['id']; ?>" title="Xóa">
+                      <button class="btn btn-danger btn-icon waves-effect waves-light delCus" value="<?php echo $value['id']; ?>" title="Delete">
                         <i class="fas fa-times"></i>
                       </button>
                   </td>

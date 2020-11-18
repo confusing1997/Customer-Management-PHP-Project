@@ -96,7 +96,7 @@ $(document).on('click', '.edit_user', function(e){
 //Xóa khách hàng theo id
 $(document).on('click', '.delCus', function(){
 	var id = $(this).val();
-	var check = confirm('Bạn có chắc chắn xóa không?');
+	var check = confirm('Are you sure want to Delete this Customer?');
 	if (check == true) {
 		$.post('Server/Customer/remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
@@ -183,3 +183,117 @@ $(document).on('click', '.add_content_2nd', function(e){
     })
 });
 
+//Add product Modal
+$(document).on('click', '.add_product', function(){
+
+    var name = $('#product_name').val();
+    var price = $('#product_cost').val();
+    var description = $('#product_description').val();
+
+    $.post('Server/Product/add_product.php', {
+
+        name : name,
+        price : price,
+        description : description }, 
+        
+        function(data){
+
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('.notification').html(data);
+        $(".table_product").load(' #datatable_list_product');
+
+    })
+
+});
+
+//Remove a product from tbl_product
+$(document).on('click', '.remove_Product', function(){
+
+    var id = $(this).val();
+    var check = confirm('Are you sure want to Delete this Product?');
+
+    if (check == true) {
+
+        $.post('Server/Product/remove_product.php', 
+        
+            { id : id }, 
+        
+            function(data){
+
+                $(".notification").html(data);
+                $(".table_product").load(" #datatable_list_product");
+
+            });
+
+    }
+
+});
+
+
+//Modify a product from tbl_product
+$(document).on('click', ' .modify_product', function(){
+//e.preventDefault();
+    var product_id = $(this).val();
+    var name = $("#product_name" + product_id).val();
+    var price = $("#product_price" + product_id).val();
+    var description = $("#product_description" + product_id).val();
+
+    $.post("Server/Product/modify_product.php", { 
+
+        product_id : product_id,
+        name : name,
+        price : price,
+        description : description
+
+     }, 
+    
+    function(data){
+
+        $(".modal:visible").modal('toggle');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $(".notification").html(data);
+        $(".table_product").load(" #datatable_list_product");
+
+    })
+});
+
+
+//Thêm sản phẩm vào bảng hóa đơn tạm thời
+/*$(document).on('click', '.btn_add', function(e){
+    e.preventDefault();
+
+    var id = $(this).val();
+    var qty = $('#qty_' + id).val();
+
+    $.post('Server/Product/add_order.php', { id : id, qty : qty }, function(data){
+        
+        $('#view_product_select').html(data);
+    });
+});*/
+
+function updateCart(id){
+    var qty = $("#qty_" + id).val();
+    if (qty > 0) {
+        $.ajax({
+            url: 'Server/Product/add_order.php',
+            type: 'POST',
+            dataType: 'html',
+            data: {id : id, qty : qty},
+
+            success : function(data){
+                $("#view_product_select").html(data);
+                // $(".order2").load(' #view_product_select');
+            },
+
+            error : function(){
+                console.log('error');
+            }
+
+        })
+    }else{
+        
+    }
+}

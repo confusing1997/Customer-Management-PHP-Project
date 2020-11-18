@@ -20,26 +20,26 @@
 ?> 
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>Thông báo!</strong> Thêm mới thành công!
+            <strong>Additional Success!</strong> 
         </div>
 <?php 
         } else { 
 
-            echo "Thêm thất bại!";
+            echo "Additional Failed!";
             
         }
     } else if($name == '' && $phone == '' && $email == ''){
 ?>
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Thông báo!</strong> Dữ liệu nhập không được trống!
+        <strong>Data must not be empty!</strong> 
     </div>
 <?php 
     } else {
 ?> 
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Thông báo!</strong> Khách hàng đã tồn tại!
+        <strong>Customer already exists!</strong> 
     </div>
 <?php
     }

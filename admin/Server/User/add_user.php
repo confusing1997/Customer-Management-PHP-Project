@@ -21,7 +21,7 @@
 ?>
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Thêm mới thành công!</strong> 
+                <strong>Additional Success!</strong> 
             </div>
 <?php
             else :
@@ -34,14 +34,14 @@
 ?>
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Dữ liệu nhập không được trống!</strong> 
+                <strong>Data must not be Empty!</strong> 
             </div>
 <?php
         else:
 ?>
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Nhân viên đã tồn tại!</strong> 
+                <strong>Staff is already exists!</strong> 
             </div>
 
 <?php

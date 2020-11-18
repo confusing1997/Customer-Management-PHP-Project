@@ -11,9 +11,18 @@
         //Hiện danh sách khách hàng
         protected function getCustomer () {
 
-            $sql = "SELECT *FROM tbl_customer, tbl_showroom 
-                    WHERE tbl_customer.showroom_id = tbl_showroom.showroom_id
-                    ORDER BY tbl_customer.create_at DESC";
+            $sql = "SELECT
+                        *
+                    FROM
+                        tbl_customer,
+                        tbl_showroom,
+                        tbl_care
+                    WHERE
+                        tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_customer.id = tbl_care.customer_id
+                    ORDER BY
+                        tbl_customer.create_at
+                    DESC
+                        ";
 
             $pre = $this->pdo->prepare($sql);
 

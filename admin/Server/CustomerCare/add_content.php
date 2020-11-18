@@ -13,14 +13,14 @@
 ?>  
     <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Thông báo!</strong> Cập nhật nội dung thành công!
+        <strong>Update Content Successfully !</strong> 
     </div>
 <?php
         } else {
 ?>
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Thông báo!</strong> Cập nhật nội dung thất bại!
+        <strong>Update Content Failed!</strong> 
     </div>
 <?php
         }
@@ -28,7 +28,7 @@
 ?>
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Thông báo!</strong> Nội dung không được để trống!
+        <strong>Content must not be Empty!</strong> 
     </div>
 <?php
     }
