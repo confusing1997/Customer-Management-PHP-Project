@@ -70,17 +70,35 @@
                 </li>
 
                 <li>
-                    <a href="dashboard.php?page=list_history">
-                        <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                            <span> Transference history </span>
+                    <a href="javascript: void(0);">
+                        <i class="dripicons-swap"></i>
+                        <span> Transference history </span>
+                        <span class="menu-arrow"></span>
                     </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="dashboard.php?page=list_history">
+                                <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
+                                <span> Transference history </span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li>
-                    <a href="dashboard.php?page=list_product">
-                        <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                            <span> Product list </span>
+                    <a href="javascript: void(0);">
+                        <i class="dripicons-view-list"></i>
+                        <span> Product list </span>
+                        <span class="menu-arrow"></span>
                     </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="dashboard.php?page=list_product">
+                                <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
+                                    <span> Product list </span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
