@@ -33,8 +33,10 @@
                                     <?php 
                                         if ($valueCustomerCare['status'] == 1) {
                                             echo "<p style='color: red;'>Busy</p>";
-                                        }else{
-                                            echo "<p style='color: blue;'>Chăm sóc mới</p>";
+                                        }else if ($valueCustomerCare['status'] == 2) {
+                                            echo "<p style='color: green;'>Purchased</p>";
+                                        } else if ($valueCustomerCare['status'] == 3) {
+                                            echo "<p style='color: blue;'>New</p>";
                                         }
                                     ?>
                                 </td>

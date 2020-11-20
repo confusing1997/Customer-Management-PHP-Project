@@ -283,9 +283,9 @@ function updateCart(id){
             dataType: 'html',
             data: {id : id, qty : qty},
 
-            success : function(data){
-                $("#view_product_select").html(data);
-                // $(".order2").load(' #view_product_select');
+            success : function(){
+                $(".order2").load(" #datatable_order2");
+                $(".sum-price").load(" #total");
             },
 
             error : function(){
@@ -297,3 +297,12 @@ function updateCart(id){
         
     }
 }
+
+// getNoti();
+// function getNoti(){
+
+//     $.post('Server/User/getNoti.php', function(data){
+//         $('.notify-details').html(data);
+//     });
+
+// }

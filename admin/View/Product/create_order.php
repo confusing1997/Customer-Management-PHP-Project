@@ -1,3 +1,6 @@
+<?php 
+    // session_start(); 
+?>
 <div class="card-box table-responsive">
     <form action="" method="POST">
         <div class="form-group row mb-3">
@@ -81,16 +84,41 @@
                         </tr>
                     </thead>
                     <tbody id="view_product_select">
-                    
+                        <?php 
+                            $sum = 0;
+                            if (isset($_SESSION['cart'])) {
+                                foreach ($_SESSION['cart'] as $key => $valueCart) {
+                         ?>
+                        <tr>
+                            <td>
+                                <?= $valueCart['name']; ?>  
+                            </td>
+                            <td><?= number_format($valueCart['price']); ?></td>
+                            <td>
+                                <?= $valueCart['qty']; ?>
+                            </td>
+                            <td>
+                                <?php 
+                                $item_sum = $valueCart['price'] * $valueCart['qty'];
+                                    $sum += $item_sum;
+                                    echo number_format($item_sum);
+                                ?>                              
+                            </td>
+                        </tr>
+                        <?php 
+                                }
 
+                            }
+                         ?>
+                        <tr>
+                            <td>Total</td>
+                            <td colspan="3">
+                                <input type="text" class="form-control sum-price" readonly="" name="total" id="total" value="<?php echo $sum; ?>">
+                            </td>
+                        </tr>
+                        
                     </tbody>
                 </table>
-                <div class="form-group row mt-3">
-                    <label for="total" class="col-2 col-form-label">Total: </label>
-                    <div class="col-10">
-                      <input type="number" class="form-control" readonly="" name="total" id="total" value="<?= number_format($_SESSION['sum_price']); ?>">
-                    </div>
-                </div>
             </div>
             
         </div>
