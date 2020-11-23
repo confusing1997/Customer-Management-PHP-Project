@@ -26,12 +26,16 @@
 
 				<div class="info_cus1">
 					<div class="label_cus">Giới tính</div>
-					<div class="value_cus"><?php echo $customer['Sex']; ?></div>
+					<div class="value_cus"><?php echo $customer['sex']; ?></div>
 				</div>
 
 				<div class="info_cus1">
+					<?php 
+						$births = $customer['birth'];
+						$birth = date('d/m/Y', strtotime($births));
+					 ?>
 					<div class="label_cus">Ngày sinh</div>
-					<div class="value_cus"></div>
+					<div class="value_cus"><?php echo $birth ?></div>
 				</div>
 			</div>
 			<div class="info_right" style="height: 30%; width: 30%; float: left; border-left: 1px solid #efefef">

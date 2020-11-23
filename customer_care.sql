@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2020 at 05:34 AM
+-- Generation Time: Nov 23, 2020 at 11:57 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -85,6 +85,8 @@ CREATE TABLE `tbl_customer` (
   `showroom_id` int(11) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `sex` varchar(5) NOT NULL,
+  `birth` date NOT NULL DEFAULT '1970-01-01',
   `passw` varchar(50) NOT NULL,
   `avatar` varchar(50) NOT NULL DEFAULT 'guest.jpg',
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
@@ -94,21 +96,21 @@ CREATE TABLE `tbl_customer` (
 -- Dumping data for table `tbl_customer`
 --
 
-INSERT INTO `tbl_customer` (`id`, `name`, `showroom_id`, `phone`, `email`, `passw`, `avatar`, `create_at`) VALUES
-(7, 'Dương Tuấn Anh', 1, '0339928096', 'bimy96@gmail.com', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
-(8, 'Nguyễn Hoàng Anh', 2, '0339928095', 'bimy95@gmail.com', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
-(9, 'Trần Nguyệt Ánh', 3, '0339928094', 'bimy94@gmail.com', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
-(10, 'Nguyễn Đức Cảnh', 2, '0339928093', 'bimy93@gmail.com', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
-(11, 'Lê Thùy Chi', 3, '0339928092', 'bimy92@gmail.com', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
-(12, 'Giáp Thành Đạt', 1, '0339928091', 'bimy91@gmail.com', '123456', 'guest.jpg', '2020-10-26 18:48:47'),
-(149, 'Nguyễn Đình Nam', 1, '0356489744', 'datgaupedo@gmail.com', '', 'guest.jpg', '2020-11-04 17:15:15'),
-(150, 'Nam Hải', 2, '0123456789', 'namluu@gmail.com', '', 'guest.jpg', '2020-11-05 20:56:44'),
-(151, 'Huy Hoàng Thụ', 2, '0339921234', 'huyhoang@gmail.com', '', 'guest.jpg', '2020-11-05 21:44:18'),
-(152, 'Huy Hoàng', 2, '0123456781', 'hoanghuy@gmail.com', '', 'guest.jpg', '2020-11-06 09:46:44'),
-(153, 'Nguyễn Tiến Thành', 2, '0324123456', 'thanhnguyen@gmail.com', '', 'guest.jpg', '2020-11-08 09:20:46'),
-(154, 'Nguyễn Bình Minh', 2, '0321233455', 'binhminh@gmail.com', '', 'guest.jpg', '2020-11-08 09:23:52'),
-(155, 'Trần Trọng Hiếu', 2, '0456781325', 'hieutran@gmail.com', '', 'guest.jpg', '2020-11-08 09:35:23'),
-(156, 'Nguyễn Hoàng Hải', 2, '0364567489', 'nhaisoi91@gmail.com', '', 'guest.jpg', '2020-11-08 11:41:31');
+INSERT INTO `tbl_customer` (`id`, `name`, `showroom_id`, `phone`, `email`, `sex`, `birth`, `passw`, `avatar`, `create_at`) VALUES
+(7, 'Dương Tuấn Anh', 1, '0339928096', 'bimy96@gmail.com', 'Nam', '1997-03-25', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
+(8, 'Nguyễn Hoàng Anh', 2, '0339928095', 'bimy95@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
+(9, 'Trần Nguyệt Ánh', 3, '0339928094', 'bimy94@gmail.com', 'Nữ', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
+(10, 'Nguyễn Đức Cảnh', 2, '0339928093', 'bimy93@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
+(11, 'Lê Thùy Chi', 3, '0339928092', 'bimy92@gmail.com', 'Nữ', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
+(12, 'Giáp Thành Đạt', 1, '0339928091', 'bimy91@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:48:47'),
+(149, 'Nguyễn Đình Nam', 1, '0356489744', 'datgaupedo@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-04 17:15:15'),
+(150, 'Nam Hải', 2, '0123456789', 'namluu@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-05 20:56:44'),
+(151, 'Huy Hoàng Thụ', 2, '0339921234', 'huyhoang@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-05 21:44:18'),
+(152, 'Huy Hoàng', 2, '0123456781', 'hoanghuy@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-06 09:46:44'),
+(153, 'Nguyễn Tiến Thành', 2, '0324123456', 'thanhnguyen@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:20:46'),
+(154, 'Nguyễn Bình Minh', 2, '0321233455', 'binhminh@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:23:52'),
+(155, 'Trần Trọng Hiếu', 2, '0456781325', 'hieutran@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:35:23'),
+(156, 'Nguyễn Hoàng Hải', 2, '0364567489', 'nhaisoi91@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 11:41:31');
 
 -- --------------------------------------------------------
 
