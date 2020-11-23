@@ -1,185 +1,47 @@
-
-//Xóa nhân viên theo id
-$(document).on('click', '.removeUser', function(){
-    var id = $(this).val();
-    var check = confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');
-    if (check == true) {
-        $.post('Server/User/remove_user.php', { id : id }, function(data){
-            $('.notification').html(data);
-            $('.table_User').load(' #datatable_listuser');
-        });
-    }
-});
-
-//Thêm khác hàng modal
-$(document).on('click', '.add_customer', function(){
-
-    var name = $('#name').val();
-    var phone = $('#phone').val();
-    var email = $('#email').val();
-
-    $.post('Server/Customer/add_customer.php', { name: name, phone: phone, email: email }, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care_all');
-        $(".table").load(' #datatable_listcustomer');
-    })
-});
-
-//Thêm nhân viên modal
-$(document).on('click', '.add_user', function(){
-    
-    var name = $('#user_name').val();
-    var showroom = $('#user_showroom').val(); 
-    var email = $('#user_email').val();
-    var address = $('#user_address').val();
-    var salary = $('#user_salary').val();
-
-    
-    $.post('Server/User/add_user.php', { 
-        name : name, 
-        showroom : showroom, 
-        email : email, 
-        address : address, 
-        salary : salary }, 
-        function(data){
-
-            $(".modal:visible").modal('toggle');
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-            $('.notification').html(data);
-            $(".table_User").load(' #datatable_listuser');
-
-        })
-
-});
-
-//Sửa nhân viên theo modal
-$(document).on('click', '.edit_user', function(e){
-
+$("#form-ava").on('change','#ava-img',(function(e) {
     e.preventDefault();
+    var size = this.files[0].size;
+    var formData = new FormData($('form#form-ava')[0]);
+    var fileExtension = ['jpeg', 'jpg', 'png'];
+    if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) != -1) {
+        if (size < 1048576) {
+            $.ajax({
+            url: "Server/Customer/preview.php",
+            type: "POST",
+            data:  formData,
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend : function(){
 
-    var id = $(this).val();
-    var name = $('#staff_name' + id).val();
-    var avatar = $('#avatar_user'+ id).val();
-    var email = $('#staff_email'+ id).val();
-    var address = $('#staff_address'+ id).val();
-    var salary = $('#staff_salary'+ id).val();
-    
-    //console.log(id, name, avatar, email, address, salary);
+                $("#err").fadeOut();
+            },
+            success: function(data){
 
-    $.post('Server/User/edit_user.php', {
-        
-        id : id,
-        name : name, 
-        avatar : avatar,
-        email : email,
-        address : address,
-        salary : salary
+                $("#avatar_cus").html(data).fadeIn();
+                console.log(data);
+                $("#form-ava")[0].reset(); 
+            },
+            error: function(e){
 
-    }, function (data){
+                $("#err").html(e).fadeIn();
+            }
+            });
+        }else{
+            alert('Kích thước ảnh tối đa là 1mb!');
+        }  
+    }else{
+        alert('Không đúng định dạng ảnh!');
+   }    
+}));
 
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table_User").load(' #datatable_listuser');
+$(document).on('click', '.save', function(){
+    var name = $('#ava_val').val();
+    $.post('Server/Customer/avatar.php', { name : name }, function(data){
+        $("#avatar_cus").load(" #avatar");
+        $("#ava_cus").load(" #load_ava");
+        $(".loadava1").load(" #ava");
 
-    })
-
-
+    });
+   
 });
-
-//Xóa khách hàng theo id
-$(document).on('click', '.delCus', function(){
-	var id = $(this).val();
-	var check = confirm('Bạn có chắc chắn xóa không?');
-	if (check == true) {
-		$.post('Server/Customer/remove_customer.php', {id : id}, function(data){
-			$('.notification').html(data);
-			$('.table_Cus').load(' #datatable_listcustomer');
-		});
-	}
-});
-
-//Thêm khách hàng modal
-$(document).on('click', '.add_customer', function(){
-
-    var name = $('#name').val();
-    var phone = $('#phone').val();
-    var email = $('#email').val();
-
-    $.post('Server/User/add_customer.php', { name: name, phone: phone, email: email }, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('#notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care_all');
-        $(".table").load(' #datatable_listcustomer');
-    })
-});
-
-//Điều chuyển khách hàng
-$(document).on('click', '.transfer', function(){
-
-    var user_id_get = $('#listUser').val();
-    var customer_id = $(this).val();
-
-    $.post('Server/CustomerCare/transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care');
-    })
-});
-
-$(document).on('click', '.edit_customer', function(){
-
-    var customer_id = $(this).val();
-    var name = $('#name' + customer_id).val();
-    var phone = $('#phone' + customer_id).val();
-    var email = $('#email' + customer_id).val();
-
-    $.post('Server/Customer/edit_customer.php', { customer_id : customer_id, name : name, phone : phone, email : email}, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table").load(' #datatable_listcustomer');
-    })
-});
-
-//Thêm nội dung chăm sóc của khách hàng mình đang chăm sóc
-$(document).on('click', '.add_content', function(e){
-    e.preventDefault();
-    var customer_id = $(this).val();
-    var content = CKEDITOR.instances['content' + customer_id].getData();
-    $.post('Server/CustomerCare/add_content.php', { customer_id: customer_id, content: content}, function(data){
-        $('.notificationModal').html(data);
-        $(".table-content"+customer_id).load(' #data_content'+customer_id);
-        $('.modal').find('textarea').val('');
-        $('.modal-body').scrollTop(0);
-    })
-});
-
-//Thêm nội dung chăm sóc của khách hàng
-$(document).on('click', '.add_content_2nd', function(e){
-    e.preventDefault();
-    var customer_id = $(this).val();
-    var content = CKEDITOR.instances['update_content' + customer_id].getData();
-    console.log(customer_id,content);
-    $.post('Server/CustomerCare/add_content.php', { customer_id: customer_id, content: content}, function(data){
-        $('.notificationModal').html(data);
-        $(".table_content_all"+customer_id).load(' #data-care');
-        $('.modal').find('textarea').val('');
-        $('.modal-body').scrollTop(0);
-    })
-});
-

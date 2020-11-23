@@ -10,6 +10,8 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+		<!-- Jquery Toast css -->
+        <link href="assets/libs/jquery-toast/jquery.toast.min.css" rel="stylesheet" type="text/css" />
 
         <!-- App css -->
         <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />

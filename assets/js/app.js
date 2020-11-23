@@ -174,70 +174,70 @@ function ($) {
     /** 
      * Initlizes the menu - top and sidebar
     */
-    App.prototype.initMenu = function () {
-        var $this = this;
+    // App.prototype.initMenu = function () {
+    //     var $this = this;
 
-        // Left menu collapse
-        $('.button-menu-mobile').on('click', function (event) {
-            event.preventDefault();
-            $this.$body.toggleClass('sidebar-enable');
-            if ($this.$window.width() >= 768) {
-                $this.$body.toggleClass('enlarged');
-            } else {
-                $this.$body.removeClass('enlarged');
-            }
+    //     // Left menu collapse
+    //     // $('.button-menu-mobile').on('click', function (event) {
+    //     //     event.preventDefault();
+    //     //     $this.$body.toggleClass('sidebar-enable');
+    //     //     if ($this.$window.width() >= 768) {
+    //     //         $this.$body.toggleClass('enlarged');
+    //     //     } else {
+    //     //         $this.$body.removeClass('enlarged');
+    //     //     }
 
-            // sidebar - scroll container
-            $this._resetSidebarScroll();
-        });
+    //     //     // sidebar - scroll container
+    //     //     $this._resetSidebarScroll();
+    //     // });
 
-        // sidebar - main menu
-        $("#side-menu").metisMenu();
+    //     // sidebar - main menu
+    //     $("#side-menu").metisMenu();
 
-        // sidebar - scroll container
-        $this._resetSidebarScroll();
+    //     // sidebar - scroll container
+    //     $this._resetSidebarScroll();
 
-        // right side-bar toggle
-        $('.right-bar-toggle').on('click', function (e) {
-            $('body').toggleClass('right-bar-enabled');
-        });
+    //     // right side-bar toggle
+    //     $('.right-bar-toggle').on('click', function (e) {
+    //         $('body').toggleClass('right-bar-enabled');
+    //     });
 
-        $(document).on('click', 'body', function (e) {
-            if ($(e.target).closest('.right-bar-toggle, .right-bar').length > 0) {
-                return;
-            }
+    //     $(document).on('click', 'body', function (e) {
+    //         if ($(e.target).closest('.right-bar-toggle, .right-bar').length > 0) {
+    //             return;
+    //         }
 
-            if ($(e.target).closest('.left-side-menu, .side-nav').length > 0 || $(e.target).hasClass('button-menu-mobile')
-                || $(e.target).closest('.button-menu-mobile').length > 0) {
-                return;
-            }
+    //         if ($(e.target).closest('.left-side-menu, .side-nav').length > 0 || $(e.target).hasClass('button-menu-mobile')
+    //             || $(e.target).closest('.button-menu-mobile').length > 0) {
+    //             return;
+    //         }
 
-            $('body').removeClass('right-bar-enabled');
-            $('body').removeClass('sidebar-enable');
-            return;
-        });
+    //         $('body').removeClass('right-bar-enabled');
+    //         $('body').removeClass('sidebar-enable');
+    //         return;
+    //     });
 
-        // activate the menu in left side bar based on url
-        $("#side-menu a").each(function () {
-            var pageUrl = window.location.href.split(/[?#]/)[0];
-            if (this.href == pageUrl) {
-                $(this).addClass("active");
-                $(this).parent().addClass("mm-active"); // add active to li of the current link
-                $(this).parent().parent().addClass("mm-show");
-                $(this).parent().parent().prev().addClass("active"); // add active class to an anchor
-                $(this).parent().parent().parent().addClass("mm-active");
-                $(this).parent().parent().parent().parent().addClass("mm-show"); // add active to li of the current link
-                $(this).parent().parent().parent().parent().parent().addClass("mm-active");
-            }
-        });
+    //     // activate the menu in left side bar based on url
+    //     $("#side-menu a").each(function () {
+    //         var pageUrl = window.location.href.split(/[?#]/)[0];
+    //         if (this.href == pageUrl) {
+    //             $(this).addClass("active");
+    //             $(this).parent().addClass("mm-active"); // add active to li of the current link
+    //             $(this).parent().parent().addClass("mm-show");
+    //             $(this).parent().parent().prev().addClass("active"); // add active class to an anchor
+    //             $(this).parent().parent().parent().addClass("mm-active");
+    //             $(this).parent().parent().parent().parent().addClass("mm-show"); // add active to li of the current link
+    //             $(this).parent().parent().parent().parent().parent().addClass("mm-active");
+    //         }
+    //     });
 
-        // Topbar - main menu
-        $('.navbar-toggle').on('click', function (event) {
-            $(this).toggleClass('open');
-            $('#navigation').slideToggle(400);
-        });
+    //     // Topbar - main menu
+    //     $('.navbar-toggle').on('click', function (event) {
+    //         $(this).toggleClass('open');
+    //         $('#navigation').slideToggle(400);
+    //     });
 
-    },
+    // },
 
     /** 
      * Init the layout - with broad sidebar or compact side bar

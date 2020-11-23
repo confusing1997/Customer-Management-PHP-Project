@@ -38,350 +38,84 @@
 <div class="tab-content">
     <div class="tab-pane active" id="men">
        	<div class="row">
-            <div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
+       	<?php 
+       		foreach ($productmale as $key => $valueproductmale) {
+       		$price_old = $valueproductmale['price'];
+       		$sale = $valueproductmale['sale'];
+       		$price_new = $valueproductmale['price'] - ($price_old*$sale)/100;
+       	?>
+       		<div class="col-md-3 col-sm-3 col-lg-3 col-6">
+				<a href="#" class="product">
 					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
+						<img src="assets/images/product/<?php echo $valueproductmale['image'] ?>" class="card-img-top" alt="<?php echo $valueproductmale['name']; ?>">
 						<div class="tag-saleoff text-center">
-							-10%
+							-<?php echo $valueproductmale['sale']; ?>%
 						</div>
 					</div>
 					<div class="card-body">
-						<h5 class="product_name text-center pd0">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
+						<h5 class="product_name text-center pd0"><?php echo $valueproductmale['name'] ?></h5>
+						<span><p class="price_new"><?php echo number_format($price_new); ?>₫</p></span><span><p class="price_old"><?php echo number_format($price_old); ?>₫</p></span>
 					</div>
 				</a>
 			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
+       	<?php
+       		}
+       	 ?>   
         </div>
 	</div>
     <div class="tab-pane" id="women">
         <div class="row">
-            <div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
+        <?php 
+       		foreach ($productfemale as $key => $valueproductfemale) {
+       		$price_old = $valueproductfemale['price'];
+       		$sale = $valueproductfemale['sale'];
+       		$price_new = $valueproductfemale['price'] - ($price_old*$sale)/100;
+       	?>
+       		
+       		<div class="col-md-3 col-sm-3 col-lg-3 col-6">
+				<a href="#" class="product">
 					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
+						<img src="assets/images/product/<?php echo $valueproductfemale['image'] ?>" class="card-img-top" alt="<?php echo $valueproductfemale['image'] ?>">
 						<div class="tag-saleoff text-center">
-							-10%
+							-<?php echo $valueproductfemale['sale']; ?>%
 						</div>
 					</div>
 					<div class="card-body">
-						<h5 class="product_name text-center pd0">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
+						<h5 class="product_name text-center pd0"><?php echo $valueproductfemale['name'] ?></h5>
+						<span><p class="price_new"><?php echo number_format($price_new); ?>₫</p></span><span><p class="price_old"><?php echo number_format($price_old); ?>₫</p></span>
 					</div>
 				</a>
 			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
+       	<?php
+       		}
+       	 ?>
         </div>
     </div>
     <div class="tab-pane" id="new">
         <div class="row">
-            <div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
+        <?php 
+       		foreach ($productnew as $key => $valueproductnew) {
+       		$price_old = $valueproductnew['price'];
+       		$sale = $valueproductnew['sale'];
+       		$price_new = $valueproductnew['price'] - ($price_old*$sale)/100;
+       	?>
+       		<div class="col-md-3 col-sm-3 col-lg-3 col-6">
+				<a href="#" class="product">
 					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
+						<img src="assets/images/product/<?php echo $valueproductnew['image'] ?>" class="card-img-top" alt="<?php echo $valueproductnew['name'] ?>">
 						<div class="tag-saleoff text-center">
-							-10%
+							-<?php echo $valueproductnew['sale']; ?>%
 						</div>
 					</div>
 					<div class="card-body">
-						<h5 class="product_name text-center pd0">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
+						<h5 class="product_name text-center pd0"><?php echo $valueproductnew['name'] ?></h5>
+						<span><p class="price_new"><?php echo number_format($price_new); ?>₫</p></span><span><p class="price_old"><?php echo number_format($price_old); ?>₫</p></span>
 					</div>
 				</a>
 			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product_hot">
-					<div class="card" style="width: 100%">
-						<img src="https://product.hstatic.net/1000269795/product/l2.909.4.78.3_5bd9f8034e344b79aac3283038988d8e_master.jpg" class="card-img-top" alt="...">
-						<div class="tag-saleoff text-center">
-							-10%
-						</div>
-					</div>
-					<div class="card-body">
-						<h5 class="product_name text-center">Đồng hồ Longines L2.909.4.78.3</h5>
-						<span><p class="price_new">55,440,000₫</p></span><span><p class="price_old">61,660,000₫</p></span>
-					</div>
-				</a>
-			</div>
+       	<?php
+       		}
+       	 ?>
         </div> 
     </div>
     <div class="tab-pane" id="hot">

@@ -7,24 +7,20 @@
                     <div class="card-body p-4">
                         
                         <div class="text-center w-75 m-auto">
-                            <a href="index.html">
-                                <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
-                            </a>
-                            <h5 class="text-uppercase text-center font-bold mt-4">Login</h5>
-
+                            <h5 class="text-uppercase text-center font-bold mt-4" style="margin-bottom: 30px;">ĐĂNG NHẬP</h5>
                         </div>
 
                         <form action="" method="POST">
 
                             <div class="form-group mb-3">
-                                <label for="phone">Phone</label>
-                                <input class="form-control" type="number" id="phone" required="" placeholder="Enter your phone" name="user" value="<?php if(isset($user)){ echo $user; } ?>">
+                                <label for="phone">Số điện thoại</label>
+                                <input class="form-control" type="number" id="phone" required="" placeholder="0339928096" name="user" value="<?php if(isset($user)){ echo $user; } ?>">
                             </div>
 
                             <div class="form-group mb-3">
                                 
                                 <label for="password">Password</label>
-                                <input class="form-control" type="password" required="" id="passw" placeholder="Enter your password" name="passw">
+                                <input class="form-control" type="password" required="" id="passw" placeholder="123456" name="passw">
                             </div>
 
                             <div class="form-group mb-0 text-center">

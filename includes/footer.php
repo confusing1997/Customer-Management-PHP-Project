@@ -87,6 +87,12 @@
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
 
+        <!-- Tost-->
+        <script src="assets/libs/jquery-toast/jquery.toast.min.js"></script>
+
+        <!-- toastr init js-->
+        <script src="assets/js/pages/toastr.init.js"></script>
+
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
 
