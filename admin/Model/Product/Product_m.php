@@ -40,7 +40,8 @@
                         tbl_care.user_id,
                         tbl_customer.name AS 'Tên khách hàng',
                         tbl_user.name AS 'NV chăm sóc',
-                        title
+                        title,
+                        tbl_customer.email
                     FROM
                         tbl_customer,
                         tbl_care,
@@ -76,15 +77,23 @@
         }
 
         //Add more product into tbl_order
-        protected function addDetailOrder ($product_id, $price, $quantity) {
+        protected function addDetailOrder ($product_id, $quantity) {
 
-            $sql = "INSERT INTO tbl_detail_order (product_id, price, quantity)
-                    VALUE (:product_id, :price, :quantity)";
+            $sql = "INSERT INTO tbl_detail_order(order_id, product_id, price, quantity)
+                    SELECT
+                        MAX(tbl_order.id),
+                        tbl_product.id,
+                        tbl_product.price,
+                        :quantity
+                    FROM
+                        tbl_order,
+                        tbl_product
+                    WHERE
+                        tbl_product.id = :product_id";
 
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindParam(":product_id", $product_id);
-            $pre->bindParam(":price", $price);
             $pre->bindParam(":quantity", $quantity);
 
             return $pre->execute();
@@ -167,5 +176,42 @@
             $pre->bindParam(":customer_id", $customer_id);
             return $pre->execute();
 
+        }
+
+        //Send Mail
+        protected function sendMail($email, $name){
+            // Gửi mail cho khách hàng
+            include_once 'Asset/PHPMailer/class.phpmailer.php';
+            include_once 'Asset/PHPMailer/class.smtp.php';
+
+            // Instantiation and passing `true` enables exceptions
+            $mail = new PHPMailer(true);
+
+            try {
+                $mail->CharSet = 'utf8';
+                //Server settings
+                $mail->SMTPDebug = 2;                      // Enable verbose debug output
+                $mail->isSMTP();                                            // Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                $mail->Username   = 'datgauteddy@gmail.com';                     // SMTP username
+                $mail->Password   = 'dat23397';             // Nhập pass mail mọi người vào nhé
+                $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+                //Recipients
+                $mail->setFrom('datgauteddy@gmail.com', 'Thông báo!');
+                $mail->addAddress($email, $name);     // Add a recipient
+
+                // Content
+                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->Subject = 'Thông báo đơn hàng!';
+                $mail->Body    = 'Chào '.$name.', Đơn hàng của bạn đã được xác nhận!';
+
+                $mail->send();
+                echo 'Message has been sent';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
         }
     }

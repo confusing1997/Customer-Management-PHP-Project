@@ -104,8 +104,10 @@
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
                                             echo "<p style='color: red;'>Busy</p>";
-                                        }else{
-                                            echo "<p style='color: green;'>Free</p>";
+                                        }else if ($valueCustomerAll['status'] == 2) {
+                                            echo "<p style='color: green;'>Purchased</p>";
+                                        }else if ($valueCustomerAll['status'] == 3) {
+                                            echo "<p style='color: blue;'>New</p>";
                                         }
                                     ?>
 
@@ -264,8 +266,10 @@
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
                                             echo "<p style='color: red;'>Busy</p>";
-                                        }else{
-                                            echo "<p style='color: green;'>Free</p>";
+                                        }else if ($valueCustomerAll['status'] == 2) {
+                                            echo "<p style='color: green;'>Purchased</p>";
+                                        }else if ($valueCustomerAll['status'] == 3) {
+                                            echo "<p style='color: blue;'>New</p>";
                                         }
                                     ?>
 
