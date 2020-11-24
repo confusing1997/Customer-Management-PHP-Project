@@ -18,7 +18,6 @@
             <div class="content">
 
                 <div class="container-fluid">
-
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
@@ -86,6 +85,10 @@
                                             case 'list_customer_care':
                                                 echo "Staff's Customer list";
                                                 break;
+
+                                            case 'detail_customer_care':
+                                                echo "Detail Customer";
+                                                break;
                                             case 'list_customer_care_all':
                                                 echo "System's Customer list";
                                                 break;
@@ -103,6 +106,9 @@
                                                 break;
                                             case 'list_product':
                                                 echo "Product list";
+                                                break;
+                                            case 'get_transfer_noti':
+                                                echo "Notification list";
                                                 break;
                                             default:
                                                 echo "Error 404, Page is not exists";
@@ -141,6 +147,12 @@
                                         $customer_care->CustomerCare();
                                        
                                         break;
+                                    case 'detail_customer_care':
+                                        include_once 'Controller/CustomerCare/CustomerCare_c.php';
+                                        $customer_care = new CustomerCare_c();
+                                        $customer_care->detailCustomerCare();
+                                       
+                                        break;
                                     case 'list_customer_care_user':
                                         include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                         $customer_care = new CustomerCare_c();
@@ -173,6 +185,11 @@
                                         include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                         $customer_care = new CustomerCare_c();
                                         $customer_care->getHistory();
+                                        break;
+                                    case 'get_transfer_noti':
+                                        include_once 'Controller/CustomerCare/CustomerCare_c.php';
+                                        $customer_care = new CustomerCare_c();
+                                        $customer_care->notiUser();
                                         break;
 
                                     default:

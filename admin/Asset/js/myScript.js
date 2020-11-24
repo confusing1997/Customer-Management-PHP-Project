@@ -130,12 +130,7 @@ $(document).on('click', '.transfer', function(){
     var customer_id = $(this).val();
 
     $.post('Server/CustomerCare/transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care');
+        $('.notification1').html(data);
     })
 });
 
@@ -160,12 +155,11 @@ $(document).on('click', '.edit_customer', function(){
 $(document).on('click', '.add_content', function(e){
     e.preventDefault();
     var customer_id = $(this).val();
-    var content = CKEDITOR.instances['content' + customer_id].getData();
+    var content = CKEDITOR.instances['content'].getData();
     $.post('Server/CustomerCare/add_content.php', { customer_id: customer_id, content: content}, function(data){
-        $('.notificationModal').html(data);
-        $(".table-content"+customer_id).load(' #data_content'+customer_id);
-        $('.modal').find('textarea').val('');
-        $('.modal-body').scrollTop(0);
+        $('.notification').html(data);
+        $(".table-content").load(' #data_content');
+        //$('.modal-body').scrollTop(0);
     })
 });
 
@@ -298,11 +292,54 @@ function updateCart(id){
     }
 }
 
-// getNoti();
-// function getNoti(){
+getNoti();
+function getNoti(){
 
-//     $.post('Server/User/getNoti.php', function(data){
-//         $('.notify-details').html(data);
-//     });
+    $.post('Server/User/getNoti.php', function(data){
+        $('#getNoti').html(data);
+    });
 
-// }
+}
+
+//Remove a product from tbl_product
+$(document).on('click', '.btn-accept', function(){
+
+    var customer_id = $(this).val();
+
+    $.post('Server/CustomerCare/accept_transfer.php', 
+    
+        { customer_id : customer_id }, 
+    
+        function(data){
+
+            $(".notification").html(data);
+            $(".table-noti").load(" #table-noti");
+
+        });
+
+});
+
+//Remove a product from tbl_product
+$(document).on('click', '.btn-decline', function(){
+
+    var customer_id = $(this).val();
+    var check = confirm('Are you sure want to Decline this request?');
+
+    if (check == true) {
+
+        $.post('Server/CustomerCare/decline_transfer.php', 
+        
+            { customer_id : customer_id }, 
+        
+            function(data){
+
+                $(".notification").html(data);
+                $(".table-noti").load(" #table-noti");
+                $(".noti_title").load(" #noti_title");
+
+            });
+
+    }
+
+});
+

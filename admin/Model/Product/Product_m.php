@@ -206,7 +206,7 @@
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = 'Thông báo đơn hàng!';
-                $mail->Body    = 'Chào '.$name.', Đơn hàng của bạn đã được xác nhận!';
+                $mail->Body    = 'Chào '.$name.',<br> Đơn hàng của bạn đã được xác nhận! <br> Bạn sẽ được khuyến mãi 10% giá trị đơn hàng trong lần mua tiếp theo <3';
 
                 $mail->send();
                 echo 'Message has been sent';

@@ -26,8 +26,58 @@
         </div>
         <br><br>
         <div class="row">
-            <div class="col-7">
-                <table id="datatable_order1" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                <div class="notification"></div>
+                <table id="datatable_order2" class="table table-bordered dt-responsive nowrap order2" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="view_product_select">
+                        <?php 
+                            $sum = 0;
+                            if (isset($_SESSION['cart'])) {
+                                foreach ($_SESSION['cart'] as $key => $valueCart) {
+                         ?>
+                        <tr>
+                            <td>
+                                <?= $valueCart['name']; ?>  
+                            </td>
+                            <td class="text-center"><?= number_format($valueCart['price']); ?></td>
+                            <td class="text-center">
+                                <?= $valueCart['qty']; ?>
+                            </td>
+                            <td class="text-right">
+                                <?php 
+                                $item_sum = $valueCart['price'] * $valueCart['qty'];
+                                    $sum += $item_sum;
+                                    echo number_format($item_sum);
+                                ?>                              
+                            </td>
+                        </tr>
+                        <?php 
+                                }
+
+                            }
+                         ?>
+                        <tr>
+                            <td>Total</td>
+                            <td colspan="3">
+                                <input type="text" class="form-control sum-price text-right" readonly="" name="total" id="total" value="<?php echo $sum; ?>">
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            <!-- </div> -->
+            
+        </div><br><br>
+        <div class="row">
+            <div class="col-12">
+                <table id="datatable_order1" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr class="text-center">
                             <th>#</th>
@@ -72,56 +122,8 @@
                     </tbody>                
                 </table>
             </div>
-            <div class="col-5">
-                <div class="notification"></div>
-                <table id="datatable_order2" class="table table-bordered dt-responsive nowrap order2" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                    <thead>
-                        <tr class="text-center">
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody id="view_product_select">
-                        <?php 
-                            $sum = 0;
-                            if (isset($_SESSION['cart'])) {
-                                foreach ($_SESSION['cart'] as $key => $valueCart) {
-                         ?>
-                        <tr>
-                            <td>
-                                <?= $valueCart['name']; ?>  
-                            </td>
-                            <td><?= number_format($valueCart['price']); ?></td>
-                            <td>
-                                <?= $valueCart['qty']; ?>
-                            </td>
-                            <td>
-                                <?php 
-                                $item_sum = $valueCart['price'] * $valueCart['qty'];
-                                    $sum += $item_sum;
-                                    echo number_format($item_sum);
-                                ?>                              
-                            </td>
-                        </tr>
-                        <?php 
-                                }
-
-                            }
-                         ?>
-                        <tr>
-                            <td>Total</td>
-                            <td colspan="3">
-                                <input type="text" class="form-control sum-price" readonly="" name="total" id="total" value="<?php echo $sum; ?>">
-                            </td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-            
         </div>
+        
         <br><br>
         
         <div class="form-group">

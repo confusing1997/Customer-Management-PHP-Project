@@ -18,7 +18,7 @@ data-toggle = "modal" data-target = "#add_user" title="Add Staff">
       <div class="modal-body">
         <form> 
           <div class="form-group">
-            <label for="name" class="col-form-label">Staff Full Name:</label>
+            <label for="name" class="col-form-label">Staff Name:</label>
             <input type="text" class="form-control" id="user_name" name="user_name">
           </div>
 
@@ -71,7 +71,7 @@ data-toggle = "modal" data-target = "#add_user" title="Add Staff">
           <thead>
             <tr class="text-center">
                 <th>Order</th>
-                <th>Full Name</th>
+                <th>Name</th>
                 <th>Showroom</th>
                 <th>Email</th>
                 <th>Action</th>
@@ -113,7 +113,7 @@ data-toggle = "modal" data-target = "#add_user" title="Add Staff">
                                 <div class="modal-body">
                                   <form>
                                     <div class="form-group">
-                                      <label for="name" class="col-form-label">Staff Full Name</label>
+                                      <label for="name" class="col-form-label">Staff Name</label>
                                       <input type="text" class="form-control" id="staff_name<?= $valueUser['id'] ?>" name="user_name" value="<?= $valueUser['name']; ?>">
                                     </div>
 
@@ -141,12 +141,12 @@ data-toggle = "modal" data-target = "#add_user" title="Add Staff">
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="email" class="col-form-label">Địa chỉ</label>
+                                      <label for="email" class="col-form-label">Address</label>
                                       <input type="text" class="form-control" id="staff_address<?= $valueUser['id'] ?>" name="user_address" value="<?= $valueUser['addres']; ?>">
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="email" class="col-form-label">Lương cơ bản</label>
+                                      <label for="email" class="col-form-label">Salary</label>
                                       <input type="text" class="form-control" id="staff_salary<?= $valueUser['id'] ?>" name="user_salary" value="<?= $valueUser['salary']; ?>">
                                     </div>
 
