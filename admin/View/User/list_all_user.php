@@ -164,15 +164,15 @@ data-toggle = "modal" data-target = "#add_user" title="Add Staff">
 
                           <!-- END EDIT USER MODAL -->
 
+                          <a href="dashboard.php?page=list_customer_care_user&id=<?= $valueUser['id']; ?>">
+                            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
+                          </a>
+
                           <button class="btn btn-danger btn-icon waves-effect waves-light removeUser" 
                           value="<?= $valueUser['id']; ?>" 
                           title="Delete">  
                             <i class="fas fa-times"></i>
                           </button>
-
-                          <a href="dashboard.php?page=list_customer_care_user&id=<?= $valueUser['id']; ?>">
-                            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
-                          </a>
                       </td>
                   </tr>
                 <?php
