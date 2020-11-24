@@ -3310,7 +3310,7 @@ h3.timeline-title {
 .info_cus{
   height: 100%; 
   width: 100%; 
-  padding: 30px 0px;
+  padding: 30px 0px 0px 0px;
 }
 input[type='file'] {
     display: none;
@@ -3328,4 +3328,38 @@ input[type='file'] {
 }
 .loadava1{
   width: 80%;
+}
+#error{
+  display: none;
+}
+.error{
+  text-align: left;
+  color: red;
+  font-size: 14px;
+  padding-top: 5px;
+  width: 300px;
+}
+.iw{
+  width: 300px;
+}
+.save{
+  height: 40px;
+  padding: 0 20px;
+  min-width: 70px;
+  max-width: 220px;
+  
+  
+}
+
+.btn-solid{
+  color: #fff;
+  background: #a8741a;
+}
+.btn-disable{
+  background-color: #C3A777;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+.account-pages{
+  margin-bottom: 100px;
 }

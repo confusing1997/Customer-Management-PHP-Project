@@ -18,7 +18,7 @@
 
 		array_map( 'unlink', array_filter((array) glob("../../assets/images/preview/*") ) );
 
-		$update = $customer->updateCustomerInfo($id, $avatar);
+		$update = $customer->updateCustomerAva($id, $avatar);
 
 	}	
 ?>

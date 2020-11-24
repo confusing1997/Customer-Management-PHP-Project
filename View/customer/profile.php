@@ -55,7 +55,7 @@
 		</div>
 	</div>
 	<div class="save1" style="height: 50px; padding-left: 60px;">
-		<button type="button" style="height: 40px;padding: 0 20px;min-width: 70px;max-width: 220px;color: #fff;background: #a8741a;" class="btn btn-info waves-effect waves-light save" id="toastr-three">Lưu</button>
+		<button type="button" style="height: 40px;padding: 0 20px;min-width: 70px;max-width: 220px;color: #fff;background: #a8741a;" class="btn waves-effect waves-light save" id="toastr-three">Lưu</button>
 	</div>
 	<div id="content"></div>
 </div>
