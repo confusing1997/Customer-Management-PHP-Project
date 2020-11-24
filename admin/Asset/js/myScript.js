@@ -2,13 +2,17 @@
 //Xóa nhân viên theo id
 $(document).on('click', '.removeUser', function(){
     var id = $(this).val();
+    var $button = $(this);
+    var table = $('#datatable_listuser').DataTable();
     var check = confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');
     if (check == true) {
         $.post('Server/User/remove_user.php', { id : id }, function(data){
             $('.notification').html(data);
-            $('.table_User').load(' #datatable_listuser');
+            table.row($button.parents('tr')).remove().draw();
+            // $('.table_User').load(' #datatable_listuser');
+
         });
-    }
+    };
 });
 
 //Thêm khác hàng modal
@@ -68,8 +72,6 @@ $(document).on('click', '.edit_user', function(e){
     var email = $('#staff_email'+ id).val();
     var address = $('#staff_address'+ id).val();
     var salary = $('#staff_salary'+ id).val();
-    
-    //console.log(id, name, avatar, email, address, salary);
 
     $.post('Server/User/edit_user.php', {
         
@@ -96,11 +98,14 @@ $(document).on('click', '.edit_user', function(e){
 //Xóa khách hàng theo id
 $(document).on('click', '.delCus', function(){
 	var id = $(this).val();
+    var $button = $(this);
+    var table = $('#datatable_listcustomer').DataTable();
 	var check = confirm('Are you sure want to Delete this Customer?');
 	if (check == true) {
 		$.post('Server/Customer/remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
-			$('.table_Cus').load(' #datatable_listcustomer');
+            table.row($button.parents('tr')).remove().draw();
+			// $('.table_Cus').load(' #datatable_listcustomer');
 		});
 	}
 });

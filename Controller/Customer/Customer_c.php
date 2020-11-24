@@ -14,11 +14,11 @@
         public function Customer() {
             $id = $_SESSION['id_cus'];
             $customer = $this->customer->getCustomerInfo($id);
-            include_once 'includes/profile/side-bar.php';
+            include_once 'View/Customer/side-bar.php';
             if (isset($_GET['method'])) {
                 $method = $_GET['method'];
             }else{
-                $method = 'list';
+                $method = 'info';
             }
             switch ($method) {
                 case 'info':
@@ -26,6 +26,9 @@
                     break;
                 case 'password':
                     include_once 'View/Customer/password.php';
+                    break;
+                case 'history':
+                    include_once 'View/Customer/history.php';
                     break;
                 default:
                     include_once 'View/Customer/profile.php';

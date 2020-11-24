@@ -22,10 +22,6 @@
                 $passw = strip_tags($passws);
 
                 $log = $this->login->Login($user, $passw);
-
-                echo "<pre>";
-                print_r($log) ;
-                echo "</pre>";
                
                 if ($log) {
                     header("Location: index.php?page=index");

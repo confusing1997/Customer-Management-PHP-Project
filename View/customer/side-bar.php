@@ -1,5 +1,5 @@
 <div class="container-fluid pd0" style="background-color: #f5f5f5; color: black; height: 800px;">
-	<div class="container" style="padding: 50px 0;">
+	<div class="container" style="padding-top: 50px;">
 		<div class="row" style="height: 100%">
 			<div class="col-md-2 col-2 pd0" style="height: 100%">
 				<div class="name" style="padding-top: 15px;padding-bottom: 30px; height: 100px; border-bottom: 1px solid #efefef; ">
@@ -25,7 +25,7 @@
 				include_once 'Controller/Customer/Customer_c.php';
 				$customer = new Customer_c();
                 $customer->Customer();
-			 ?>
+			?>
 		</div>
 	</div>
 </div>
