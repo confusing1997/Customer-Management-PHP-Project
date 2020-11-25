@@ -15,8 +15,8 @@
               <th>Showroom</th>
               <th>Phone</th>
               <th>Email</th>
-              <th>Trạng thái</th>
-              <th>Chức năng</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
           </thead>
 
