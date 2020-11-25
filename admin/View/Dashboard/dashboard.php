@@ -1,8 +1,6 @@
-		<div class="container">
-			<div class="starter-template">
-				<h1>Bootstrap starter template</h1>
-				<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-			</div>
+		<div class="card-box">
+			<h1>Thống kê</h1>
+			<p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maiores incidunt assumenda non autem, corporis nemo nobis quam at ad reprehenderit dolores eius sit illum cum, expedita, officia ipsam dolor.</p>
 		</div><!-- /.container -->
 
 

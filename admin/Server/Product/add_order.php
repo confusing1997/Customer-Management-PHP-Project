@@ -14,7 +14,7 @@
             $_SESSION['cart'][$id] = $row;
             $_SESSION['cart'][$id]['qty'] = $qty;
     } else {
-        $_SESSION['cart'][$id]['qty'] +=1;
+        $_SESSION['cart'][$id]['qty'] += $qty;
     }
     // unset($_SESSION['cart']);
 ?>

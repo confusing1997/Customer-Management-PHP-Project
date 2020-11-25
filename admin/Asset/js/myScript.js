@@ -348,3 +348,16 @@ $(document).on('click', '.btn-decline', function(){
 
 });
 
+$(document).on('click', '.del_cart', function(){
+
+    var id = $(this).val();
+    var check = confirm('Bạn có muốn xóa sản phẩm khỏi giỏ hàng không? ');
+
+    if (check == true) {
+        $.post('Server/Product/del_cart.php', {id : id}, function(data) {
+            $(".notification").html(data);
+            $(".order2").load(' #datatable_order2');
+        });
+    }
+
+});
