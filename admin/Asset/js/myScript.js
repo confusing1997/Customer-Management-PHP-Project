@@ -2,13 +2,17 @@
 //Xóa nhân viên theo id
 $(document).on('click', '.removeUser', function(){
     var id = $(this).val();
+    var $button = $(this);
+    var table = $('#datatable_listuser').DataTable();
     var check = confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');
     if (check == true) {
         $.post('Server/User/remove_user.php', { id : id }, function(data){
             $('.notification').html(data);
-            $('.table_User').load(' #datatable_listuser');
+            table.row($button.parents('tr')).remove().draw();
+            // $('.table_User').load(' #datatable_listuser');
+
         });
-    }
+    };
 });
 
 //Thêm khác hàng modal
@@ -68,8 +72,6 @@ $(document).on('click', '.edit_user', function(e){
     var email = $('#staff_email'+ id).val();
     var address = $('#staff_address'+ id).val();
     var salary = $('#staff_salary'+ id).val();
-    
-    //console.log(id, name, avatar, email, address, salary);
 
     $.post('Server/User/edit_user.php', {
         
@@ -96,11 +98,14 @@ $(document).on('click', '.edit_user', function(e){
 //Xóa khách hàng theo id
 $(document).on('click', '.delCus', function(){
 	var id = $(this).val();
+    var $button = $(this);
+    var table = $('#datatable_listcustomer').DataTable();
 	var check = confirm('Are you sure want to Delete this Customer?');
 	if (check == true) {
 		$.post('Server/Customer/remove_customer.php', {id : id}, function(data){
 			$('.notification').html(data);
-			$('.table_Cus').load(' #datatable_listcustomer');
+            table.row($button.parents('tr')).remove().draw();
+			// $('.table_Cus').load(' #datatable_listcustomer');
 		});
 	}
 });
@@ -130,12 +135,7 @@ $(document).on('click', '.transfer', function(){
     var customer_id = $(this).val();
 
     $.post('Server/CustomerCare/transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care');
+        $('.notification1').html(data);
     })
 });
 
@@ -160,12 +160,11 @@ $(document).on('click', '.edit_customer', function(){
 $(document).on('click', '.add_content', function(e){
     e.preventDefault();
     var customer_id = $(this).val();
-    var content = CKEDITOR.instances['content' + customer_id].getData();
+    var content = CKEDITOR.instances['content'].getData();
     $.post('Server/CustomerCare/add_content.php', { customer_id: customer_id, content: content}, function(data){
-        $('.notificationModal').html(data);
-        $(".table-content"+customer_id).load(' #data_content'+customer_id);
-        $('.modal').find('textarea').val('');
-        $('.modal-body').scrollTop(0);
+        $('.notification').html(data);
+        $(".table-content").load(' #data_content');
+        //$('.modal-body').scrollTop(0);
     })
 });
 
@@ -283,9 +282,9 @@ function updateCart(id){
             dataType: 'html',
             data: {id : id, qty : qty},
 
-            success : function(data){
-                $("#view_product_select").html(data);
-                // $(".order2").load(' #view_product_select');
+            success : function(){
+                $(".order2").load(" #datatable_order2");
+                $(".sum-price").load(" #total");
             },
 
             error : function(){
@@ -297,3 +296,68 @@ function updateCart(id){
         
     }
 }
+
+getNoti();
+function getNoti(){
+
+    $.post('Server/User/getNoti.php', function(data){
+        $('#getNoti').html(data);
+    });
+
+}
+
+//Remove a product from tbl_product
+$(document).on('click', '.btn-accept', function(){
+
+    var customer_id = $(this).val();
+
+    $.post('Server/CustomerCare/accept_transfer.php', 
+    
+        { customer_id : customer_id }, 
+    
+        function(data){
+
+            $(".notification").html(data);
+            $(".table-noti").load(" #table-noti");
+
+        });
+
+});
+
+//Remove a product from tbl_product
+$(document).on('click', '.btn-decline', function(){
+
+    var customer_id = $(this).val();
+    var check = confirm('Are you sure want to Decline this request?');
+
+    if (check == true) {
+
+        $.post('Server/CustomerCare/decline_transfer.php', 
+        
+            { customer_id : customer_id }, 
+        
+            function(data){
+
+                $(".notification").html(data);
+                $(".table-noti").load(" #table-noti");
+                $(".noti_title").load(" #noti_title");
+
+            });
+
+    }
+
+});
+
+$(document).on('click', '.del_cart', function(){
+
+    var id = $(this).val();
+    var check = confirm('Bạn có muốn xóa sản phẩm khỏi giỏ hàng không? ');
+
+    if (check == true) {
+        $.post('Server/Product/del_cart.php', {id : id}, function(data) {
+            $(".notification").html(data);
+            $(".order2").load(' #datatable_order2');
+        });
+    }
+
+});

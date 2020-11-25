@@ -10,8 +10,8 @@
         <table id="datatable_listcustomer" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
           <thead>
             <tr class="text-center">
-              <th>STT</th>
-              <th>Full Name</th>
+              <th>#</th>
+              <th>Customer Name</th>
               <th>Showroom</th>
               <th>Phone</th>
               <th>Email</th>
@@ -33,11 +33,11 @@
                   <td><?php echo $value['email']; ?></td>
                   <td><?php 
                       if ($value['status'] == 1) {
-                          echo "<p style='color: red;'>Đang chăm sóc</p>";
+                          echo "<p style='color: red;'>Busy</p>";
                       }else if ($value['status'] == 2){
-                          echo "<p style='color: green;'>Đã mua hàng</p>";
+                          echo "<p style='color: green;'>Purchased</p>";
                       }else if ($value['status'] == 3){
-                          echo "<p style='color: blue;'>Chăm sóc mới</p>";
+                          echo "<p style='color: blue;'>New</p>";
                       }
                   ?></td>
                   <td class="text-center">
@@ -56,7 +56,7 @@
                           <div class="modal-body">
                             <form>
                               <div class="form-group">
-                                <label for="name" class="col-form-label">Full Name</label>
+                                <label for="name" class="col-form-label">Customer Name</label>
                                 <input type="text" id="name<?= $value['id']; ?>" name="name" class="form-control" value="<?= $value['name']; ?>">
                               </div>
 

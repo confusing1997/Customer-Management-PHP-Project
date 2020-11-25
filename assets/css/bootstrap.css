@@ -2093,7 +2093,7 @@ textarea.form-control {
       -webkit-transition: none;
       transition: none; } }
   .btn:hover {
-    color: #6c757d;
+    cursor: pointer;
     text-decoration: none; }
   .btn:focus, .btn.focus {
     outline: 0;
@@ -4529,8 +4529,8 @@ input[type="button"].btn-block {
   display: block;
   padding: 0.75rem 1.25rem;
   margin-bottom: -1px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125); }
+  background-color: none;
+  border: none;}
   .list-group-item:first-child {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem; }
@@ -8759,6 +8759,7 @@ a.text-purple:hover, a.text-purple:focus {
   position: absolute;
   z-index: 1000; }
   .dropdown-menu.show {
+    
     top: 100% !important; }
 
 .dropdown-menu-right {
@@ -9021,9 +9022,9 @@ button:focus {
   outline: none; }
 
 .list-group-item {
-  color: #98a6ad; }
+  color: #555; }
   .list-group-item:hover {
-    color: #98a6ad; }
+    color: #a8741a ; }
 
 b,
 strong {

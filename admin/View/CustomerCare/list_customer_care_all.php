@@ -19,7 +19,7 @@
             <table id="datatable_listcustomer_care_all" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr class="text-center">
-                        <th>STT</th>
+                        <th>#</th>
                         <th>Staff</th>
                         <th>Showroom</th>
                         <th>Customer</th>
@@ -57,7 +57,7 @@
                                       <div class="modal-body">
                                         <form>
                                           <div class="form-group">
-                                            <label for="name" class="col-form-label">Phone:</label>
+                                            <label for="name" class="col-form-label">Customer Name:</label>
                                             <input type="text" class="form-control" id="name" name="name">
                                           </div>
 
@@ -104,8 +104,10 @@
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
                                             echo "<p style='color: red;'>Busy</p>";
-                                        }else{
-                                            echo "<p style='color: green;'>Free</p>";
+                                        }else if ($valueCustomerAll['status'] == 2) {
+                                            echo "<p style='color: green;'>Purchased</p>";
+                                        }else if ($valueCustomerAll['status'] == 3) {
+                                            echo "<p style='color: blue;'>New</p>";
                                         }
                                     ?>
 
@@ -113,79 +115,9 @@
                                
 
                                 <td class="text-center"> 
-                                    <!-- Add Customer Modal -->
-                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
-
-                                    <div class="modal fade text-left" id="detail_customer<?= $valueCustomerAll['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Detail of Customer</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
-                                          </div>
-                                          <div class="modal-body">
-                                              <div class="notificationModal"></div>
-                                              <div class="form-group">
-                                                <label for="name" class="col-form-label">Customer Full Name: <?= $valueCustomerAll['Họ tên khách']; ?></label>
-                                              </div>
-
-                                              <div class="form-group">
-                                                <label for="name" class="col-form-label">Staff: <?= $valueCustomerAll['Họ tên NV']; ?></label>
-                                              </div>
-
-                                              <div class="form-group">
-                                                <label for="phone" class="col-form-label">Phone: <?= $valueCustomerAll['phone']; ?></label>
-                                              </div>
-                                              
-                                              <div class="form-group">
-                                                <label for="email" class="col-form-label">Email: <?= $valueCustomerAll['Email Khách']; ?></label>
-                                              </div>
-
-                                              <div class="table_content_all<?= $valueCustomerAll['id'] ?>" id="data_content_all<?= $valueCustomerAll['id'] ?>">
-                                              <!--Bảng lịch sử cập nhật-->
-                                              <table class="table table-bordered dt-responsive nowrap">
-                                                  <thead class="text-center dataContentHeader">
-                                                      <td style="width: 6%">Avatar</td>
-                                                      <td style="width: 20%">Staff</td>
-                                                      <td style="width: 64%">Content</td>
-                                                      <td style="width: 10%">Time</td>
-                                                  </thead>
-                                                  <tbody id="data-care">
-                                                      <?php
-                                                      include_once 'Controller/CustomerCare/CustomerCare_c.php';
-                                                      $customer_care = new CustomerCare_c();
-                                                      $customer_id = $valueCustomerAll['id'];
-                                                      $result = $customer_care->getDetailCare($customer_id);
-                                                      foreach ($result as $value) {
-                                                      ?>
-                                                          <tr>
-                                                              <td><img src="Asset/images/users/<?php echo $value['avatar']; ?>" alt="user-image" class="" style="width: 50px; height: 50px;"></td>
-                                                              <td><?php echo $value['name'];?></td>
-                                                              <td><?php echo $value['content'];?></td>
-                                                              <td><?php echo $value['create_at'];?></td>
-                                                          </tr>
-                                                      <?php  
-                                                      }
-                                                      ?>
-                                                  </tbody>
-                                              </table>
-                                              <!--Bảng lịch sử cập nhật-->
-                                              </div>
-                                              
-                                          </div>
-                                          <form>
-                                            <textarea class="form-control ckeditor" rows="1" id="update_content<?= $valueCustomerAll['id'] ?>" name="update_content<?= $valueCustomerAll['id'] ?>"></textarea>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-primary add_content_2nd" value="<?= $valueCustomerAll['id'] ?>">Update</button>
-                                            </div>
-                                          </form>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <!-- End Customer Modal -->
+                                    <a href="dashboard.php?page=detail_customer_care&id=<?= $valueCustomerAll['id']; ?>">
+                                      <button class="btn btn-info btn-icon waves-effect waves-light" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
+                                    </a>
 
                                     <a href="dashboard.php?page=create_order&id=<?= $valueCustomerAll['id']; ?>">
                                         <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Create Bill"><span><i class="mdi mdi-cart"></i></span></button>
@@ -217,7 +149,7 @@
                                       <div class="modal-body">
                                         <form>
                                           <div class="form-group">
-                                            <label for="name" class="col-form-label">Customer Full Name:</label>
+                                            <label for="name" class="col-form-label">Customer Name:</label>
                                             <input type="text" class="form-control" id="name" name="name">
                                           </div>
 
@@ -264,8 +196,10 @@
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
                                             echo "<p style='color: red;'>Busy</p>";
-                                        }else{
-                                            echo "<p style='color: green;'>Free</p>";
+                                        }else if ($valueCustomerAll['status'] == 2) {
+                                            echo "<p style='color: green;'>Purchased</p>";
+                                        }else if ($valueCustomerAll['status'] == 3) {
+                                            echo "<p style='color: blue;'>New</p>";
                                         }
                                     ?>
 
@@ -273,40 +207,9 @@
                                
 
                                 <td class="text-center"> 
-                                    <!-- Add Customer Modal -->
-                                    <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" data-toggle="modal" data-target="#detail_customer<?= $valueCustomerAll['id'] ?>" data-whatever="@getbootstrap" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
-
-                                    <div class="modal fade text-left" id="detail_customer<?= $valueCustomerAll['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Detail of Customer</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
-                                          </div>
-                                          <div class="modal-body">
-                                              <div class="form-group">
-                                                <label for="name" class="col-form-label">Customer Full Name: <?= $valueCustomerAll['Họ tên khách']; ?></label>
-                                              </div>
-
-                                              <div class="form-group">
-                                                <label for="name" class="col-form-label">Staff: <?= $valueCustomerAll['Họ tên NV']; ?></label>
-                                              </div>
-
-                                              <div class="form-group">
-                                                <label for="phone" class="col-form-label">Phone: <?= $valueCustomerAll['phone']; ?></label>
-                                              </div>
-                                              
-                                              <div class="form-group">
-                                                <label for="email" class="col-form-label">Email: <?= $valueCustomerAll['Email Khách']; ?></label>
-                                              </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <!-- End Customer Modal -->
+                                    <a href="dashboard.php?page=detail_customer_care&id=<?= $valueCustomerAll['id']; ?>">
+                                      <button class="btn btn-info btn-icon waves-effect waves-light" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
+                                    </a>
 
                                     <a href="dashboard.php?page=create_order&id=<?= $valueCustomerAll['id']; ?>">
                                         <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Create Bill"><span><i class="mdi mdi-cart"></i></span></button>

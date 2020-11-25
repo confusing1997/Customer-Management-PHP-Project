@@ -295,11 +295,8 @@ body.enlarged {
   float: left; }
 
 .navbar-custom {
-  background: black;
-  -webkit-box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
-          box-shadow: 0px 0px 35px 0px rgba(154, 161, 171, 0.15);
-  padding: 0 10px 0 0;
-  position: fixed;
+  background: #333;
+  padding: 0 0 0 0;
   left: 0;
   right: 0;
   height: 70px;
@@ -350,7 +347,7 @@ body.enlarged {
       border-radius: 0 30px 30px 0;
       -webkit-box-shadow: none !important;
               box-shadow: none !important; }
-  .navbar-custom .button-menu-mobile {
+  .navbar-custom .button-menu-mobile1 {
     border: none;
     color: #fff;
     display: inline-block;
@@ -378,7 +375,7 @@ body.enlarged {
     vertical-align: middle; }
   .notification-list .noti-icon-badge {
     display: inline-block;
-    position: absolute;
+    /*position: absolute;*/
     top: 16px;
     right: 10px; }
   .notification-list .notify-item {
@@ -397,7 +394,7 @@ body.enlarged {
     .notification-list .notify-item .notify-details {
       margin-bottom: 5px;
       overflow: hidden;
-      margin-left: 45px;
+      /*margin-left: 45px;*/
       text-overflow: ellipsis;
       white-space: nowrap;
       color: #414d5f;
@@ -413,7 +410,7 @@ body.enlarged {
         white-space: nowrap;
         font-size: 13px; }
     .notification-list .notify-item .user-msg {
-      margin-left: 45px;
+      /*margin-left: 45px;*/
       white-space: normal;
       line-height: 16px; }
   .notification-list .profile-dropdown .notify-item {
@@ -3001,12 +2998,12 @@ h3.timeline-title {
         border-radius: 50%;
         color: #fff;
     }
-    .product_hot {
+    .product {
       color: black;
       text-decoration: none;
       list-style-type: none;
     }
-    .product_hot:hover{
+    .product:hover{
       text-decoration: none;
       color: black;
     }
@@ -3213,7 +3210,7 @@ h3.timeline-title {
     .box { margin: 0 0 10px; }
 }
 .footer{
-      background: #353535;
+      background: #333;
       margin-right: none;
     }
     .ft_pd{
@@ -3280,3 +3277,89 @@ h3.timeline-title {
     .footer{
       min-height: auto;
     }
+.search{
+  margin-left: 20px;
+}
+.label_cus{
+  width: 20%;
+  float: left;
+  text-align: right;
+  color: rgba(85,85,85,.8);
+}
+.value_cus{
+  width: 80%;
+  float: left;
+  padding-left: 20px;
+}
+.info_cus1{
+  margin-bottom: 30px;
+  font-size: 15px;
+  height: 20px;
+}
+.info_left{
+  height: 100%; 
+  width: 70%; 
+  float: left; 
+  padding-left: 20px;
+}
+.info_all{
+  height: 100%; 
+  width: 100%;
+  padding-top: 10px;
+}
+.info_cus{
+  height: 100%; 
+  width: 100%; 
+  padding: 30px 0px 0px 0px;
+}
+input[type='file'] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-align: center;
+    width: 90px;
+}
+.lh70{
+  line-height: 70px;
+}
+.loadava1{
+  width: 80%;
+}
+#error{
+  display: none;
+}
+.error{
+  text-align: left;
+  color: red;
+  font-size: 14px;
+  padding-top: 5px;
+  width: 300px;
+}
+.iw{
+  width: 300px;
+}
+.save{
+  height: 40px;
+  padding: 0 20px;
+  min-width: 70px;
+  max-width: 220px;
+  
+  
+}
+
+.btn-solid{
+  color: #fff;
+  background: #a8741a;
+}
+.btn-disable{
+  background-color: #C3A777;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+.account-pages{
+  margin-bottom: 100px;
+}

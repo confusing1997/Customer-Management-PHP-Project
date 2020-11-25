@@ -17,10 +17,15 @@
         <link href="Asset/libs/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
         <link href="Asset/libs/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
         <link href="Asset/libs/custombox/custombox.min.css" rel="stylesheet" type="text/css" >
+
+        <!-- Jquery Toast css -->
+        <link href="Asset/libs/jquery-toast/jquery.toast.min.css" rel="stylesheet" type="text/css" />
+        
         <!-- App css -->
         <link href="Asset/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="Asset/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="Asset/css/app.min.css" rel="stylesheet" type="text/css" />
+        <link href="Asset/css/myCSS.css" rel="stylesheet" type="text/css" />
         <script src="Asset/ckeditor/ckeditor.js"></script>
 
     </head>

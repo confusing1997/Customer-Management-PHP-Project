@@ -1,185 +1,241 @@
+$("#form-ava").on('change','#ava-img',(function(e) {
+    e.preventDefault();
+    var size = this.files[0].size;
+    var formData = new FormData($('form#form-ava')[0]);
+    var fileExtension = ['jpeg', 'jpg', 'png'];
+    if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) != -1) {
+        if (size < 1048576) {
+            $.ajax({
+            url: "Server/Customer/preview.php",
+            type: "POST",
+            data:  formData,
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend : function(){
 
-//Xóa nhân viên theo id
-$(document).on('click', '.removeUser', function(){
-    var id = $(this).val();
-    var check = confirm('Bạn có chắc chắn muốn xóa nhân viên này không?');
-    if (check == true) {
-        $.post('Server/User/remove_user.php', { id : id }, function(data){
-            $('.notification').html(data);
-            $('.table_User').load(' #datatable_listuser');
-        });
+                $("#err").fadeOut();
+            },
+            success: function(data){
+
+                $("#avatar_cus").html(data).fadeIn();
+                console.log(data);
+                $("#form-ava")[0].reset(); 
+            },
+            error: function(e){
+
+                $("#err").html(e).fadeIn();
+            }
+            });
+        }else{
+            alert('Kích thước ảnh tối đa là 1mb!');
+        }  
+    }else{
+        alert('Không đúng định dạng ảnh!');
+   }    
+}));
+
+$(document).on('click', '.save', function(){
+    var name = $('#ava_val').val();
+    $.post('Server/Customer/avatar.php', { name : name }, function(data){
+        $("#avatar_cus").load(" #avatar");
+        $("#ava_cus").load(" #load_ava");
+        $(".loadava1").load(" #ava");
+    });
+});
+
+$(document).on('keyup', '#pass_now', function(){
+    var pass = $('#pass_now').val();
+    var pass_new = $('#pass_new').val();
+    var confirm_pass = $('#confirm_pass').val();
+    var pattern = new RegExp('[A-Z]');
+    var pattern1 = new RegExp('[a-z]');
+    var uppercase = pass_new.match(pattern);
+    var lowercase = pass_new.match(pattern1);
+    if (pass.length > 5) {
+        $('#error').attr("style","display: none");
+        $('#pass_now').attr("style","border-color: #ced4da; width: 300px");
+        $('#update').removeClass('btn-disable');
+        if (5 < pass_new.length < 15 && uppercase && lowercase) {
+            if (pass_new === confirm_pass) {
+                $('#update').removeClass('btn-disable');
+            }else{
+                $('#update').addClass('btn-disable');
+            }
+        }else{
+            $('#update').addClass('btn-disable');
+        }
+    }else{
+        $('#error').attr("style","display: block");
+        $('#pass_now').attr("style","border-color: red; width: 300px");    
+        $('#error').html('Mật khẩu phải gồm ít nhất 6 kí tự');
+        $('#error').addClass('error');
+        $('#update').addClass('btn-disable'); 
     }
 });
 
-//Thêm khác hàng modal
-$(document).on('click', '.add_customer', function(){
-
-    var name = $('#name').val();
-    var phone = $('#phone').val();
-    var email = $('#email').val();
-
-    $.post('Server/Customer/add_customer.php', { name: name, phone: phone, email: email }, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care_all');
-        $(".table").load(' #datatable_listcustomer');
-    })
+$(document).on('keydown', '#pass_now', function(){
+    var pass = $('#pass_now').val();
+    var pass_new = $('#pass_new').val();
+    var confirm_pass = $('#confirm_pass').val();
+    var pattern = new RegExp('[A-Z]');
+    var pattern1 = new RegExp('[a-z]');
+    var uppercase = pass_new.match(pattern);
+    var lowercase = pass_new.match(pattern1);
+    if (pass.length > 5) {
+        $('#error').attr("style","display: none");
+        $('#pass_now').attr("style","border-color: #ced4da; width: 300px");
+        $('#update').removeClass('btn-disable');
+        if (5 < pass_new.length < 15 && uppercase && lowercase) {
+            if (pass_new === confirm_pass) {
+                $('#update').removeClass('btn-disable');
+            }else{
+                $('#update').addClass('btn-disable');
+            }
+        }else{
+            $('#update').addClass('btn-disable');
+        }
+    }else{
+        $('#error').attr("style","display: block");
+        $('#pass_now').attr("style","border-color: red; width: 300px");    
+        $('#error').html('Mật khẩu phải gồm ít nhất 6 kí tự');
+        $('#error').addClass('error');
+        $('#update').addClass('btn-disable'); 
+    }
 });
 
-//Thêm nhân viên modal
-$(document).on('click', '.add_user', function(){
-    
-    var name = $('#user_name').val();
-    var showroom = $('#user_showroom').val(); 
-    var email = $('#user_email').val();
-    var address = $('#user_address').val();
-    var salary = $('#user_salary').val();
-
-    
-    $.post('Server/User/add_user.php', { 
-        name : name, 
-        showroom : showroom, 
-        email : email, 
-        address : address, 
-        salary : salary }, 
-        function(data){
-
-            $(".modal:visible").modal('toggle');
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-            $('.notification').html(data);
-            $(".table_User").load(' #datatable_listuser');
-
-        })
-
+$(document).on('keyup', '#pass_new', function(){
+    var pass_new = $('#pass_new').val();
+    var confirm_pass = $('#confirm_pass').val();
+    var pattern = new RegExp('[A-Z]');
+    var pattern1 = new RegExp('[a-z]');
+    var uppercase = pass_new.match(pattern);
+    var lowercase = pass_new.match(pattern1);
+    if ( 5 < pass_new.length < 15 && uppercase && lowercase) {
+        $('#error1').attr("style","display: none");
+        $('#pass_new').attr("style","border-color: #ced4da; width: 300px");
+        $('#update').removeClass('btn-disable');
+        if (pass_new === confirm_pass) {
+            $('#update').removeClass('btn-disable');
+        }else{
+            $('#update').addClass('btn-disable');
+            $('#error2').attr("style","display: block; width: 300px;");
+            $('#confirm_pass').attr("style","border-color: red; width: 300px");
+            $('#error2').html('Mật khẩu xác nhận không trùng khớp!');
+            $('#error2').addClass('error');
+        }
+    }else{
+        $('#error1').attr("style","display: block; width: 300px;");
+        $('#pass_new').attr("style","border-color: red; width: 300px");
+        $('#error1').html('Mật khẩu phải có 6-16 kí tự, bảo gồm 1 chữ in hoa và 1 chữ in thường');
+        $('#error1').addClass('error');
+        $('#update').addClass('btn-disable');
+    }
 });
 
-//Sửa nhân viên theo modal
-$(document).on('click', '.edit_user', function(e){
-
-    e.preventDefault();
-
-    var id = $(this).val();
-    var name = $('#staff_name' + id).val();
-    var avatar = $('#avatar_user'+ id).val();
-    var email = $('#staff_email'+ id).val();
-    var address = $('#staff_address'+ id).val();
-    var salary = $('#staff_salary'+ id).val();
-    
-    //console.log(id, name, avatar, email, address, salary);
-
-    $.post('Server/User/edit_user.php', {
-        
-        id : id,
-        name : name, 
-        avatar : avatar,
-        email : email,
-        address : address,
-        salary : salary
-
-    }, function (data){
-
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table_User").load(' #datatable_listuser');
-
-    })
-
-
+$(document).on('keydown', '#pass_new', function(){
+    var pass_new = $('#pass_new').val();
+    var confirm_pass = $('#confirm_pass').val();
+    var pattern = new RegExp('[A-Z]');
+    var pattern1 = new RegExp('[a-z]');
+    var uppercase = pass_new.match(pattern);
+    var lowercase = pass_new.match(pattern1);
+    if ( 5 < pass_new.length < 15 && uppercase && lowercase) {
+        $('#error1').attr("style","display: none");
+        $('#pass_new').attr("style","border-color: #ced4da; width: 300px");
+        $('#update').removeClass('btn-disable');
+        if (pass_new === confirm_pass) {
+            $('#update').removeClass('btn-disable');
+        }else{
+            $('#update').addClass('btn-disable');
+            $('#error2').attr("style","display: block; width: 300px;");
+            $('#confirm_pass').attr("style","border-color: red; width: 300px");
+            $('#error2').html('Mật khẩu xác nhận không trùng khớp!');
+            $('#error2').addClass('error');
+        }
+    }else{
+        $('#error1').attr("style","display: block; width: 300px;");
+        $('#pass_new').attr("style","border-color: red; width: 300px");
+        $('#error1').html('Mật khẩu phải có 6-16 kí tự, bảo gồm 1 chữ in hoa và 1 chữ in thường');
+        $('#error1').addClass('error');
+        $('#update').addClass('btn-disable');
+    }
 });
 
-//Xóa khách hàng theo id
-$(document).on('click', '.delCus', function(){
-	var id = $(this).val();
-	var check = confirm('Bạn có chắc chắn xóa không?');
-	if (check == true) {
-		$.post('Server/Customer/remove_customer.php', {id : id}, function(data){
-			$('.notification').html(data);
-			$('.table_Cus').load(' #datatable_listcustomer');
-		});
-	}
+$(document).on('keyup', '#confirm_pass', function(){
+    var pass = $('#pass_now').val();
+    var pass_new = $('#pass_new').val();
+    var confirm_pass = $('#confirm_pass').val();
+    var pattern = new RegExp('[A-Z]');
+    var pattern1 = new RegExp('[a-z]');
+    var uppercase = pass_new.match(pattern);
+    var lowercase = pass_new.match(pattern1);
+    if (pass_new === confirm_pass) {
+        $('#error2').attr("style","display: none");
+        $('#confirm_pass').attr("style","border-color: #ced4da; width: 300px");
+        if (5 < pass_new.length < 15 && uppercase && lowercase) {
+            if (pass.length > 5) {
+                $('#update').removeClass('btn-disable');
+            }else{
+                $('#update').addClass('btn-disable');
+            }
+        }else{
+            $('#update').addClass('btn-disable');
+        } 
+    }else{
+        $('#update').addClass('btn-disable');
+        $('#error2').attr("style","display: block; width: 300px;");
+        $('#confirm_pass').attr("style","border-color: red; width: 300px");
+        $('#error2').html('Mật khẩu xác nhận không trùng khớp!');
+        $('#error2').addClass('error');
+    }
 });
 
-//Thêm khách hàng modal
-$(document).on('click', '.add_customer', function(){
-
-    var name = $('#name').val();
-    var phone = $('#phone').val();
-    var email = $('#email').val();
-
-    $.post('Server/User/add_customer.php', { name: name, phone: phone, email: email }, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('#notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care_all');
-        $(".table").load(' #datatable_listcustomer');
-    })
+$(document).on('keydown', '#confirm_pass', function(){
+    var pass = $('#pass_now').val();
+    var pass_new = $('#pass_new').val();
+    var confirm_pass = $('#confirm_pass').val();
+    var pattern = new RegExp('[A-Z]');
+    var pattern1 = new RegExp('[a-z]');
+    var uppercase = pass_new.match(pattern);
+    var lowercase = pass_new.match(pattern1);
+    if (pass_new === confirm_pass) {
+        $('#error2').attr("style","display: none");
+        $('#confirm_pass').attr("style","border-color: #ced4da; width: 300px");
+        if (5 < pass_new.length < 15 && uppercase && lowercase) {
+            if (pass.length > 5) {
+                $('#update').removeClass('btn-disable');
+            }else{
+                $('#update').addClass('btn-disable');
+            }
+        }else{
+            $('#update').addClass('btn-disable');
+        } 
+    }else{
+        $('#update').addClass('btn-disable');
+        $('#error2').attr("style","display: block; width: 300px;");
+        $('#confirm_pass').attr("style","border-color: red; width: 300px");
+        $('#error2').html('Mật khẩu xác nhận không trùng khớp!');
+        $('#error2').addClass('error');
+    }
 });
 
-//Điều chuyển khách hàng
-$(document).on('click', '.transfer', function(){
+$(document).on('click', '#update', function(){
+    var pass = $('#pass_now').val();
+    var pass_new = $('#pass_new').val();
+    var confirm_pass = $('#confirm_pass').val();
+    var pattern = new RegExp('[A-Z]');
+    var pattern1 = new RegExp('[a-z]');
+    var uppercase = pass_new.match(pattern);
+    var lowercase = pass_new.match(pattern1);
+    if (pass.length > 5) {
+        if (5 < pass_new.length < 15 && uppercase && lowercase) {
+            if (pass_new === confirm_pass) {
 
-    var user_id_get = $('#listUser').val();
-    var customer_id = $(this).val();
-
-    $.post('Server/CustomerCare/transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table").load(' #datatable_listcustomer_care');
-    })
-});
-
-$(document).on('click', '.edit_customer', function(){
-
-    var customer_id = $(this).val();
-    var name = $('#name' + customer_id).val();
-    var phone = $('#phone' + customer_id).val();
-    var email = $('#email' + customer_id).val();
-
-    $.post('Server/Customer/edit_customer.php', { customer_id : customer_id, name : name, phone : phone, email : email}, function(data){
-        
-        $(".modal:visible").modal('toggle');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
-        $('.notification').html(data);
-        $(".table").load(' #datatable_listcustomer');
-    })
-});
-
-//Thêm nội dung chăm sóc của khách hàng mình đang chăm sóc
-$(document).on('click', '.add_content', function(e){
-    e.preventDefault();
-    var customer_id = $(this).val();
-    var content = CKEDITOR.instances['content' + customer_id].getData();
-    $.post('Server/CustomerCare/add_content.php', { customer_id: customer_id, content: content}, function(data){
-        $('.notificationModal').html(data);
-        $(".table-content"+customer_id).load(' #data_content'+customer_id);
-        $('.modal').find('textarea').val('');
-        $('.modal-body').scrollTop(0);
-    })
-});
-
-//Thêm nội dung chăm sóc của khách hàng
-$(document).on('click', '.add_content_2nd', function(e){
-    e.preventDefault();
-    var customer_id = $(this).val();
-    var content = CKEDITOR.instances['update_content' + customer_id].getData();
-    console.log(customer_id,content);
-    $.post('Server/CustomerCare/add_content.php', { customer_id: customer_id, content: content}, function(data){
-        $('.notificationModal').html(data);
-        $(".table_content_all"+customer_id).load(' #data-care');
-        $('.modal').find('textarea').val('');
-        $('.modal-body').scrollTop(0);
-    })
-});
-
+                $.post('Server/Customer/password.php', { pass_new : pass_new, pass : pass }, function(data){
+                    $('#notification').html(data);
+                });
+            }
+        }
+    }
+})
