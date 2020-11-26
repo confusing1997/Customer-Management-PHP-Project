@@ -24,9 +24,9 @@
                 if (isset($_POST['create_bill'])) {
                     $user_id_care = $_POST['user_id_care'];
                     $user_id_buy = $_SESSION['id'];
-                    $total = $_POST['total'];
-                    $addOrder = $this->product->addOrder($user_id_buy, $user_id_care, $customer_id, $total);
-                    if (isset($_SESSION['cart'])) {       
+                    if (isset($_SESSION['cart'])) {   
+                        $total = $_SESSION['sum_price'];
+                        $this->product->addOrder($user_id_buy, $user_id_care, $customer_id, $total);    
                         foreach ($_SESSION['cart'] as $key => $value) {
                             $this->product->addDetailOrder($value['id'], $value['qty']);
                         }
@@ -41,8 +41,8 @@
                     }
                     $this->product->sendMail($customer['email'], $customer['Tên khách hàng']);
                     unset($_SESSION['cart']);
+                    unset($_SESSION['sum_price']);
                     header("Location: dashboard.php?page=list_customer_care");
-                    
                 }
                 include_once 'View/Product/create_order.php';
             }

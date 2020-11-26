@@ -79,11 +79,12 @@
         //Add more product into tbl_order
         protected function addDetailOrder ($product_id, $quantity) {
 
-            $sql = "INSERT INTO tbl_detail_order(order_id, product_id, price, quantity)
+            $sql = "INSERT INTO tbl_detail_order(order_id, product_id, price, sale, quantity)
                     SELECT
                         MAX(tbl_order.id),
                         tbl_product.id,
                         tbl_product.price,
+                        tbl_product.sale,
                         :quantity
                     FROM
                         tbl_order,
