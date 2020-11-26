@@ -1,9 +1,7 @@
-<div class="notification"></div>
-
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
-            <!-- <a href="dashboard.php?page=add_customer_care"><button>abc</button></a> -->
+            <h3 class="text-center">Add customer care</h3><br>
             <table id="datatable_listcustomer_care" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr class="text-center">
@@ -18,7 +16,7 @@
                     </tr>
                 </thead>
 
-                <tbody id="view_customer_care">
+                <tbody>
                     <?php 
                         $count = 0;
                         foreach ($customer_care as $key => $valueCustomerCare) {
@@ -44,15 +42,7 @@
                                 <td><?= $valueCustomerCare['create_at'] ?></td>
 
                                 <td class="text-center">
-                                    <a href="dashboard.php?page=detail_customer_care&id=<?= $valueCustomerCare['id']; ?>">
-                                        <button class="btn btn-info btn-icon waves-effect waves-light" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
-                                    </a>
-
-                                    <!-- Sell Products Button -->
-                                    <a href="dashboard.php?page=create_order&id=<?= $valueCustomerCare['customer_id']; ?>">
-                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Create Bill"><span><i class="mdi mdi-cart"></i></span></button>
-                                    </a>
-                                    <!-- Sell Products Button -->  
+                                    <button type="button" class="btn btn-info btn-sm waves-effect waves-light btn_add_customer">Add</button>
                                 </td>
                             </tr>
                         <?php

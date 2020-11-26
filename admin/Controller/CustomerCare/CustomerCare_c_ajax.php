@@ -83,9 +83,9 @@
 
         }
         
-        public function sendMail($email, $name) {
+        public function sendMail($email, $nameGet, $nameMove, $idGet) {
 
-            return $this->customer_care->sendMail($email, $name);
+            return $this->customer_care->sendMail($email, $nameGet, $nameMove, $idGet);
 
         }
 

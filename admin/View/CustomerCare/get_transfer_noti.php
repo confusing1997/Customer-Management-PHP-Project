@@ -30,8 +30,8 @@
 						<td><?= $value['Nhân viên chuyển']; ?></td>
 						<td class="text-center"><?= $value['create_at']; ?></td>
 						<td class="text-center">
-							<button type="button" class="btn btn-success custom waves-effect waves-light btn-accept" value="<?=$value['id']; ?>">Xác nhận</button>
-							<button type="button" class="btn btn-secondary custom waves-effect waves-light btn-decline" value="<?=$value['id']; ?>">Xóa</button>
+							<button type="button" class="btn btn-success custom waves-effect waves-light btn-accept" value="<?=$value['id']; ?>">Accept</button>
+							<button type="button" class="btn btn-secondary custom waves-effect waves-light btn-decline" value="<?=$value['id']; ?>">Decline</button>
 						</td>
 					</tr>
 				</tbody>

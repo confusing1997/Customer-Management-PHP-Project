@@ -69,8 +69,27 @@
 					</select>
 				</div>
 				<button type="button" class="btn btn-warning transfer" value="<?= $customer_id; ?>">Transfer</button>
-			</form><br><br>
-			<div class="notification1"></div>
+			</form><br>
+			<div class="notification1">
+				<?php 
+					if (isset($_SESSION['notification'])) {
+				?>
+					<div class="alert alert-success">
+		            	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		            	<strong>Request Sent!</strong>  
+		        	</div>
+				<?php
+					}
+					unset($_SESSION['notification']);
+				 ?>
+			</div>
 		</div> <!--end col-5-->
 	</div> <!--end row-->
 </div>
+
+<script type="text/javascript">
+    //Hiện thông báo .. giây xong ẩn
+    $(document).ready(function(){
+        $(".alert").delay(2000).slideUp();
+    })
+</script>

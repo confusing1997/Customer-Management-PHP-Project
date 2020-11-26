@@ -134,8 +134,9 @@ $(document).on('click', '.transfer', function(){
     var user_id_get = $('#listUser').val();
     var customer_id = $(this).val();
 
-    $.post('Server/CustomerCare/transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(data){
-        $('.notification1').html(data);
+    $.post('Server/CustomerCare/transfer_customer.php', { user_id_get: user_id_get, customer_id: customer_id}, function(){
+        // $('.notification1').html();
+        window.location.reload();
     })
 });
 
@@ -310,17 +311,20 @@ function getNoti(){
 $(document).on('click', '.btn-accept', function(){
 
     var customer_id = $(this).val();
+    var check = confirm('Are you sure you want to Accept this request?');
 
-    $.post('Server/CustomerCare/accept_transfer.php', 
-    
-        { customer_id : customer_id }, 
-    
-        function(data){
+    if (check == true){
+        $.post('Server/CustomerCare/accept_transfer.php', 
+        
+            { customer_id : customer_id }, 
+        
+            function(data){
 
-            $(".notification").html(data);
-            $(".table-noti").load(" #table-noti");
+                $(".notification").html(data);
+                $(".table-noti").load(" #table-noti");
 
-        });
+            });
+    }
 
 });
 
@@ -328,7 +332,7 @@ $(document).on('click', '.btn-accept', function(){
 $(document).on('click', '.btn-decline', function(){
 
     var customer_id = $(this).val();
-    var check = confirm('Are you sure want to Decline this request?');
+    var check = confirm('Are you sure you want to Decline this request?');
 
     if (check == true) {
 

@@ -110,6 +110,9 @@
                                             case 'get_transfer_noti':
                                                 echo "Notification list";
                                                 break;
+                                            case 'add_customer_care':
+                                                echo "Add customer care";
+                                                break;
                                             default:
                                                 echo "Error 404, Page is not exists";
                                                 echo "<a href='dashboard.php'>Go back</a>";
@@ -190,6 +193,12 @@
                                         include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                         $customer_care = new CustomerCare_c();
                                         $customer_care->notiUser();
+                                        break;
+
+                                    case 'add_customer_care':
+                                        include_once 'Controller/CustomerCare/CustomerCare_c.php';
+                                        $customer_care = new CustomerCare_c();
+                                        $customer_care->getCustomerPurchased();
                                         break;
 
                                     default:
