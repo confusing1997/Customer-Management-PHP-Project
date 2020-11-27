@@ -9,6 +9,7 @@
                         <th>Seller</th>
                         <th>User Care</th>
                         <th>Customer</th>
+                        <th>Showroom</th>
                         <th>Order Total</th>
                         <th>Create at</th>
                         <th>Action</th>
@@ -24,6 +25,7 @@
                                 <td><?= $value['Nhân viên bán']; ?></td>
                                 <td><?= $value['Nhân viên chăm sóc']; ?></td>
                                 <td><?= $value['Tên khách hàng']; ?></td>
+                                <td class="text-center"><?= $value['title']; ?></td>
                                 <td class="text-center"><?= number_format($value['total']); ?></td>
                                 <td class="text-center"><?= $value['create_at']; ?></td>
                                 <td class="text-center">

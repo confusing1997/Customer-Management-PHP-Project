@@ -260,6 +260,7 @@
                         userbuy.name AS 'Nhân viên bán',
                         usercare.name AS 'Nhân viên chăm sóc',
                         tbl_customer.name AS 'Tên khách hàng',
+                        tbl_showroom.title,
                         od.total,
                         od.create_at
                     FROM
@@ -270,6 +271,7 @@
                     ON
                         usercare.id = od.user_id_care
                     INNER JOIN tbl_customer ON tbl_customer.id = od.customer_id AND od.customer_id = :customer_id
+                    INNER JOIN tbl_showroom ON tbl_customer.showroom_id = tbl_showroom.showroom_id
                     ORDER BY
                         od.create_at
                     DESC";
