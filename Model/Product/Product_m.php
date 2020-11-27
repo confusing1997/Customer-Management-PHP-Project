@@ -92,12 +92,23 @@
         protected function getProductHot () {
 
             $sql = "SELECT
-                        *
+                        pro.id,
+                        pro.image,
+                        pro.price,
+                        pro.sale,
+                        PRO.name,
+                        SUM(OD.quantity) AS SALEQTY
                     FROM
-                        tbl_product
+                        tbl_product AS PRO
+                    INNER JOIN tbl_detail_order AS OD
+                    ON
+                        PRO.id = OD.product_id
+                    GROUP BY
+                        PRO.name
                     ORDER BY
-                        create_at DESC
-                    LIMIT 0,8";
+                        SALEQTY DESC
+                    LIMIT
+                        0,4";
 
             $pre = $this->pdo->prepare($sql);
 
@@ -187,6 +198,26 @@
                 $result[] = $row;
 
             }
+
+            return $result;
+        }
+
+        protected function getProductDetail($id) {
+
+            $sql = "SELECT
+                        *
+                    FROM
+                        tbl_product
+                    WHERE
+                        id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':id', $id);
+
+            $pre->execute();
+
+            $result = $pre->fetch(PDO::FETCH_ASSOC);
 
             return $result;
         }

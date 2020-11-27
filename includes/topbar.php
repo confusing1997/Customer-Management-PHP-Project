@@ -1,3 +1,29 @@
+<?php 
+    function convert_name($str) {
+        $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+        $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+        $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+        $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+        $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+        $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+        $str = preg_replace("/(đ)/", 'd', $str);
+        $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+        $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+        $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+        $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+        $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+        $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+        $str = preg_replace("/(Đ)/", 'D', $str);
+        $str = preg_replace("/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/", '-', $str);
+        $str = preg_replace("/( )/", '-', $str);
+        return $str;
+    }
+    if (isset($_SESSION['id_cus'])) {
+        $id = $_SESSION['id_cus'];
+        $nameFolder = convert_name($customer['name']).$id;
+    }
+    
+ ?>
 <div class="row pd0" style="height: 70px; background-color: #333;">
     <div class="container pd0">
         <div class="col-md-12 col-lg-12 col-xs-12 col-12">    
@@ -14,7 +40,7 @@
                     ?>
                         <li class="dropdown notification-list loadava1" >
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"id="ava">
-                                <img src="assets/images/customer/<?php echo $customer['avatar'] ?>" alt="user-image" class="rounded-circle lh70" >
+                                <img src="assets/images/customer/<?php echo $nameFolder ?>/<?php echo $customer['avatar'] ?>" alt="user-image" class="rounded-circle lh70" >
                                 <span class="ml-1" id="name_cus"><?php echo $_SESSION['name_cus'] ?><i class="mdi mdi-chevron-down"></i> </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown pd0">

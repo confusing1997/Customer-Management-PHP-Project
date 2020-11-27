@@ -45,6 +45,11 @@
                   $customer = new Customer_c();
                   $customer->Customer();
                   break;
+                case 'product':
+                  include_once 'Controller/Product/Product_c.php';
+                  $product = new Product_c();
+                  $product->ProductDetail();
+                  break;
             		default:
             			echo "Error 404, Page is not exists";
                         echo "<a href='index.php'>Go back</a>";

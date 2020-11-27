@@ -115,7 +115,8 @@
                         </div>
                     </div>     
                     <!-- end page title --> 
-
+                    <canvas id="transactions-chart" height="350" class="mt-4"></canvas>
+                    <input type="hidden" name="" id="val" value="<?php echo '10'; ?>">
                     <!-- Page Content -->
                     <div class="row">
                         <div class="col-lg-12">

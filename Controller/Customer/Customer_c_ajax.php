@@ -25,5 +25,10 @@
 
             return $this->customer->checkPass($id, $pass);
         }
+
+        public function getCustomerInfo($id){
+
+            return $this->customer->getCustomerInfo($id);
+        }
         
     }

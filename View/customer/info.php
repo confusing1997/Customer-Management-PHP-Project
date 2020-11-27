@@ -1,5 +1,8 @@
-<div class="clearfix"></div>
-<div class="col-md-9 col-9" style="background-color: #fff; height: 550px; padding-left: 30px;">
+<?php 
+	$id = $_SESSION['id_cus'];
+	$nameFolder = convert_name($customer['name']).$id;
+ ?>
+<div class="col-md-9 col-9" style="background-color: #fff; padding-left: 30px;border-radius: 0.25rem; margin: 50px 0 0px 0;float: left;height: 100%">
 	<div class="title-info" style="border-bottom: 1px solid #efefef; width: 100%; height:80px;">
 		<div style="margin-top: 20px;">
 		<h4 style="color: #333">Thông Tin Khách Hàng</h4>
@@ -38,9 +41,9 @@
 					<div class="value_cus"><?php echo $birth ?></div>
 				</div>
 			</div>
-			<div class="info_right" style="height: 30%; width: 30%; float: left; border-left: 1px solid #efefef">
+			<div class="info_right" style="height: 70%; width: 30%; float: left; border-left: 1px solid #efefef">
 				<div style="text-align: center; margin-bottom: 20px;" id="avatar_cus">
-					<img src="assets/images/customer/<?php echo $customer['avatar'] ?>" alt="user-image" class="rounded-circle" width="80" height='80' id="avatar">
+					<img src="assets/images/customer/<?php echo $nameFolder ?>/<?php echo $customer['avatar'] ?>" alt="user-image" class="rounded-circle" width="80" height='80' id="avatar">
 				</div>
 				<form id="form-ava" action="Server/avatar.php" method="post" enctype="multipart/form-data" style="text-align: center;">
                 	<label class="custom-file-upload">
@@ -54,7 +57,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="save1" style="height: 50px; padding-left: 60px;">
+	<div class="save1" style="height: 50px; padding-left: 80px;margin-bottom: 20px;">
 		<button type="button" style="height: 40px;padding: 0 20px;min-width: 70px;max-width: 220px;color: #fff;background: #a8741a;" class="btn waves-effect waves-light save" id="toastr-three">Lưu</button>
 	</div>
 	<div id="content"></div>

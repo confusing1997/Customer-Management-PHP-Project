@@ -1,8 +1,11 @@
 <?php
+	session_start();
 
 	include_once("../../Controller/Customer/Customer_c_ajax.php");
 
 	$customer = new Customer_c_ajax();
+
+	$id = $_SESSION['id_cus'];
 
 	function convert_name($str) {
 		$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
@@ -24,20 +27,24 @@
 		return $str;
 	}
 
+	$result = $customer->getCustomerInfo($id);
+
+	$nameFolder = convert_name($result['name']).$id;
+
+	if (!file_exists('../../assets/images/preview/'.$nameFolder)) {
+    	mkdir('../../assets/images/preview/'.$nameFolder, 0777, true);
+	}
+
   	$file = $_FILES['image'];
 	$nameFile = time().convert_name($file['name']);
 	$type = $file['type'];
 	$tmp_name = $file['tmp_name']; //đường dẫn tạm thời
 	$size = $file['size'];
 	
-	$imageFileType = pathinfo('../../assets/images/preview/'.basename($nameFile),PATHINFO_EXTENSION);
+	$imageFileType = pathinfo('../../assets/images/preview/'.$nameFolder.'/'.basename($nameFile),PATHINFO_EXTENSION);
 	
-	move_uploaded_file($tmp_name, '../../assets/images/preview/'.$nameFile);
-	echo "<img src='assets/images/preview/$nameFile' class='rounded-circle' width='80' height='80' value='$nameFile' id='avatar'>";
+	move_uploaded_file($tmp_name, '../../assets/images/preview/'.$nameFolder.'/'.$nameFile);
+	echo "<img src='assets/images/preview/$nameFolder/$nameFile' class='rounded-circle' width='80' height='80' value='$nameFile' id='avatar'>";
 	echo "<input type='hidden' id='ava_val' value='$nameFile'>";
-		
-
-	
-	
-  		
+ 		
 ?>

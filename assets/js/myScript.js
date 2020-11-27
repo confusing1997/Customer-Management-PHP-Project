@@ -235,7 +235,13 @@ $(document).on('click', '#update', function(){
                 $.post('Server/Customer/password.php', { pass_new : pass_new, pass : pass }, function(data){
                     $('#notification').html(data);
                 });
+            }else{
+                alert('Mật khẩu xác nhận không khớp!');
             }
+        }else{
+            alert('Mật khẩu không hợp lệ!');
         }
+    }else{
+        alert('Mật khẩu không hợp lệ!');
     }
 })

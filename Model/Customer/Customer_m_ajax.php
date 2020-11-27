@@ -60,4 +60,26 @@
 
             return $result;
         }
+
+        protected function getCustomerInfo($id) {
+
+            $sql = "SELECT
+                        tbl_customer.name
+                    FROM
+                        tbl_customer, tbl_showroom
+                    WHERE
+                        tbl_customer.showroom_id = tbl_showroom.showroom_id
+                    AND
+                        id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':id', $id);
+
+            $pre->execute();
+
+            $result = $pre->fetch(PDO::FETCH_ASSOC);
+
+            return $result;
+        }
     }
