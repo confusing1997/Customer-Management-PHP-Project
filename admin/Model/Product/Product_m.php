@@ -79,11 +79,12 @@
         //Add more product into tbl_order
         protected function addDetailOrder ($product_id, $quantity) {
 
-            $sql = "INSERT INTO tbl_detail_order(order_id, product_id, price, quantity)
+            $sql = "INSERT INTO tbl_detail_order(order_id, product_id, price, sale, quantity)
                     SELECT
                         MAX(tbl_order.id),
                         tbl_product.id,
                         tbl_product.price,
+                        tbl_product.sale,
                         :quantity
                     FROM
                         tbl_order,
@@ -98,6 +99,26 @@
 
             return $pre->execute();
         }
+
+        // protected function getMaxOrderId(){
+        //     $sql = "SELECT
+        //                 max.orderid,
+        //                 tbl_product.name,
+        //                 tbl_product.price,
+        //                 tbl_product.sale
+        //             FROM
+        //                 tbl_product,
+        //                 tbl_detail_order,
+        //                 (SELECT MAX(tbl_detail_order.order_id) as orderid  FROM tbl_detail_order) as max
+        //             WHERE
+        //                 tbl_product.id = tbl_detail_order.product_id AND tbl_detail_order.order_id = max.orderid";
+
+        //     $pre = $this->pdo->prepare($sql);
+
+        //     $pre->execute();
+
+        //     return $row = $pre->fetch(PDO::FETCH_ASSOC);  
+        // }
 
         //Add Bonus for user_care + user_sell (6%)
         protected function addBonus6 ($id) {
@@ -179,7 +200,7 @@
         }
 
         //Send Mail
-        protected function sendMail($email, $name){
+        protected function sendMail($email, $name, $rows, $total){ 
             // Gửi mail cho khách hàng
             include_once 'Asset/PHPMailer/class.phpmailer.php';
             include_once 'Asset/PHPMailer/class.smtp.php';
@@ -206,12 +227,99 @@
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = 'Thông báo đơn hàng!';
-                $mail->Body    = 'Chào '.$name.', Đơn hàng của bạn đã được xác nhận!';
-
+                $mail->Body    = '
+                <h2>Chào '.$name.',</h3><br> 
+                <p>Đơn hàng của bạn đã được xác nhận!</p> <br>
+                <h1 style="text-align: center">HÓA ĐƠN</h4><br><br>
+                <table border="1px" rules="all" cellpadding="20px">
+                    <tr>
+                        <td>Tên sản phẩm</td>
+                        <td>Giá</td>
+                        <td>Khuyến mãi</td>
+                        <td>Số lượng</td>
+                        <td>Thành tiền</td>                                    
+                    </tr>
+                '.$rows.'
+                    <tr>
+                        <td colspan="4">Tổng</td>
+                        <td>'.number_format($total).'</td>
+                    </tr>                          
+                </table>';
                 $mail->send();
                 echo 'Message has been sent';
             } catch (Exception $e) {
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
+        }
+
+        //Hiện danh sách hóa đơn
+        protected function getOrderHistory ($customer_id) {
+
+            $sql = "SELECT
+                        od.id,
+                        userbuy.name AS 'Nhân viên bán',
+                        usercare.name AS 'Nhân viên chăm sóc',
+                        tbl_customer.name AS 'Tên khách hàng',
+                        tbl_showroom.title,
+                        od.total,
+                        od.create_at
+                    FROM
+                        tbl_user AS userbuy
+                    INNER JOIN tbl_order od ON
+                        userbuy.id = od.user_id_buy
+                    INNER JOIN tbl_user AS usercare
+                    ON
+                        usercare.id = od.user_id_care
+                    INNER JOIN tbl_customer ON tbl_customer.id = od.customer_id AND od.customer_id = :customer_id
+                    INNER JOIN tbl_showroom ON tbl_customer.showroom_id = tbl_showroom.showroom_id
+                    ORDER BY
+                        od.create_at
+                    DESC";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":customer_id", $customer_id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        //Hiện danh sách chi tiết hóa đơn
+        protected function getDetailOrder ($order_id) {
+
+            $sql = "SELECT
+                        *
+                    FROM
+                        tbl_detail_order,
+                        tbl_product
+                    WHERE
+                        tbl_detail_order.product_id = tbl_product.id AND order_id = :order_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":order_id", $order_id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
         }
     }

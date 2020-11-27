@@ -45,6 +45,45 @@
             return $pre->execute();
         }
 
+        //Hiện danh sách noti
+        protected function getNoti () {
+
+            $sql = "
+                SELECT
+                    tbl_customer.phone,
+                    tbl_customer.name AS 'Tên khách hàng',
+                    usermove.name AS 'Nhân viên chuyển',
+                    userget.name AS 'Nhân viên nhận',
+                    tnt.user_id_get,
+                    tnt.create_at
+                FROM
+                    tbl_user AS usermove    
+                INNER JOIN tbl_transfer_noti tnt
+                ON
+                    usermove.id = tnt.user_id_move
+                INNER JOIN tbl_user AS userget
+                ON
+                    userget.id = tnt.user_id_get
+                INNER JOIN tbl_customer
+                ON
+                    tbl_customer.id = tnt.customer_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
         //Thêm vào bảng tbl_history
         protected function addHistory($user_id_move, $customer_id, $user_id_get){
             $sql = "INSERT INTO tbl_history(user_id_move, customer_id, user_id_get) VALUES (:user_id_move, :customer_id, :user_id_get)";
@@ -111,6 +150,99 @@
             $pre->execute();
 
             return $row = $pre->fetch(PDO::FETCH_ASSOC);
+        }
+
+        //Lấy thông tin trong bảng tbl_transfer_noti
+        protected function getInfoNoti($customer_id) {
+
+            $sql = "SELECT * FROM tbl_transfer_noti
+                    WHERE customer_id = :customer_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':customer_id', $customer_id);
+
+            $pre->execute();
+
+            return $row = $pre->fetch(PDO::FETCH_ASSOC);
+        }
+
+        //Send Mail
+        protected function sendMail($email, $nameGet, $nameMove, $idGet){
+            
+
+            // Instantiation and passing `true` enables exceptions
+            $mail = new PHPMailer(true);
+
+            try {
+                $mail->CharSet = 'utf8';
+                //Server settings
+                $mail->SMTPDebug = 2;                      // Enable verbose debug output
+                $mail->isSMTP();                                            // Send using SMTP
+                $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+                $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                $mail->Username   = 'datgauteddy@gmail.com';                     // SMTP username
+                $mail->Password   = 'dat23397';             // Nhập pass mail mọi người vào nhé
+                $mail->SMTPSecure = 'tls';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+                //Recipients
+                $mail->setFrom('datgauteddy@gmail.com', 'Thông báo!');
+                $mail->addAddress($email, $nameGet);     // Add a recipient
+
+                // Content
+                $mail->isHTML(true);                                  // Set email format to HTML
+                $mail->Subject = 'Yêu cầu điều chuyển!';
+                $mail->Body    = '
+                    Bạn nhận được 1 yêu cầu điều chuyển khách hàng từ '.$nameMove.'
+                    <br>Bấm vào nút dưới đây để xem
+                    <br><br><a href="http://localhost/Customer-Management-PHP-Project/admin/dashboard.php?page=get_transfer_noti&id='.$idGet.'">
+                        <button type="button" style="background-color: #4CAF50; 
+                            border: none;
+                            color: white;
+                            padding: 15px 32px;
+                            text-align: center;
+                            text-decoration: none;
+                            display: inline-block;
+                            font-size: 16px;">View</button>
+                    </a>
+                ';
+
+                $mail->send();
+                echo 'Message has been sent';
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+        }
+
+        //Lấy thông tin User theo id
+        protected function getUserId($user_id) {
+
+            $sql = "SELECT * FROM tbl_user WHERE id = :user_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":user_id", $user_id);
+
+            $pre->execute();
+
+            return $row = $pre->fetch(PDO::FETCH_ASSOC);
+
+        }
+
+        //Update Status Customer to New and Transfer to User want to get
+        protected function newCare ($user_id, $customer_id) {
+
+            $sql = "UPDATE tbl_care
+                    SET user_id = :user_id, status = 3
+                    WHERE customer_id = :customer_id
+                        ";
+
+            $pre = $this->pdo->prepare($sql);
+            $pre->bindParam(":user_id", $user_id);
+            $pre->bindParam(":customer_id", $customer_id);
+            return $pre->execute();
+
         }
     }
 

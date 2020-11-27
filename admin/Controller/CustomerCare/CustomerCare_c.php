@@ -18,6 +18,13 @@
             include_once 'View/CustomerCare/list_customer_care.php';
         }
 
+        public function detailCustomerCare () {
+            $customer_id = $_GET['id'];
+            $customer_care2 = $this->customer_care->getInfoCustomerCare($customer_id);
+            $customer_care1 = $this->customer_care->getAllUserExceptOne($customer_care2['user_id']);     
+            include_once 'View/CustomerCare/detail_customer_care.php';
+        }
+
         public function CustomerCareAll () {
             if (isset($_POST['searchPhone'])) {
                 $key = $_POST['key'];
@@ -39,23 +46,7 @@
 
         }
 
-        public function getNoti(){
-            $noti = $this->customer_care->getNoti();
-            function timeDiff($firstTime,$lastTime){ 
-                // convert to unix timestamps 
-                $firstTime=strtotime($firstTime); 
-                $lastTime=strtotime($lastTime); 
-
-                // perform subtraction to get the difference (in seconds) between times 
-                $timeDiff=$lastTime-$firstTime; 
-
-                // return the difference 
-                return $timeDiff; 
-            }
-
-            include_once 'Includes/navheader.php';
-
-        }
+        
 
         public function getDetailCare ($customer_id) {
 
@@ -70,6 +61,22 @@
                 $customer_care1 = $this->customer_care->getAllUserExceptOne($user_id);     
                 include_once 'View/CustomerCare/list_customer_care_user.php';
             }
+        }
+
+        public function notiUser(){
+            if (isset($_GET['id'])) {
+                $user_id_get = (int)$_GET['id'];
+                $noti = $this->customer_care->getNotiUser($user_id_get);
+
+                include_once 'View/CustomerCare/get_transfer_noti.php';
+            }           
+
+        }
+
+        public function getCustomerPurchased(){
+            $customer_care = $this->customer_care->getCustomerPurchased();
+
+            include_once 'View/CustomerCare/add_customer_care.php';
         }
     }
 ?>

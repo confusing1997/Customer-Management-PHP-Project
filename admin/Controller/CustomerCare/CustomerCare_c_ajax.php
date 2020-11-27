@@ -58,5 +58,50 @@
             return $this->customer_care->getUserMove($customer_id);
 
         }
+
+        public function getNoti(){
+            return $noti = $this->customer_care->getNoti();
+            // function timeDiff($firstTime,$lastTime){ 
+            //     // convert to unix timestamps 
+            //     $firstTime=strtotime($firstTime); 
+            //     $lastTime=strtotime($lastTime); 
+
+            //     // perform subtraction to get the difference (in seconds) between times 
+            //     $timeDiff=$lastTime-$firstTime; 
+
+            //     // return the difference 
+            //     return $timeDiff; 
+            // }
+
+            // include_once 'Includes/navheader.php';
+
+        }
+
+        public function getInfoNoti($customer_id) {
+
+            return $this->customer_care->getInfoNoti($customer_id);
+
+        }
+        
+        public function sendMail($email, $nameGet, $nameMove, $idGet) {
+
+            return $this->customer_care->sendMail($email, $nameGet, $nameMove, $idGet);
+
+        }
+
+        //Kiểm tra trùng email của bảng user
+        public function getUserId($user_id) {
+
+            return $this->customer_care->getUserId($user_id);
+
+
+        }
+
+        //Update Status Customer to New and Transfer to User want to get
+        public function newCare ($user_id, $customer_id) {
+
+            return $this->customer_care->newCare($user_id, $customer_id);
+
+        }
     }
 ?>

@@ -40,6 +40,29 @@
 
         }
 
+        //Hiện thông tin khách hàng đang chăm sóc của nhân viên đang đăng nhập
+        protected function getInfoCustomerCare ($customer_id) {
+
+            $sql = "
+            SELECT tbl_care.customer_id, tbl_user.name as 'Họ tên NV', tbl_customer.name, tbl_showroom.title, tbl_customer.phone, tbl_customer.email, tbl_care.status, tbl_care.create_at, tbl_customer.id, tbl_care.user_id
+            FROM
+                tbl_user,
+                tbl_customer,
+                tbl_showroom,
+                tbl_care
+            WHERE
+                tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_user.id = tbl_care.user_id AND tbl_customer.id = tbl_care.customer_id AND tbl_customer.id = :customer_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":customer_id", $customer_id);
+
+            $pre->execute();
+
+            return $row = $pre->fetch(PDO::FETCH_ASSOC);
+
+        }
+
         //Hiện danh sách tất cả khách hàng đang được chăm sóc của công ty
         protected function getCustomerCareAll () {
 
@@ -188,46 +211,7 @@
 
             return $result;
 
-        }
-
-        //Hiện danh sách lịch sử điều chuyển
-        protected function getNoti () {
-
-            $sql = "
-                SELECT
-                    tbl_customer.phone,
-                    tbl_customer.name AS 'Tên khách hàng',
-                    usermove.name AS 'Nhân viên chuyển',
-                    userget.name AS 'Nhân viên nhận',
-                    tnt.user_id_get,
-                    tnt.create_at
-                FROM
-                    tbl_user AS usermove    
-                INNER JOIN tbl_transfer_noti tnt
-                ON
-                    usermove.id = tnt.user_id_move
-                INNER JOIN tbl_user AS userget
-                ON
-                    userget.id = tnt.user_id_get
-                INNER JOIN tbl_customer
-                ON
-                    tbl_customer.id = tnt.customer_id";
-
-            $pre = $this->pdo->prepare($sql);
-
-            $pre->execute();
-
-            $result = array();
-
-            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
-
-                $result[] = $row;
-
-            }
-
-            return $result;
-
-        }
+        }  
 
         //Hiện chi tiết nội dung chăm sóc khách hàng
         protected function getDetailCare ($customer_id) {
@@ -273,6 +257,82 @@
             }
 
             return $result;
+        }
+
+        //Hiện danh sách noti
+        protected function getNotiUser ($user_id_get) {
+
+            $sql = "
+                SELECT
+                    tbl_customer.id,
+                    tbl_customer.phone,
+                    tbl_customer.name AS 'Tên khách hàng',
+                    usermove.name AS 'Nhân viên chuyển',
+                    userget.name AS 'Nhân viên nhận',
+                    tnt.user_id_get,
+                    tnt.create_at
+                FROM
+                    tbl_user AS usermove    
+                INNER JOIN tbl_transfer_noti tnt
+                ON
+                    usermove.id = tnt.user_id_move
+                INNER JOIN tbl_user AS userget
+                ON
+                    userget.id = tnt.user_id_get AND userget.id = :user_id_get
+                INNER JOIN tbl_customer
+                ON
+                    tbl_customer.id = tnt.customer_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':user_id_get', $user_id_get);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        //Hiện danh sách khách hàng đã mua hàng
+        protected function getCustomerPurchased () {
+
+            $sql = "SELECT
+                        tbl_care.customer_id,
+                        tbl_customer.name,
+                        tbl_showroom.title,
+                        tbl_customer.phone,
+                        tbl_customer.email,
+                        tbl_care.status,
+                        tbl_care.create_at
+                    FROM
+                        tbl_customer,
+                        tbl_showroom,
+                        tbl_care
+                    WHERE
+                        tbl_customer.id = tbl_care.customer_id AND tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_care.user_id = 1 AND tbl_care.status = 2";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
         }
 
     }

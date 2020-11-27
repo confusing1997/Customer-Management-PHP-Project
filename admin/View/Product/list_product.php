@@ -117,12 +117,6 @@ data-toggle = "modal" data-target = "#add_product" title="Modify">
 
                           <!-- END DESCRIPTION MODAL -->
 
-                          <button class="btn btn-danger btn-icon waves-effect waves-light remove_Product" 
-                          value="<?= $valueProduct['id']; ?>" 
-                          title="Delete">  
-                            <i class="fas fa-times"></i>
-                          </button>
-
                           <button type="button" class="btn btn-icon waves-effect waves-light btn-warning" title="Modify"
                           data-toggle="modal" data-target="#modify-product<?= $valueProduct['id'] ?>" data-whatever = "@getbootstrap">
                             <span>
@@ -176,6 +170,11 @@ data-toggle = "modal" data-target = "#add_product" title="Modify">
 
                           <!-- END DESCRIPTION MODAL -->
                           
+                          <button class="btn btn-danger btn-icon waves-effect waves-light remove_Product" 
+                          value="<?= $valueProduct['id']; ?>" 
+                          title="Delete">  
+                            <i class="fas fa-times"></i>
+                          </button>
                       </td>
                   </tr>
                 <?php

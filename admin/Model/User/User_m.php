@@ -149,6 +149,46 @@
 
 			return $pre->execute();
 		}
+
+		//Lấy thông tin lương thưởng của nhân viên
+		protected function getBonus($user_id) {
+
+			$sql = "SELECT
+					    tbl_bonus.order_id,
+					    usersell.name as 'Seller',
+					    usercare.name as 'User Care',					    
+					    tbl_customer.name 'Customer',
+					    tbl_order.total,
+					    tbl_bonus.bonus,
+					    tbl_bonus.create_at
+					FROM
+					    tbl_bonus,
+					    tbl_user,
+					    tbl_user as usersell,
+					    tbl_user as usercare,
+					    tbl_order,
+					    tbl_customer
+					WHERE
+					    tbl_bonus.user_id = tbl_user.id AND tbl_bonus.order_id = tbl_order.id AND tbl_order.user_id_buy = usersell.id AND tbl_order.user_id_care = usercare.id AND tbl_order.customer_id = tbl_customer.id AND tbl_bonus.user_id = :user_id";
+
+			$pre = $this->pdo->prepare($sql);
+
+			$pre->bindParam(":user_id", $user_id);
+
+			$pre->execute();
+
+			$result = array();
+
+			while($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+				$result[] = $row;
+
+			}
+
+			return $result;
+
+		}
+
 	}
 
 
