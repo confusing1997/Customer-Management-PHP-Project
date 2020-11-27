@@ -305,6 +305,7 @@
         protected function getCustomerPurchased () {
 
             $sql = "SELECT
+                        tbl_care.customer_id,
                         tbl_customer.name,
                         tbl_showroom.title,
                         tbl_customer.phone,

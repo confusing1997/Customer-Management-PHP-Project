@@ -113,6 +113,12 @@
                                             case 'add_customer_care':
                                                 echo "Add customer care";
                                                 break;
+                                            case 'order_history':
+                                                echo "Order History";
+                                                break;
+                                            case 'list_bonus':
+                                                echo "List Bonus";
+                                                break;                                                
                                             default:
                                                 echo "Error 404, Page is not exists";
                                                 echo "<a href='dashboard.php'>Go back</a>";
@@ -199,6 +205,18 @@
                                         include_once 'Controller/CustomerCare/CustomerCare_c.php';
                                         $customer_care = new CustomerCare_c();
                                         $customer_care->getCustomerPurchased();
+                                        break;
+
+                                    case 'order_history':
+                                        include_once 'Controller/Product/Product_c.php';
+                                        $product = new Product_c();
+                                        $product->orderHistory();
+                                        break;
+
+                                    case 'list_bonus':
+                                        include_once 'Controller/User/User_c.php';
+                                        $user = new User_c();
+                                        $user->Bonus();
                                         break;
 
                                     default:

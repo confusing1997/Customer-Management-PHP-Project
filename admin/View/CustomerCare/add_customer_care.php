@@ -1,8 +1,9 @@
+<div class="notification"></div>
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
             <h3 class="text-center">Add customer care</h3><br>
-            <table id="datatable_listcustomer_care" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+            <table id="datatable_list_purchased" class="display table table-bordered dt-responsive nowrap purchased" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr class="text-center">
                         <th>#</th>
@@ -42,7 +43,7 @@
                                 <td><?= $valueCustomerCare['create_at'] ?></td>
 
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-info btn-sm waves-effect waves-light btn_add_customer">Add</button>
+                                    <button type="button" class="btn btn-info btn-sm waves-effect waves-light btn_add_customer" name="btn_add_customer" value="<?= $valueCustomerCare['customer_id']; ?>">Add</button>
                                 </td>
                             </tr>
                         <?php

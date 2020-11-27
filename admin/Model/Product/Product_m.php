@@ -251,4 +251,73 @@
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
         }
+
+        //Hiện danh sách hóa đơn
+        protected function getOrderHistory ($customer_id) {
+
+            $sql = "SELECT
+                        od.id,
+                        userbuy.name AS 'Nhân viên bán',
+                        usercare.name AS 'Nhân viên chăm sóc',
+                        tbl_customer.name AS 'Tên khách hàng',
+                        od.total,
+                        od.create_at
+                    FROM
+                        tbl_user AS userbuy
+                    INNER JOIN tbl_order od ON
+                        userbuy.id = od.user_id_buy
+                    INNER JOIN tbl_user AS usercare
+                    ON
+                        usercare.id = od.user_id_care
+                    INNER JOIN tbl_customer ON tbl_customer.id = od.customer_id AND od.customer_id = :customer_id
+                    ORDER BY
+                        od.create_at
+                    DESC";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":customer_id", $customer_id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        //Hiện danh sách chi tiết hóa đơn
+        protected function getDetailOrder ($order_id) {
+
+            $sql = "SELECT
+                        *
+                    FROM
+                        tbl_detail_order,
+                        tbl_product
+                    WHERE
+                        tbl_detail_order.product_id = tbl_product.id AND order_id = :order_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":order_id", $order_id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
     }

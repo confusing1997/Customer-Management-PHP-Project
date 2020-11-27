@@ -1,5 +1,13 @@
+<?php 
+    if ($_SESSION['role'] != 1) {
+?>
+<a href="dashboard.php?page=add_customer_care">
+    <button type="button" class="btn btn-primary btn-icon waves-light waves-effect">+ Recare Customer</button>
+</a>
+<?php
+    }
+?>
 <div class="notification"></div>
-
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
@@ -52,6 +60,15 @@
                                     <a href="dashboard.php?page=create_order&id=<?= $valueCustomerCare['customer_id']; ?>">
                                         <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Create Bill"><span><i class="mdi mdi-cart"></i></span></button>
                                     </a>
+                                    <?php 
+                                        if ($valueCustomerCare['status'] != 1){
+                                     ?>
+                                    <a href="dashboard.php?page=order_history&id=<?= $valueCustomerCare['customer_id']; ?>">
+                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-success" title="Order History"><span><i class="mdi mdi-history"></i></span></button>
+                                    </a>
+                                    <?php 
+                                        } 
+                                    ?>
                                     <!-- Sell Products Button -->  
                                 </td>
                             </tr>

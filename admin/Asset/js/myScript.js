@@ -362,3 +362,16 @@ $(document).on('click', '.del_cart', function(){
     });
 
 });
+
+$(document).on('click', '.btn_add_customer', function(){
+
+    var customer_id = $(this).val();
+    var $button = $(this);
+    var table = $('#datatable_list_purchased').DataTable();
+    $.post('Server/CustomerCare/add_customer_care.php', {customer_id : customer_id}, function(data) {
+        $(".notification").html(data);        
+        table.row($button.parents('tr')).remove().draw();
+        // $(".purchased").load(' #datatable_list_purchased');
+    });
+
+});

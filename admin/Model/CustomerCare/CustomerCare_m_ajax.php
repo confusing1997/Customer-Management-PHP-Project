@@ -229,5 +229,20 @@
             return $row = $pre->fetch(PDO::FETCH_ASSOC);
 
         }
+
+        //Update Status Customer to New and Transfer to User want to get
+        protected function newCare ($user_id, $customer_id) {
+
+            $sql = "UPDATE tbl_care
+                    SET user_id = :user_id, status = 3
+                    WHERE customer_id = :customer_id
+                        ";
+
+            $pre = $this->pdo->prepare($sql);
+            $pre->bindParam(":user_id", $user_id);
+            $pre->bindParam(":customer_id", $customer_id);
+            return $pre->execute();
+
+        }
     }
 

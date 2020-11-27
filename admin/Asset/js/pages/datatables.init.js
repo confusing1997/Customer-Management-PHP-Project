@@ -20,4 +20,15 @@ $(document).ready(function(){
         "responsive": false,
         "order": [[ 0, "asc" ]],
     });
+
+    $("#list_bonus").dataTable({
+        "responsive": false,
+        "order": [[ 6, "desc" ]],
+    });
+
+    $("#datatable_list_purchased").dataTable({
+        "responsive": false,
+        "order": [[ 6, "asc" ]],
+    });
+    
 });

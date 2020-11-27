@@ -96,5 +96,12 @@
 
 
         }
+
+        //Update Status Customer to New and Transfer to User want to get
+        public function newCare ($user_id, $customer_id) {
+
+            return $this->customer_care->newCare($user_id, $customer_id);
+
+        }
     }
 ?>

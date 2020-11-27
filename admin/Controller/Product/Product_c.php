@@ -63,5 +63,17 @@
                 include_once 'View/Product/create_order.php';
             }
         }
+
+        public function orderHistory(){
+            if (isset($_GET['id'])) {
+                $customer_id = $_GET['id'];
+            }
+            $product = $this->product->getOrderHistory($customer_id);
+            include_once 'View/Product/order_history.php';
+        }
+
+        public function getDetailOrder ($order_id) {
+            return $order = $this->product->getDetailOrder($order_id);
+        }
     }
 ?>
