@@ -35,31 +35,54 @@
                                             switch ($page) {
                                                 case 'list_all_user':
                                                     echo "<li class='breadcrumb-item'>Manage Staff</li>";
-                                                    echo "<li class='breadcrumb-item active'>Staff's list</li>";
+                                                    echo "<li class='breadcrumb-item active'>Staff List</li>";
                                                     break;
                                                 case 'list_customer':
                                                     echo "<li class='breadcrumb-item'>Mange Customer</li>";
-                                                    echo "<li class='breadcrumb-item active'>Customer's list</li>";
+                                                    echo "<li class='breadcrumb-item active'>Customer List</li>";
                                                     break;
                                                 case 'index':
                                                     echo "<li class='breadcrumb-item active'>Dashboard</li>";
                                                     break;
                                                 case 'list_customer_care':
-                                                    echo "<li class='breadcrumb-item'>Customer Attention</li>";
-                                                    echo "<li class='breadcrumb-item active'>Staff's Customer list</li>";
+                                                    echo "<li class='breadcrumb-item'>Add Customer</li>";
+                                                    echo "<li class='breadcrumb-item active'>My Customer List</li>";
                                                     break;
                                                 case 'list_customer_care_user':
-                                                    echo "<li class='breadcrumb-item'>Customer Attention</li>";
-                                                    echo "<li class='breadcrumb-item active'>Staff's Customer list</li>";
+                                                    echo "<li class='breadcrumb-item'>Manage Staff</li>";
+                                                    echo "<li class='breadcrumb-item'>Staff List</li>";
+                                                    echo "<li class='breadcrumb-item active'>Staff's Customer List</li>";
                                                     break;
                                                 case 'list_customer_care_all':
-                                                    echo "<li class='breadcrumb-item'>Customer Attention</li>";
-                                                    echo "<li class='breadcrumb-item active'>System's Customer list</li>";
+                                                    echo "<li class='breadcrumb-item'>Add Customer</li>";
+                                                    echo "<li class='breadcrumb-item active'>Add Customer</li>";
                                                     break;
                                                 case 'list_history':
                                                     echo "<li class='breadcrumb-item active'>Transference History</li>";
                                                     echo "<li class='breadcrumb-item active'>Transference History</li>";
                                                     break;
+                                                case 'list_product':
+                                                    echo "<li class='breadcrumb-item active'>Product List</li>";
+                                                    echo "<li class='breadcrumb-item active'>Product List</li>";
+                                                    break;
+                                                case 'add_customer_care':
+                                                    echo "<li class='breadcrumb-item active'>Add Customer</li>";
+                                                    echo "<li class='breadcrumb-item active'>My Customer List</li>";
+                                                    echo "<li class='breadcrumb-item active'>Add Customer Care</li>";
+                                                    break;
+                                                case 'create_order':
+                                                    echo "<li class='breadcrumb-item active'>Add Customer</li>";
+                                                    echo "<li class='breadcrumb-item active'>My Customer List</li>";
+                                                    echo "<li class='breadcrumb-item active'>Create Bill</li>";
+                                                    break;
+                                                case 'list_bonus':
+                                                    echo "<li class='breadcrumb-item active'>Salary</li>";
+                                                    echo "<li class='breadcrumb-item active'>Commission</li>";
+                                                    break;
+                                                    
+                                                    
+                                                    
+                                                    
                                                 default:
                                                     
                                                     break;
@@ -80,45 +103,45 @@
                                                 echo 'Statistical';
                                                 break;
                                             case 'list_customer':
-                                                echo "Customer list";
+                                                echo "Customer List";
                                                 break;
                                             case 'list_customer_care':
-                                                echo "Staff's Customer list";
+                                                echo "My Customer List";
                                                 break;
 
                                             case 'detail_customer_care':
                                                 echo "Detail Customer";
                                                 break;
                                             case 'list_customer_care_all':
-                                                echo "System's Customer list";
+                                                echo "Add Customer";
                                                 break;
                                             case 'list_all_user':
-                                                echo "Staff list";
+                                                echo "Staff List";
                                                 break;
                                             case 'list_history':
-                                                echo 'Transfer history';
+                                                echo 'Transference History';
                                                 break;
                                             case 'list_customer_care_user':
-                                                echo "Staff's Customer list";
+                                                echo "Staff's Customer List";
                                                 break;
                                             case 'create_order':
                                                 echo 'Bill';
                                                 break;
                                             case 'list_product':
-                                                echo "Product list";
+                                                echo "Product List";
                                                 break;
                                             case 'get_transfer_noti':
-                                                echo "Notification list";
+                                                echo "Notification List";
                                                 break;
                                             case 'add_customer_care':
-                                                echo "Add customer care";
+                                                echo "Add Customer Care";
                                                 break;
                                             case 'order_history':
                                                 echo "Order History";
                                                 break;
                                             case 'list_bonus':
-                                                echo "List Bonus";
-                                                break;                                                
+                                                echo "My Bonus";
+                                                break;
                                             default:
                                                 echo "Error 404, Page is not exists";
                                                 echo "<a href='dashboard.php'>Go back</a>";

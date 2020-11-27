@@ -18,7 +18,7 @@
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="dashboard.php?page=list_all_user">
                             <span><i class=" mdi mdi-format-list-bulleted-square"></i></span>
-                            <span> Staff list </span>
+                            <span> Staff List </span>
                         </a></li>
                     </ul>
                 </li>                
@@ -32,7 +32,7 @@
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="dashboard.php?page=list_customer">
                             <span><i class=" mdi mdi-format-list-bulleted-square"></i></span>
-                            <span> Customer list </span>
+                            <span> Customer List </span>
                         </a></li>
                     </ul>
                 </li>
@@ -40,14 +40,14 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="dripicons-view-list"></i>
-                        <span> Product list </span>
+                        <span> Product List </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
                             <a href="dashboard.php?page=list_product">
                                 <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                                    <span> Product list </span>
+                                    <span> Product List </span>
                             </a>
                         </li>
                     </ul>
@@ -76,7 +76,7 @@
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="dashboard.php?page=list_customer_care">
                             <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                                <span> My Customer list</span>
+                                <span> My Customer List</span>
                         </a></li>
                         <li><a href="dashboard.php?page=list_customer_care_all">
                             <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
@@ -88,14 +88,14 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="dripicons-swap"></i>
-                        <span> Transference history </span>
+                        <span> Transference History </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
                             <a href="dashboard.php?page=list_history">
                                 <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                                <span> Transference history </span>
+                                <span> Transference History </span>
                             </a>
                         </li>
                     </ul>
