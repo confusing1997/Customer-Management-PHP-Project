@@ -158,6 +158,7 @@
 					    usersell.name as 'Seller',
 					    usercare.name as 'User Care',					    
 					    tbl_customer.name 'Customer',
+					    tbl_customer.phone,
 					    tbl_order.total,
 					    tbl_bonus.bonus,
 					    tbl_bonus.create_at
