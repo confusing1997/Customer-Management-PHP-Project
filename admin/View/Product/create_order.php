@@ -40,7 +40,7 @@
                     </thead>
                     <tbody id="view_product_select">
                         <?php 
-                            $sum = 0;
+                            $_SESSION['sum_price'] = 0;
                             if (isset($_SESSION['cart'])) {
                                 foreach ($_SESSION['cart'] as $key => $valueCart) {
                          ?>
@@ -56,7 +56,7 @@
                             <td class="text-right">
                                 <?php 
                                 $item_sum = ($valueCart['price'] - $valueCart['price'] * $valueCart['sale']/100) * $valueCart['qty'];
-                                    $sum += $item_sum;
+                                    $_SESSION['sum_price'] += $item_sum;
                                     echo number_format($item_sum);
                                 ?>                              
                             </td>
@@ -72,7 +72,7 @@
                         <tr>
                             <th class="text-center">Total</th>
                             <td colspan="4">
-                                <input type="text" class="form-control sum-price text-right" readonly="" name="total" id="total" value="<?php echo $sum; ?>">
+                                <input type="text" class="form-control sum-price text-right" readonly="" name="total" id="total" value="<?php echo number_format($_SESSION['sum_price']); ?>">
                             </td>
                         </tr>
                         
@@ -108,7 +108,7 @@
                                     <td class="text-center"><?= number_format($valueProduct['price']); ?></td>
                                     <td class="text-center"><?= $valueProduct['sale']; ?>%</td>
                                     <td class="text-center">
-                                        <input type="number" class="form-control" name="10" value="1" min="1" max="5" id="qty_<?= $valueProduct['id']; ?>">
+                                        <input type="number" class="form-control text-center" name="10" value="1" min="1" max="5" id="qty_<?= $valueProduct['id']; ?>">
                                     </td>
                                     <td class="text-center">
                                         <?php 

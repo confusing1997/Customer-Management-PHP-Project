@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2020 at 03:14 AM
+-- Generation Time: Nov 27, 2020 at 03:06 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -34,6 +34,24 @@ CREATE TABLE `tbl_bonus` (
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin lương thưởng';
 
+--
+-- Dumping data for table `tbl_bonus`
+--
+
+INSERT INTO `tbl_bonus` (`user_id`, `order_id`, `bonus`, `create_at`) VALUES
+(2, 1, 3563000, '2020-11-26 10:22:46'),
+(2, 2, 2043000, '2020-11-26 11:43:30'),
+(2, 3, 2519000, '2020-11-26 11:43:42'),
+(2, 4, 7308000, '2020-11-26 12:09:07'),
+(1, 5, 5678000, '2020-11-26 12:10:26'),
+(2, 26, 9029000, '2020-11-27 10:29:32'),
+(1, 27, 1014000, '2020-11-27 10:52:20'),
+(2, 27, 507000, '2020-11-27 10:52:20'),
+(2, 28, 999000, '2020-11-27 11:50:51'),
+(2, 29, 1212000, '2020-11-27 11:51:10'),
+(2, 30, 522000, '2020-11-27 11:53:40'),
+(1, 31, 999000, '2020-11-27 17:32:35');
+
 -- --------------------------------------------------------
 
 --
@@ -52,7 +70,18 @@ CREATE TABLE `tbl_care` (
 --
 
 INSERT INTO `tbl_care` (`user_id`, `customer_id`, `status`, `create_at`) VALUES
-(2, 7, 1, '2020-11-09 13:23:46');
+(2, 7, 3, '2020-11-09 13:23:46'),
+(1, 10, 2, '2020-11-09 18:54:13'),
+(1, 11, 2, '2020-11-13 19:37:50'),
+(4, 151, 1, '2020-11-13 20:01:11'),
+(2, 156, 3, '2020-11-24 11:33:35'),
+(2, 152, 3, '2020-11-24 11:34:17'),
+(3, 8, 1, '2020-11-24 19:26:42'),
+(3, 150, 1, '2020-11-24 19:26:43'),
+(2, 174, 3, '2020-11-26 11:44:31'),
+(2, 153, 3, '2020-11-26 11:44:31'),
+(2, 155, 1, '2020-11-26 11:44:32'),
+(1, 176, 1, '2020-11-27 20:11:15');
 
 -- --------------------------------------------------------
 
@@ -78,8 +107,20 @@ CREATE TABLE `tbl_customer` (
 --
 
 INSERT INTO `tbl_customer` (`id`, `name`, `showroom_id`, `phone`, `email`, `sex`, `birth`, `passw`, `avatar`, `create_at`) VALUES
-(7, 'Dương Tuấn Anh', 1, '0339928096', 'bimy96@gmail.com', 'Nam', '1997-03-25', '3e6c7d141e32189c917761138b026b74', '1606309162dat.jpg', '2020-10-26 18:46:16'),
-(12, 'Giáp Thành Đạt', 1, '0339928091', 'bimy91@gmail.com', 'Nam', '1970-01-01', '3e6c7d141e32189c917761138b026b74', 'guest.jpg', '2020-10-26 18:48:47');
+(7, 'Dương Tuấn Anh', 1, '0339928096', 'bimy96@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
+(8, 'Nguyễn Hoàng Anh', 2, '0339928095', 'bimy95@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
+(10, 'Nguyễn Đức Cảnh', 2, '0339928093', 'bimy93@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
+(11, 'Lê Thùy Chi', 3, '0339928092', 'bimy92@gmail.com', 'Nữ', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
+(12, 'Giáp Thành Đạt', 1, '0339928091', 'bimy91@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:48:47'),
+(150, 'Nam Hải', 2, '0123456789', 'namluu@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-05 20:56:44'),
+(151, 'Huy Hoàng Thụ', 2, '0339921234', 'huyhoang@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-05 21:44:18'),
+(152, 'Huy Hoàng', 2, '0123456781', 'hoanghuy@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-06 09:46:44'),
+(153, 'Nguyễn Tiến Thành', 2, '0324123456', 'tkodhunter@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:20:46'),
+(154, 'Nguyễn Bình Minh', 2, '0321233455', 'binhminh@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:23:52'),
+(155, 'Trần Trọng Hiếu', 2, '0456781325', 'tkodhunter1@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:35:23'),
+(156, 'Nguyễn Hoàng Hải', 2, '0364567489', 'nhaisoi91@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 11:41:31'),
+(174, 'A Thành', 2, '0339924321', 'tkodhunter2@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-25 19:56:03'),
+(176, 'A Minh', 1, '0364567487', 'minhnguyen92@gmail.com', '', '1970-01-01', '', 'guest.jpg', '2020-11-27 20:11:15');
 
 -- --------------------------------------------------------
 
@@ -94,6 +135,22 @@ CREATE TABLE `tbl_detail` (
   `content` text NOT NULL,
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin nội dung chăm sóc khách hàng';
+
+--
+-- Dumping data for table `tbl_detail`
+--
+
+INSERT INTO `tbl_detail` (`id`, `user_id`, `customer_id`, `content`, `create_at`) VALUES
+(107, 1, 155, '<p>bc</p>\n', '2020-11-13 20:03:03'),
+(109, 1, 155, '<p>abc</p>\n', '2020-11-23 18:44:58'),
+(110, 1, 155, '<p>dfg</p>\n', '2020-11-23 18:46:06'),
+(111, 1, 155, '<p>alo</p>\n', '2020-11-23 18:47:28'),
+(112, 2, 155, '<p>dfc</p>\n', '2020-11-23 19:09:15'),
+(114, 1, 156, '<p>abc</p>\n', '2020-11-24 19:16:58'),
+(115, 2, 150, '<p>alo</p>\n', '2020-11-24 19:25:50'),
+(116, 1, 155, '<p>&aacute;df</p>\n', '2020-11-25 19:50:10'),
+(117, 1, 10, '<p>abc</p>\n', '2020-11-26 19:29:47'),
+(118, 1, 152, '<p>abc</p>\n', '2020-11-27 18:24:00');
 
 -- --------------------------------------------------------
 
@@ -115,9 +172,29 @@ CREATE TABLE `tbl_detail_order` (
 --
 
 INSERT INTO `tbl_detail_order` (`id`, `order_id`, `product_id`, `price`, `sale`, `quantity`) VALUES
-(3, 2, 14, 15750000, 10, 1),
-(4, 2, 16, 24030000, 10, 1),
-(5, 3, 16, 24030000, 10, 1);
+(3, 1, 3, 9666000, 10, 3),
+(4, 1, 2, 19580000, 15, 2),
+(5, 2, 2, 19580000, 15, 1),
+(6, 2, 3, 9666000, 10, 2),
+(7, 3, 3, 9666000, 10, 1),
+(8, 3, 2, 19580000, 15, 2),
+(9, 4, 5, 32538000, 15, 2),
+(10, 4, 4, 22440000, 10, 2),
+(11, 4, 3, 9666000, 10, 3),
+(12, 5, 2, 19580000, 15, 1),
+(13, 5, 3, 9666000, 10, 2),
+(14, 5, 4, 22440000, 10, 3),
+(71, 26, 3, 9666000, 10, 2),
+(72, 26, 4, 22440000, 10, 2),
+(73, 26, 2, 19580000, 15, 1),
+(74, 26, 5, 32538000, 15, 1),
+(75, 26, 6, 53775000, 10, 1),
+(76, 27, 2, 19580000, 15, 1),
+(77, 27, 3, 9666000, 10, 1),
+(78, 28, 2, 19580000, 15, 1),
+(79, 29, 4, 22440000, 10, 1),
+(80, 30, 3, 9666000, 10, 1),
+(81, 31, 2, 19580000, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -132,6 +209,29 @@ CREATE TABLE `tbl_history` (
   `user_id_get` int(11) NOT NULL,
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin lịch sử điều chuyển';
+
+--
+-- Dumping data for table `tbl_history`
+--
+
+INSERT INTO `tbl_history` (`id`, `user_id_move`, `customer_id`, `user_id_get`, `create_at`) VALUES
+(39, 1, 150, 2, '2020-11-13 17:52:26'),
+(40, 4, 11, 2, '2020-11-13 19:37:50'),
+(41, 1, 151, 4, '2020-11-13 20:01:11'),
+(45, 3, 156, 2, '2020-11-24 11:33:35'),
+(46, 3, 152, 2, '2020-11-24 11:34:17'),
+(47, 3, 8, 2, '2020-11-24 11:34:56'),
+(48, 1, 154, 2, '2020-11-24 11:53:58'),
+(49, 1, 155, 2, '2020-11-24 12:02:44'),
+(50, 3, 153, 2, '2020-11-24 19:23:17'),
+(52, 2, 155, 3, '2020-11-24 19:26:40'),
+(53, 2, 8, 3, '2020-11-24 19:26:42'),
+(54, 2, 150, 3, '2020-11-24 19:26:43'),
+(55, 1, 155, 2, '2020-11-25 19:51:21'),
+(56, 2, 153, 1, '2020-11-25 19:53:19'),
+(57, 1, 174, 2, '2020-11-26 11:44:31'),
+(58, 1, 153, 2, '2020-11-26 11:44:31'),
+(59, 1, 155, 2, '2020-11-26 11:44:32');
 
 -- --------------------------------------------------------
 
@@ -153,8 +253,17 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `user_id_buy`, `user_id_care`, `customer_id`, `total`, `create_at`) VALUES
-(2, 1, 2, 7, 35802000, '2020-11-24 22:04:55'),
-(3, 2, 2, 7, 21627000, '2020-11-25 11:31:19');
+(1, 2, 2, 7, 59384200, '2020-11-26 10:22:46'),
+(2, 2, 2, 174, 34041800, '2020-11-26 11:43:30'),
+(3, 2, 2, 155, 41985400, '2020-11-26 11:43:42'),
+(4, 2, 2, 153, 121805000, '2020-11-26 12:09:07'),
+(5, 1, 1, 153, 94629800, '2020-11-26 12:10:26'),
+(26, 2, 2, 174, 150489000, '2020-11-27 10:29:28'),
+(27, 2, 1, 153, 25342400, '2020-11-27 10:52:16'),
+(28, 2, 2, 152, 16643000, '2020-11-27 11:50:47'),
+(29, 2, 2, 156, 20196000, '2020-11-27 11:51:07'),
+(30, 2, 2, 10, 8699400, '2020-11-27 11:53:36'),
+(31, 1, 1, 11, 16643000, '2020-11-27 17:32:31');
 
 -- --------------------------------------------------------
 
@@ -257,8 +366,10 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `name`, `showroom_id`, `avatar`, `email`, `passw`, `addres`, `salary`, `role`, `status`, `create_at`) VALUES
-(1, 'Nguyễn Đình Đạt', 1, 'dat.png', 'bimy97@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Số 1 Hoàng Đạo Thúy, Quận Thanh Xuân', 10000000, 1, 1, '2020-10-19 12:56:49'),
-(2, 'Nguyễn Đình Hoàng', 2, 'hoang.png', 'hoangboo97@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Đền Lừ, Hoàng Moi', 4000000, 2, 1, '2020-10-19 12:59:36');
+(1, 'Nguyễn Đình Đạt', 1, 'dat.png', 'bimy97@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Khương Trung, Thanh Xuân', 10000000, 1, 1, '2020-10-19 12:56:49'),
+(2, 'Nguyễn Đình Hoàng', 2, 'hoang.png', 'tkodhunter@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Đường Hồ Tùng Mậu, Phường Mai Dịch, Quận Cầu Giấy', 4000000, 2, 1, '2020-10-19 12:59:36'),
+(3, 'Lưu Hải Nam', 3, 'nam.png', 'namluu.it@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Lê Trọng Tấn, Hà Đông', 4000000, 2, 1, '2020-10-19 12:59:36'),
+(4, 'Trần Hữu Khánh', 1, 'default.png', 'bimy80@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Xiển, Thanh Xuân', 4000000, 2, 1, '2020-10-20 10:19:12');
 
 --
 -- Indexes for dumped tables
@@ -354,31 +465,31 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail`
 --
 ALTER TABLE `tbl_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `tbl_detail_order`
 --
 ALTER TABLE `tbl_detail_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `tbl_history`
 --
 ALTER TABLE `tbl_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`

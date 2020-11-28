@@ -1,18 +1,9 @@
-<?php 
-    if ($_SESSION['role'] != 1) {
-?>
-<a href="dashboard.php?page=add_customer_care">
-    <button type="button" class="btn btn-primary btn-icon waves-light waves-effect">+ Recare Customer</button>
-</a>
-<?php
-    }
-?>
 <div class="notification"></div>
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
-            <!-- <a href="dashboard.php?page=add_customer_care"><button>abc</button></a> -->
-            <table id="datatable_listcustomer_care" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+            <h3 class="text-center">Add customer care</h3><br>
+            <table id="datatable_list_purchased" class="display table table-bordered dt-responsive nowrap purchased" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr class="text-center">
                         <th>#</th>
@@ -26,7 +17,7 @@
                     </tr>
                 </thead>
 
-                <tbody id="view_customer_care">
+                <tbody>
                     <?php 
                         $count = 0;
                         foreach ($customer_care as $key => $valueCustomerCare) {
@@ -52,24 +43,7 @@
                                 <td><?= $valueCustomerCare['create_at'] ?></td>
 
                                 <td class="text-center">
-                                    <a href="dashboard.php?page=detail_customer_care&id=<?= $valueCustomerCare['id']; ?>">
-                                        <button class="btn btn-info btn-icon waves-effect waves-light" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
-                                    </a>
-
-                                    <!-- Sell Products Button -->
-                                    <a href="dashboard.php?page=create_order&id=<?= $valueCustomerCare['customer_id']; ?>">
-                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-danger" title="Create Bill"><span><i class="mdi mdi-cart"></i></span></button>
-                                    </a>
-                                    <?php 
-                                        if ($valueCustomerCare['status'] != 1){
-                                     ?>
-                                    <a href="dashboard.php?page=order_history&id=<?= $valueCustomerCare['customer_id']; ?>">
-                                        <button type="button" class="btn btn-icon waves-effect waves-light btn-success" title="Order History"><span><i class="mdi mdi-history"></i></span></button>
-                                    </a>
-                                    <?php 
-                                        } 
-                                    ?>
-                                    <!-- Sell Products Button -->  
+                                    <button type="button" class="btn btn-info btn-sm waves-effect waves-light btn_add_customer" name="btn_add_customer" value="<?= $valueCustomerCare['customer_id']; ?>">Add</button>
                                 </td>
                             </tr>
                         <?php

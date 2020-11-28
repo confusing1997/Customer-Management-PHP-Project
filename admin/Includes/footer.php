@@ -4,7 +4,11 @@
 		  <!-- Vendor js -->
         <script src="Asset/js/vendor.min.js"></script>
         <script src="Asset/libs/custombox/custombox.min.js"></script>
+         <!-- Chart JS -->
+        <script src="Asset/libs/chart-js/Chart.bundle.min.js"></script>
 
+          <!-- Init js -->
+        <script src="Asset/js/pages/dashboard.init.js"></script>
         <!-- Required datatable js -->
         <script src="Asset/libs/datatables/jquery.dataTables.min.js"></script>
         <script src="Asset/libs/datatables/dataTables.bootstrap4.min.js"></script>

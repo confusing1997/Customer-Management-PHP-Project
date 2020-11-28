@@ -72,5 +72,11 @@
             }           
 
         }
+
+        public function getCustomerPurchased(){
+            $customer_care = $this->customer_care->getCustomerPurchased();
+
+            include_once 'View/CustomerCare/add_customer_care.php';
+        }
     }
 ?>

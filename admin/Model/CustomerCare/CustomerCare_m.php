@@ -59,8 +59,6 @@
 
             $pre->execute();
 
-            $result = array();
-
             return $row = $pre->fetch(PDO::FETCH_ASSOC);
 
         }
@@ -288,6 +286,40 @@
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindParam(':user_id_get', $user_id_get);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        //Hiện danh sách khách hàng đã mua hàng
+        protected function getCustomerPurchased () {
+
+            $sql = "SELECT
+                        tbl_care.customer_id,
+                        tbl_customer.name,
+                        tbl_showroom.title,
+                        tbl_customer.phone,
+                        tbl_customer.email,
+                        tbl_care.status,
+                        tbl_care.create_at
+                    FROM
+                        tbl_customer,
+                        tbl_showroom,
+                        tbl_care
+                    WHERE
+                        tbl_customer.id = tbl_care.customer_id AND tbl_customer.showroom_id = tbl_showroom.showroom_id AND tbl_care.user_id = 1 AND tbl_care.status = 2";
+
+            $pre = $this->pdo->prepare($sql);
 
             $pre->execute();
 

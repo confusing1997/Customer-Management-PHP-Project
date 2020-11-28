@@ -1,12 +1,11 @@
-<div class="clearfix"></div>
-<div class="col-md-9 col-9" style="background-color: #fff; height: 550px; padding-left: 30px;">
+<div class="col-md-9 col-9" style="background-color: #fff; padding-left: 30px;border-radius: 0.25rem; margin: 50px 0 0px 0;float: left;height: 100%">
 	<div class="title-info" style="border-bottom: 1px solid #efefef; width: 100%; height:80px;">
 		<div style="margin-top: 20px;">
 		<h4 style="color: #333">Đổi Mật Khẩu</h4>
 		<p>Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</p>
 		</div>
 	</div>
-	<div class="info_cus" style="height: 250px;">
+	<div class="info_cus" style="">
 		<div class="info_all" style="height: 100%; display: flex; text-align: center;">
 			<div class="" style="height: 100%; width: 100%; padding-left: 50px;">
 				<form>
@@ -38,8 +37,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="save1" style="height: 50px; padding-left: 222px;">
-		<button type="button" class="btn btn-solid waves-effect waves-light save btn-disable" id="update">Xác Nhận</button>
+	<div class="save1" style="height: 50px; padding-left: 222px;margin-bottom: 20px;">
+		<button type="button" class="btn btn-solid waves-effect waves-light save btn-disable" id="update" name="update">Xác Nhận</button>
 	</div>
 	<div id="notification"></div>
 </div>

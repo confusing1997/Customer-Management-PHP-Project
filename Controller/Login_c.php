@@ -18,7 +18,7 @@
                 $users = $_POST['user'];     
                 $user = strip_tags($users);          
                 
-                $passws = $_POST['passw'];
+                $passws = md5($_POST['passw']);
                 $passw = strip_tags($passws);
 
                 $log = $this->login->Login($user, $passw);

@@ -20,6 +20,7 @@
                 <tbody id="view_customer_care">
                     <?php 
                         $count = 0;
+                        
                         foreach ($customer_care as $key => $valueCustomerCare) {
                             $count++;
                         ?>

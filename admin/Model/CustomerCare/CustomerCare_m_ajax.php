@@ -168,7 +168,7 @@
         }
 
         //Send Mail
-        protected function sendMail($email, $name){
+        protected function sendMail($email, $nameGet, $nameMove, $idGet){
             
 
             // Instantiation and passing `true` enables exceptions
@@ -188,12 +188,25 @@
 
                 //Recipients
                 $mail->setFrom('datgauteddy@gmail.com', 'Thông báo!');
-                $mail->addAddress($email, $name);     // Add a recipient
+                $mail->addAddress($email, $nameGet);     // Add a recipient
 
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
                 $mail->Subject = 'Yêu cầu điều chuyển!';
-                $mail->Body    = 'Bạn nhận được 1 yêu cầu điều chuyển khách hàng từ '.$name;
+                $mail->Body    = '
+                    Bạn nhận được 1 yêu cầu điều chuyển khách hàng từ '.$nameMove.'
+                    <br>Bấm vào nút dưới đây để xem
+                    <br><br><a href="http://localhost/Customer-Management-PHP-Project/admin/dashboard.php?page=get_transfer_noti&id='.$idGet.'">
+                        <button type="button" style="background-color: #4CAF50; 
+                            border: none;
+                            color: white;
+                            padding: 15px 32px;
+                            text-align: center;
+                            text-decoration: none;
+                            display: inline-block;
+                            font-size: 16px;">View</button>
+                    </a>
+                ';
 
                 $mail->send();
                 echo 'Message has been sent';
@@ -214,6 +227,21 @@
             $pre->execute();
 
             return $row = $pre->fetch(PDO::FETCH_ASSOC);
+
+        }
+
+        //Update Status Customer to New and Transfer to User want to get
+        protected function newCare ($user_id, $customer_id) {
+
+            $sql = "UPDATE tbl_care
+                    SET user_id = :user_id, status = 3
+                    WHERE customer_id = :customer_id
+                        ";
+
+            $pre = $this->pdo->prepare($sql);
+            $pre->bindParam(":user_id", $user_id);
+            $pre->bindParam(":customer_id", $customer_id);
+            return $pre->execute();
 
         }
     }

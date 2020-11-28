@@ -41,4 +41,12 @@
 
         }
 
+        public function Bonus() {
+            if (isset($_SESSION['id'])) {
+                $user_id = (int)$_SESSION['id'];
+            }
+            $user = $this->user->getBonus($user_id);
+            include_once 'View/User/list_bonus.php';
+        }
+
     }

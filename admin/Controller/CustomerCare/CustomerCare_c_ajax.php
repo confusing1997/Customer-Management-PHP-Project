@@ -83,9 +83,9 @@
 
         }
         
-        public function sendMail($email, $name) {
+        public function sendMail($email, $nameGet, $nameMove, $idGet) {
 
-            return $this->customer_care->sendMail($email, $name);
+            return $this->customer_care->sendMail($email, $nameGet, $nameMove, $idGet);
 
         }
 
@@ -94,6 +94,13 @@
 
             return $this->customer_care->getUserId($user_id);
 
+
+        }
+
+        //Update Status Customer to New and Transfer to User want to get
+        public function newCare ($user_id, $customer_id) {
+
+            return $this->customer_care->newCare($user_id, $customer_id);
 
         }
     }

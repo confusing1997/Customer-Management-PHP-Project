@@ -87,6 +87,17 @@
         <!-- Vendor js -->
         <script src="assets/js/vendor.min.js"></script>
 
+        <!-- Required datatable js -->
+        <script src="assets/libs/datatables/jquery.dataTables.min.js"></script>
+        <script src="assets/libs/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Responsive examples -->
+        <script src="assets/libs/datatables/dataTables.responsive.min.js"></script>
+        <script src="assets/libs/datatables/responsive.bootstrap4.min.js"></script>
+
+        <!-- Datatables init -->
+        <script src="assets/js/pages/datatables.init.js"></script>
+
         <!-- Tost-->
         <script src="assets/libs/jquery-toast/jquery.toast.min.js"></script>
 
