@@ -16,6 +16,11 @@
         <!-- Datatables init -->
         <script src="Asset/js/pages/datatables.init.js"></script>
 
+        <script src="Asset/libs/chart-js/Chart.bundle.min.js"></script>
+
+        
+        <script src="Asset/js/pages/dashboard.init.js"></script>
+
         <!-- Tost-->
         <script src="Asset/libs/jquery-toast/jquery.toast.min.js"></script>
 
