@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2020 at 11:57 AM
+-- Generation Time: Nov 26, 2020 at 03:14 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -34,13 +34,6 @@ CREATE TABLE `tbl_bonus` (
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin lương thưởng';
 
---
--- Dumping data for table `tbl_bonus`
---
-
-INSERT INTO `tbl_bonus` (`user_id`, `order_id`, `bonus`, `create_at`) VALUES
-(1, 1, 5199000, '2020-11-20 11:32:26');
-
 -- --------------------------------------------------------
 
 --
@@ -59,19 +52,7 @@ CREATE TABLE `tbl_care` (
 --
 
 INSERT INTO `tbl_care` (`user_id`, `customer_id`, `status`, `create_at`) VALUES
-(3, 8, 1, '2020-10-26 18:59:23'),
-(1, 149, 1, '2020-11-04 17:15:15'),
-(1, 155, 2, '2020-11-09 11:11:00'),
-(1, 154, 1, '2020-11-09 11:15:37'),
-(2, 7, 1, '2020-11-09 13:23:46'),
-(3, 156, 1, '2020-11-09 13:32:42'),
-(3, 153, 1, '2020-11-09 13:34:09'),
-(3, 152, 1, '2020-11-09 17:55:09'),
-(2, 10, 1, '2020-11-09 18:54:13'),
-(2, 150, 1, '2020-11-13 17:52:26'),
-(2, 11, 1, '2020-11-13 19:37:50'),
-(4, 151, 1, '2020-11-13 20:01:11'),
-(2, 9, 1, '2020-11-18 19:39:07');
+(2, 7, 1, '2020-11-09 13:23:46');
 
 -- --------------------------------------------------------
 
@@ -97,20 +78,8 @@ CREATE TABLE `tbl_customer` (
 --
 
 INSERT INTO `tbl_customer` (`id`, `name`, `showroom_id`, `phone`, `email`, `sex`, `birth`, `passw`, `avatar`, `create_at`) VALUES
-(7, 'Dương Tuấn Anh', 1, '0339928096', 'bimy96@gmail.com', 'Nam', '1997-03-25', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
-(8, 'Nguyễn Hoàng Anh', 2, '0339928095', 'bimy95@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
-(9, 'Trần Nguyệt Ánh', 3, '0339928094', 'bimy94@gmail.com', 'Nữ', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
-(10, 'Nguyễn Đức Cảnh', 2, '0339928093', 'bimy93@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
-(11, 'Lê Thùy Chi', 3, '0339928092', 'bimy92@gmail.com', 'Nữ', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
-(12, 'Giáp Thành Đạt', 1, '0339928091', 'bimy91@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:48:47'),
-(149, 'Nguyễn Đình Nam', 1, '0356489744', 'datgaupedo@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-04 17:15:15'),
-(150, 'Nam Hải', 2, '0123456789', 'namluu@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-05 20:56:44'),
-(151, 'Huy Hoàng Thụ', 2, '0339921234', 'huyhoang@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-05 21:44:18'),
-(152, 'Huy Hoàng', 2, '0123456781', 'hoanghuy@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-06 09:46:44'),
-(153, 'Nguyễn Tiến Thành', 2, '0324123456', 'thanhnguyen@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:20:46'),
-(154, 'Nguyễn Bình Minh', 2, '0321233455', 'binhminh@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:23:52'),
-(155, 'Trần Trọng Hiếu', 2, '0456781325', 'hieutran@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:35:23'),
-(156, 'Nguyễn Hoàng Hải', 2, '0364567489', 'nhaisoi91@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 11:41:31');
+(7, 'Dương Tuấn Anh', 1, '0339928096', 'bimy96@gmail.com', 'Nam', '1997-03-25', '3e6c7d141e32189c917761138b026b74', '1606309162dat.jpg', '2020-10-26 18:46:16'),
+(12, 'Giáp Thành Đạt', 1, '0339928091', 'bimy91@gmail.com', 'Nam', '1970-01-01', '3e6c7d141e32189c917761138b026b74', 'guest.jpg', '2020-10-26 18:48:47');
 
 -- --------------------------------------------------------
 
@@ -126,14 +95,6 @@ CREATE TABLE `tbl_detail` (
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin nội dung chăm sóc khách hàng';
 
---
--- Dumping data for table `tbl_detail`
---
-
-INSERT INTO `tbl_detail` (`id`, `user_id`, `customer_id`, `content`, `create_at`) VALUES
-(107, 1, 155, '<p>bc</p>\n', '2020-11-13 20:03:03'),
-(108, 1, 9, '<p>abc</p>\n', '2020-11-18 19:38:46');
-
 -- --------------------------------------------------------
 
 --
@@ -145,6 +106,7 @@ CREATE TABLE `tbl_detail_order` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `price` float NOT NULL,
+  `sale` int(2) NOT NULL,
   `quantity` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin chi tiết đơn hàng';
 
@@ -152,9 +114,10 @@ CREATE TABLE `tbl_detail_order` (
 -- Dumping data for table `tbl_detail_order`
 --
 
-INSERT INTO `tbl_detail_order` (`id`, `order_id`, `product_id`, `price`, `quantity`) VALUES
-(1, 1, 3, 9666000, 2),
-(2, 1, 4, 22440000, 3);
+INSERT INTO `tbl_detail_order` (`id`, `order_id`, `product_id`, `price`, `sale`, `quantity`) VALUES
+(3, 2, 14, 15750000, 10, 1),
+(4, 2, 16, 24030000, 10, 1),
+(5, 3, 16, 24030000, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -169,18 +132,6 @@ CREATE TABLE `tbl_history` (
   `user_id_get` int(11) NOT NULL,
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin lịch sử điều chuyển';
-
---
--- Dumping data for table `tbl_history`
---
-
-INSERT INTO `tbl_history` (`id`, `user_id_move`, `customer_id`, `user_id_get`, `create_at`) VALUES
-(39, 1, 150, 2, '2020-11-13 17:52:26'),
-(40, 4, 11, 2, '2020-11-13 19:37:50'),
-(41, 1, 151, 4, '2020-11-13 20:01:11'),
-(42, 1, 9, 2, '2020-11-14 10:24:49'),
-(43, 2, 9, 1, '2020-11-14 11:55:09'),
-(44, 1, 9, 2, '2020-11-18 19:39:07');
 
 -- --------------------------------------------------------
 
@@ -202,7 +153,8 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `user_id_buy`, `user_id_care`, `customer_id`, `total`, `create_at`) VALUES
-(1, 1, 1, 155, 86652000, '2020-11-20 11:32:26');
+(2, 1, 2, 7, 35802000, '2020-11-24 22:04:55'),
+(3, 2, 2, 7, 21627000, '2020-11-25 11:31:19');
 
 -- --------------------------------------------------------
 
@@ -242,7 +194,7 @@ INSERT INTO `tbl_product` (`id`, `name`, `image`, `price`, `description`, `statu
 (13, 'ĐỒNG HỒ CITIZEN AT8113-12H\r\n', 'citizen-at8113-12h.jpg', 17820000, 'AT8113-12H Là chiếc đồng hồ sở hữu vẻ cổ điển, truyền thống và tinh tế của bộ sưu tập Citizen RC. Đây là bộ sưu tập dành cho nam giới với kiểu dáng mạnh mẽ, từng đường nét đều thể hiện được sự lịch lãm, sang trọng của người dùng. Cùng với đó, bộ máy mạnh mẽ và những tính năng thực sự ưu việt từ những chất liệu hàng đầu thế giới giúp Citizen RC là bộ sưu tập của những chiếc đồng hồ thực sự bền bỉ, chắc chắn.', 1, 0, 'Xách tay Nhật', 10, '2020-11-19 12:04:37'),
 (14, 'ĐỒNG HỒ CITIZEN CA4254-53L\r\n', 'citizen-ca4254-53l.jpg', 15750000, 'CA4254-53L Thuộc bộ sưu tập Citizen Eco Gents với những nét khỏe khoắn, mạnh mẽ dành riêng cho nam giới. Bộ sưu tập sở hữu thiết kế nam tính với từng chi tiết, hình khối chắc chắn, cứng cáp. Tuy vậy, sự tài tình của các nghệ nhân giúp chiếc đồng hồ vẫn sở hữu được vẻ lịch lãm, đẳng cấp. Đặc biệt Citizen Eco Gents chỉ chạy bộ máy Eco – Drive không dùng pin, chạy bằng ánh sáng siêu bền bỉ và tiện lợi.', 1, 0, 'Xách tay Nhật', 10, '2020-11-19 12:06:15'),
 (15, 'ĐỒNG HỒ MICHEL HERBELIN 1666/15\r\n', 'michel-herbelin-1666-15.jpg', 26730000, '1666/15 Được Michael Herbelin trang bị bộ máy Automatic, không cần dùng pin. Đây là loại máy đồng hồ chạy bằng năng lượng từ dây cót. Sự chuyển động của cổ tay người chính là thứ giúp lên dây cót cho đồng hồ. Máy Automatic được Michael Herbelin sử dụng cho sản phẩm của mình có xuất xứ từ Thụy Sĩ với độ chính xác lên tới từng phần trăm giây và cũng rất bền bỉ. Việc sử dụng bộ máy Automatic giúp khách hàng không bao giờ phải lo ngại về sự chính xác hay việc thay pin cho đồng hồ.', 1, 1, 'Pháp', 10, '2020-11-19 12:09:51'),
-(16, 'ĐỒNG HỒ MICHEL HERBELIN 1045/B84\r\n', 'michel-herbelin-1045-b84.jpg', 24030000, 'Michel Herbelin 1045/B84 Là chiếc đồng hồ thuộc dòng sản phẩm Epsilon của thương hiệu Michel Herbelin. Mang trong mình dòng máu thương hiệu Pháp, trái tim bộ máy Thụy Sĩ, Michel Herbelin Epsilon mê hoặc người dùng với độ dày chỉ khoảng 4 mm tuyệt đẹp tạo nên phong cách thời trang rất đặc biệt. Cùng với đó, dòng sản phẩm này còn thực sự nổi bật với những chất liệu tuyệt vời, bộ máy đẳng cấp, tiêu chuẩn chất lượng rất cao và những đường nét thiết kế chau chuốt, tinh tế tạo nên sự sang trọng đặc biệt.', 1, 1, 'Pháp', 15, '2020-11-19 12:10:32'),
+(16, 'ĐỒNG HỒ MICHEL HERBELIN 1045/B84\r\n', 'michel-herbelin-1045-b84.jpg', 24030000, 'Michel Herbelin 1045/B84 Là chiếc đồng hồ thuộc dòng sản phẩm Epsilon của thương hiệu Michel Herbelin. Mang trong mình dòng máu thương hiệu Pháp, trái tim bộ máy Thụy Sĩ, Michel Herbelin Epsilon mê hoặc người dùng với độ dày chỉ khoảng 4 mm tuyệt đẹp tạo nên phong cách thời trang rất đặc biệt. Cùng với đó, dòng sản phẩm này còn thực sự nổi bật với những chất liệu tuyệt vời, bộ máy đẳng cấp, tiêu chuẩn chất lượng rất cao và những đường nét thiết kế chau chuốt, tinh tế tạo nên sự sang trọng đặc biệt.', 1, 1, 'Pháp', 10, '2020-11-19 12:10:32'),
 (17, 'ĐỒNG HỒ MICHEL HERBELIN 12886/BT35\r\n', 'michel-herbelin-12886-bt35.jpg', 21230000, 'Michel Herbelin 12886/BT35 Sở hữu nét đẹp mạnh mẽ, ấn tượng của dòng sản phẩm Michel Herbelin Newport. Dòng đồng hồ này có sự rắn chắc nhưng không kém phần lịch lãm ở ngay thiết kế tạo nên ấn tượng không thể phai mờ cho những người yêu thể thao. Cùng với đó, bộ máy chất lượng Thụy Sĩ tuyệt vời là điểm nhấn của Michel Herbelin Newport với độ chống nước cao, vỏ thép không gỉ 316L siêu bền chắc tạo nên sự cuốn hút không thể cưỡng lại đối với bất kỳ ai.', 1, 1, 'Pháp', 15, '2020-11-19 12:11:47');
 
 -- --------------------------------------------------------
@@ -305,11 +257,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `name`, `showroom_id`, `avatar`, `email`, `passw`, `addres`, `salary`, `role`, `status`, `create_at`) VALUES
-(1, 'Nguyễn Đình Đạt', 1, 'dat.png', 'bimy97@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Khương Trung, Thanh Xuân', 10000000, 1, 1, '2020-10-19 12:56:49'),
-(2, 'Nguyễn Đình Hoàng', 2, 'hoang.png', 'hoangboo97@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Đền Lừ, Hoàng Moi', 4000000, 2, 1, '2020-10-19 12:59:36'),
-(3, 'Lưu Hải Nam', 3, 'nam.png', 'namluu.it@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Lê Trọng Tấn, Hà Đông', 4000000, 2, 1, '2020-10-19 12:59:36'),
-(4, 'Trần Hữu Khánh', 1, 'default.png', 'bimy80@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Xiển, Thanh Xuân', 4000000, 2, 1, '2020-10-20 10:19:12'),
-(5, 'Hoàng Nam Phong', 2, 'default.png', 'phonghoang.it@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Lê Đại Hành, Hoàn Kiếm', 4000000, 2, 1, '2020-10-20 10:19:12');
+(1, 'Nguyễn Đình Đạt', 1, 'dat.png', 'bimy97@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Số 1 Hoàng Đạo Thúy, Quận Thanh Xuân', 10000000, 1, 1, '2020-10-19 12:56:49'),
+(2, 'Nguyễn Đình Hoàng', 2, 'hoang.png', 'hoangboo97@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Đền Lừ, Hoàng Moi', 4000000, 2, 1, '2020-10-19 12:59:36');
 
 --
 -- Indexes for dumped tables
@@ -417,7 +366,7 @@ ALTER TABLE `tbl_detail`
 -- AUTO_INCREMENT for table `tbl_detail_order`
 --
 ALTER TABLE `tbl_detail_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_history`
@@ -429,7 +378,7 @@ ALTER TABLE `tbl_history`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`
