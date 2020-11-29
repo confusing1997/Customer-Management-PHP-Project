@@ -45,7 +45,7 @@
 	<div class="row">
 		<div class="col-xl-7">
 			<div class="card-box">
-				<h4 class="header-title">Product Management</h4>
+				<h4 class="header-title">System Overview</h4>
 
 				<div class="row">
 					<div class="col-sm-4">
@@ -72,7 +72,8 @@
 				</div>
 
 				<canvas id="transactions-chart" height="350" class="mt-4"></canvas>
-
+				
+				<!-- System Overview to Dashboard.init.js -->
 				<input type="hidden" value="<?= $sh1CustomerAmount; ?>" id="sh1_cus">
 				<input type="hidden" value="<?= $sh2CustomerAmount; ?>" id="sh2_cus">
 				<input type="hidden" value="<?= $sh3CustomerAmount; ?>" id="sh3_cus">
@@ -85,12 +86,13 @@
 				<?php foreach($avgAmountCustomerSh3 as $valueCustomerAvg) { ?>
 				<input type="hidden" value="<?= round($valueCustomerAvg['avgCus']); ?>" id="sh3_cus_avg">
 				<?php } ?>
+				<!-- System Overview to Dashboard.init.js -->
 
 			</div>
 		</div>
 		<div class="col-xl-5">
 			<div class="card-box">
-				<h4 class="header-title">Staff Management</h4>
+				<h4 class="header-title">Resources Overview</h4>
 
 				<div class="row">
 					<div class="col-sm-4">
@@ -102,9 +104,9 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="text-center mt-3">
-							<h6 class="font-normal text-muted font-14">Total Salary</h6>
+							<h6 class="font-normal text-muted font-14">Product Amount</h6>
 							<h6 class="font-18"><i class="fa fa-university" aria-hidden="true"></i> 
-							<span class="text-dark"><?= number_format($sumSalary); ?></span> <small> VND</small></h6>
+							<span class="text-dark"><?= $amountOfProduct; ?></span> <small> VND</small></h6>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -117,6 +119,12 @@
 				</div>
 
 				<canvas id="sales-history" height="350" class="mt-4"></canvas>
+
+				<!-- Resources Overview to Dashboard.init.js -->
+				<input type="hidden" id="sh1_staff_am" value="<?= $sh1StaffAmount; ?>">
+				<input type="hidden" id="sh2_staff_am" value="<?= $sh2StaffAmount; ?>">
+				<input type="hidden" id="sh3_staff_am" value="<?= $sh3StaffAmount; ?>">
+				<!-- Resources Overview to Dashboard.init.js -->
 			</div>
 		</div>
 	</div>
