@@ -14,25 +14,33 @@
 
         if ($num == 0 && $name != '' && $showroom != '' && $email != '' && $address != '' && $salary != '') :
 
-        $addUser = $user->addIntoUser($name, $showroom, $email, $address, $salary);
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)):
 
-            if ($addUser !== false) :
+                $addUser = $user->addIntoUser($name, $showroom, $email, $address, $salary);
+
+                if ($addUser !== false) :
 
 ?>
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <strong>Additional Success!</strong> 
-            </div>
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Additional Success!</strong> 
+                    </div>
 <?php
-            else :
-
-                echo "Thêm mới thất bại";
-
             endif;
 
-        elseif ($name =='' || $showroom == '' || $email == '' || $address == '' || $salary ==''):
+        elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)):
 ?>
-            <div class="alert alert-danger">
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Email is Invalid!</strong> 
+                    </div>                  
+<?php
+
+                endif;
+
+            elseif ($name =='' || $showroom == '' || $email == '' || $address == '' || $salary ==''):
+?>
+            <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <strong>Data must not be Empty!</strong> 
             </div>
@@ -52,7 +60,7 @@
 <script type="text/javascript">
 //Hiện thông báo trong 2 giây 
     $(document).ready(function(){
-        $(".alert").delay(2000).slideUp();
+        $(".alert").delay(1000).slideUp();
     })
 </script>
    
