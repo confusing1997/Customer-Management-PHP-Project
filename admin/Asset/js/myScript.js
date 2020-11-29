@@ -322,6 +322,7 @@ $(document).on('click', '.btn-accept', function(){
 
                 $(".notification").html(data);
                 $(".table-noti").load(" #table-noti");
+                $(".noti_title").load(" #noti_title");
 
             });
     }

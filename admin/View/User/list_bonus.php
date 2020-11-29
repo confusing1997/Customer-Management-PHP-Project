@@ -8,6 +8,7 @@
                         <th>Seller</th>
                         <th>User Care</th>
                         <th>Customer</th>
+                        <th>Phone</th>
                         <th>Order Total</th>
                         <th>Commission</th>
                         <th>Create at</th>
@@ -25,6 +26,7 @@
                                 <td><?= $value['Seller']; ?></td>
                                 <td><?= $value['User Care']; ?></td>
                                 <td><?= $value['Customer']; ?></td>
+                                <td><?= $value['phone']; ?></td>
                                 <td class="text-center text-danger"><?= number_format($value['total']); ?></td>
                                 <td class="text-center text-success"><?= number_format($value['bonus']); ?></td>
                                 <td class="text-center"><?= $value['create_at']; ?></td>

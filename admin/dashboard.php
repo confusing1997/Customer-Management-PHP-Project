@@ -165,7 +165,9 @@
 
                                 switch ($page) {
                                     case 'index':
-                                        include_once 'View/Dashboard/dashboard.php';
+                                        include_once 'Controller/Order/order_c.php';
+                                        $order = new Order_c();
+                                        $order->getAmountOfOrder();
                                         break;
                                     case 'list_customer':
                                     	include_once 'Controller/Customer/Customer_c.php';

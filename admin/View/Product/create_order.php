@@ -74,11 +74,17 @@
                             <td colspan="4">
                                 <input type="text" class="form-control sum-price text-right" readonly="" name="total" id="total" value="<?php echo number_format($_SESSION['sum_price']); ?>">
                             </td>
+                            <td class="text-center">
+                                <div class="form-group">
+                                    <button class="btn btn-primary" name="create_bill">Create Bill</button>
+                                </div>
+                            </td>
                         </tr>
                         
                     </tbody>
                 </table>
             <!-- </div> -->
+
             
         </div><br><br>
         <div class="row">
@@ -134,8 +140,6 @@
         
         <br><br>
         
-        <div class="form-group">
-            <button class="btn btn-primary float-right" name="create_bill">Create Bill</button>
-        </div>
+        
     </form>
 </div>

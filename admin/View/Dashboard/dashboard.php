@@ -1,6 +1,123 @@
-		<div class="card-box">
-			<h1>Thống kê</h1>
-			<p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maiores incidunt assumenda non autem, corporis nemo nobis quam at ad reprehenderit dolores eius sit illum cum, expedita, officia ipsam dolor.</p>
-		</div><!-- /.container -->
+<div class="card-box">
+	<div class="row">	
+		<div class="col-md-6 col-xl-3">
+			<div class="card-box tilebox-one">
+				<i class="fe-box float-right"></i>
+				<h5 class="text-muted text-uppercase mb-3 mt-0">Orders</h5>
+				<h3 class="mb-3" data-plugin="counterup"><?= $order; ?></h3>
+				<!-- <span class="badge badge-primary"> +11% </span> 
+				<span class="text-muted ml-2 vertical-middle">From previous period</span> -->
+			</div>
+		</div>
 
+		<div class="col-md-6 col-xl-3">
+			<div class="card-box tilebox-one">
+				<i class="fe-layers float-right"></i>
+				<h5 class="text-muted text-uppercase mb-3 mt-0">Revenue</h5>
+				<h3 class="mb-3"><span data-plugin="counterup"><?= number_format($getDetailOrder); ?></span> VND</h3>
+				<!-- <span class="badge badge-primary"> -29% </span> 
+				<span class="text-muted ml-2 vertical-middle">From previous period</span> -->
+			</div>
+		</div>
 
+		<div class="col-md-6 col-xl-3">
+			<div class="card-box tilebox-one">
+				<i class="fe-tag float-right"></i>
+				<h5 class="text-muted text-uppercase mb-3 mt-0">Average Price</h5>
+				<h3 class="mb-3"><span data-plugin="counterup"><?= number_format(round($avgPrice)); ?></span> VND</h3>
+				<!-- <span class="badge badge-primary"> 0% </span> 
+				<span class="text-muted ml-2 vertical-middle">From previous period</span> -->
+			</div>
+		</div>
+
+		<div class="col-md-6 col-xl-3">
+			<div class="card-box tilebox-one">
+				<i class="fe-briefcase float-right"></i>
+				<h5 class="text-muted text-uppercase mb-3 mt-0">Product Sold</h5>
+				<h3 class="mb-3" data-plugin="counterup"><?= $sumQuantity; ?></h3>
+				<!-- <span class="badge badge-primary"> +89% </span> <span class="text-muted ml-2 vertical-middle">Last year</span> -->
+			</div>
+		</div>
+	</div>
+
+	
+
+	<div class="row">
+		<div class="col-xl-7">
+			<div class="card-box">
+				<h4 class="header-title">Product Management</h4>
+
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="text-center mt-3">
+							<h6 class="font-normal text-muted font-14">Total Customer</h6>
+							<h6 class="font-18"><i class="fa fa-users" aria-hidden="true"></i> 
+							<span class="text-dark"><?= $customerAmount; ?></span> </h6>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="text-center mt-3">
+							<h6 class="font-normal text-muted font-14">Number of Transference</h6>
+							<h6 class="font-18"><i class="fa fa-paper-plane" aria-hidden="true"></i> 
+							<span class="text-dark"><?= $transferenceAmount ?></span> </h6>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="text-center mt-3">
+							<h6 class="font-normal text-muted font-14">Total Care Content</h6>
+							<h6 class="font-18"><i class="fa fa-keyboard"></i> 
+							<span class="text-dark"><?= $contentAmount; ?></span> </h6>
+						</div>
+					</div>
+				</div>
+
+				<canvas id="transactions-chart" height="350" class="mt-4"></canvas>
+
+				<input type="hidden" value="<?= $sh1CustomerAmount; ?>" id="sh1_cus">
+				<input type="hidden" value="<?= $sh2CustomerAmount; ?>" id="sh2_cus">
+				<input type="hidden" value="<?= $sh3CustomerAmount; ?>" id="sh3_cus">
+				<?php foreach($avgAmountCustomerSh1 as $valueCustomerAvg) { ?>
+					<input type="hidden" value="<?= round($valueCustomerAvg['avgCus']); ?>" id="sh1_cus_avg">
+				<?php } ?>
+				<?php foreach($avgAmountCustomerSh2 as $valueCustomerAvg) { ?>
+				<input type="hidden" value="<?= round($valueCustomerAvg['avgCus']); ?>" id="sh2_cus_avg">
+				<?php } ?>
+				<?php foreach($avgAmountCustomerSh3 as $valueCustomerAvg) { ?>
+				<input type="hidden" value="<?= round($valueCustomerAvg['avgCus']); ?>" id="sh3_cus_avg">
+				<?php } ?>
+
+			</div>
+		</div>
+		<div class="col-xl-5">
+			<div class="card-box">
+				<h4 class="header-title">Staff Management</h4>
+
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="text-center mt-3">
+							<h6 class="font-normal text-muted font-14">Total Admin</h6>
+							<h6 class="font-18 "><i class="fa fa-user-circle"></i> 
+							<span class="text-dark"><?= $amountOfAdmin ?></span> <small></small></h6>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="text-center mt-3">
+							<h6 class="font-normal text-muted font-14">Total Salary</h6>
+							<h6 class="font-18"><i class="fa fa-university" aria-hidden="true"></i> 
+							<span class="text-dark"><?= number_format($sumSalary); ?></span> <small> VND</small></h6>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="text-center mt-3">
+							<h6 class="font-normal text-muted font-14">Total Staff</h6>
+							<h6 class="font-18"><i class="fa fa-address-card"></i> 
+							<span class="text-dark"><?= $amountOfStaff; ?></span> </h6>
+						</div>
+					</div>
+				</div>
+
+				<canvas id="sales-history" height="350" class="mt-4"></canvas>
+			</div>
+		</div>
+	</div>
+</div>
