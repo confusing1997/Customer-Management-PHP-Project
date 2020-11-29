@@ -209,7 +209,7 @@ $(document).on('click', '.add_product', function(){
 });
 
 //Remove a product from tbl_product
-$(document).on('click', '.remove_Product', function(){
+$(document).on('click', '.remove_Product2', function(){
 
     var id = $(this).val();
     var check = confirm('Are you sure want to Delete this Product?');
@@ -376,3 +376,4 @@ $(document).on('click', '.btn_add_customer', function(){
     });
 
 });
+
