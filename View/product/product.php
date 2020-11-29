@@ -45,7 +45,7 @@
        		$price_new = $valueproductmale['price'] - ($price_old*$sale)/100;
        	?>
        		<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product">
+				<a href="index.php?page=product&id=<?php echo $valueproductmale['id'] ?>" class="product">
 					<div class="card" style="width: 100%">
 						<img src="assets/images/product/<?php echo $valueproductmale['image'] ?>" class="card-img-top" alt="<?php echo $valueproductmale['name']; ?>">
 						<div class="tag-saleoff text-center">
@@ -73,7 +73,7 @@
        	?>
        		
        		<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product">
+				<a href="index.php?page=product&id=<?php echo $valueproductfemale['id'] ?>" class="product">
 					<div class="card" style="width: 100%">
 						<img src="assets/images/product/<?php echo $valueproductfemale['image'] ?>" class="card-img-top" alt="<?php echo $valueproductfemale['image'] ?>">
 						<div class="tag-saleoff text-center">
@@ -100,7 +100,7 @@
        		$price_new = $valueproductnew['price'] - ($price_old*$sale)/100;
        	?>
        		<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product">
+				<a href="index.php?page=product&id=<?php echo $valueproductnew['id'] ?>" class="product">
 					<div class="card" style="width: 100%">
 						<img src="assets/images/product/<?php echo $valueproductnew['image'] ?>" class="card-img-top" alt="<?php echo $valueproductnew['name'] ?>">
 						<div class="tag-saleoff text-center">
@@ -127,7 +127,7 @@
        		$price_new = $valueproducthot['price'] - ($price_old*$sale)/100;
        	?>
        		<div class="col-md-3 col-sm-3 col-lg-3 col-6">
-				<a href="#" class="product">
+				<a href="index.php?page=product&id=<?php echo $valueproducthot['id'] ?>" class="product">
 					<div class="card" style="width: 100%">
 						<img src="assets/images/product/<?php echo $valueproducthot['image'] ?>" class="card-img-top" alt="<?php echo $valueproducthot['name']; ?>">
 						<div class="tag-saleoff text-center">
