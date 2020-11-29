@@ -23,12 +23,19 @@
             $customerAmount = $this->order->customerAmount();
             $transferenceAmount = $this->order->transferenceAmount();
             $contentAmount = $this->order->contentAmount();
+
             $sh1CustomerAmount = $this->order->sh1CustomerAmount();
             $sh2CustomerAmount = $this->order->sh2CustomerAmount();
             $sh3CustomerAmount = $this->order->sh3CustomerAmount();
+
+            $sh1StaffAmount = $this->order->sh1StaffAmount();
+            $sh2StaffAmount = $this->order->sh2StaffAmount();
+            $sh3StaffAmount = $this->order->sh3StaffAmount();
+
             $avgAmountCustomerSh1 = $this->order->avgAmountCustomerSh1();
             $avgAmountCustomerSh2 = $this->order->avgAmountCustomerSh2();
             $avgAmountCustomerSh3 = $this->order->avgAmountCustomerSh3();
+            $amountOfProduct = $this->order->amountOfProduct(); 
             include_once("View/Dashboard/dashboard.php");
 
         }
