@@ -20,6 +20,7 @@ data-toggle = "modal" data-target = "#add_user" title="Add Staff">
           <div class="form-group">
             <label for="name" class="col-form-label">Staff Name:</label>
             <input type="text" class="form-control" id="user_name" name="user_name">
+            
           </div>
 
           <div class="form-group">
