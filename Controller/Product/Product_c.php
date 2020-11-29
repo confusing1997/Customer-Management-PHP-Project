@@ -19,8 +19,10 @@
             $productsw = $this->product->getProductSW();
             $productjp = $this->product->getProductJP();
             $productot = $this->product->getProductOT();
+           
             include_once 'View/product/product.php';
             include_once 'View/product/product-brand.php';
+           
         }
 
         public function ProductDetail () {

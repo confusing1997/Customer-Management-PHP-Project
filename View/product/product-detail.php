@@ -1,3 +1,28 @@
+<?php 
+	if (isset($_GET['id'])) {
+		$id = (int)$_GET['id'];
+
+		if (!isset($_SESSION['seen']) || empty($_SESSION['seen'])) {
+
+			$_SESSION['seen'][$id] = $detail;
+
+		}else{
+			if (array_key_exists($id, $_SESSION['seen'])) {
+
+				unset($_SESSION['seen'][$id]);
+				$_SESSION['seen'][$id] = $detail;
+				$_SESSION['seen1'] = array_reverse($_SESSION['seen'],true);
+
+			}else{
+				
+				$_SESSION['seen'][$id] = $detail;
+				$_SESSION['seen1'] = array_reverse($_SESSION['seen'],true);
+						
+			}
+		}
+	}
+ ?>
+
 <div class="container pd0">
 	<div class="row">
 		<div class="col-md-12">
@@ -304,5 +329,44 @@
 		<div class="col-md-4 col-sm-4 col-lg-4 col-12 promo_margin">
 			<img src="https://theme.hstatic.net/1000269795/1000439171/14/banner_product_3_large.jpg?v=4327" style="width: 100%;" alt="">
 		</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 20px;">
+		<?php 
+			if (isset($_SESSION['seen']) && !empty($_SESSION['seen']) && count($_SESSION['seen']) >1) {
+
+			?>
+				<div style="width: 100%; padding-left: 10px;">
+					<h3>Sản phẩm vừa xem</h3>
+				</div>
+				
+			<?php
+		       	foreach ($_SESSION['seen1'] as $key => $value) {
+		       	$price_old = $value['price'];
+       			$sale = $value['sale'];
+       			$price_new = $value['price'] - ($price_old*$sale)/100;
+		?> 
+       		<div class="col-md-3 col-sm-3 col-lg-3 col-6">
+				<a href="index.php?page=product&id=<?php echo $value['id'] ?>" class="product">
+					<div class="card" style="width: 100%">
+						<img src="assets/images/product/<?php echo $value['image'] ?>" class="card-img-top" alt="<?php echo $value['name']; ?>">
+						<div class="tag-saleoff text-center">
+							-<?php echo $value['sale']; ?>%
+						</div>
+					</div>
+					<div class="card-body">
+						<h5 class="product_name text-center pd0"><?php echo $value['name'] ?></h5>
+						<span><p class="price_new"><?php echo number_format($price_new); ?>₫</p></span><span><p class="price_old"><?php echo number_format($price_old); ?>₫</p></span>
+					</div>
+				</a>
+			</div>
+       	<?php
+       		}
+       	 ?>
+
+       	 <?php 
+			}
+		 ?>
+		
 	</div>
 </div>
