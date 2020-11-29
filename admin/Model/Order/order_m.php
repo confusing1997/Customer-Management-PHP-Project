@@ -233,4 +233,52 @@
 
         }
 
+        protected function amountOfProduct() {
+
+            $sql = "SELECT * FROM tbl_product";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->execute();
+
+            return $pre->rowCount();
+
+        }
+
+        protected function sh1StaffAmount() {
+
+            $sql = "SELECT showroom_id FROM tbl_user WHERE showroom_id = 1";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->execute();
+
+            return $pre->rowCount();
+
+        }
+
+        protected function sh2StaffAmount() {
+
+            $sql = "SELECT showroom_id FROM tbl_user WHERE showroom_id = 2";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->execute();
+
+            return $pre->rowCount();
+
+        }
+
+        protected function sh3StaffAmount() {
+
+            $sql = "SELECT showroom_id FROM tbl_user WHERE showroom_id = 3";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->execute();
+
+            return $pre->rowCount();
+
+        }
+
     }
