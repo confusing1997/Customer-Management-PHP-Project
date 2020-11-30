@@ -24,7 +24,7 @@
 
         
         <script src="Asset/js/pages/dashboard.init.js"></script>
-
+        
         <!-- Tost-->
         <script src="Asset/libs/jquery-toast/jquery.toast.min.js"></script>
 
