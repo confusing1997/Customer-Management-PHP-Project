@@ -281,4 +281,90 @@
 
         }
 
+        protected function personalAmount($id) {
+
+            $sql = "SELECT user_id FROM tbl_detail WHERE user_id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();
+
+            return $pre->rowCount();
+
+        }
+
+        protected function sumBonus($id) {
+
+            $sql = "SELECT SUM(bonus) from tbl_bonus WHERE user_id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();
+
+            $row = $pre->fetch(PDO::FETCH_ASSOC);
+
+            return $sum = $row['SUM(bonus)'];
+
+        }
+
+        protected function personalProductAmount($id) {
+
+            $sql = "SELECT order_id FROM tbl_bonus WHERE user_id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();
+
+            return $pre->rowCount();
+
+        }
+
+        protected function personalCustomerBeingCare($id) {
+
+            $sql = "SELECT user_id FROM tbl_care WHERE user_id = $id AND status = 1";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();    
+
+            return $pre->rowCount();
+
+        }
+
+        protected function personalTotalCustomer($id) {
+
+            $sql = "SELECT user_id FROM tbl_care WHERE user_id = $id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();
+
+            return $pre->rowCount();
+
+        }
+
+        protected function personalTransference($id) {
+
+            $sql = "SELECT user_id_move FROM tbl_history WHERE user_id_move = $id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();    
+
+            return $pre->rowCount();
+
+        }
+
     }
