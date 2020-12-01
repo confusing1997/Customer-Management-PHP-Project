@@ -377,3 +377,30 @@ $(document).on('click', '.btn_add_customer', function(){
 
 });
 
+/* Custom filtering function which will search data in column four between two values */
+$.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        var min = Date.parse($('#min').val()) - 25200000; //milliseconds
+        var max = Date.parse($('#max').val()) + 61199000;
+        
+        var date = Date.parse(data[7]); // use data for the date column
+
+        if ( ( isNaN( min ) && isNaN( max ) ) ||
+             ( isNaN( min ) && date <= max ) ||
+             ( min <= date   && isNaN( max ) ) ||
+             ( min <= date   && date <= max ) )
+        {
+            return true;
+        }
+        return false;
+    }
+);
+ 
+$(document).ready(function() {
+    var table = $('#list_bonus').DataTable();
+     
+    // Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').change( function() {
+        table.draw();
+    } );
+} );
