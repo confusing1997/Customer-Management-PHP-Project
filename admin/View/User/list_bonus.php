@@ -2,14 +2,16 @@
     <div class="col-12">
         <div class="card-box table-responsive">
                 <div class="input-daterange">
-                    <div class="col-5">
-                        <label>Từ ngày</label>
-                        <input type="date" name="min" id="min" class="form-control mb-2">
-                    </div>
-                    <div class="col-5">
-                        <label>Đến ngày</label>
-                        <input type="date" name="max" id="max" class="form-control mb-2">
-                    </div>      
+                    <div class="row">
+                        <div class="col-3">
+                            <label>From</label>
+                            <input type="date" name="min" id="min" class="form-control mb-2">
+                        </div>
+                        <div class="col-3">
+                            <label>To</label>
+                            <input type="date" name="max" id="max" class="form-control mb-2">
+                        </div>   
+                    </div>   
                 </div>
       <table id="list_bonus" class="display table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
         <thead>
