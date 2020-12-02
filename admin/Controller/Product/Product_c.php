@@ -72,6 +72,11 @@
             include_once 'View/Product/order_history.php';
         }
 
+        public function getOrder () {
+            $product = $this->product->getOrder();
+            include_once 'View/Product/list_order.php';
+        }
+
         public function getDetailOrder ($order_id) {
             return $order = $this->product->getDetailOrder($order_id);
         }

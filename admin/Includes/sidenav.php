@@ -116,6 +116,22 @@
                         </li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="dripicons-view-list"></i>
+                        <span> Order List </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="dashboard.php?page=list_order">
+                                <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
+                                    <span> Order List </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <!-- End Sidebar -->

@@ -234,7 +234,7 @@
         protected function newCare ($user_id, $customer_id) {
 
             $sql = "UPDATE tbl_care
-                    SET user_id = :user_id, status = 3
+                    SET user_id = :user_id, status = 3, create_at = current_timestamp
                     WHERE customer_id = :customer_id
                         ";
 
