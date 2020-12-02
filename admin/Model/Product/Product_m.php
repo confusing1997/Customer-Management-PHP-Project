@@ -15,7 +15,7 @@
                         *
                     FROM
                         tbl_product
-                        ";
+                    WHERE status = 1";
 
             $pre = $this->pdo->prepare($sql);
 
