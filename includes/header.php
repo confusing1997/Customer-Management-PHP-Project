@@ -22,6 +22,7 @@
         <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
+
         <style type="text/css">
         	*{
 				margin: 0px;

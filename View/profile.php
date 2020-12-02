@@ -1,6 +1,6 @@
 <?php 
 	$id = $_SESSION['id_cus'];
-	$nameFolder = convert_name($customer['name']).$id;
+	$nameFolder = $id;
  ?>
 
 <div class="row pd0" style="background-color: #f5f5f5; color: black;">
@@ -26,6 +26,9 @@
 					break;
 				case 'detail':
 					include_once 'View/customer/detail.php';
+					break;
+				case 'rate':
+					include_once 'View/customer/rate.php';
 					break;
 				default:
 					include_once 'View/customer/info.php';

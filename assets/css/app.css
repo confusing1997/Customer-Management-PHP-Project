@@ -3327,6 +3327,9 @@ input[type='file'] {
   line-height: 70px;
 }
 .loadava1{
+
+}
+.topnav-menu > .loadava1{
   width: 80%;
 }
 #error{
@@ -3377,3 +3380,24 @@ input[type='file'] {
       z-index: 10;
         transform: scale(1.2);
     }
+.label_user{
+  width: 25%;
+  float: left;
+  text-align: right;
+  color: rgba(85,85,85,.8);
+}
+.value_user{
+  width: 75%;
+  float: left;
+  padding-left: 20px;
+}
+.info_user{
+  margin-bottom: 30px;
+  font-size: 15px;
+  height: 20px;
+}
+.cus-rate img {
+  width: 12px;
+  margin-top: 2px;
+
+}

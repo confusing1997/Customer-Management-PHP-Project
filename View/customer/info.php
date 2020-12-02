@@ -1,6 +1,6 @@
 <?php 
 	$id = $_SESSION['id_cus'];
-	$nameFolder = convert_name($customer['name']).$id;
+	$nameFolder = $id;
  ?>
 <div class="col-md-9 col-9" style="background-color: #fff; padding-left: 30px;border-radius: 0.25rem; margin: 50px 0 0px 0;float: left;height: 100%">
 	<div class="title-info" style="border-bottom: 1px solid #efefef; width: 100%; height:80px;">
@@ -43,9 +43,21 @@
 			</div>
 			<div class="info_right" style="height: 70%; width: 30%; float: left; border-left: 1px solid #efefef">
 				<div style="text-align: center; margin-bottom: 20px;" id="avatar_cus">
-					<img src="assets/images/customer/<?php echo $nameFolder ?>/<?php echo $customer['avatar'] ?>" alt="user-image" class="rounded-circle" width="80" height='80' id="avatar">
+					<?php 
+						if ($customer['avatar'] == 'guest.jpg') {
+					?>
+							<img src="assets/images/customer/guest.jpg ?>" alt="user-image" class="rounded-circle" width="80" height='80' id="avatar">
+					<?php
+						}else{
+					?>
+							<img src="assets/images/customer/<?php echo $nameFolder ?>/<?php echo $customer['avatar'] ?>" alt="user-image" class="rounded-circle" width="80" height='80' id="avatar">
+					<?php
+						}
+					 ?>
+					
+					<input type="hidden" name="" value="guest.jpg">
 				</div>
-				<form id="form-ava" action="Server/avatar.php" method="post" enctype="multipart/form-data" style="text-align: center;">
+				<form id="form-ava" action="" method="post" enctype="multipart/form-data" style="text-align: center;">
                 	<label class="custom-file-upload">
 					    <input id="ava-img" type="file" name="image" accept=".jpg,.jpeg,.png"/>
 					    Chọn Ảnh

@@ -85,7 +85,7 @@
         </div>
 
         <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
+        <script src="assets/js/vendor.js"></script>
 
         <!-- Required datatable js -->
         <script src="assets/libs/datatables/jquery.dataTables.min.js"></script>
@@ -111,6 +111,21 @@
         	$('.carousel').carousel({
  				interval: 6000
 			});
+        </script>
+
+        <script type="text/javascript">
+        	$.raty.path = 'images';
+
+			$(function() {
+    			
+    			$('#abc').raty({readOnly: true});
+    			$('#half').raty({
+				  half:  true,
+				  hints: [['bad 1/2', 'bad'], ['poor 1/2', 'poor'], ['regular 1/2', 'regular'], ['good 1/2', 'good'], ['gorgeous 1/2', 'gorgeous']]
+				});
+				$('.cus-rate').raty({half: true, readOnly: true, space: false
+				});
+    		});
         </script>
     </body>
 </html>

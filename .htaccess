@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule "index" "index.php"
+RewriteRule "^([a-zA-Z-]+)$" "index.php?page=$1"
+

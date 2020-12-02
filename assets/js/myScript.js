@@ -40,7 +40,7 @@ $(document).on('click', '.save', function(){
     $.post('Server/Customer/avatar.php', { name : name }, function(data){
         $("#avatar_cus").load(" #avatar");
         $("#ava_cus").load(" #load_ava");
-        $(".loadava1").load(" #ava");
+        $('.loadava1').load(' .loadava1');
     });
 });
 
@@ -234,6 +234,7 @@ $(document).on('click', '#update', function(){
 
                 $.post('Server/Customer/password.php', { pass_new : pass_new, pass : pass }, function(data){
                     $('#notification').html(data);
+                    $('.loadava1').load(' .loadava1');
                 });
             }else{
                 alert('Mật khẩu xác nhận không khớp!');

@@ -20,7 +20,7 @@
             $pre->bindParam(':email', $email);
 
             return $pre->execute();
-
+            
         }
 
         //Hàm kiểm tra xem khách hàng đã có trong danh sách hay chưa theo email và sđt

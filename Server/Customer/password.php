@@ -20,17 +20,23 @@
 
 			$updatePass = $customer->updateCustomerPass($id, $password);
 ?>
-		<div class="alert alert-success">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			<strong>Thành công!</strong> Mật khẩu sẽ được áp dụng ở lần đăng nhập tới
+		<div class="jq-toast-wrap top-right">
+			<div class="jq-toast-single jq-has-icon jq-icon-danger">
+				<span class="close-jq-toast-single">x</span>
+				<h2 class="jq-toast-heading">Thành công!</h2>
+				Mật khẩu sẽ được áp dụng ở lần đăng nhập tiếp theo
+			</div>
 		</div>
 <?php
 
 		}else{
 ?>
-		<div class="alert alert-danger">
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			<strong>Thất bại!</strong> Mật khẩu không chính xác
+		<div class="jq-toast-wrap top-right">
+			<div class="jq-toast-single jq-has-icon jq-icon-danger">
+				<span class="close-jq-toast-single">x</span>
+				<h2 class="jq-toast-heading">Thất bại!</h2>
+				Mật khẩu không chính xác
+			</div>
 		</div>
 <?php
 		}
@@ -40,6 +46,6 @@
 <script type="text/javascript">
     //Hiện thông báo .. giây xong ẩn
     $(document).ready(function(){
-        $(".alert").delay(2000).slideUp();
+        $(".top-right").delay(2000).fadeOut();
     })
 </script>
