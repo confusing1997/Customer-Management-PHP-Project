@@ -79,9 +79,10 @@
                                                     echo "<li class='breadcrumb-item active'>Salary</li>";
                                                     echo "<li class='breadcrumb-item active'>Commission</li>";
                                                     break;
-                                                    
-                                                    
-                                                    
+                                                case 'list_order':
+                                                    echo "<li class='breadcrumb-item active'>Order List</li>";
+                                                    echo "<li class='breadcrumb-item active'>Order List</li>";
+                                                    break; 
                                                     
                                                 default:
                                                     
@@ -141,6 +142,9 @@
                                                 break;
                                             case 'list_bonus':
                                                 echo "My Bonus";
+                                                break;
+                                            case 'list_order':
+                                                echo "Order List";
                                                 break;
                                             default:
                                                 echo "Error 404, Page is not exists";
@@ -241,6 +245,12 @@
                                         include_once 'Controller/User/User_c.php';
                                         $user = new User_c();
                                         $user->Bonus();
+                                        break;
+
+                                    case 'list_order':
+                                        include_once 'Controller/Product/Product_c.php';
+                                        $order = new Product_c();
+                                        $order->getOrder();
                                         break;
 
                                     default:

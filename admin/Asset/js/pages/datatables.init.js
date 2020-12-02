@@ -30,5 +30,10 @@ $(document).ready(function(){
         "responsive": false,
         "order": [[ 6, "asc" ]],
     });
+
+    $("#datatable_list_order").dataTable({
+        "responsive": false,
+        "order": [[ 6, "desc" ]],
+    });    
     
 });

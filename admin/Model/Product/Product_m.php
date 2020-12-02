@@ -252,7 +252,7 @@
             }
         }
 
-        //Hiện danh sách hóa đơn
+        //Hiện danh sách hóa đơn theo customer_id
         protected function getOrderHistory ($customer_id) {
 
             $sql = "SELECT
@@ -308,6 +308,47 @@
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindParam(":order_id", $order_id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        //Danh sách tất cả hóa đơn
+        protected function getOrder() {
+
+            $sql = "SELECT
+                        od.id,
+                        userbuy.name AS 'Nhân viên bán',
+                        usercare.name AS 'Nhân viên chăm sóc',
+                        tbl_customer.name AS 'Tên khách hàng',
+                        tbl_showroom.title,
+                        od.total,
+                        od.create_at
+                    FROM
+                        tbl_user AS userbuy
+                    INNER JOIN tbl_order od ON
+                        userbuy.id = od.user_id_buy
+                    INNER JOIN tbl_user AS usercare
+                    ON
+                        usercare.id = od.user_id_care
+                    INNER JOIN tbl_customer ON tbl_customer.id = od.customer_id
+                    INNER JOIN tbl_showroom ON tbl_customer.showroom_id = tbl_showroom.showroom_id
+                    ORDER BY
+                        od.create_at
+                    DESC
+                        ";
+
+            $pre = $this->pdo->prepare($sql);
 
             $pre->execute();
 
