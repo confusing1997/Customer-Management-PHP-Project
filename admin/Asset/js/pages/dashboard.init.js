@@ -118,10 +118,12 @@
                         xAxes: [{ gridLines: { color: "rgba(0,0,0,0.1)" } }],
                     },
                 }
-            );  
-
+            );
         }),
-        
         (i.ChartJs = new e()),
         (i.ChartJs.Constructor = e);
 })(window.jQuery),
+    (function (e) {
+        "use strict";
+        window.jQuery.ChartJs.init();
+    })();
