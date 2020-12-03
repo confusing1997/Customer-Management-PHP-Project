@@ -43,7 +43,7 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="profile" class="dropdown-item notify-item">
+                                <a href="index.php?page=profile" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
                                     <span>Tài khoản</span>
                                 </a>
@@ -77,7 +77,7 @@
                     </ul>
                 </div>
                 <div class="logo-box col-md-3 col-xs-3">
-                    <a href="index" class="logo text-center">
+                    <a href="index.php" class="logo text-center">
                         <img src="assets/images/logo.png" alt="" height="50" style="line-height: 70px; margin-top: 10px; margin-bottom: 10px;">
                     </a>
                 </div>
