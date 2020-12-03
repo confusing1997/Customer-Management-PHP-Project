@@ -15,9 +15,9 @@
             return $this->customer->removeCustomer($id);
         }
 
-        public function addCustomer($name,$showroom_id, $phone, $email){
+        public function addCustomer($name,$showroom_id, $phone, $email, $birth){
 
-            return $this->customer->addCustomer($name, $showroom_id, $phone, $email);
+            return $this->customer->addCustomer($name, $showroom_id, $phone, $email, $birth);
 
         }
 

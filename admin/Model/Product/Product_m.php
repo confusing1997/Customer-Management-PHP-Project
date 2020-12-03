@@ -41,7 +41,8 @@
                         tbl_customer.name AS 'Tên khách hàng',
                         tbl_user.name AS 'NV chăm sóc',
                         title,
-                        tbl_customer.email
+                        tbl_customer.email,
+                        tbl_customer.phone
                     FROM
                         tbl_customer,
                         tbl_care,
@@ -251,6 +252,30 @@
                 echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
         }
+
+        // START xử lý gửi tin nhắn cho khách
+        protected function sendSMS($phone, $customer_name){
+            $url = 'http://183.91.2.4:6543/mp/brandname?wsdl'; // Link API
+
+            $client = new SoapClient($url); // Khởi tạo đối tưởng SoapClient
+
+            $brandname = 'DHCH STORE'; // không thay đổi để nguyên
+            //$phone = '0373263978'; // Đưa số điện thoại của khách cần gửi vào đây
+            $content = '[TEST]'. ' Chao '.$customer_name.' Don hang cua ban da duoc xac nhan. Tai khoan cua ban: '.$phone.', Mat khau: 123456. Vui long dang nhap trang chu Millennium Watch de doi mat khau va tra cuu lich su mua hang: https://datgautedy.xyz/'; // Nội dung gửi tin nhắn cho khách
+
+            $params = array(
+                'username'      => 'dhchapi',
+                'password'      => 'dhchapi@123',
+                'msgcontent'    => $content,
+                'brandname'     => $brandname,
+                'listuser'      => $phone,
+                'type'          => '2',
+                'templateid'    => 'MP001'
+            );        
+
+            var_dump($client->SendSMS($params));
+        }
+        //END xử lý gửi tin nhắn cho khách
 
         //Hiện danh sách hóa đơn theo customer_id
         protected function getOrderHistory ($customer_id) {
