@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2020 at 03:06 PM
+-- Generation Time: Dec 02, 2020 at 04:24 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -97,7 +97,7 @@ CREATE TABLE `tbl_customer` (
   `email` varchar(50) NOT NULL,
   `sex` varchar(5) NOT NULL,
   `birth` date NOT NULL DEFAULT '1970-01-01',
-  `passw` varchar(50) NOT NULL,
+  `passw` varchar(50) NOT NULL DEFAULT 'e10adc3949ba59abbe56e057f20f883e',
   `avatar` varchar(50) NOT NULL DEFAULT 'guest.jpg',
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin khách hàng';
@@ -107,11 +107,11 @@ CREATE TABLE `tbl_customer` (
 --
 
 INSERT INTO `tbl_customer` (`id`, `name`, `showroom_id`, `phone`, `email`, `sex`, `birth`, `passw`, `avatar`, `create_at`) VALUES
-(7, 'Dương Tuấn Anh', 1, '0339928096', 'bimy96@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
-(8, 'Nguyễn Hoàng Anh', 2, '0339928095', 'bimy95@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:46:16'),
-(10, 'Nguyễn Đức Cảnh', 2, '0339928093', 'bimy93@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
-(11, 'Lê Thùy Chi', 3, '0339928092', 'bimy92@gmail.com', 'Nữ', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:47:49'),
-(12, 'Giáp Thành Đạt', 1, '0339928091', 'bimy91@gmail.com', 'Nam', '1970-01-01', '123456', 'guest.jpg', '2020-10-26 18:48:47'),
+(7, 'Dương Tuấn Anh', 1, '0339928096', 'bimy96@gmail.com', 'Nam', '1970-01-01', '005f47cddf568dacb8d03e20ba682cf9', '1606839705dat.jpg', '2020-10-26 18:46:16'),
+(8, 'Nguyễn Hoàng Anh', 2, '0339928095', 'bimy95@gmail.com', 'Nam', '1970-01-01', 'e10adc3949ba59abbe56e057f20f883e', 'guest.jpg', '2020-10-26 18:46:16'),
+(10, 'Nguyễn Đức Cảnh', 2, '0339928093', 'bimy93@gmail.com', 'Nam', '1970-01-01', 'e10adc3949ba59abbe56e057f20f883e', 'guest.jpg', '2020-10-26 18:47:49'),
+(11, 'Lê Thùy Chi', 3, '0339928092', 'bimy92@gmail.com', 'Nữ', '1970-01-01', 'e10adc3949ba59abbe56e057f20f883e', 'guest.jpg', '2020-10-26 18:47:49'),
+(12, 'Giáp Thành Đạt', 1, '0339928091', 'bimy91@gmail.com', 'Nam', '1970-01-01', 'e10adc3949ba59abbe56e057f20f883e', 'guest.jpg', '2020-10-26 18:48:47'),
 (150, 'Nam Hải', 2, '0123456789', 'namluu@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-05 20:56:44'),
 (151, 'Huy Hoàng Thụ', 2, '0339921234', 'huyhoang@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-05 21:44:18'),
 (152, 'Huy Hoàng', 2, '0123456781', 'hoanghuy@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-06 09:46:44'),
@@ -119,7 +119,7 @@ INSERT INTO `tbl_customer` (`id`, `name`, `showroom_id`, `phone`, `email`, `sex`
 (154, 'Nguyễn Bình Minh', 2, '0321233455', 'binhminh@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:23:52'),
 (155, 'Trần Trọng Hiếu', 2, '0456781325', 'tkodhunter1@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 09:35:23'),
 (156, 'Nguyễn Hoàng Hải', 2, '0364567489', 'nhaisoi91@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-08 11:41:31'),
-(174, 'A Thành', 2, '0339924321', 'tkodhunter2@gmail.com', 'Nam', '1970-01-01', '', 'guest.jpg', '2020-11-25 19:56:03'),
+(174, 'A Thành', 2, '0339924321', 'tkodhunter2@gmail.com', 'Nam', '1970-01-01', 'e10adc3949ba59abbe56e057f20f883e', '1606922443dat.jpg', '2020-11-25 19:56:03'),
 (176, 'A Minh', 1, '0364567487', 'minhnguyen92@gmail.com', '', '1970-01-01', '', 'guest.jpg', '2020-11-27 20:11:15');
 
 -- --------------------------------------------------------
@@ -199,6 +199,32 @@ INSERT INTO `tbl_detail_order` (`id`, `order_id`, `product_id`, `price`, `sale`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_feedback`
+--
+
+CREATE TABLE `tbl_feedback` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `rate` text NOT NULL,
+  `feedback` varchar(50) NOT NULL,
+  `create_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Lưu thông tin phản hồi của khách hàng';
+
+--
+-- Dumping data for table `tbl_feedback`
+--
+
+INSERT INTO `tbl_feedback` (`id`, `order_id`, `user_id`, `customer_id`, `rate`, `feedback`, `create_at`) VALUES
+(18, 26, 2, 174, '5', 'Chăm sóc khách ân cần, nhiệt tình, chu đáo', '2020-12-02 21:23:11'),
+(19, 28, 2, 152, '4.5', 'Tư vấn hợp lý, hiệu quả', '2020-12-02 21:24:14'),
+(20, 29, 2, 156, '1.5', 'đánh khách', '2020-12-02 21:24:54'),
+(21, 30, 2, 10, '4', 'nhân viên tư vấn tốt', '2020-12-02 21:25:44');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_history`
 --
 
@@ -254,9 +280,9 @@ CREATE TABLE `tbl_order` (
 
 INSERT INTO `tbl_order` (`id`, `user_id_buy`, `user_id_care`, `customer_id`, `total`, `create_at`) VALUES
 (1, 2, 2, 7, 59384200, '2020-11-26 10:22:46'),
-(2, 2, 2, 174, 34041800, '2020-11-26 11:43:30'),
-(3, 2, 2, 155, 41985400, '2020-11-26 11:43:42'),
-(4, 2, 2, 153, 121805000, '2020-11-26 12:09:07'),
+(2, 2, 2, 7, 34041800, '2020-11-26 11:43:30'),
+(3, 2, 2, 7, 41985400, '2020-11-26 11:43:42'),
+(4, 2, 2, 7, 121805000, '2020-11-26 12:09:07'),
 (5, 1, 1, 153, 94629800, '2020-11-26 12:10:26'),
 (26, 2, 2, 174, 150489000, '2020-11-27 10:29:28'),
 (27, 2, 1, 153, 25342400, '2020-11-27 10:52:16'),
@@ -413,6 +439,15 @@ ALTER TABLE `tbl_detail_order`
   ADD KEY `fk_productID_detailorder_product` (`product_id`);
 
 --
+-- Indexes for table `tbl_feedback`
+--
+ALTER TABLE `tbl_feedback`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_userid_feedback_user` (`user_id`),
+  ADD KEY `fk_customerid_feedback_customer` (`customer_id`),
+  ADD KEY `fk_orderid_feedback_order` (`order_id`);
+
+--
 -- Indexes for table `tbl_history`
 --
 ALTER TABLE `tbl_history`
@@ -478,6 +513,12 @@ ALTER TABLE `tbl_detail`
 --
 ALTER TABLE `tbl_detail_order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+
+--
+-- AUTO_INCREMENT for table `tbl_feedback`
+--
+ALTER TABLE `tbl_feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbl_history`
@@ -546,6 +587,14 @@ ALTER TABLE `tbl_detail`
 ALTER TABLE `tbl_detail_order`
   ADD CONSTRAINT `fk_orderID_detailorder_order` FOREIGN KEY (`order_id`) REFERENCES `tbl_order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_productID_detailorder_product` FOREIGN KEY (`product_id`) REFERENCES `tbl_product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_feedback`
+--
+ALTER TABLE `tbl_feedback`
+  ADD CONSTRAINT `fk_customerid_feedback_customer` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_orderid_feedback_order` FOREIGN KEY (`order_id`) REFERENCES `tbl_order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_userid_feedback_user` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_history`

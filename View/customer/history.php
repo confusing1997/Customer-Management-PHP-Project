@@ -33,7 +33,7 @@
 		        					<a href="index.php?page=profile&method=detail&id=<?= $value['id']; ?>">
 			                            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
                           			</a>
-                          			<a href="index.php?page=profile&method=detail&id=<?= $value['id']; ?>">
+                          			<a href="index.php?page=profile&method=rate&idu=<?= $value['idu']; ?>&ido=<?= $value['id'];?>&pages=1">
 			                            <button type="button" class="btn btn-icon waves-effect waves-light btn-warning" title="Đánh giá"><span><i class="mdi mdi-star"></i></span></button>
                           			</a>
 		        				</td>

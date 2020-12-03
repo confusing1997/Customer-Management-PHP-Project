@@ -29,7 +29,7 @@
 
 	$result = $customer->getCustomerInfo($id);
 
-	$nameFolder = convert_name($result['name']).$id;
+	$nameFolder = $id;
 
 	if (!file_exists('../../assets/images/preview/'.$nameFolder)) {
     	mkdir('../../assets/images/preview/'.$nameFolder, 0777, true);

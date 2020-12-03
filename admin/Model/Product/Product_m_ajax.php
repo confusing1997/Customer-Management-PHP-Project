@@ -27,7 +27,7 @@
         //Remove product from tbl_product
         protected function removeProduct ($id) {
 
-            $sql = "DELETE FROM tbl_product WHERE id = :id";
+            $sql = "UPDATE tbl_product SET status = 0 WHERE id = :id";
 
             $pre = $this->pdo->prepare($sql);
 

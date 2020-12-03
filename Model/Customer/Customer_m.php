@@ -39,7 +39,8 @@
                         usercare.name AS 'Nhân viên chăm sóc',
                         tbl_order.total AS 'Đơn giá',
                         tbl_order.create_at AS 'Thời gian',
-                        tbl_order.id AS 'id'
+                        tbl_order.id AS 'id',
+                        usercare.id AS 'idu'
                     FROM
                         tbl_user AS usersell
                     INNER JOIN tbl_order
@@ -101,4 +102,154 @@
 
             return $result;
         }
+
+        protected function addFeedback($user_id, $customer_id, $rate, $feedback) {
+
+            $sql = "INSERT INTO tbl_feedback(user_id, customer_id, rate, feedback) VALUES
+                    (:user_id, :customer_id, :rate, :feedback)";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':user_id', $user_id);
+
+            $pre->bindParam(':customer_id', $customer_id);
+
+            $pre->bindParam(':rate', $rate);
+
+            $pre->bindParam(':feedback', $feedback);
+
+            return $pre->execute();
+        }
+
+        protected function getUserInfo($id) {
+
+            $sql = "SELECT
+                        *
+                    FROM
+                        tbl_user, tbl_showroom
+                    WHERE
+                        tbl_user.showroom_id = tbl_showroom.showroom_id
+                    AND
+                        id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':id', $id);
+
+            $pre->execute();
+
+            $result = $pre->fetch(PDO::FETCH_ASSOC);
+
+            return $result;
+        }
+
+        protected function getUserRate($id) {
+
+            $sql = "SELECT
+                        COUNT(tbl_feedback.user_id) AS 'num',
+                        ROUND(
+                            SUM(tbl_feedback.rate) / COUNT(tbl_feedback.user_id),
+                            1
+                        ) AS 'avg'
+                    FROM
+                        tbl_feedback
+                    WHERE
+                        tbl_feedback.user_id = :id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':id', $id);
+
+            $pre->execute();
+
+            $result = $pre->fetch(PDO::FETCH_ASSOC);
+
+            return $result;
+        }
+
+        protected function getUserFeedback($id, $row) {
+
+            if (isset($_GET['pages'])) {
+                $pages = $_GET['pages'];
+            }else{
+                $pages = 1;
+            }
+
+            $from = ($pages - 1) * $row;
+
+            $sql = "SELECT
+                        tbl_customer.name,
+                        tbl_customer.avatar,
+                        tbl_feedback.rate,
+                        tbl_feedback.feedback,
+                        tbl_feedback.create_at as 'time'
+                    FROM
+                        tbl_feedback, tbl_customer
+                    WHERE
+                        tbl_feedback.customer_id = tbl_customer.id and tbl_feedback.user_id = 2
+                    ORDER BY
+                        tbl_feedback.create_at DESC
+                    LIMIT 
+                        $from,$row";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':id', $id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+        }
+
+        protected function countFeedback($user_id){
+
+            $sql = "SELECT COUNT(user_id) as id FROM tbl_feedback WHERE user_id = :user_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':user_id', $user_id);
+
+            $pre->execute();
+
+            $result = $pre->fetch(PDO::FETCH_ASSOC);
+
+            return $result['id'];
+        }
+
+        protected function checkFeedback($order_id) {
+
+            $sql = "SELECT
+                        *
+                    FROM
+                        tbl_feedback, tbl_order
+                    WHERE
+                        tbl_feedback.order_id = tbl_order.id
+                    AND
+                        order_id = :order_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':order_id', $order_id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+        }
+
     }

@@ -85,7 +85,6 @@
                     },
                 }
             );
-
             this.respChart(
                 i("#sales-history"),
                 "Bar",
@@ -126,7 +125,3 @@
         (i.ChartJs = new e()),
         (i.ChartJs.Constructor = e);
 })(window.jQuery),
-    (function (e) {
-        "use strict";
-        window.jQuery.ChartJs.init();
-    })();
