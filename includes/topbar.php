@@ -49,7 +49,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="index.php?page=history" class="dropdown-item notify-item">
+                                <a href="index.php?page=profile&method=history" class="dropdown-item notify-item">
                                     <i class="fe-shopping-cart"></i>
                                     <span>Lịch sử mua hàng</span>
                                 </a>

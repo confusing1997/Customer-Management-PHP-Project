@@ -3,8 +3,8 @@
         <meta charset="utf-8" />
         <title>Millennium Watches</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
+        <meta content="Đồng hồ tốt số 1 Việt Nam" name="description" />
+        <meta content="Hoag" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -19,70 +19,9 @@
         <link href="assets/libs/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
 
         <!-- App css -->
-        <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/app.css" rel="stylesheet" type="text/css" />
-
-        <style type="text/css">
-        	*{
-				margin: 0px;
-				padding: 0px;
-				box-sizing: border-box; 
-				
-			}
-			html,body{
-					overflow-x: hidden;
-				}
-			@media screen and (max-width: 480px){
-				.col-md-push-4{
-					left: 0;
-				}
-				#carousel-slide{
-					height: 50%;
-				}
-				.banner-content-1{
-				  	position: absolute;
-				  	left: 130px;
-				  	top: 20px;
-				  	color: #a8741a;
-				 	font-family: banner-content;
-				  	font-family: 'Playfair Display', serif;
-				  	font-style: bold;
-				  	font-size: 15px;
-				}
-				.banner-content-2{
-				  	position: absolute;
-				  	left: 85px;
-				  	top: 50px;
-				  	color: #a8741a;
-				  	font-family: banner-content;
-				  	font-family: 'Playfair Display', serif;
-				  	font-size: 15px;
-				}
-				.footer_1{
-					display: none;
-				}
-				#ft_none{
-					display: block;
-				}
-				.icon-setting{
-					display: none;
-				}
-				#name_cus{
-					display: none;
-				}
-				.nav-user{
-					margin-top: 20px;
-				}
-				.login{
-					margin-right: 10px;
-					font-size: 10px;
-				}.logo-box{
-					float: right
-				}
-			}
-			
-        </style>
+        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
     </head>
 

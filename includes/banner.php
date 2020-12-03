@@ -1,20 +1,20 @@
 <div class="row float pd0" id="carousel-slide">
-    <div class="col-md-12 col-sm-12 col-lg-12 col-12 pd0">
-       	<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+    <div class="col-md-12 col-sm-12 col-lg-12 col-12 pd0" style="height: 100%; margin-bottom: 10px;">
+       	<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel" style="height: 100%">
 		  	<ol class="carousel-indicators">
 		    	<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 		    	<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 		    	<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 		  	</ol>
-		  	<div class="carousel-inner">
+		  	<div class="carousel-inner" style=""> 
 		    	<div class="carousel-item active">
-		      		<img class="d-block w-100" src="assets/images/slider/slider1.jpg" alt="First slide">
+		      		<img class="d-block " src="assets/images/slider/slider1.jpg" alt="First slide">
 		    	</div>
 		    	<div class="carousel-item">
-		      		<img class="d-block w-100" src="assets/images/slider/slider2.jpg" alt="Second slide">
+		      		<img class="d-block " src="assets/images/slider/slider2.jpg" alt="Second slide">
 		    	</div>
 		    	<div class="carousel-item">
-		      		<img class="d-block w-100" src="assets/images/slider/slider3.jpg" alt="Third slide">
+		      		<img class="d-block " src="assets/images/slider/slider3.jpg" alt="Third slide">
 		    	</div>
 		  	</div>
 		  	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

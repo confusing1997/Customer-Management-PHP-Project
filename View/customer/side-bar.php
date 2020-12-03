@@ -1,4 +1,4 @@
-<div class="col-md-2 col-2 pd0" style="height: 100%; margin: 50px 20px 0px 50px;float: left;">
+<div class="col-md-2 col-12 pd0" style="height: 100%; margin: 50px 20px 0px 50px;float: left;">
 	<div class="name" style="padding-top: 15px;padding-bottom: 30px; height: 100px; border-bottom: 1px solid #efefef; ">
 		<div style="width: 35%; float: left; text-align: center;" id="ava_cus">
 			<?php 
@@ -20,8 +20,8 @@
 		</div>	
     </div>
     
-    <div style="height: 100px; margin-top: 30px; font-size: 16px;">
-		<ul class="list-group" style="float: left; ">
+    <div id="sidebar">
+		<ul class="list-group" style="float: left;">
 		  <a href="index.php?page=profile&method=info"><li class="list-group-item"><i class=""></i>Thông tin tài khoản</li></a>
 		  <a href="index.php?page=profile&method=password"><li class="list-group-item">Đổi mật khẩu</li></a>	
 		  <a href="index.php?page=profile&method=history"><li class="list-group-item">Lịch sử mua hàng</li></a>

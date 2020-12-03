@@ -85,7 +85,7 @@
         </div>
 
         <!-- Vendor js -->
-        <script src="assets/js/vendor.js"></script>
+        <script src="assets/js/vendor.min.js"></script>
 
         <!-- Required datatable js -->
         <script src="assets/libs/datatables/jquery.dataTables.min.js"></script>
@@ -114,7 +114,7 @@
         </script>
 
         <script type="text/javascript">
-        	$.raty.path = 'images';
+        	$.raty.path = 'assets/images/images';
 
 			$(function() {
     			

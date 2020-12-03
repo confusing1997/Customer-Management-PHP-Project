@@ -2890,8 +2890,8 @@ h3.timeline-title {
   padding: 0 !important;
 }
 #carousel-slide{
+  height: 500px;
   margin-bottom: 15px;
-  height: 100%;
 }
 #service{
   margin-top: 15px;
@@ -3401,3 +3401,71 @@ input[type='file'] {
   margin-top: 2px;
 
 }
+#sidebar{
+  height: 100px; 
+  margin-top: 30px; 
+  font-size: 16px;
+}
+*{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box; 
+        
+      }
+      html,body{
+          overflow-x: hidden;
+        }
+      @media screen and (max-width: 480px){
+        .col-md-push-4{
+          left: 0;
+        }
+        #carousel-slide{
+          height: 200px;
+        }
+        .banner-content-1{
+            position: absolute;
+            left: 130px;
+            top: 20px;
+            color: #a8741a;
+          font-family: banner-content;
+            font-family: 'Playfair Display', serif;
+            font-style: bold;
+            font-size: 15px;
+        }
+        .banner-content-2{
+            position: absolute;
+            left: 85px;
+            top: 50px;
+            color: #a8741a;
+            font-family: banner-content;
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+        }
+        .footer_1{
+          display: none;
+        }
+        #ft_none{
+          display: block;
+        }
+        .icon-setting{
+          display: none;
+        }
+        #name_cus{
+          display: none;
+        }
+        .nav-user{
+          margin-top: 20px;
+        }
+        .login{
+          margin-right: 10px;
+          font-size: 10px;
+        }.logo-box{
+          float: right
+        }
+        .sidebar{
+        
+        }
+        .sidebar li{
+          text-align: center;
+        }
+      }

@@ -35,7 +35,7 @@
 		        				<td style='vertical-align: middle;' class="text-center"><?php echo $value['Giảm giá']; ?>%</td>
 		        				<td style='vertical-align: middle;' class="text-center"><?php echo $value['Số lượng']; ?></td>
 		        				<td class="text-center" style='vertical-align: middle;'>
-		        					<a href="index.php?page=product&id=<?php echo $value['id']; ?>">
+		        					<a href="index.php?page=product&id=<?php echo $value['id']; ?>" target = "_blank">
 			                            <button type="button" class="btn btn-icon waves-effect waves-light btn-primary" title="Xem chi tiết"><span><i class="mdi mdi-pencil"></i></span></button>
                           			</a>
 		        				</td>
