@@ -12,12 +12,13 @@
     $customer_id = $_POST['customer_id'];
     $userMove = $customer_care->getUserMove($customer_id); 
     $user_id_move = $userMove['user_id'];
+    $status = $userMove['status'];
     $nameMove = $customer_care->getUserId($user_id_move);
     // $rowUserGet = $customer_care->getUserId($user_id_get);
     // $rowUserMove = $customer_care->getUserId($user_id_move);
     // $customer_care->sendMail($rowUserGet['email'], $rowUserMove['name']);
     // $user_move = $_SESSION['id'];
-    $addNoti = $customer_care->addNoti($user_id_move, $customer_id, $user_id_get);
+    $addNoti = $customer_care->addNoti($user_id_move, $customer_id, $status, $user_id_get);
 
     if ($addNoti){
         $customer_care->sendMail($mailGet['email'], $mailGet['name'], $nameMove['name'], $user_id_get);

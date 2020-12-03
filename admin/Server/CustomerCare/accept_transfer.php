@@ -6,11 +6,12 @@
     
     $customer_id = $_POST['customer_id'];
     $rowNoti = $customer_care->getInfoNoti($customer_id); 
+    $status = $rowNoti['status'];
     $user_id_get = $rowNoti['user_id_get'];
     $user_id_move = $rowNoti['user_id_move'];
 
     $delete = $customer_care->removeCustomerCare($customer_id);
-    $addTblCare = $customer_care->addUserGet($user_id_get, $customer_id);
+    $addTblCare = $customer_care->addUserGet($user_id_get, $customer_id, $status);
     $addTblHistory = $customer_care->addHistory($user_id_move, $customer_id, $user_id_get);
     $removeNoti = $customer_care->removeNoti($customer_id);
 
