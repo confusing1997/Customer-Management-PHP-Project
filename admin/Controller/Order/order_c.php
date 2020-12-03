@@ -48,6 +48,8 @@
             $personalTotalCustomer = $this->order->personalTotalCustomer($_SESSION['id']);
 
             $personalTransference = $this->order->personalTransference($_SESSION['id']);
+
+            $getShowroomId = $this->order->getShowroomId($_SESSION['id']);
             include_once("View/Dashboard/dashboard.php");
 
         }
