@@ -2,6 +2,7 @@
 	$count = count($user_feedback); // Đếm số bản ghi trả ra
 	$sum_count = $count_feedback;
 	$pages = ceil($sum_count / 3);
+	$ido = $_GET['ido'];
  ?>
 <div class="col-md-9 col-9" style="background-color: #fff; padding-left: 30px;border-radius: 0.25rem; margin: 50px 0 0px 0;float: left;height: 100%">
 	<div class="title-info" style="border-bottom: 1px solid #efefef; width: 100%; height:80px;">
@@ -37,12 +38,14 @@
 		</div>
 
 		<div class="rate text-center" style="width: 50%; float: left;height: 100%;">
+
 			<?php 
 				if (count($checkfb) == 0) {
 			?>
 				<form action="" method="POST">
 					<div id="half" style="margin-bottom: 10px;"></div>
 					<textarea rows="5" cols="50" name="feedback"></textarea>
+					<input type="hidden" name="order_id" value="<?php if(isset($_GET['ido'])){echo $_GET['ido'];} ?>">
 					<br>
 					<button type="submit" name="submit" value="<?php if(isset($_GET['idu'])){echo $_GET['idu'];} ?>" class="btn waves-effect waves-light btn-warning" style='float: right;margin-top: 10px; margin-right: 50px;'>Gửi</button>
 				</form>
@@ -67,7 +70,7 @@
 			<?php
 				}else{
 			?>
-				<img src="assets/images/customer/<?php echo $nameFolder ?>/<?php echo $value['avatar'] ?> ?>" alt="user-image" class="rounded-circle" style="width: 40px; height: 40px;" id='load_ava'>
+				<img src="assets/images/customer/<?php echo $value['idc'] ?>/<?php echo $value['avatar'] ?> ?>" alt="user-image" class="rounded-circle" style="width: 40px; height: 40px;" id='load_ava'>
 			<?php
 				}
 			 ?>
@@ -93,7 +96,7 @@
 	    <?php  
 	    	for ($i = 1; $i <= $pages; $i++) { 
 	    ?>
-				<li class="page-item <?php if($i == $_GET['pages']){ echo 'active';} ?>"><a href="index.php?page=profile&method=rate&idu=<?php echo $user['id'] ?>&pages=<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a></li>
+				<li class="page-item <?php if($i == $_GET['pages']){ echo 'active';} ?>"><a href="index.php?page=profile&method=rate&idu=<?php echo $user['id'] ?>&ido=<?php echo $ido; ?>&pages=<?php echo $i; ?>" class="page-link"><?php echo $i; ?></a></li>
 	    <?php
 	    	}
 	    ?>

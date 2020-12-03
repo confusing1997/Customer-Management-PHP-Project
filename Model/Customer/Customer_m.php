@@ -103,12 +103,14 @@
             return $result;
         }
 
-        protected function addFeedback($user_id, $customer_id, $rate, $feedback) {
+        protected function addFeedback($order_id, $user_id, $customer_id, $rate, $feedback) {
 
-            $sql = "INSERT INTO tbl_feedback(user_id, customer_id, rate, feedback) VALUES
-                    (:user_id, :customer_id, :rate, :feedback)";
+            $sql = "INSERT INTO tbl_feedback(order_id, user_id, customer_id, rate, feedback) VALUES
+                    (:order_id, :user_id, :customer_id, :rate, :feedback)";
 
             $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':order_id', $order_id);
 
             $pre->bindParam(':user_id', $user_id);
 
@@ -178,6 +180,7 @@
             $from = ($pages - 1) * $row;
 
             $sql = "SELECT
+                        tbl_feedback.customer_id as 'idc',
                         tbl_customer.name,
                         tbl_customer.avatar,
                         tbl_feedback.rate,
@@ -186,7 +189,7 @@
                     FROM
                         tbl_feedback, tbl_customer
                     WHERE
-                        tbl_feedback.customer_id = tbl_customer.id and tbl_feedback.user_id = 2
+                        tbl_feedback.customer_id = tbl_customer.id and tbl_feedback.user_id = :id
                     ORDER BY
                         tbl_feedback.create_at DESC
                     LIMIT 

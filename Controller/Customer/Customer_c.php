@@ -32,15 +32,23 @@
             if (isset($_GET['ido'])) {
                 $order_id = $_GET['ido'];
                 $checkfb = $this->customer->checkFeedback($order_id);
+                
             }
             if (isset($_POST['submit'])) {
-                $rate = $_POST['score'];
-                $feedback = htmlspecialchars($_POST['feedback']);
+                $ido = $_POST['order_id'];
                 $user_id = $_POST['submit'];
                 $customer_id = $_SESSION['id_cus'];
+                $rate = $_POST['score'];
+                $feedback = htmlspecialchars($_POST['feedback']);
+                $check = $this->customer->checkFeedback($ido);
 
-                $add = $this->customer->addFeedback($user_id, $customer_id, $rate, $feedback);
-                header("refresh: 0;");
+                if (count($check) == 0) {
+                    $add = $this->customer->addFeedback($ido, $user_id, $customer_id, $rate, $feedback);
+
+                    header("refresh: 0;");
+                }else{
+                    echo "<script>alert('Quý khách chỉ có thể đánh giá 1 lần ở mỗi đơn hàng!')</script>";
+                }
             }
             include_once 'View/profile.php';
         }
