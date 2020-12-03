@@ -367,4 +367,27 @@
 
         }
 
+        protected function getShowroomId($id) {
+
+            $sql = "SELECT * FROM tbl_user, tbl_showroom 
+                    WHERE id = :id AND tbl_user.showroom_id = tbl_showroom.showroom_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
     }
