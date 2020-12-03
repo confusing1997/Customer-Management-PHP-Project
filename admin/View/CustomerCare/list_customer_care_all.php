@@ -71,6 +71,11 @@
                                             <input type="text" class="form-control" id="email" name="email">
                                           </div>
 
+                                          <div class="form-group">
+                                            <label for="birth" class="col-form-label">Birthday:</label>
+                                            <input type="date" class="form-control" id="birth" name="birth">
+                                          </div>
+
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="button" class="btn btn-primary add_customer">Add</button>
@@ -95,11 +100,11 @@
                             <tr>
                                 <td class="text-center"><?= $count; ?></td>
                                 <td><?= $valueCustomerAll['Họ tên NV'] ?></td>
-                                <td><?= $valueCustomerAll['title'] ?></td>
+                                <td class="text-center"><?= $valueCustomerAll['title'] ?></td>
                                 <td><?= $valueCustomerAll['Họ tên khách'] ?></td>
-                                <td><?= $valueCustomerAll['phone'] ?></td>
+                                <td class="text-center"><?= $valueCustomerAll['phone'] ?></td>
                                 <td><?= $valueCustomerAll['Email Khách'] ?></td>
-                                <td><?= $valueCustomerAll['create_at'] ?></td>
+                                <td class="text-center"><?= $valueCustomerAll['create_at'] ?></td>
                                 <td class="text-center">
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
@@ -163,6 +168,11 @@
                                             <input type="text" class="form-control" id="email" name="email">
                                           </div>
 
+                                          <div class="form-group">
+                                            <label for="birth" class="col-form-label">Birthday:</label>
+                                            <input type="date" class="form-control" id="birth" name="birth">
+                                          </div>
+
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="button" class="btn btn-primary add_customer">Add</button>
@@ -187,12 +197,12 @@
                             <tr>
                                 <td class="text-center"><?= $count; ?></td>
                                 <td><?= $valueCustomerAll['Họ tên NV'] ?></td>
-                                <td><?= $valueCustomerAll['title'] ?></td>
+                                <td class="text-center"><?= $valueCustomerAll['title'] ?></td>
                                 <td><?= $valueCustomerAll['Họ tên khách'] ?></td>
-                                <td><?= $valueCustomerAll['phone'] ?></td>
+                                <td class="text-center"><?= $valueCustomerAll['phone'] ?></td>
                                 <td><?= $valueCustomerAll['Email Khách'] ?></td>
-                                <td><?= $valueCustomerAll['create_at'] ?></td>
-                                <td>
+                                <td class="text-center"><?= $valueCustomerAll['create_at'] ?></td>
+                                <td class="text-center">
                                     <?php 
                                         if ($valueCustomerAll['status'] == 1) {
                                             echo "<p style='color: red;'>Busy</p>";

@@ -10,14 +10,15 @@
         }
 
         //Thêm khách hàng vào bảng tbl_customer
-        protected function addCustomer($name,$showroom_id, $phone, $email){
-            $sql = "INSERT INTO tbl_customer (name,showroom_id, phone, email) VALUES (:name, :showroom_id, :phone, :email)";
+        protected function addCustomer($name,$showroom_id, $phone, $email, $birth){
+            $sql = "INSERT INTO tbl_customer (name,showroom_id, phone, email, birth) VALUES (:name, :showroom_id, :phone, :email, :birth)";
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindParam(':name', $name);
             $pre->bindParam(':showroom_id', $showroom_id);
             $pre->bindParam(':phone', $phone);
             $pre->bindParam(':email', $email);
+            $pre->bindParam(':birth', $birth);
 
             return $pre->execute();
             

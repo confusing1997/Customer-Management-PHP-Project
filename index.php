@@ -58,4 +58,3 @@
              ?>
         	  <?php include_once 'includes/footer.php'; ?>
 <script src="assets/js/myScript.js?<?php echo fileatime('assets/js/myScript.js') ?>"></script>
-          	

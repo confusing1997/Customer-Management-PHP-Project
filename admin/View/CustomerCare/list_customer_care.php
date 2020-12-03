@@ -35,8 +35,8 @@
                             <tr>
                                 <td class="text-center"><?= $count; ?></td>
                                 <td><?= $valueCustomerCare['name'] ?></td>
-                                <td><?= $valueCustomerCare['title'] ?></td>
-                                <td><?= $valueCustomerCare['phone'] ?></td>
+                                <td class="text-center"><?= $valueCustomerCare['title'] ?></td>
+                                <td class="text-center"><?= $valueCustomerCare['phone'] ?></td>
                                 <td><?= $valueCustomerCare['email'] ?></td>
                                 <td class="text-center">
                                     <?php 
@@ -49,7 +49,7 @@
                                         }
                                     ?>
                                 </td>
-                                <td><?= $valueCustomerCare['create_at'] ?></td>
+                                <td class="text-center"><?= $valueCustomerCare['create_at'] ?></td>
 
                                 <td class="text-center">
                                     <a href="dashboard.php?page=detail_customer_care&id=<?= $valueCustomerCare['id']; ?>">
