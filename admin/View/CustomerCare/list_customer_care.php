@@ -2,7 +2,7 @@
     if ($_SESSION['role'] != 1) {
 ?>
 <a href="dashboard.php?page=add_customer_care">
-    <button type="button" class="btn btn-primary btn-icon waves-light waves-effect">+ Recare Customer</button>
+    <button type="button" class="btn btn-primary btn-icon waves-light waves-effect">+ New Care</button>
 </a>
 <?php
     }
