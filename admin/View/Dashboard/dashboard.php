@@ -179,7 +179,7 @@
 			<div class="col-md-6 col-xl-3">
 				<div class="card-box tilebox-one">
 					<i class="fa fa-user float-right"></i>
-					<h5 class="text-muted text-uppercase mb-3 mt-0">Customer</h5>
+					<h5 class="text-muted text-uppercase mb-3 mt-0">Customer being cared</h5>
 					<h3 class="mb-3" data-plugin="counterup"><?= $personalCustomerBeingCare; ?></h3>
 					<!-- <span class="badge badge-primary"> +89% </span> <span class="text-muted ml-2 vertical-middle">Last year</span> -->
 				</div>
@@ -190,7 +190,8 @@
 					<i class="fa fa-users float-right"></i>
 					<h5 class="text-muted text-uppercase mb-3 mt-0">Total Customer</h5>
 					<h3 class="mb-3" data-plugin="counterup"><?= $personalTotalCustomer; ?></h3>
-					<!-- <span class="badge badge-primary"> +89% </span> <span class="text-muted ml-2 vertical-middle">Last year</span> -->
+					<span class="badge badge-primary"><?= $personalRecareCustomer; ?></span> 
+					<span class="text-muted ml-2 vertical-middle">Old Customer</span>
 				</div>
 			</div>
 
@@ -199,7 +200,19 @@
 					<i class="fa fa-paper-plane float-right"></i>
 					<h5 class="text-muted text-uppercase mb-3 mt-0">Transference Amount</h5>
 					<h3 class="mb-3" data-plugin="counterup"><?= $personalTransference; ?></h3>
-					<!-- <span class="badge badge-primary"> +89% </span> <span class="text-muted ml-2 vertical-middle">Last year</span> -->
+					<span class="badge badge-primary"><?= $personalCusTransference ?></span> 
+					<span class="text-muted ml-2 vertical-middle">Customer were transferred</span>
+				</div>
+			</div>
+
+			<div class="col-md-6 col-xl-3">
+				<div class="card-box tilebox-one">
+					<i class="fa fa-heart float-right"></i>
+					<h5 class="text-muted text-uppercase mb-3 mt-0">Rating</h5>
+					<h3 class="mb-3" data-plugin="counterup"><?= $ratingCount; ?></h3>
+					<span class="badge badge-primary"><?= $ratingFiveCount; ?></span> 
+					<span class="text-muted ml-2 vertical-middle">5 star</span>
+					
 				</div>
 			</div>
 
