@@ -339,6 +339,20 @@
 
         }
 
+        protected function personalRecareCustomer($id) {
+
+            $sql = "SELECT user_id FROM tbl_care WHERE user_id = $id AND status = 3";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();    
+
+            return $pre->rowCount();
+
+        }
+
         protected function personalTotalCustomer($id) {
 
             $sql = "SELECT user_id FROM tbl_care WHERE user_id = $id";
@@ -356,6 +370,20 @@
         protected function personalTransference($id) {
 
             $sql = "SELECT user_id_move FROM tbl_history WHERE user_id_move = $id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();    
+
+            return $pre->rowCount();
+
+        }
+
+        protected function personalCusTransference($id) {
+
+            $sql = "SELECT customer_id FROM tbl_history WHERE user_id_move = $id";
 
             $pre = $this->pdo->prepare($sql);
 
@@ -387,6 +415,34 @@
             }
 
             return $result;
+
+        }
+
+        protected function ratingCount($id) {
+
+            $sql = "SELECT user_id FROM tbl_feedback WHERE user_id = $id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();    
+
+            return $pre->rowCount();
+
+        }
+
+        protected function ratingFiveCount($id) {
+
+            $sql = "SELECT user_id FROM tbl_feedback WHERE user_id = $id AND rate = 5";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(":id", $id);
+
+            $pre->execute();    
+
+            return $pre->rowCount();
 
         }
 

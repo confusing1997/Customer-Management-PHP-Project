@@ -44,6 +44,7 @@
                         }
                         $rows = join($table);
                         $this->product->sendMail($customer['email'], $customer['Tên khách hàng'], $rows, $total);
+                        $this->product->sendSMS($customer['phone'], $customer['Tên khách hàng']);
                     }
                     if ($user_id_care == $user_id_buy) {
                         $add6 = $this->product->addBonus6($user_id_care);

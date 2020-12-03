@@ -2,7 +2,7 @@
     if ($_SESSION['role'] != 1) {
 ?>
 <a href="dashboard.php?page=add_customer_care">
-    <button type="button" class="btn btn-primary btn-icon waves-light waves-effect">+ Recare Customer</button>
+    <button type="button" class="btn btn-primary btn-icon waves-light waves-effect">+ New Care</button>
 </a>
 <?php
     }
@@ -35,8 +35,8 @@
                             <tr>
                                 <td class="text-center"><?= $count; ?></td>
                                 <td><?= $valueCustomerCare['name'] ?></td>
-                                <td><?= $valueCustomerCare['title'] ?></td>
-                                <td><?= $valueCustomerCare['phone'] ?></td>
+                                <td class="text-center"><?= $valueCustomerCare['title'] ?></td>
+                                <td class="text-center"><?= $valueCustomerCare['phone'] ?></td>
                                 <td><?= $valueCustomerCare['email'] ?></td>
                                 <td class="text-center">
                                     <?php 
@@ -49,7 +49,7 @@
                                         }
                                     ?>
                                 </td>
-                                <td><?= $valueCustomerCare['create_at'] ?></td>
+                                <td class="text-center"><?= $valueCustomerCare['create_at'] ?></td>
 
                                 <td class="text-center">
                                     <a href="dashboard.php?page=detail_customer_care&id=<?= $valueCustomerCare['id']; ?>">

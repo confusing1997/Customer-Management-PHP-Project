@@ -33,14 +33,16 @@
         }
 
         //Thêm khách hàng vào bảng tbl_care
-        protected function addUserGet($user_id_get, $customer_id){
-            $sql = "INSERT INTO tbl_care(user_id, customer_id) VALUES (:user_id_get, :customer_id)";
+        protected function addUserGet($user_id_get, $customer_id, $status){
+            $sql = "INSERT INTO tbl_care(user_id, customer_id, status) VALUES (:user_id_get, :customer_id, :status)";
 
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindParam(':user_id_get', $user_id_get);
 
             $pre->bindParam(':customer_id', $customer_id);
+            
+            $pre->bindParam(':status', $status);
 
             return $pre->execute();
         }
@@ -55,6 +57,7 @@
                     usermove.name AS 'Nhân viên chuyển',
                     userget.name AS 'Nhân viên nhận',
                     tnt.user_id_get,
+                    tnt.status,
                     tnt.create_at
                 FROM
                     tbl_user AS usermove    
@@ -100,14 +103,16 @@
         }
 
         //Thêm vào bảng tbl_transfer_noti
-        protected function addNoti($user_id_move, $customer_id, $user_id_get){
-            $sql = "INSERT INTO tbl_transfer_noti(user_id_move, customer_id, user_id_get) VALUES (:user_id_move, :customer_id, :user_id_get)";
+        protected function addNoti($user_id_move, $customer_id, $status, $user_id_get){
+            $sql = "INSERT INTO tbl_transfer_noti(user_id_move, customer_id, status, user_id_get) VALUES (:user_id_move, :customer_id, :status, :user_id_get)";
 
             $pre = $this->pdo->prepare($sql);
 
             $pre->bindParam(':user_id_get', $user_id_get);
 
             $pre->bindParam(':customer_id', $customer_id);
+
+            $pre->bindParam(':status', $status);
 
             $pre->bindParam(':user_id_move', $user_id_move);
 

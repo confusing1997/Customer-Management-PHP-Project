@@ -50,6 +50,14 @@
             $personalTransference = $this->order->personalTransference($_SESSION['id']);
 
             $getShowroomId = $this->order->getShowroomId($_SESSION['id']);
+
+            $ratingCount = $this->order->ratingCount($_SESSION['id']);
+
+            $ratingFiveCount = $this->order->ratingFiveCount($_SESSION['id']);
+
+            $personalCusTransference = $this->order->personalCusTransference($_SESSION['id']);
+
+            $personalRecareCustomer = $this->order->personalRecareCustomer($_SESSION['id']);
             include_once("View/Dashboard/dashboard.php");
 
         }

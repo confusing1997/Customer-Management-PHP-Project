@@ -88,7 +88,7 @@ data-toggle = "modal" data-target = "#add_user" title="Add Staff">
                   <tr>
                       <td class="text-center"><?= $count_user; ?></td>
                       <td><?= $valueUser['name'] ?></td>
-                      <td><?= $valueUser['title'] ?></td>
+                      <td class="text-center"><?= $valueUser['title'] ?></td>
                       <td><?= $valueUser['email'] ?></td>
                       <td class="text-center">
 

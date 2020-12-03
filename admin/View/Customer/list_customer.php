@@ -15,6 +15,7 @@
               <th>Showroom</th>
               <th>Phone</th>
               <th>Email</th>
+              <th>Birthday</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -28,10 +29,11 @@
                 <tr>
                   <td class="text-center"><?php echo $dem+=1; ?></td>
                   <td><?php echo $value['name']; ?></td>
-                  <td><?php echo $value['title']; ?></td>
-                  <td><?php echo $value['phone']; ?></td>
+                  <td class="text-center"><?php echo $value['title']; ?></td>
+                  <td class="text-center"><?php echo $value['phone']; ?></td>
                   <td><?php echo $value['email']; ?></td>
-                  <td><?php 
+                  <td class="text-center"><?php echo $value['birth']; ?></td>
+                  <td class="text-center"><?php 
                       if ($value['status'] == 1) {
                           echo "<p style='color: red;'>Busy</p>";
                       }else if ($value['status'] == 2){

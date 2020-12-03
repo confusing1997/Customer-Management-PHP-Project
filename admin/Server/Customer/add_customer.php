@@ -11,10 +11,11 @@
     $user_id = $_SESSION['id'];
     $phone = $_POST['phone']; 
     $email = $_POST['email']; 
+    $birth = $_POST['birth']; 
 
     $num = count($customer->checkEmailPhone($phone, $email));
     if ($num == 0 && $name != '' && $phone != '' && $email !=''){
-        $add1 = $customer->addCustomer($name, $showroom_id, $phone, $email);
+        $add1 = $customer->addCustomer($name, $showroom_id, $phone, $email, $birth);
         $add2 = $customer_care->addCustomerCare($user_id);
         if ($add1 == true && $add2 == true) {
 ?> 

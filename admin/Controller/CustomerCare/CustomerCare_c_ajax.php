@@ -23,9 +23,9 @@
 
         }
 
-        public function addUserGet($user_id_get, $customer_id){
+        public function addUserGet($user_id_get, $customer_id, $status){
 
-            return $this->customer_care->addUserGet($user_id_get, $customer_id);
+            return $this->customer_care->addUserGet($user_id_get, $customer_id, $status);
 
         }
 
@@ -35,9 +35,9 @@
 
         }
 
-        public function addNoti($user_id_move, $customer_id, $user_id_get){
+        public function addNoti($user_id_move, $customer_id, $status, $user_id_get){
 
-            return $this->customer_care->addNoti($user_id_move, $customer_id, $user_id_get);
+            return $this->customer_care->addNoti($user_id_move, $customer_id, $status, $user_id_get);
 
         }
 
