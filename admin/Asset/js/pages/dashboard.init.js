@@ -11,7 +11,6 @@
     var sh1_staff = document.getElementById("sh1_staff_am").value;
     var sh2_staff = document.getElementById("sh2_staff_am").value;
     var sh3_staff = document.getElementById("sh3_staff_am").value;
-
     var e = function () {};
 
     (e.prototype.respChart = function (e, r, a, t) {
@@ -119,13 +118,10 @@
                         xAxes: [{ gridLines: { color: "rgba(0,0,0,0.1)" } }],
                     },
                 }
-            );
+            );  
 
         }),
+        
         (i.ChartJs = new e()),
         (i.ChartJs.Constructor = e);
 })(window.jQuery),
-    (function (e) {
-        "use strict";
-        window.jQuery.ChartJs.init();
-    })();

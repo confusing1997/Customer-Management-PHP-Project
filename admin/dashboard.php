@@ -171,7 +171,7 @@
                                     case 'index':
                                         include_once 'Controller/Order/order_c.php';
                                         $order = new Order_c();
-                                        $order->getAmountOfOrder();
+                                        $order->Order();
                                         break;
                                     case 'list_customer':
                                     	include_once 'Controller/Customer/Customer_c.php';
