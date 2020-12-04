@@ -23,7 +23,7 @@ $(document).ready(function(){
 
     $("#list_bonus").dataTable({
         "responsive": false,
-        "order": [[ 6, "desc" ]],
+        "order": [[ 7, "desc" ]],
     });
 
     $("#datatable_list_purchased").dataTable({

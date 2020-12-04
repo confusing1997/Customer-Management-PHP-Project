@@ -1,3 +1,15 @@
 .custom {
     width: 90px !important;
 }
+
+.card .card-body .message {
+  padding-left: 80px;
+  
+  &::after {
+    clear: both;
+  }
+}
+
+.card .card-body .actions {
+  margin-top: 5px;
+}

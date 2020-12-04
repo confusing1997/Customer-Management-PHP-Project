@@ -45,7 +45,7 @@
                                                     echo "<li class='breadcrumb-item active'>Dashboard</li>";
                                                     break;
                                                 case 'list_customer_care':
-                                                    echo "<li class='breadcrumb-item'>Add Customer</li>";
+                                                    echo "<li class='breadcrumb-item'>Customer</li>";
                                                     echo "<li class='breadcrumb-item active'>My Customer List</li>";
                                                     break;
                                                 case 'list_customer_care_user':
@@ -54,7 +54,7 @@
                                                     echo "<li class='breadcrumb-item active'>Staff's Customer List</li>";
                                                     break;
                                                 case 'list_customer_care_all':
-                                                    echo "<li class='breadcrumb-item'>Add Customer</li>";
+                                                    echo "<li class='breadcrumb-item'>Customer</li>";
                                                     echo "<li class='breadcrumb-item active'>Add Customer</li>";
                                                     break;
                                                 case 'list_history':
@@ -66,12 +66,12 @@
                                                     echo "<li class='breadcrumb-item active'>Product List</li>";
                                                     break;
                                                 case 'add_customer_care':
-                                                    echo "<li class='breadcrumb-item active'>Add Customer</li>";
+                                                    echo "<li class='breadcrumb-item active'>Customer</li>";
                                                     echo "<li class='breadcrumb-item active'>My Customer List</li>";
                                                     echo "<li class='breadcrumb-item active'>Add Customer Care</li>";
                                                     break;
                                                 case 'create_order':
-                                                    echo "<li class='breadcrumb-item active'>Add Customer</li>";
+                                                    echo "<li class='breadcrumb-item active'>Customer</li>";
                                                     echo "<li class='breadcrumb-item active'>My Customer List</li>";
                                                     echo "<li class='breadcrumb-item active'>Create Bill</li>";
                                                     break;
@@ -82,6 +82,10 @@
                                                 case 'list_order':
                                                     echo "<li class='breadcrumb-item active'>Order List</li>";
                                                     echo "<li class='breadcrumb-item active'>Order List</li>";
+                                                    break;
+                                                case 'feedback':
+                                                    echo "<li class='breadcrumb-item active'>Customer</li>";
+                                                    echo "<li class='breadcrumb-item active'>Feedback</li>";
                                                     break; 
                                                     
                                                 default:
@@ -145,6 +149,9 @@
                                                 break;
                                             case 'list_order':
                                                 echo "Order List";
+                                                break;
+                                            case 'feedback':
+                                                echo "Feedback";
                                                 break;
                                             default:
                                                 echo "Error 404, Page is not exists";
@@ -251,6 +258,12 @@
                                         include_once 'Controller/Product/Product_c.php';
                                         $order = new Product_c();
                                         $order->getOrder();
+                                        break;
+
+                                    case 'feedback':
+                                        include_once 'Controller/User/User_c.php';
+                                        $user = new User_c();
+                                        $user->Feedback();
                                         break;
 
                                     default:

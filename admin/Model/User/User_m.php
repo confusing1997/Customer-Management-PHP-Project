@@ -190,6 +190,113 @@
 
 		}
 
+		//Hiện danh sách đánh giá theo user_id
+        protected function getFeedback ($user_id, $row) {
+        	if (isset($_GET['pages'])) {
+                $pages = $_GET['pages'];
+            }else{
+                $pages = 1;
+            }
+
+            $from = ($pages - 1) * $row;
+
+            $sql = "SELECT
+            			tbl_customer.id,
+            			avatar,
+                        name,
+                        phone,
+                        rate,
+                        feedback,
+                        tbl_feedback.create_at
+                    FROM
+                        tbl_feedback,
+                        tbl_customer
+                    WHERE
+                        tbl_feedback.customer_id = tbl_customer.id AND user_id = :user_id
+                    LIMIT 
+                    	$from, $row";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':user_id', $user_id);
+
+            $pre->execute();
+
+            $result = array();
+
+            while ($row = $pre->fetch(PDO::FETCH_ASSOC)) {
+
+                $result[] = $row;
+
+            }
+
+            return $result;
+
+        }
+
+        //Lấy thông tin user theo id
+        protected function getUserId ($user_id) {
+
+            $sql = "SELECT
+                        *
+                    FROM
+                        tbl_user
+                    WHERE
+                        id = :user_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':user_id', $user_id);
+
+            $pre->execute();
+
+            return $row = $pre->fetch(PDO::FETCH_ASSOC);
+        }
+
+        //Hiện danh sách đánh giá theo user_id
+        protected function getAVG ($user_id) {
+
+            $sql = "SELECT
+                        AVG(rate) as avg
+                    FROM
+                        tbl_feedback
+                    WHERE
+                        user_id = :user_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':user_id', $user_id);
+
+            $pre->execute();
+
+            $row = $pre->fetch(PDO::FETCH_ASSOC);
+
+            return $result = $row['avg'];
+
+        }
+
+        //Hiện danh sách đánh giá theo user_id
+        protected function countFeedback ($user_id) {
+
+            $sql = "SELECT
+                        COUNT(user_id) as count
+                    FROM
+                        tbl_feedback
+                    WHERE
+                        user_id = :user_id";
+
+            $pre = $this->pdo->prepare($sql);
+
+            $pre->bindParam(':user_id', $user_id);
+
+            $pre->execute();
+
+            $row = $pre->fetch(PDO::FETCH_ASSOC);
+
+            return $result = $row['count'];
+
+        }
+
 	}
 
 

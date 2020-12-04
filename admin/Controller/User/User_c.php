@@ -49,4 +49,16 @@
             include_once 'View/User/list_bonus.php';
         }
 
+        public function Feedback(){
+            if (isset($_SESSION['id'])) {
+                $user_id = (int)$_SESSION['id'];
+            }
+            $info = $this->user->getUserId($user_id);
+            $user = $this->user->getFeedback($user_id, 3);
+            $avg = $this->user->getAVG($user_id);
+            $count = $this->user->countFeedback($user_id);
+
+            include_once 'View/User/feedback.php';
+        }
+
     }

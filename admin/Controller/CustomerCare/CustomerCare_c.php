@@ -78,5 +78,6 @@
 
             include_once 'View/CustomerCare/add_customer_care.php';
         }
+
     }
 ?>

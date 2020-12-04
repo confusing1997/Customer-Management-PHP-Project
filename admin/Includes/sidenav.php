@@ -70,17 +70,23 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="dripicons-user-id"></i>
-                        <span> Add Customer </span>
+                        <span> Customer </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <ul class="nav-second-level" aria-expanded="false">
+                    <ul class="nav-second-level" aria-expanded="false">                        
+                        <li><a href="dashboard.php?page=list_customer_care_all">
+                            <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
+                                <span> Add Customer</span>
+                        </a></li>
+
                         <li><a href="dashboard.php?page=list_customer_care">
                             <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
                                 <span> My Customer List</span>
                         </a></li>
-                        <li><a href="dashboard.php?page=list_customer_care_all">
+
+                        <li><a href="dashboard.php?page=feedback">
                             <span><i class="mdi mdi-format-list-bulleted-square"></i></span>
-                                <span> Add Customer</span>
+                                <span> Feedback</span>
                         </a></li>
                     </ul>
                 </li>
