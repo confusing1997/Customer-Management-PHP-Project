@@ -46,7 +46,7 @@
 					<?php 
 						if ($customer['avatar'] == 'guest.jpg') {
 					?>
-							<img src="assets/images/customer/guest.jpg ?>" alt="user-image" class="rounded-circle" width="80" height='80' id="avatar">
+							<img src="assets/images/customer/guest.jpg" alt="user-image" class="rounded-circle" width="80" height='80' id="avatar">
 					<?php
 						}else{
 					?>

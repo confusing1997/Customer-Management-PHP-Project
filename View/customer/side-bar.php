@@ -4,7 +4,7 @@
 			<?php 
 				if ($customer['avatar'] == 'guest.jpg') {
 			?>
-					<img src="assets/images/customer/guest.jpg ?>" alt="user-image" class="rounded-circle" style="width: 50px; height: 50px;" id='load_ava'>
+					<img src="assets/images/customer/guest.jpg" alt="user-image" class="rounded-circle" style="width: 50px; height: 50px;" id='load_ava'>
 			<?php
 				}else{
 			?>

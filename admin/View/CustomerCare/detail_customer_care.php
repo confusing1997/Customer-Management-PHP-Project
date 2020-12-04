@@ -1,6 +1,10 @@
 <div class="card-box">
 	<div class="row">
+		<?php if ($_SESSION['role']==1 || isset($_GET['user'])){ ?>
 		<div class="col-7">
+		<?php } else { ?>
+		<div class="col-12">
+		<?php } ?>
 			<form>
 				<fieldset class="form-group">
 					<label for="formGroupExampleInput">Care Content</label>
@@ -38,7 +42,7 @@
 				</table>
 			</div>
 		</div>  <!--end col-7-->
-
+		<?php if ($_SESSION['role']==1 || isset($_GET['user'])){ ?>
 		<div class="col-5">
 			<form>
 				<div class="form-group">
@@ -84,6 +88,7 @@
 				 ?>
 			</div>
 		</div> <!--end col-5-->
+		<?php } ?>
 	</div> <!--end row-->
 </div>
 

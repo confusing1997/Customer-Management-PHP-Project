@@ -52,7 +52,7 @@
                                 <td class="text-center"><?= $valueCustomerCare['create_at'] ?></td>
 
                                 <td class="text-center">
-                                    <a href="dashboard.php?page=detail_customer_care&id=<?= $valueCustomerCare['id']; ?>">
+                                    <a href="dashboard.php?page=detail_customer_care&user=1&id=<?= $valueCustomerCare['id']; ?>">
                                         <button class="btn btn-info btn-icon waves-effect waves-light" title="Detail"><span><i class="mdi mdi-pencil"></i></span></button>
                                     </a>
 
