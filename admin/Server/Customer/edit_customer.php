@@ -47,7 +47,11 @@
     //Hiện thông báo .. giây xong ẩn
     $(document).ready(function(){
         $(".alert").delay(2000).slideUp();
-    })
+        setInterval('refreshPage()', 2000);
+    });
+    function refreshPage() {
+        location.reload(true);
+    }
 </script>
 
 

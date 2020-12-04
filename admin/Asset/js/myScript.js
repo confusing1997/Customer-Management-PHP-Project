@@ -141,6 +141,7 @@ $(document).on('click', '.transfer', function(){
     })
 });
 
+//Sửa khách hàng
 $(document).on('click', '.edit_customer', function(){
 
     var customer_id = $(this).val();
@@ -155,6 +156,7 @@ $(document).on('click', '.edit_customer', function(){
         $('.modal-backdrop').remove();
         $('.notification').html(data);
         $(".table").load(' #datatable_listcustomer');
+
     })
 });
 

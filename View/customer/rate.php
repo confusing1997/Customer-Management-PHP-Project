@@ -1,5 +1,4 @@
 <?php 
-	$count = count($user_feedback); // Đếm số bản ghi trả ra
 	$sum_count = $count_feedback;
 	$pages = ceil($sum_count / 3);
 	$ido = $_GET['ido'];
@@ -51,7 +50,7 @@
 				</form>
 			<?php
 				}else{
-					echo "<div style='display: flex; align-items: center; height: 100%;'><h2 style='color: red;margin: 0 auto'>Cảm ơn quý khách đã đánh giá!</h2></div>";
+					echo "<div style='display: flex; align-items: center; height: 100%;'><h3 style='color: red;margin: 0 auto'>Cảm ơn quý khách đã đánh giá!</h3></div>";
 				}
 			 ?>
 			
